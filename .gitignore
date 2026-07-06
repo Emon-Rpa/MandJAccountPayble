@@ -103,4 +103,4 @@ out/
 
 # cmake-build-*/
 # - CMake build directories (used by some JetBrains IDEs)
-cmake-build-*/
+cmake-build-*//statements/
