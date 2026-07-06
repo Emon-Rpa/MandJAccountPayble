@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="80KWZiFxqU6GhKomet3Bvg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" DesignTimeRectangle="827, 335, 286, 39" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="cdcdd822-422b-499d-9ca8-d739574c296b" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Login - Waterfox' /&gt;" SearchSteps="SemanticSelector" SemanticSelectorArgument="Input field for the user name" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="56083564ebfca54d0100683ed288ee70.png" xmlns="">0n21sjC3RaEqwuDJn1GY6pA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

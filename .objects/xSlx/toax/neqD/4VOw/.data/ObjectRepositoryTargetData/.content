@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="zgZtJtjHD0K3DlTm_G9DKQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="ba5e03e7-dc5c-488d-8bfc-6033695ceba6" CvElementArea="839, 303, 93, 31" CvType="InputBox" DesignTimeRectangle="920, 304, 16, 29" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' role='internal frame' /&gt;&lt;java cls='PushButton' role='push button' /&gt;" Guid="13642c83-2adc-487f-b7b3-aca9dc98fb7a" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="3d62be3b-a061-452e-8a93-a246c0b290a1" CvTextArea="840, 278, 38, 18" CvTextArgument="Type" CvType="Text" DesignTimeRectangle="840, 273, 96, 30" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Type' /&gt;" Guid="7f5aaf8c-516b-4cc1-afa7-db9dd8cc5d5d" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="01fbf9b254ac42e2be20b96b4b643bf1.png" xmlns="">06RhMTRX6WUGOqn7btXEpJA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

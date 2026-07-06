@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="-V-FF4WVTUG6dtJqu_vS1Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="27e53759-3559-4347-8c61-b904aa30688f" DesignTimeRectangle="696, 566, 490, 29" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation1' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Invoice' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Context REQUIRED List Values' role='text' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;" Guid="eaef5dc1-8680-4ea1-8b1b-6f2a07bdea27" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="27e53759-3559-4347-8c61-b904aa30688f" CvTextArea="636, 572, 55, 15" CvTextArgument="Context" CvType="Text" DesignTimeRectangle="491, 566, 200, 29" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation1' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Invoice' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Context' role='label' matching:name='fuzzy' fuzzylevel:name='0.0' check:text='Context' /&gt;" Guid="cf6da1bf-1a37-4b25-98cc-4efe5f6becc0" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="24a55ccbe290d9b1ba100e0222df41ca.png" xmlns="">0c5YxfIov-kCXF3calKv2pg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="jPgp5vgynkaPkIBfPcXZzw" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/I-i3KFxZckKc2-Co_wp9lA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="388, 368, 216, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice)*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice Num Required' role='text' javastate='enabled,focusable,visible,showing,editable,single line' cls='VTextField' accessibleClass='OverridenLWTextComponentImpl' check:text='' /&gt;" Guid="bfb163d5-6331-4b88-9247-1b5ec858d447" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="afac02dd-50b4-437e-90f5-5f83750964aa" DesignTimeRectangle="388, 224, 216, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation Test' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Invoice Num' /&gt;" Guid="e3f5f715-151c-4e31-ae46-d6981091ff50" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="1f795c347e73490d501e826ab0f92383.png" xmlns="">0LPMXMrANvEqeEleRoo9-gA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

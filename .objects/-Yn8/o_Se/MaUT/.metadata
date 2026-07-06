@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Login - Waterfox",
+  "Type": "Screen",
+  "Id": "MaUT5bvTx0yy3zm_yks_xQ",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/MaUT5bvTx0yy3zm_yks_xQ",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/o_SeS6Gn_0u07Vze9va0rw",
+  "Created": "2026-01-18T10:48:17.8286011Z",
+  "Updated": "2026-01-18T10:48:17.8286011Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

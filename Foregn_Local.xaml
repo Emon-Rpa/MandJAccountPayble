@@ -1,0 +1,165 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Foregn_Local" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Foregn_Local_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Foregn_Local" sap:VirtualizedContainerService.HintSize="638.6666666666666,611.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Home - Waterfox(1)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,588.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="da3221d9-96c8-43d0-91c6-9237ab63b117" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,341.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'editable text'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cd491ddf-769b-479c-97c0-977886b067d2" InformativeScreenshot="d1d8ea7c32a49ffb2d97bcfd6c138999" Selector="&lt;ctrl name='Home - Waterfox' role='application' /&gt;&lt;ctrl name='Home' role='document' /&gt;&lt;ctrl idx='13' role='row' /&gt;&lt;ctrl idx='2' role='row' /&gt;&lt;ctrl idx='4' role='row' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl idx='2' role='row' /&gt;&lt;ctrl name='SUPPLIER CREATION' role='row' /&gt;&lt;ctrl name='SUPPLIER CREATION' role='link' /&gt;&lt;ctrl name='SUPPLIER CREATION' role='editable text' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'editable text  Entry'" sap:VirtualizedContainerService.HintSize="416,134" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="92fdf4b6-ddfd-42f8-900d-5a7efc47ada2" InformativeScreenshot="ec931e2476eb3c8b89589462c45ec96e" Selector="&lt;ctrl name='Home - Waterfox' role='application' /&gt;&lt;ctrl name='Home' role='document' /&gt;&lt;ctrl idx='13' role='row' /&gt;&lt;ctrl idx='2' role='row' /&gt;&lt;ctrl idx='4' role='row' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl idx='2' role='row' /&gt;&lt;ctrl name='Entry' role='row' /&gt;&lt;ctrl name='Entry' role='link' /&gt;&lt;ctrl name='Entry' role='editable text' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 1942, 1042" BrowserType="Firefox" ContentHash="Dp84rL_QNEm-3A0cNDpV3Q" FilePath="C:\Program Files\Waterfox\waterfox.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAA1JSURBVGhD7ZkJdBRVFoars3Z3koEkJCEJhFVHZRgdPM5Bxx1HEVAQRB0F9w03FldAYFxAYBQEZBvZGRJ2CCFkD0nIyipLAiiCAmKS6krSnaS7urvq3flfdXWnIRlEnRHnHO8533nVtfX/33vf66pE+C1+i//jmGphwmd17M5VDSwlxcpmY4zTD13+WOpgwnKZdVohs/7gTmy30w/5YmItu26ahcnz6hgtqmc0t46VfWBhBv3w5Ys5dnbFIgdLXeJgLhihZQDb0mIHG6GfosXrNez1d2oZTREZvQ/4CFNR+uHLE5NsdM/0Jmb9tJnRfDujhTp8G8ZcM5tZH/1UYXQ1u2tMNVPH1TCCGcJ48o0aFqAf/uXj+Xq6YYyVmibaiD5sJJrRxOhjGOHMxPbUJqIpjTRJP114rZoZwGhQBQrAn/RDv3w8aKHgxyQ6+Gw90asNRG9aiSbACCpCk2GGm3oL+8ZZ6RX9El+8Ws00LmvcL9IDQy1Ej0hET9QRPQcjL8HIK4Ab4tsv1NO5F+upg37JrysG1NLqQSLREIBqaEZQERoJM5wREp3DeIN++q8v7qmlI/fWEg2AAW5kMDcDI6iKfZiF5g+30K9njX9aVUKeVJR2I92KvkczUA2ovw7MnBko0pv3iRStn6LFVoWFbFPZNTtUNiRLZSNzGRtcwFiXXewXWv8fcyt9IfwbjK7hTnXOIIeqffHdtXQKEEw4wXswEa5dgFinMMMmhfVNVdnSdJVVQzjlMUYQThBOJYwpZYxlVTDWU7/kp4XxkCU49KClV+g+S5/g3VKEvtsX/ZtVwxBZPfqArNL9DpXw2d2vSU3gxyA+GzSCu4B2Po/1Cuu9WWFZaSpTsyF2Z4toKgcQrVGuYFTZGYytJvn4ubaIifMa+0z6rLEXCNZ3t4SxSgw2Vopvw4AYesBCIXuxJpZLclCJtCKoUPL17s02tfNtjSrdDm6xqdTXqlpAGD8G0U8B3y/tdU0U9JxM4zerzJkBgfmgCJRysWA3eYQXy9iPX+pdGEucOO5kD+u3EMbOtsW9Mce24u25NnnCvEZ6F8CACN72GQmtqg0MrRSTQw+LFPqFSCH7RAreDQOlFgraBXZKxwPzpFh+bu86Fg+I00tidLWFzdBuguBZ92b+2iYKg4GNC92MeNZ5qxQDtAlVQPgeUIpjuUhEfpNKBfiVLoIBmMmDCRO/xyufWGNHz7YeH/epjd6cY6N35tqIm0AlvCSPn2cLFEKP1I7wFx+yGwbKYKAY4gssBPEUmC2t5jftITKhUw07CiixWsP3WOCNPzaREWQPsJMmvhBo7cIzDnjmCyF2R71KWVaV8jQDKgyoq4t18TxGfWJd/eosK42ZbaXXYeItmEAlNCNoKW3E5xFC6EGxOORAG+ILQT7E54AMyRmQLvXgN448Rw+1/47Udt+Ru/05CtG+TY/ejRQA1gAaJVNL5iHaayAfYrdaFNrODaAN85pVVuBQP4QB3zPQszMbejz/jwbnS59Y6TU/E2gnrRpe8LlYgHBbyB6Ir7hQPLLPxWeCdIkC0qRZ/OZhZ8lgOktjjWeo2ny2ZbLy+EMjvQwYoDEwsAuCS4HXwE5M/A01Cm2BgfQGhbKbVJbnUMfvlFX9Dp54akbDLJigFz620sswwSuBdiLMCRoLI7yt+DaM2YSQilopuKyWgktgYJeItgF5IAcGMkG6hQK2wcBWqS5gsxTJvyD0DAkhpylG+zY9ejVSN2ADxBmGFirWDXAWYKK+c1qh9TVu2lqn0Bq0z+JG9QMYOG/9f+yj+sjHp9fXwQR5TfBKYE5oRnhFOHwb+yQhuFhM48KDCyF6J8gF2RCeAbZz8WALDGySyLBBGqd/z3lxtY2Ea2y0AZCXXuANVGEuJuvjeBrt+ZVCV4L+ZxTq971KV1ez5VfVtn50fnha/dhHP6onmCBu4hmYQDtpRkZdwIsfW9OE4AJxYFB+i/AgnvUdHvGBqX7i14N10ilDihSkf5cvrrLRHYABaosep1TqdlSh7icU6nlapS7HFDKvs0/UL/fFAx/UBT34Yd3Jh6fWEzcxEiaehImndSO8Is/BDIdvg4EChAcFZYuVQZkihIPtYJuIlgGbYWAjWG8hw1qQAtZYhuvfp8XvrRQM9gNqi57nGHU9olC344pmpPs3KoVvsJNpvb3evM0Rr99Gi/vfrxsGEwQT9BBM/G1aPY3QjTwxvUEz40clKuRJZmC6+IJXeKAmHGyC8A1gnU84Gf4FVkulhpWSr2+vRCUBtcUVeArtcthNXapg4IRKPZD9qCwHGZObybTVQeYs56KwIpd2n/5TJMPA96RimKAhMDEMJobDBK8GN/IowPzw50XtQh6BqWJE4BaxRhPOM64LD+DCk73CwSq00UpJFVZIN/HrrrBSNKgG1BZdv1Qo6ZCbuiL73ZD5hP0uMq5qIhMqYN4hU1ihyxlervTm97p7inQjTKgwQfe9V0eDYYRXgxvxVoTDDWGseWRa/fmPOhA9lbdKAFqltXCwAuKBsBwsk9YJSyWhZwPNAtQW3b9TqfMBFyVVwsDXKnWFgbA1yHwyxKc6KCzXSeGlborYr27vluYQ7pospfx1skQwQQP+LtEgGOHV4EZ4RbiZoS1M02W3RECKGB+QLMqGNSJEg1U6K8ByGFhmIWGpzhKLM7rCPrBHA7kAtQKt0+mgmzoj+0nIftdvVYrOlcm4EgY2QnwGxBdB/B6FIg4xSsqSn79jkkXuN8lC3ASq4TPCKzIIFeFV4YaADFPaA2SrgOCVhpUQzOHCl3Eg3iOahM91/mmh+GMue3e8NvqAcC9JWG0SD8AAsp/0tUKdsOqYlqF1ePa3oXXyXBReBvEHVPrdEUZxpW7lVoiHCboToBo+I/foZu6FGQ5MrdLltg7DcrEPRKuGpRAO0QaINviJFhZ7MKdaqRuy3BZd8YyUsNdFich+Z2Q/Cdlvh5YxLW8m83q/7O9WKeIgo99VgqP43VjWSLe9a6HbgddIP5jwmtEMTZZUmLpel9s6DEtEAwTnctEGLthPtLDIgwHbCScV6oL3XX+6cmAgEatOwn43JSL7nZH9eLSS8XNkfzWyvxHZz3FRWKlC4fth4DCjiEqiiCqiqL0q3YRM3zrR4jNyu19VdPJh6OJvbhA4yF+wsFBngYeInCZKEtG3eOf1gXdfTmdM1PjdMPAFDCD7nb9lanhKs2pcCgMpqEKqTOYcN4Uj++EHIP4wxHMDOj1TmulmGLhFx2vGC0wN1mVeJBZZgoSFYpWwQIRgML+FgM8lSsSjQOcarDBeanWw3XGvWyP+MOYA5kGn0+ra0MVNycZVnslrTndSWDYMVHjaRzOAOeClHebEn7HK3DTBQn8B3IyfoWMw1PptrK0wLLKMEj6D6AuILLZTp3OqBzzP+KjGGo+JGlfuoo5Y6+OrUIGTSnPiabWHcXlzN1OKvcm0FdnPQPvkKlj/MYE1AzpYibwk4QfuxgmiZsKfGydJL+vyfjhiDjojzFusdZrweR7xYdttBEGUeNYPrPWcBOyPK3NRXAUMoOfj0T4Jp5SZqJZgWmMXTJvk6eY0nn0YyHNreKsQzvmihQi01pVLG6kvTPQdDzBes8hW1zHb2eod/aIR/40yI7bSRVEVDuJj/LeYkBfAhWvisWTGljgpdg8MYBLHf6XUwIDvr8zmVDnSnOGsDkP/h+WCHFQBlQjfD9EQrI2cfS1EFeA+aTJFY8Rn36vrJUf8CaVLxxOKHM9XkgvBKuSl43E3xRTJFFMKA/tQhUrs+1JpVW5k/yVNODBng0xsF+DXeS8DGPf4gUnuhwy66Le59Oh4XBHijirJcby30RKtwHMOJwaZ71DopJgyGED/x1W6q7C/1WQzZ7mDzTnKUXOWR7w53U3m7WipYhhBO4WV+1GmU6qNydin3+VHRuxhd9/YQ2419pALbYQ28QcTNabcSdH5smagA7ZjeCsdcd+nX94qTFnuwaYMN5nSXWRKA6lgG0xgUoeVQGwJRm5oFwyidbBfxXZf/fIfHzEH3YaYfe6iGPR2BxCDH6gYrPExyHT0LojH8010HkALaQb2O7NjDrn/4z8oTBmuANN2Vx4XbdoKtoDNToxgh0v7jTBhmTVlYRtzxZyvFJkLlZ/3J8foCufQaLRHdLFHaPROmaJyHRSVYwcYUYHoIhwvd7o67HX+4D8okPUbINytCd+oswnwz9wUr8wObGdqhobql/30iC51BiHbX0cVQjjERiHrUdkcbsJjIIobK3Mu6bDb83JysYB4AaJXmTZA5HonGTkb8KSKxwzNRCrAkmtKd54wZ7pavb7+pIgqkIdE5TmUyFw7RUJ4JN6qNLiJfFAkfx9V4rzkP59DeIJxrbPWuBbCOesgHka0avB2SnW6YWKgfvrPD4gUInMcz0Rm2W2RmTDhJRvkOY5FFsjX6qdechiT5evBV4CMKTDATaAS+NGzmTbLT+C5ST/zvxiRmY7EyAz7uPY77EvaZ9rnowKPRuY6fH8O/LFhXCObwQhTsrzAtFZeAhOjYeK8F/3f4rf4n4Yg/BsBxIkWp3sNDQAAAABJRU5ErkJggg==" InformativeScreenshot="f11bfd54852cf348d36de4a93c97eae4.jpg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/duGcpky4W0qY9asvTAOfJA" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Home - Waterfox' /&gt;" Version="V2">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

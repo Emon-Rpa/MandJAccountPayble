@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="cypsX9hbX0qzAB2dghQZSg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="836, 317, 54, 45" ElementType="Button" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Back' role='push button' aastate='default, focusable, opaque, selectable text' /&gt;" Guid="8afbf0f5-6649-4c24-8c70-20d45766db57" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="920, 317, 55, 45" ElementType="Button" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Commercial LC' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='iframe' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Save' role='push button' automationid='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' check:text='Save' /&gt;" Guid="7906e305-f3f2-4e20-ae01-89cd0a1d84a5" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="8c77b0987e97ab74bbcb0582e2216c2a.png" xmlns="">0fUTZr-Toq0m0tfQOHB_u_w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

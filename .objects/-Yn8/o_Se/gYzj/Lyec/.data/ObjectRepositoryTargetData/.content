@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="PVwEGUhMJkqN81jNtWjTqA" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/LyecEsDQxEGty4hGpFidTw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="1132, 540, 218, 31" ElementType="Cell" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Expand * CmlcType (Required) * PaymentMode (Required) Swi*' role='row' /&gt;&lt;ctrl role='cell' automationid='' aastate='selectable, editable, opaque, selectable text' /&gt;" Guid="ae10af8d-498c-4414-a92a-f25f53e48ab5" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="1177, 505, 127, 21" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Show Detail No Filter No Filter Filter: CommunicationType *' role='row' /&gt;&lt;ctrl name='Beneficiary Name' role='column header' /&gt;&lt;ctrl name='Beneficiary Name' role='editable text' /&gt;" Guid="f073499c-2301-4c4c-9669-3b1742bc5ea2" SearchSteps="Selector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="28f591235a14664bcb4fba5528aa309c.png" xmlns="">0x1MT25cHA0W4dwN2scnVjw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

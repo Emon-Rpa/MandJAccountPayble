@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Qswzm72KEECeCQRVTI7HHg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/Kt8AlDyfSEybJ3XQZZ_mSA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="73572b44-d156-4519-9690-56f7a0c8cafa" DesignTimeRectangle="840, 303, 96, 30" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Type RequiredList of Values' role='text' /&gt;" Guid="efcc4c84-7c61-48b0-bf1e-fa3d4e5ba8e2" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="b1e5673e-daf2-4401-bde7-a30ce6794c81" DesignTimeRectangle="840, 273, 96, 30" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='PO Number' /&gt;" Guid="f1b11e37-69f2-407f-8663-a3c2947ba3da" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="d0c045d1f9c882d16fad0d4b89dd80d1.png" xmlns="">0J7IVAiM-pUKvUUMa1SbkzQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

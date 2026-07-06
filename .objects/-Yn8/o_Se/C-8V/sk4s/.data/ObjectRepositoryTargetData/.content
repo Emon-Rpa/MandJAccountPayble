@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="lZMyRiByUk2O_Nn_He5yzg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" CvElementArea="871, 482, 79, 44" CvTextArea="881, 495, 57, 21" CvTextArgument="Log In" CvType="Button" DesignTimeRectangle="871, 482, 79, 44" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="b8e0f521-3449-49a5-9f71-58c1dc829916" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Login - Waterfox' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" CvElementArea="986, 483, 80, 43" CvTextArea="995, 494, 61, 18" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="986, 483, 80, 43" ElementType="Button" Guid="bcbfedd2-d10c-49b0-9fbf-cd62564f61f3" SearchSteps="CV" TargetType="ComputerVisionBased" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="7317dd3c2829a8af9f3ba023181038ef.png" xmlns="">0oJ1uunaz0k-EeCjDME7KMw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

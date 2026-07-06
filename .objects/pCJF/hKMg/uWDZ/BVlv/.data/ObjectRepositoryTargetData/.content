@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="r6clqCnXk0aUscZsOEYfYA" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/BVlvui173021D4vCeE_Imw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="499, 369, 216, 36" ElementType="InputBox" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice)*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Description' role='text' javastate='enabled,focusable,visible,showing,editable,single line' cls='VTextField' hasTableAncestor='0' check:text='' /&gt;" Guid="8b6d5a65-9658-4f67-9fa3-0fb58fcf49e8" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="3e18e0da2802b3bf2ee20a82b92686e6.png" xmlns="">06Le-SNN1106z-xX8rRvXwA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

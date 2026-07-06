@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="GfeqzUPZwkuBKVWTgE516A" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/IYUt4HFBskaa6drrjtQ5jA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="500, 526, 248, 25" ElementType="Cell" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.None]" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='2324 Standard Chartered Bank Genesis Fashions Limited SHOHEL_HOS*' role='row' /&gt;&lt;ctrl role='cell' automationid='' aastate='selected, selectable, editable, opaque, selectable text' /&gt;" Guid="69b0a616-eb13-4ca4-a764-16752d89d860" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
+          <Target DesignTimeRectangle="586, 501, 74, 21" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Filter: CMLC Doc No Filter: Negotiation Bank Filter: Org Name Fi*' role='row' /&gt;&lt;ctrl name='Org Name' role='column header' /&gt;&lt;ctrl name='Org Name' role='editable text' /&gt;" Guid="487d684b-30ae-4b4f-b160-c9bae7aac48d" SearchSteps="Selector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="11d2fa4184df947888abf30587e6a94c.png" xmlns="">0QCVTKhmwD06ahMw_ETt0CA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

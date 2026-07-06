@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="exxzmqIfO0m2lRYpiQXHew" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="sop.mj-group.com/OA_HTML/RF.jsp" DesignTimeRectangle="205, 703, 123, 23" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Import BBLC v2' role='document' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand Download Foreign BBLC Type L/C Payment Mode Swift Communi*' role='row' /&gt;&lt;ctrl name='Foreign BBLC Type' role='cell' /&gt;&lt;ctrl name='BBLC Type' role='combo box' aastate='collapsed, focusable, has popup, opaque' /&gt;" Guid="d4d6d535-8261-416a-a577-bac122007478" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Import BBLC v2 - Google Chrome' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="fc4f1afbf71008cf0fd76ffa544cf15f.png" xmlns="">05UgCCG1jZUyWkn80wJZQXw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

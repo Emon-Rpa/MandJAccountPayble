@@ -1,0 +1,14 @@
+﻿{
+  "Name": "BBLC Type",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "9YWLxrZqLEaFiOz9PXRJDA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/9YWLxrZqLEaFiOz9PXRJDA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/N9-T7pthh0SPaIXkVLkRfg",
+  "Created": "2026-01-21T09:40:16.9483663Z",
+  "Updated": "2026-01-21T09:40:16.9483663Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

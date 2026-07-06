@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="HGWvyfqMEk21RH6GeFU1zg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="45, 130, 1242, 748" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - * Invoice Preparation' role='internal frame' /&gt;" Guid="3150ec73-cbce-4d3b-b4cb-fcdaae384936" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="bf889f461a9566b45310c3eb10a8050f.png" xmlns="">0Mohkx9Lmi0yTvbmfXYb-NQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
