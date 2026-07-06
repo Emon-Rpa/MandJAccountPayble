@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="iV-3hWBDIEOaY5OmmnQ37g" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/Rc6wQTK6qE-ZZ2hzCN6k1Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="82459c3c-be90-4d4b-ba24-57bab4143070" DesignTimeRectangle="454, 386, 79, 29" ElementType="Button" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.Visible]" FullSelectorArgument="&lt;java name='Run' role='push button' /&gt;" Guid="965fc639-691d-496f-b4ec-126d9beabadd" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]">
-      <imageRef attrName="InformativeScreenshot" originalValue="ff9213127f22b511c4db34c5c937037c.png" xmlns="">0I336L26hokGO_3SFeHhJhQ</imageRef>
-    </TargetAnchorable>
-    <x:String x:Key="ActivityType">Click</x:String>
-  </ObjectRepositoryTargetData.Data>
-</ObjectRepositoryTargetData>

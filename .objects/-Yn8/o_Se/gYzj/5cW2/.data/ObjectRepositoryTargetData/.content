@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="l4mKCa03MkODQrjzUlmAbg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/5cW2aqUhi0Opw389QErh-A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="1360, 541, 135, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand * CmlcType (Required) * PaymentMode (Required) Swi*' role='row' /&gt;&lt;ctrl name='* ImportType *' role='cell' /&gt;&lt;ctrl name='ImportType (Required)' role='combo box' aastate='collapsed, focusable, alert low, has popup, opaque, required' /&gt;" Guid="1eb042d5-0e9b-4085-a2c9-9919f8770768" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
-      <imageRef attrName="InformativeScreenshot" originalValue="b07a793919da8d9110fbc8fe958075ab.png" xmlns="">0gtfHGr9bYk2H962B5gggNg</imageRef>
-    </TargetAnchorable>
-    <x:String x:Key="ActivityType">GetText</x:String>
-  </ObjectRepositoryTargetData.Data>
-</ObjectRepositoryTargetData>
