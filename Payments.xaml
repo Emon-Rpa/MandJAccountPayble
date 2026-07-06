@@ -119,7 +119,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Payments" sap:VirtualizedContainerService.HintSize="844.4000000000001,3919.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Payments" sap:VirtualizedContainerService.HintSize="686,3940" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Payment_Screen" />
     </Sequence.Variables>
@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[Payment_Screen]" sap:VirtualizedContainerService.HintSize="486.4,139.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[Payment_Screen]" sap:VirtualizedContainerService.HintSize="488,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7a3b48b3-c4ed-4c9d-9f95-f425ccec4965" InformativeScreenshot="3eddd86ce6093ce64b8b343e0882a4b1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;">
           <ui:Target.TimeoutMS>
@@ -140,9 +140,9 @@
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[Payment_Screen]" sap:VirtualizedContainerService.HintSize="486.4,3756.8" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Payment_Screen]" sap:VirtualizedContainerService.HintSize="488,3778" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484.8,3537.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,3556.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="method" />
             <Variable x:TypeArguments="x:Boolean" Name="method_err" />
@@ -153,7 +153,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Pyment item Row'" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'text'" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -175,7 +175,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Payment Item Row Warning &quot;OK&quot;'" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -194,7 +194,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Payment Item Save or Discurd'" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -213,7 +213,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'clear button in payment'" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -235,7 +235,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Payment Clear Button warning &quot;OK&quot; '" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -257,7 +257,7 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text Operating'" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Operating_Unit+ &quot;[k(tab)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text Operating'" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Operating_Unit+ &quot;[k(tab)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8305e83e-c953-4f53-9d6c-553b26a0dbda" InformativeScreenshot="fc331822f9482dfe2d70c1199be16f5e" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Operating Unit RequiredList of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -269,7 +269,7 @@
               </ui:Target>
             </ui:TypeInto.Target>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Trading'" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[Trading_Partner+ &quot;[k(tab)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Trading'" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[Trading_Partner+ &quot;[k(tab)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8e4daf3b-bcb6-487b-a489-1868e08e56bf" InformativeScreenshot="21cf68487991ad409540e3f83f0120c1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java cls='DrawnPanel' idx='6' role='panel' /&gt;" WaitForReady="INTERACTIVE">
                 <ui:Target.TimeoutMS>
@@ -278,7 +278,7 @@
               </ui:Target>
             </ui:TypeInto.Target>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ContinueOnError="True" DisplayName="Type Into 'text Supplier'" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[Supplier+ &quot;[k(enter)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ContinueOnError="True" DisplayName="Type Into 'text Supplier'" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[Supplier+ &quot;[k(enter)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a1842333-dc3d-4380-b862-5ac58ab4191e" InformativeScreenshot="4aae2d853127f3c15ca7ba9aa6c617c8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications *' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Supplier Sites' role='internal frame' /&gt;&lt;java role='text' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -290,7 +290,7 @@
               </ui:Target>
             </ui:TypeInto.Target>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text Payment'" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_15" Text="[Description+ &quot;[k(enter)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text Payment'" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_15" Text="[Description+ &quot;[k(enter)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7cea7bbb-bd24-4715-9f04-2f1585277a89" InformativeScreenshot="405ce08ff4473bc2db914faebbc3cba9" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Payment Information' role='internal frame' /&gt;&lt;java name='Payment Description' role='text' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -302,7 +302,7 @@
               </ui:Target>
             </ui:TypeInto.Target>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Payment Date'" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[Payment_Date+ &quot;[k(tab)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Payment Date'" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[Payment_Date+ &quot;[k(tab)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="df2b3b0e-4adb-4e2e-a884-6313f14651b9" InformativeScreenshot="f02adc3efbcf711ee0b969eb1aa3b009" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Payment Date RequiredList of Values' role='text' backgroundColor='(255,238,168,255)' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -314,7 +314,7 @@
               </ui:Target>
             </ui:TypeInto.Target>
           </ui:TypeInto>
-          <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[GL_PERIOD]" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+          <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[GL_PERIOD]" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
             <ui:UiElementExists.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d6ee1349-0aef-4c7e-8c33-8cbacb843992" InformativeScreenshot="c5d02e933c4ed7a3a9d03a7a96e65bd5" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='*The Payment Date is not in an open period.' role='internal frame' /&gt;" TimeoutMS="2000">
                 <ui:Target.WaitForReady>
@@ -323,15 +323,15 @@
               </ui:Target>
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
-          <If Condition="[GL_PERIOD]" sap:VirtualizedContainerService.HintSize="451.2,649.6" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[GL_PERIOD]" sap:VirtualizedContainerService.HintSize="452,654.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,421.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,424" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="416,139.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="416,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition Position="Center">
                       <ui:CursorPosition.OffsetX>
@@ -353,7 +353,7 @@
                     </ui:Target>
                   </ui:Click.Target>
                 </ui:Click>
-                <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[Payment_Number]</OutArgument>
                   </Assign.To>
@@ -365,7 +365,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -374,7 +374,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text  Payment Amount'" EmptyField="True" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[Amount+ &quot;[k(tab)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text  Payment Amount'" EmptyField="True" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[Amount+ &quot;[k(tab)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="881895a2-f9c3-43ae-a263-25df4aaac7fd" InformativeScreenshot="e8f741a94bf8bf3862f7c9fc250f2aca" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Payment Amount' role='text' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -392,7 +392,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Bank'" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_8" Text="[Bank_Account+ &quot;[k(tab)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Bank'" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_8" Text="[Bank_Account+ &quot;[k(tab)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="95bedd04-cc42-4721-a3ee-1503d754972a" InformativeScreenshot="a9fb93cc77e17849f013a0bf66444953" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Bank Account RequiredList of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -410,7 +410,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Payment'" EmptyField="True" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[&quot;Advice&quot;+ &quot;[k(tab)]&quot;]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Payment'" EmptyField="True" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[&quot;Advice&quot;+ &quot;[k(tab)]&quot;]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e988c875-ff49-4e39-b237-9157acde2745" InformativeScreenshot="739b8bebfc8c51ead8ad94ccd9b957bf" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Payment Method RequiredList of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -428,7 +428,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:TypeInto>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Payment'" EmptyField="True" sap:VirtualizedContainerService.HintSize="451.2,188" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="%Manual%[k(tab)]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'text Payment'" EmptyField="True" sap:VirtualizedContainerService.HintSize="452,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="%Manual%[k(tab)]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87f326f8-f400-4874-86c5-93f1220d13a4" InformativeScreenshot="ff09a73c7bb8708d116d5726ed1c5047" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Payment Document*List of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -446,12 +446,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:TypeInto>
-          <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[method_err]" sap:VirtualizedContainerService.HintSize="451.2,139.2" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+          <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[method_err]" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
             <ui:UiElementExists.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="093d574e-a4e9-4d10-ad52-3ad50253b166" InformativeScreenshot="346b303eb43314a1b9479d465dd2a38b" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Payment Documents' role='internal frame' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
-          <If Condition="[method_err]" sap:VirtualizedContainerService.HintSize="451.2,56.8" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[method_err]" sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -517,7 +517,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Document'" sap:VirtualizedContainerService.HintSize="451.2,56.8" sap2010:WorkflowViewState.IdRef="GetValue_1">
+          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text Document'" sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetValue_1">
             <ui:GetValue.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="68cd2b67-4966-4e72-963e-af43aadcf31c" InformativeScreenshot="57aa6db2c4623e72ba14e8af2d82cc70" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Document Num Required' role='text' idx='1' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -538,7 +538,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetValue>
-          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text Bank'" sap:VirtualizedContainerService.HintSize="451.2,48" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[Bank_Advice_No]">
+          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text Bank'" sap:VirtualizedContainerService.HintSize="452,48" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[Bank_Advice_No]">
             <ui:TypeInto.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="15f4336d-0d52-4508-9472-84ce6c648d01" InformativeScreenshot="102bb13371f22e30a941f0516f3187dd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Payments (Payments)' role='internal frame' /&gt;&lt;java name='Bank Advice No.*' role='text' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -559,7 +559,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484.8,89.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

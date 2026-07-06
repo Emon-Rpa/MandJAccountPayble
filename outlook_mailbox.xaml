@@ -128,7 +128,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="outlook_mailbox" sap:VirtualizedContainerService.HintSize="842,2749.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="outlook_mailbox" sap:VirtualizedContainerService.HintSize="617.3333333333333,2778" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mail" />
       <Variable x:TypeArguments="upr:ILocalResource[]" Name="y" />
@@ -138,7 +138,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="rpa_center@mj-group.com" ConnectionMode="LegacyConfiguration" DisplayName="Get Outlook Desktop Mail Messages" Filter="[String.Format(&#xA;    &quot;@SQL=(urn:schemas:httpmail:subject LIKE '%{0}%' AND urn:schemas:httpmail:subject LIKE '%{1}%' AND urn:schemas:httpmail:datereceived &gt;= '{2}' AND urn:schemas:httpmail:datereceived &lt;= '{3}')&quot;, &#xA;    lcNumber, referenceNumber, startDate, endDate)]" GetAttachements="False" sap:VirtualizedContainerService.HintSize="555.2,122.4" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="True" Messages="[mail]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Top="-1" UseISConnection="False">
+    <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="rpa_center@mj-group.com" ConnectionMode="LegacyConfiguration" DisplayName="Get Outlook Desktop Mail Messages" Filter="[String.Format(&#xA;    &quot;@SQL=(urn:schemas:httpmail:subject LIKE '%{0}%' AND urn:schemas:httpmail:subject LIKE '%{1}%' AND urn:schemas:httpmail:datereceived &gt;= '{2}' AND urn:schemas:httpmail:datereceived &lt;= '{3}')&quot;, &#xA;    lcNumber, referenceNumber, startDate, endDate)]" GetAttachements="False" sap:VirtualizedContainerService.HintSize="558,124" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="True" Messages="[mail]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Top="-1" UseISConnection="False">
       <ui:GetOutlookMailMessages.ConnectionDetailsBackupSlot>
         <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
           <usau:BackupSlot.BackupValues>
@@ -147,14 +147,14 @@
         </usau:BackupSlot>
       </ui:GetOutlookMailMessages.ConnectionDetailsBackupSlot>
     </ui:GetOutlookMailMessages>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="555.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Fatal" Message="[&quot;Number of Mail :&quot; + mail.Count.ToString]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="555.2,2264" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mail]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="558,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Fatal" Message="[&quot;Number of Mail :&quot; + mail.Count.ToString]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="558,2287.3333333333335" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mail]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="currentMailMessage" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2133.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="556,2155.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(upr:ILocalResource)" Name="mail_attachmnets" />
               <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="resource_attachment" />
@@ -164,22 +164,22 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[currentMailMessage.Subject.ToString + currentMailMessage.Date]" />
-            <ui:SaveMailAttachments Attachments="[resource_attachment]" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" FolderPath="pdf\" sap:VirtualizedContainerService.HintSize="520,226.4" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[currentMailMessage]" OverwriteExisting="False" ResourceAttachments="[mail_attachmnets]" />
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="520,1672.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[resource_attachment]">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[currentMailMessage.Subject.ToString + currentMailMessage.Date]" />
+            <ui:SaveMailAttachments Attachments="[resource_attachment]" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" FolderPath="pdf\" sap:VirtualizedContainerService.HintSize="522,229.33333333333334" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[currentMailMessage]" OverwriteExisting="False" ResourceAttachments="[mail_attachmnets]" />
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="522,1689.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[resource_attachment]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518.4,1551.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="520,1566.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;11:&quot;+currentText]" />
-                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="484.8,1316.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;11:&quot;+currentText]" />
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="486,1330" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                       <TryCatch.Variables>
                         <Variable x:TypeArguments="scg:List(x:String)" Name="Pdf_Path" />
                       </TryCatch.Variables>
@@ -190,20 +190,20 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="483.2,421.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="484,424" sap2010:WorkflowViewState.IdRef="Sequence_7">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence sap:VirtualizedContainerService.HintSize="449.6,361.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence sap:VirtualizedContainerService.HintSize="450,364" sap2010:WorkflowViewState.IdRef="Sequence_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <rp:ExtractPdfAttachments DisplayName="Extract pdf attachments" FilePath="[currentText]" Files="[Pdf_Path]" sap:VirtualizedContainerService.HintSize="416,112.8" sap2010:WorkflowViewState.IdRef="ExtractPdfAttachments_1" />
-                            <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <rp:ExtractPdfAttachments DisplayName="Extract pdf attachments" FilePath="[currentText]" Files="[Pdf_Path]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="ExtractPdfAttachments_1" />
+                            <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_3">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
                               </Assign.To>
@@ -220,14 +220,14 @@
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="483.2,640.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,650.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Rename" Content="[y]" DestinationFolder="pdf" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="[currentText]" sap:VirtualizedContainerService.HintSize="449.6,240.8" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="True" />
-                              <Assign sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+                              <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Rename" Content="[y]" DestinationFolder="pdf" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="[currentText]" sap:VirtualizedContainerService.HintSize="450,246.66666666666666" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="True" />
+                              <Assign sap:VirtualizedContainerService.HintSize="450,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Path]</OutArgument>
                                 </Assign.To>
@@ -235,7 +235,7 @@
                                   <InArgument x:TypeArguments="scg:List(x:String)">[y.Select(Function(x) x.LocalPath).ToList]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="449.6,165.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign sap:VirtualizedContainerService.HintSize="450,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_4">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
                                 </Assign.To>
@@ -248,7 +248,7 @@
                         </Catch>
                       </TryCatch.Catches>
                       <TryCatch.Finally>
-                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="483.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="484,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,6 +277,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="555.2,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[If(Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Any,&#xA;   &quot;Pdf Extraction: &quot; + String.Join(Environment.NewLine, Pdf_Paths),&#xA;   &quot;Pdf Extraction: No PDF files found&quot;)]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="558,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[If(Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Any,&#xA;   &quot;Pdf Extraction: &quot; + String.Join(Environment.NewLine, Pdf_Paths),&#xA;   &quot;Pdf Extraction: No PDF files found&quot;)]" />
   </Sequence>
 </Activity>

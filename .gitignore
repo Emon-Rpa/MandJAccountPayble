@@ -1,6 +1,8 @@
 ##################################
 ### UiPath Generated Folders
 ##################################
+.screenshots/
+.storage/
 .entities/
 .templates/
 .project/
