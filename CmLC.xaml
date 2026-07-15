@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CmLC" this:CmLC.LC_NUMBER="411012546642-L" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CmLC" this:CmLC.LC_NUMBER="5637610402" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="orgName" Type="OutArgument(x:String)" />
     <x:Property Name="Item" Type="OutArgument(x:String)" />
@@ -126,7 +126,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="CmLC" sap:VirtualizedContainerService.HintSize="1371,3960" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CmLC" sap:VirtualizedContainerService.HintSize="728.6666666666666,3962" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="sheetList" />
       <Variable x:TypeArguments="x:Boolean" Name="cmLcWindow" />
@@ -136,20 +136,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Commercial LC - Waterfox" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.Disabled]" sap:VirtualizedContainerService.HintSize="594,3889" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="175cba65-02c9-4f1a-b584-fda9758fe4af" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Commercial LC - Waterfox" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.Disabled]" sap:VirtualizedContainerService.HintSize="594,3891.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="175cba65-02c9-4f1a-b584-fda9758fe4af" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,3686" sap2010:WorkflowViewState.IdRef="Sequence_57">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,3687.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_57">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="558,139" sap2010:WorkflowViewState.IdRef="UiElementExists_14">
+            <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="558,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_14">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcf146dc-4eaf-4c3c-9627-fb9c4950f0b5" InformativeScreenshot="f7d79c681d8d45c8f03c950d3c1faea9" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl idx='12' role='div' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
@@ -160,7 +160,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="558,3487" sap2010:WorkflowViewState.IdRef="If_14">
+            <If Condition="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="558,3488" sap2010:WorkflowViewState.IdRef="If_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -168,21 +168,21 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="556,3267" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="556,3267.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_64">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap:VirtualizedContainerService.HintSize="522,3207" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                  <Sequence sap:VirtualizedContainerService.HintSize="522,3207.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_63">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DeselectAfter="True" DisplayName="Type Into 'editable text'" EmptyField="True" sap:VirtualizedContainerService.HintSize="488,188" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[LC_NUMBER+ &quot;[k(enter)]&quot;]">
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DeselectAfter="True" DisplayName="Type Into 'editable text'" EmptyField="True" sap:VirtualizedContainerService.HintSize="488,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[LC_NUMBER+ &quot;[k(enter)]&quot;]">
                       <ui:TypeInto.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aa228462-d577-42ae-9fa9-717dc865c136" InformativeScreenshot="1610207e0179ffa7bf8f2996de128514" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Filter: Cmlc No' role='editable text' /&gt;">
                           <ui:Target.TimeoutMS>

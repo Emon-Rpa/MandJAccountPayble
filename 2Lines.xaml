@@ -110,7 +110,7 @@
       <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="_2Lines" sap:VirtualizedContainerService.HintSize="794,1514" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="_2Lines" sap:VirtualizedContainerService.HintSize="728.6666666666666,1517.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="reciept_window" />
     </Sequence.Variables>
@@ -119,7 +119,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  2 Lines'" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  2 Lines'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -141,7 +141,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:GetValue ContinueOnError="True" DisplayName="Get Text 'label The'" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="GetValue_2">
+    <ui:GetValue ContinueOnError="True" DisplayName="Get Text 'The sequence GFL_AP_INVOICES_0625'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_2">
       <ui:GetValue.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2fc2ba37-6365-4936-899c-6ab2631321c6" InformativeScreenshot="80149026a255ceba2ae78b8a685f1d32" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (* Payable Invoice) *' role='internal frame' /&gt;&lt;java name='Note The sequence *_AP_INVOICES_*' role='internal frame' /&gt;&lt;java name='The sequence*' role='label' /&gt;" TimeoutMS="2000">
           <ui:Target.WaitForReady>
@@ -153,7 +153,7 @@
         <OutArgument x:TypeArguments="x:String">[Result]</OutArgument>
       </ui:GetValue.Value>
     </ui:GetValue>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'push button  OK ALT O'" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'The sequence GFL_AP_INVOICES_0625'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -172,7 +172,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text  Amount Required'" sap:VirtualizedContainerService.HintSize="450,188" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[amount.Trim]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'text  Amount Required'" sap:VirtualizedContainerService.HintSize="450,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[amount.Trim]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2f3586a1-7764-493f-b45d-0eed339d7184" InformativeScreenshot="b1c33121cb431dab2864f4ac805bc5af" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - *' /&gt;&lt;java name='Invoice Workbench *' role='internal frame' /&gt;&lt;java name='Amount Required' role='text' /&gt;">
           <ui:Target.TimeoutMS>
