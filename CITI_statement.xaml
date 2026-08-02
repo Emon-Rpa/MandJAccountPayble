@@ -128,7 +128,7 @@
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SCB_statement" sap:VirtualizedContainerService.HintSize="750.6666666666666,1624.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SCB_statement" sap:VirtualizedContainerService.HintSize="704.6666666666666,1801.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="datatable" />
       <Variable x:TypeArguments="sd:DataTable" Name="DATA_PREPARATION" />
@@ -207,13 +207,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadRange>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="513.3333333333334,968" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="513.3333333333334,1144.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="511.3333333333333,784" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="511.3333333333333,960.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:DateTime" Name="parsedDate" />
               <Variable x:TypeArguments="x:String" Name="Account_Number" />
@@ -231,7 +231,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="477.3333333333333,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[sheet_row_no]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="477.3333333333333,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[sheet_row_no.ToString+&quot;------&quot;+CurrentRow(11).ToString]" />
             <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.3333333333333,333.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
@@ -287,7 +287,7 @@
                       <OutArgument x:TypeArguments="x:String">[LC_NO]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[CurrentRow(11).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow(11).ToString.Trim]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -295,7 +295,12 @@
                       <OutArgument x:TypeArguments="x:String">[Bank_Dc_No]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[CurrentRow(11).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(
+    System.Text.RegularExpressions.Regex.IsMatch(
+	CurrentRow(15).ToString.Trim, "^\d+$"),
+    CurrentRow(15).ToString.Trim,
+	CurrentRow(11).ToString.Trim
+)]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -315,6 +320,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="477.3333333333333,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[LC_NO+&quot;_______&quot;+Bank_Dc_No]" />
             <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,Account_Number,Currency,Invoice_Amount,&quot;&quot;,LC_NO,Bank_Dc_No,&quot;&quot;,Invoice_Date,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,Invoice_Number,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,CurrentRow(7).ToString,CurrentRow(12).ToString}]" DataTable="[DATA_PREPARATION]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="477.3333333333333,214" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
           </Sequence>
         </ActivityAction>
