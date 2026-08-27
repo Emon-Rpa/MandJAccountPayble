@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Invoice Curr",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "D3ZKCsEGBkC7rMxaFrzzXA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/D3ZKCsEGBkC7rMxaFrzzXA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/uWDZ56SPR0SXNhVDmYl14w",
+  "Created": "2026-01-19T10:56:55.0499595Z",
+  "Updated": "2026-01-19T10:56:55.0499595Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

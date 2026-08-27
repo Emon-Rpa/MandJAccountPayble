@@ -1,0 +1,14 @@
+﻿{
+  "Name": "text Trading Partner Re…",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "UhQXVF4XzUG4_jG2A7OeDQ",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/UhQXVF4XzUG4_jG2A7OeDQ",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/aC99u3o_t0qPc9mR1x0YDg",
+  "Created": "2026-03-12T16:42:16.5457955Z",
+  "Updated": "2026-03-12T16:42:16.5457955Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

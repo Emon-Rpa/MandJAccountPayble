@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="qgRIFCBSSEKloHmdhf7ocA" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/Mw1-YL2fMkSOR0e6pysdfw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="68e51281-d4e7-4d60-a4e3-bbeeb691c313" DesignTimeRectangle="101, 481, 136, 18" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="bc6fab3d-c3d4-41fd-9356-f25f97c54607" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Home - Waterfox' /&gt;" SearchSteps="TextNative, SemanticSelector" SemanticSelectorArgument="Text label for the 'GFL Payable Invoice' responsibility option" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="aae49564c18742edfa2390e392cf1db6.png" xmlns="">0hLA-JVEGUUmtC1oNd8_qFA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

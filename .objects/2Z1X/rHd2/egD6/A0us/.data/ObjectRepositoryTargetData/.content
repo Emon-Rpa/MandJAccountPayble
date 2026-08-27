@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="8MbNAaWjK0maYsXGHMZCHw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="48, 179, 300, 30" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Batches (GFL Payable Invoice)' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Batch Name Required' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' check:text='' /&gt;" Guid="68b676a2-aced-4a0d-8505-d2169169cb83" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="25159953-b7ad-4dd4-96b0-d568078107a8" CvTextArea="50, 155, 89, 16" CvTextArgument="Batch Name" CvType="Text" DesignTimeRectangle="48, 149, 300, 30" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Batches (GFL Payable Invoice)' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Batch Name' /&gt;" Guid="8b5bd1c4-21d2-4f2a-abf1-c51bec3f1434" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="8d7bd543bbb0bb63e57d622232f43c87.png" xmlns="">0bcfWFkv5Mk26v5pGIJ0p9A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

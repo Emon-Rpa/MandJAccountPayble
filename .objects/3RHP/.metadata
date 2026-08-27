@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Dhaka Bank PLC. - Internet Banking - Google Chrome",
+  "Type": "App",
+  "Id": "3RHPAW6XfEyV3Cv3SywUuA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/3RHPAW6XfEyV3Cv3SywUuA",
+  "Created": "2026-01-19T04:49:24.8282649Z",
+  "Updated": "2026-01-19T04:49:24.8282649Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

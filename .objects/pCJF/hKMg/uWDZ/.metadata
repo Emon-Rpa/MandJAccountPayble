@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Oracle Applications - TEST2",
+  "Type": "Screen",
+  "Id": "uWDZ56SPR0SXNhVDmYl14w",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/uWDZ56SPR0SXNhVDmYl14w",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/hKMg89sSXkafrgja6d0lig",
+  "Created": "2026-01-19T10:41:03.933698Z",
+  "Updated": "2026-01-19T10:41:03.933698Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

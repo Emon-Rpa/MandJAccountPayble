@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Foreign",
+  "Type": "Element",
+  "TaxonomyType": "Dropdown",
+  "Id": "pnkkQnT4NU-fmPpXy0w0iA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/pnkkQnT4NU-fmPpXy0w0iA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/vCRVEFG63EmXYRyIyRNk5g",
+  "Created": "2026-03-03T05:38:05.4658199Z",
+  "Updated": "2026-03-03T05:38:05.4658199Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

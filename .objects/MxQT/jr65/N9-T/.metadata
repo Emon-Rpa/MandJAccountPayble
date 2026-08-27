@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Import BBLC v2",
+  "Type": "Screen",
+  "Id": "N9-T7pthh0SPaIXkVLkRfg",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/N9-T7pthh0SPaIXkVLkRfg",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/jr656Q64-0-wqyQvG-FpbQ",
+  "Created": "2026-01-21T09:29:20.818433Z",
+  "Updated": "2026-01-21T09:29:20.818433Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

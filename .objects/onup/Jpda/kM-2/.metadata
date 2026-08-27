@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Oracle Applications - SOP(2)",
+  "Type": "Screen",
+  "Id": "kM-2pxxq7Eiv5b3BzlTaDg",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/kM-2pxxq7Eiv5b3BzlTaDg",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/JpdaCBnOuEisn1TpA6bYWQ",
+  "Created": "2026-04-26T06:19:59.2271597Z",
+  "Updated": "2026-04-26T06:19:59.2271597Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

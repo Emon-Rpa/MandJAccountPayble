@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="x6nDjXDQRkC9Hkd1w82zOg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/vlFsnSqyqUu0Fl0A1Iz99g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="8dca16b0-0f3c-4852-847b-28f618852543" DesignTimeRectangle="48, 239, 300, 30" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="[string.Format(&quot;&lt;java name='Invoice Batches*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Batch Name Required' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' cls='VTextField' check:text='{0}' /&gt;&quot;, BatchName_Clean)]" Guid="72590d8c-2569-448d-a00d-16be74beb422" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="53a7f823eb1c9753bd2f60638e036c1f.png" xmlns="">0-7q8Fl6QDU2eTyCsWPLJcA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+    <scg:List x:TypeArguments="ObjectRepositoryVariableData" x:Key="Variables" Capacity="1">
+      <ObjectRepositoryVariableData DefaultValue="GFL Invoice Preparation" Name="BatchName_Clean" />
+    </scg:List>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

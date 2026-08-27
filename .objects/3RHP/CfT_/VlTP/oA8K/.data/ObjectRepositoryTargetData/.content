@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="1JO7O15DSEmUI5a735I2ig" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="3efb958d-7cf0-41dd-a885-5eb183fe5611" CvElementArea="360, 356, 285, 45" CvType="InputBox" DesignTimeRectangle="360, 356, 284, 45" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="be07935a-ee9b-4da5-86f1-8f3e0c322e01" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Dhaka Bank PLC. - Internet Banking - Google Chrome' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="3efb958d-7cf0-41dd-a885-5eb183fe5611" CvTextArea="50, 367, 86, 16" CvTextArgument="User name" CvType="Text" DesignTimeRectangle="50, 367, 86, 16" ElementType="Text" Guid="8abdf781-eed1-409e-a358-79e6244e73e1" SearchSteps="CV" TargetType="ComputerVisionBased" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="fd1d939d85ada526b5c1f27f73d7985d.png" xmlns="">089ZzIDRd_kOZ8_64L_v7fw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

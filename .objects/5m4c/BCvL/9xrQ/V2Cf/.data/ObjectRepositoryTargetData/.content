@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="pw_L2-8mf0W0s8wFmdirUg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/V2CfZO5NgEiRSuNOg21UVg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="47fb90e8-c419-4a93-9d33-e7164b4555e3" DesignTimeRectangle="833, 332, 259, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - SCB INVOICE PREPARATION RPA' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Voucher Number' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' javastate='enabled,focusable,visible,showing,single line' matching:javastate='fuzzy' fuzzylevel:javastate='0.0' /&gt;" Guid="a5c1d6c8-7d45-4eb9-8a5b-8895a85f7838" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP(31-Jan-26)' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="352, 333, 216, 36" ElementType="InputBox" FuzzySelectorArgument="[string.Format(&quot;&lt;java name='Invoice Workbench*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Description' role='text' javastate='enabled,focusable,visible,showing,editable,single line' check:text='{0}' /&gt;&quot;, Description)]" Guid="75fc2b93-ee20-4d83-82b5-428b250a7ed4" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="899d2a0633895d9e47d2362dbd0daac6.png" xmlns="">03ULfYSsRAUOJ4tqywTf9mw</imageRef>
+    </TargetAnchorable>
+    <scg:List x:TypeArguments="ObjectRepositoryVariableData" x:Key="Variables" Capacity="1">
+      <ObjectRepositoryVariableData DefaultValue="411012431007OTHER *" IsVariable="False" Name="Description" />
+    </scg:List>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

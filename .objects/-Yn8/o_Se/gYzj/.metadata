@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Commercial LC - Waterfox",
+  "Type": "Screen",
+  "Id": "gYzj8BcYRE-MpOrnBcfCzw",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/gYzj8BcYRE-MpOrnBcfCzw",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/o_SeS6Gn_0u07Vze9va0rw",
+  "Created": "2026-04-12T05:14:54.4529877Z",
+  "Updated": "2026-04-12T05:14:54.4529877Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

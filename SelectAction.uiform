@@ -1,0 +1,62 @@
+﻿{
+  "Metadata": {
+    "Id": "f3089615-5e3a-46bf-9894-7601c909cd2c",
+    "Kind": "FormIo"
+  },
+  "DesignProperties": {
+    "Title": "SelectAction",
+    "Theme": "Default",
+    "ShowInTaskbar": true,
+    "ShowMargin": true,
+    "CustomStyle": ""
+  },
+  "Data": {
+    "components": [
+      {
+        "label": "Select Boxes",
+        "tableView": false,
+        "defaultValue": {
+          "M": false,
+          "MAKE": false,
+          "INVOICE": false,
+          "PAYMENT": false,
+          "CLEAR": false
+        },
+        "values": [
+          {
+            "label": "Make",
+            "value": "MAKE",
+            "shortcut": ""
+          },
+          {
+            "label": "Invoice",
+            "value": "INVOICE",
+            "shortcut": ""
+          },
+          {
+            "label": "Payment",
+            "value": "PAYMENT",
+            "shortcut": ""
+          },
+          {
+            "label": "Clear",
+            "value": "CLEAR",
+            "shortcut": ""
+          }
+        ],
+        "key": "selectBoxes",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox"
+      },
+      {
+        "type": "button",
+        "label": "Submit",
+        "key": "submit",
+        "disableOnInvalid": true,
+        "input": true,
+        "tableView": false
+      }
+    ]
+  }
+}

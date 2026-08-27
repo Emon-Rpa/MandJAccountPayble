@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Oracle Applications - TEST2(1)",
+  "Type": "App",
+  "Id": "pCJFdVaJmEGaQ6yZUhEBeA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/pCJFdVaJmEGaQ6yZUhEBeA",
+  "Created": "2026-01-19T10:41:03.50817Z",
+  "Updated": "2026-01-19T10:41:03.50817Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

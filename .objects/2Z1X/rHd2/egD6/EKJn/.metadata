@@ -1,0 +1,14 @@
+﻿{
+  "Name": "text Supplier Num Requi…",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "EKJn6o-gxkiY4SZWoLlJOA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/EKJn6o-gxkiY4SZWoLlJOA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/egD6Zwziik6sDJh13-MZyw",
+  "Created": "2026-01-19T10:05:37.78433Z",
+  "Updated": "2026-01-19T10:05:37.78433Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

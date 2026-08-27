@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="lt15grv-40qYUnCDokmrdA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="876, 238, 198, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.71" FuzzySelectorArgument="&lt;java name='Payments (Payments)' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Payment DocumentList of Values' role='text' check:text='' /&gt;" Guid="c2dde9df-a91a-40ee-b0ab-32856146521b" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="876, 202, 198, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Payments (Payments)' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Payment Document' /&gt;" Guid="b82d66aa-e459-4873-b5a5-bd0d803dc62e" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="948987c085cebee395936fb4c81af838.png" xmlns="">03vqCOk8R-EaMfcErxh93TQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

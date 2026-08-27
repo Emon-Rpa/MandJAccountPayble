@@ -1,0 +1,175 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="WARNINGBOX" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="WARNINGBOX_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WARNINGBOX" sap:VirtualizedContainerService.HintSize="722,893.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Security Warning" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="d57e5800-9830-4fd1-af7d-73307d1e4f54" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,442" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheck Action="Check" DisplayName="Check/Uncheck 'I accept the risk and w…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="NCheck_1" ScopeIdentifier="d57e5800-9830-4fd1-af7d-73307d1e4f54" Timeout="60" Version="V5">
+              <uix:NCheck.Target>
+                <uix:TargetAnchorable CVScreenId="fd2e42f8-2c5a-4051-b87b-34554b96274b" DesignTimeRectangle="43, 298, 267, 39" ElementType="CheckBox" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.Visible]" FullSelectorArgument="&lt;java name='I accept the risk and want to run this application.' role='check box' cls='JCheckBox' virtualname='I accept the risk and want to run this application.' /&gt;" Guid="61f5268e-25c2-4558-832c-865b373292cb" InformativeScreenshot="339f636d1a8978ad59174ffbd221e280.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete" />
+              </uix:NCheck.Target>
+            </uix:NCheck>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Run'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,186" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d57e5800-9830-4fd1-af7d-73307d1e4f54" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="82459c3c-be90-4d4b-ba24-57bab4143070" DesignTimeRectangle="454, 386, 79, 29" ElementType="Button" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.Visible]" FullSelectorArgument="&lt;java name='Run' role='push button' /&gt;" Guid="965fc639-691d-496f-b4ec-126d9beabadd" InformativeScreenshot="ff9213127f22b511c4db34c5c937037c.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1076, 341, 573, 378" Arguments="-secure -plugin -jre &quot;&quot;C:\Program Files\Java\jre1.8.0_291&quot;&quot; -vma LURfX2p2bV9sYXVuY2hlZD04MzY2OTI5MzczAC1EX19hcHBsZXRfbGF1bmNoZWQ9ODM2Njg4Mjk2MAAtRHN1bi5hd3Qud2FybXVwPXRydWUALURqYXZhLnNlY3VyaXR5Lm1hbmFnZXIA -ma cmVhZF9waXBlX25hbWU9anBpMl9waWQxODIxMl9waXBlMSx3cml0ZV9waXBlX25hbWU9anBpMl9waWQxODIxMl9waXBlMgA=" ContentHash="xLXjABxat0O6NukkTplrcQ" FilePath="C:\Program Files\Java\jre1.8.0_291\bin\jp2launcher.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAK2SURBVFhH7dhbTxNBFMDxPtnr9v4llUvVVratQIuIeEFrNekH6EcwPir0RrVIqYKIUIrPEhPe+3LMnJ3Zzu5MZu2aaEl2kn8ETE5/OYcX9fm85z3vqV9xKVfK67mrgp6DWYvYfPYf/o86nY70T7K4mQCqQuB4PJ7JPODfJgXW63Wo1Wpm5Hv+7ze7vyD9+gekX11gqeoFpF6OsGTlHJIvhrQzSD4/g8TWKSS3TiHx7DtstH5O9VlSoFMIqo4gXR1BqnIOqQoDDRGEIchAJZ6STiDx5ATij78J81S5AyKKbgpBQwSZKA7EUNjmMcQfHQvzVEmBTms3YX+M+gox0sYRxB4eTfVZUqBTxukmqDiiOBCLouIUFls/hOiDL8I8Ve6A3KYSiJpsipyQbYoUpShs7TNmn6dKCnRau2VT7HQm6tDclIkqDzCNVBpM9VlSoFMCap1EQXZUaQDR0gFoqwegrfRBW+0L81S5ArLfJxNFT8dgGgNhfYRFlvdBW96HyP1PwjxVUqDT2i0ouqloaWABIWrFAJHCxT2IFPcgXOgJCFVSoFPsdARknI+BjE3xKKzQg3C+B2H9I4T0D8I8Va6A/JY0bkuRIsmO6iEqtETqQuheV5inSgp0OjG/JfN8BeumwjZUKLeLBbO7AkKVFOgU2ZT9dOx8iCIgigoiqgPBu6Q2BO+0hXmqXAERxWC4JSsqlGWotlngdsso0xLmqZICnU5snI6ictymuC2ReFQg04TAYgP8CzsCQpUU6NTk98l6uoCJalLQBIXNb4N/bluYp8oVUIoioEwT/IsNKerGrfdGN98J81S5A/IouiUTNb+DIIxD8dnnqXIFXHs7wk35FxoQsKPm5ChW+c1QmKfKFfBfdj2AeT17dXlp/dfWLERMCNT1bJl8MWuRxRGb/T+7vOc979neb5J786MCvKo+AAAAAElFTkSuQmCC" InformativeScreenshot="831b02b0205994fb8771dc5a92fa720d.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/sYCVFqc4OEmrUfvy92Hlhw" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" Version="V2">
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="452,124" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="True" DisplayName="Security Warning" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.Disabled]" sap:VirtualizedContainerService.HintSize="452,689.3333333333334" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="d57e5800-9830-4fd1-af7d-73307d1e4f54" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,442" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheck Action="Check" DisplayName="Check/Uncheck 'I accept the risk and w…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="NCheck_2" ScopeIdentifier="d57e5800-9830-4fd1-af7d-73307d1e4f54" Timeout="10" Version="V5">
+              <uix:NCheck.Target>
+                <uix:TargetAnchorable CVScreenId="fd2e42f8-2c5a-4051-b87b-34554b96274b" ContentHash="rkI4785aYEWobCB7lSdLvA" DesignTimeRectangle="43, 378, 379, 45" ElementType="CheckBox" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.Visible]" FullSelectorArgument="&lt;java name='I accept the risk and want to run this application.' role='check box' /&gt;" Guid="61f5268e-25c2-4558-832c-865b373292cb" InformativeScreenshot="22b15197f2b74cad54c4f0fd2c71b45f.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/cxVPOl7mmkOSsiAAXBnS5g" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]" />
+              </uix:NCheck.Target>
+            </uix:NCheck>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Run'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,186" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d57e5800-9830-4fd1-af7d-73307d1e4f54" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="82459c3c-be90-4d4b-ba24-57bab4143070" ContentHash="xcUpGuScFkmITKPdDL6rBA" DesignTimeRectangle="454, 386, 79, 29" ElementType="Button" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.Visible]" FullSelectorArgument="&lt;java name='Run' role='push button' /&gt;" Guid="965fc639-691d-496f-b4ec-126d9beabadd" InformativeScreenshot="ff9213127f22b511c4db34c5c937037c.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/Rc6wQTK6qE-ZZ2hzCN6k1Q" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1076, 341, 573, 378" Arguments="-secure -plugin -jre &quot;&quot;C:\Program Files\Java\jre1.8.0_291&quot;&quot; -vma LURfX2p2bV9sYXVuY2hlZD04MzY2OTI5MzczAC1EX19hcHBsZXRfbGF1bmNoZWQ9ODM2Njg4Mjk2MAAtRHN1bi5hd3Qud2FybXVwPXRydWUALURqYXZhLnNlY3VyaXR5Lm1hbmFnZXIA -ma cmVhZF9waXBlX25hbWU9anBpMl9waWQxODIxMl9waXBlMSx3cml0ZV9waXBlX25hbWU9anBpMl9waWQxODIxMl9waXBlMgA=" ContentHash="xLXjABxat0O6NukkTplrcQ" FilePath="C:\Program Files\Java\jre1.8.0_291\bin\jp2launcher.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAK2SURBVFhH7dhbTxNBFMDxPtnr9v4llUvVVratQIuIeEFrNekH6EcwPir0RrVIqYKIUIrPEhPe+3LMnJ3Zzu5MZu2aaEl2kn8ETE5/OYcX9fm85z3vqV9xKVfK67mrgp6DWYvYfPYf/o86nY70T7K4mQCqQuB4PJ7JPODfJgXW63Wo1Wpm5Hv+7ze7vyD9+gekX11gqeoFpF6OsGTlHJIvhrQzSD4/g8TWKSS3TiHx7DtstH5O9VlSoFMIqo4gXR1BqnIOqQoDDRGEIchAJZ6STiDx5ATij78J81S5AyKKbgpBQwSZKA7EUNjmMcQfHQvzVEmBTms3YX+M+gox0sYRxB4eTfVZUqBTxukmqDiiOBCLouIUFls/hOiDL8I8Ve6A3KYSiJpsipyQbYoUpShs7TNmn6dKCnRau2VT7HQm6tDclIkqDzCNVBpM9VlSoFMCap1EQXZUaQDR0gFoqwegrfRBW+0L81S5ArLfJxNFT8dgGgNhfYRFlvdBW96HyP1PwjxVUqDT2i0ouqloaWABIWrFAJHCxT2IFPcgXOgJCFVSoFPsdARknI+BjE3xKKzQg3C+B2H9I4T0D8I8Va6A/JY0bkuRIsmO6iEqtETqQuheV5inSgp0OjG/JfN8BeumwjZUKLeLBbO7AkKVFOgU2ZT9dOx8iCIgigoiqgPBu6Q2BO+0hXmqXAERxWC4JSsqlGWotlngdsso0xLmqZICnU5snI6ictymuC2ReFQg04TAYgP8CzsCQpUU6NTk98l6uoCJalLQBIXNb4N/bluYp8oVUIoioEwT/IsNKerGrfdGN98J81S5A/IouiUTNb+DIIxD8dnnqXIFXHs7wk35FxoQsKPm5ChW+c1QmKfKFfBfdj2AeT17dXlp/dfWLERMCNT1bJl8MWuRxRGb/T+7vOc979neb5J786MCvKo+AAAAAElFTkSuQmCC" InformativeScreenshot="831b02b0205994fb8771dc5a92fa720d.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/sYCVFqc4OEmrUfvy92Hlhw" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtDialog' title='Security Warning' /&gt;" Version="V2">
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

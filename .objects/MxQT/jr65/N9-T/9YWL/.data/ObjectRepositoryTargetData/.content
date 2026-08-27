@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="FE5O6Wl3pEeEfF503Tfhzw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="testebs2.mj-group.com/OA_HTML/RF.jsp" CVScreenId="afa829cb-de4f-4858-8aa6-18b58e215c67" CvElementArea="92, 711, 119, 25" CvType="InputBox" DesignTimeRectangle="92, 710, 118, 25" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="430bb81d-2d93-4c5f-bbcb-0cea66afca53" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Import BBLC v2' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="afa829cb-de4f-4858-8aa6-18b58e215c67" CvTextArea="119, 684, 66, 16" CvTextArgument="BBLC Type" CvType="Text" DesignTimeRectangle="119, 684, 66, 16" ElementType="Text" Guid="85b61cb1-c2f1-4450-aaff-9df91f2b3298" SearchSteps="CV" TargetType="ComputerVisionBased" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="539cd1ab501039b75f60e58840bd1376.png" xmlns="">0noONI61I3Ue9SO9tVkamOw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

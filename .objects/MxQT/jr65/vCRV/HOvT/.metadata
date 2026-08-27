@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Filter BBLC Number",
+  "Type": "Element",
+  "Id": "HOvTOyAUV0O25uujEWqwOw",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/HOvTOyAUV0O25uujEWqwOw",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/vCRVEFG63EmXYRyIyRNk5g",
+  "Created": "2026-03-03T05:32:24.7750499Z",
+  "Updated": "2026-03-03T05:32:24.7750499Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

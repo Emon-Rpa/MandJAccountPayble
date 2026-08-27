@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Xui6X6zBfUafrva5K0sniA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="edb7affe-6587-4447-a11a-d7ceda96a4a6" CvElementArea="16, 70, 25, 22" CvType="Icon" DesignTimeRectangle="16, 70, 26, 22" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java cls='ToolBar' idx='47' role='tool bar' /&gt;&lt;java name='New' role='push button' /&gt;" Guid="041ffaae-e88c-47f1-ad03-c12c341af550" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADxSURBVEhL7ZMxEoIwEEVzp7RWFh6FO9FYWnkU7qTz0e/8LEkIOzE2LvMY2EBedglhmqbHLyLgtCzLcIJNjOIv7sY8z5uc0l0MIcDfYseULmLKCHJu8V6rcjICaYxx845SFOeoydhegGu3mK06ItNwiz0yDbdYN0eLLPCY43rv3lxY8Z6Mi0JQGuJLbDtlqYpzQRkWpGHFfLZEk1hlyCdV6vEWf+4r37kqtjIdT6os4RHz22pON9kqRnUKKxbsvE1iK7MLSSaSVtuxHEUxhTVZMlEv8VFa2ps8bxOktVIvRfG3+Z34dr9ukiMI2Lnny2k4T29tr3LZ1rCHAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="edb7affe-6587-4447-a11a-d7ceda96a4a6" CvTextArea="13, 46, 25, 13" CvTextArgument="File" CvType="Text" DesignTimeRectangle="9, 38, 33, 30" FuzzySelectorArgument="&lt;java name='File ALT F' role='menu' matching:name='fuzzy' fuzzylevel:name='0.0' check:text='File ALT F' /&gt;" Guid="2a0f3edd-e5f9-468b-8bb3-f770a7057fd5" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="2fce9c7fc738b5a208a278a30e4504cb.png" xmlns="">0w3iU5G7_KUu-Yi4JWKjbhA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

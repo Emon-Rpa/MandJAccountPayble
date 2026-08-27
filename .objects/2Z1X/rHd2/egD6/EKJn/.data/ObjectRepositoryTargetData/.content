@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Nv4s3fCZsUm7fnCm20t3aA" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/EKJn6o-gxkiY4SZWoLlJOA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="823, 303, 264, 30" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Supplier Site Name RequiredList of Values' role='text' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;" Guid="353ae98e-c484-478e-b7d9-45cec8006ca5" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="05dae853-6bd2-410d-af13-68862bf63245" CvTextArea="824, 278, 141, 20" CvTextArgument="Supplier Site Name" CvType="Text" DesignTimeRectangle="823, 273, 264, 30" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Supplier Site Name' /&gt;" Guid="c07a7642-46da-4e91-9d4b-0e316d4dd704" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="9f9f2b36e587078d5c9c2cc268543c55.png" xmlns="">0d-zWmUEwhkymE3OvOURP8A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

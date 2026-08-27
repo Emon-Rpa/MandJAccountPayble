@@ -1,0 +1,186 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Login" this:Oracle_Login.UserName="JOYANTA_PAUL" this:Oracle_Login.Password="12345@" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="UserName" Type="InArgument(x:String)" />
+    <x:Property Name="Password" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Oracle_Login_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle_Login" sap:VirtualizedContainerService.HintSize="772,533.6566666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="waterfox">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:KillProcess>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Login - Waterfox(1)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="4a3accfe-dfc5-4807-a55d-918ff4eb0509" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,748.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'User Name'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,248" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="4a3accfe-dfc5-4807-a55d-918ff4eb0509" Text="[string.Format(&quot;{0}[k(tab)]&quot;, UserName)]" Version="V5">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" ContentHash="80KWZiFxqU6GhKomet3Bvg" DesignTimeRectangle="827, 335, 286, 39" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="cdcdd822-422b-499d-9ca8-d739574c296b" InformativeScreenshot="56083564ebfca54d0100683ed288ee70.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/benB4BRizkuhchThsZhraQ" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Login - Waterfox' /&gt;" SearchSteps="SemanticSelector" SemanticSelectorArgument="Input field for the user name" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="None" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'User Name'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="SameAsCard" ScopeIdentifier="4a3accfe-dfc5-4807-a55d-918ff4eb0509" Text="[string.Format(&quot;{0}[k(tab)]&quot;, Password)]" Version="V5">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" DesignTimeRectangle="827, 417, 286, 38" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="7348341d-449a-475a-a092-887578f70309" InformativeScreenshot="6ee14d2abd5922f55851c9f3683a2e03.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Login - Waterfox' /&gt;" SearchSteps="SemanticSelector" SemanticSelectorArgument="Input field for entering the password" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" CvTextArea="827, 392, 97, 17" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="827, 392, 97, 17" ElementType="Text" Guid="7e894d42-9eae-483a-a281-238315cff565" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Button'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,188.8" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a3accfe-dfc5-4807-a55d-918ff4eb0509" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" ContentHash="lZMyRiByUk2O_Nn_He5yzg" CvElementArea="871, 482, 79, 44" CvTextArea="881, 495, 57, 21" CvTextArgument="Log In" CvType="Button" DesignTimeRectangle="871, 482, 79, 44" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="b8e0f521-3449-49a5-9f71-58c1dc829916" InformativeScreenshot="7317dd3c2829a8af9f3ba023181038ef.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/sk4sT-7Yxk-pC4BndvzKDQ" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Login - Waterfox' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="183d7d8e-e8c9-4bcf-a232-128c03a705b2" CvElementArea="986, 483, 80, 43" CvTextArea="995, 494, 61, 18" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="986, 483, 80, 43" ElementType="Button" Guid="bcbfedd2-d10c-49b0-9fbf-cd62564f61f3" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Firefox" ContentHash="EozCkgtal0iEeKx-TsPm4Q" FilePath="C:\Program Files\Waterfox\waterfox.exe" IconBase64="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" InformativeScreenshot="e604ac5c1abadc2e0772087361a8d6e5.jpg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/C-8VWm7MZU2u83Z5k6EaHA" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Login - Waterfox' /&gt;" Version="V2">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="450,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_1" />
+  </Sequence>
+</Activity>

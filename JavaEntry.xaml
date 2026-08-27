@@ -1,0 +1,640 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="JavaEntry" this:JavaEntry.Description="TT LC- 5636610880 Ref-6630612730 A.J TRADING SRL EUR 174.64" this:JavaEntry.InvoiceAmount="99999" this:JavaEntry.Currency="BDT" this:JavaEntry.LC_CONTEXT="None" this:JavaEntry.LC_NO="411011946098" this:JavaEntry.InvoiceNumber="LC_NO_FEB-2-5" this:JavaEntry.BatchName="%GFL Invoice Preparation%" this:JavaEntry.Type="Standard" this:JavaEntry.TradingPartner="Dhaka Bank Ltd" this:JavaEntry.SupplierSiteName="BANK CHARGES" this:JavaEntry.InvoiceDate="30-DEC-2025" this:JavaEntry.PaymentMethod="Advice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Result" Type="OutArgument(x:String)" />
+    <x:Property Name="Description" Type="InArgument(x:String)" />
+    <x:Property Name="InvoiceAmount" Type="InArgument(x:String)" />
+    <x:Property Name="Currency" Type="InArgument(x:String)" />
+    <x:Property Name="LC_CONTEXT" Type="InArgument(x:String)" />
+    <x:Property Name="LC_NO" Type="InArgument(x:String)" />
+    <x:Property Name="InvoiceNumber" Type="InArgument(x:String)" />
+    <x:Property Name="BatchName" Type="InArgument(x:String)" />
+    <x:Property Name="Type" Type="InArgument(x:String)" />
+    <x:Property Name="TradingPartner" Type="InArgument(x:String)" />
+    <x:Property Name="SupplierSiteName" Type="InArgument(x:String)" />
+    <x:Property Name="InvoiceDate" Type="InArgument(x:String)" />
+    <x:Property Name="PaymentMethod" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>JavaEntry_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="JavaEntry" sap:VirtualizedContainerService.HintSize="1321,4391" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="LC_NOT_FOUND" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Oracle Applications - TEST2" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.Disabled]" sap:VirtualizedContainerService.HintSize="558,4368" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="96094f71-f75f-4805-a1b9-90908dd365f2" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="556,4122" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'Invoice Workbench (GFL …'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="522,4062" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Version="V5">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="520,3551" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="Invoice_Exists" />
+                    <Variable x:TypeArguments="x:Boolean" Name="reciept_window" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'New'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="486,57.333333333333336" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Timeout="1" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="edb7affe-6587-4447-a11a-d7ceda96a4a6" ContentHash="Xui6X6zBfUafrva5K0sniA" CvElementArea="16, 70, 25, 22" CvType="Icon" DesignTimeRectangle="16, 70, 26, 22" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java cls='ToolBar' idx='47' role='tool bar' /&gt;&lt;java name='New' role='push button' /&gt;" Guid="041ffaae-e88c-47f1-ad03-c12c341af550" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADxSURBVEhL7ZMxEoIwEEVzp7RWFh6FO9FYWnkU7qTz0e/8LEkIOzE2LvMY2EBedglhmqbHLyLgtCzLcIJNjOIv7sY8z5uc0l0MIcDfYseULmLKCHJu8V6rcjICaYxx845SFOeoydhegGu3mK06ItNwiz0yDbdYN0eLLPCY43rv3lxY8Z6Mi0JQGuJLbDtlqYpzQRkWpGHFfLZEk1hlyCdV6vEWf+4r37kqtjIdT6os4RHz22pON9kqRnUKKxbsvE1iK7MLSSaSVtuxHEUxhTVZMlEv8VFa2ps8bxOktVIvRfG3+Z34dr9ukiMI2Lnny2k4T29tr3LZ1rCHAAAAAElFTkSuQmCC" InformativeScreenshot="2fce9c7fc738b5a208a278a30e4504cb.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/eY1jsQOe3UySl_Ce0h_7gw" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="edb7affe-6587-4447-a11a-d7ceda96a4a6" CvTextArea="13, 46, 25, 13" CvTextArgument="File" CvType="Text" DesignTimeRectangle="9, 38, 33, 30" FuzzySelectorArgument="&lt;java name='File ALT F' role='menu' matching:name='fuzzy' fuzzylevel:name='0.0' check:text='File ALT F' /&gt;" Guid="2a0f3edd-e5f9-468b-8bb3-f770a7057fd5" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <Sequence DisplayName="Sequence Simulate Entry" sap:VirtualizedContainerService.HintSize="486,1370" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Default="1" Name="entry_intex" />
+                      <Variable x:TypeArguments="x:String" Default="VTextField3928" Name="TypeRow" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DeselectAfter="False" DisplayName="Type Into 'Type'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_16" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, Type)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="711, 296, 101, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) -*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Type RequiredList of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' check:text='Standard' /&gt;" Guid="1f2fbe65-d212-4a40-b329-bd90c5b3e45d" InformativeScreenshot="478ad8c1f575c6ced11dd66602e6a861.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="829, 296, 187, 36" ElementType="InputBox" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice)*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='PO NumberList of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' check:text='' /&gt;" Guid="655c2dec-aa76-4b1c-8d31-fcde940ae136" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="[UiPath.UIAutomationNext.Enums.NClickMode.None]" ClipboardMode="Never" DisplayName="Type Into 'Trading Partner'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_21" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, TradingPartner)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1044, 320, 273, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Trading Partner RequiredList of Values' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' javastate='enabled,focusable,visible,showing,editable,single line' check:text='' /&gt;" Guid="4cc42d8d-b21a-456f-99bc-2da3aa38d164" InformativeScreenshot="d13fd22dd5fdbbef0de1ff5eb345ce1b.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.None]">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="bf6309c9-2811-42f1-8e18-f443d98515c8" DesignTimeRectangle="1044, 212, 273, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Trading Partner' /&gt;" Guid="61e2f4ce-ca82-4e23-9efe-7d67144a63c7" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NTypeInto>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ok_pop_up - Invoke Workflow File (ok_pop_up.xaml)" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                      </ui:InvokeWorkflowFile.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile.WorkflowFileName>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Literal`1_3">ok_pop_up.xaml</Literal>
+                        </InArgument>
+                      </ui:InvokeWorkflowFile.WorkflowFileName>
+                    </ui:InvokeWorkflowFile>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="[UiPath.UIAutomationNext.Enums.NClickMode.Double]" ClipboardMode="Never" ContinueOnError="True" DisplayName="Type Into 'text Supplier Num Requi…'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, SupplierSiteName)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1173, 320, 317, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Supplier Site Name RequiredList of Values' role='text' cls='VTextField' hasTableAncestor='0' javastate='enabled,focusable,visible,showing,editable,single line' check:text='' /&gt;" Guid="06ae43cb-42c6-4fdd-8657-8d055862f5ee" InformativeScreenshot="156abbf01816c8cc9bb9aa4d69031e98.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="078744aa-1319-4d4e-9855-b15e539de39f" DesignTimeRectangle="1173, 212, 317, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Supplier Site Name' /&gt;" Guid="59a2aea2-bf8c-4e78-a275-ba9260f3e7eb" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Invoice Date'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_17" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, InvoiceDate)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="907, 320, 231, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.7" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice Date RequiredList of Values' role='text' cls='VTextField' javastate='enabled,focusable,visible,showing,editable,single line' check:text='' /&gt;" Guid="896544bc-0d9d-4c52-8e8f-9b95022c1de7" InformativeScreenshot="db66fdf4fd0c3aa68b41bf0631c3b7a1.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None" />
+                      </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Invoice Num'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,237" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, InvoiceNumber)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="630, 320, 216, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.8" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice)*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice Num Required' role='text' javastate='enabled,focusable,visible,showing,editable,single line' cls='VTextField' accessibleClass='OverridenLWTextComponentImpl' check:text='' /&gt;" Guid="bfb163d5-6331-4b88-9247-1b5ec858d447" InformativeScreenshot="183b226d5ec096e813544a4e832ea945.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="afac02dd-50b4-437e-90f5-5f83750964aa" DesignTimeRectangle="630, 212, 216, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Invoice Num' /&gt;" Guid="e3f5f715-151c-4e31-ae46-d6981091ff50" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                  <ui:UiElementExists DisplayName="Element Exists 'Invoice Number Already Exist&quot;" Exists="[Invoice_Exists]" sap:VirtualizedContainerService.HintSize="486,139" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02d8a0e5-47a3-4802-948b-9f5882bc7c18" InformativeScreenshot="d34f88057c770ae4e674dd1e4ae82274" Selector="&lt;java name='Invoice Workbench (GFL Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Error APP-SQLAP-10024: This value already exists.  &amp;#xA;&amp;#xA;Re-enter.' role='internal frame' /&gt;&lt;java name='APP-SQLAP-10024: This value already exists.  &amp;#xA;&amp;#xA;Re-enter.' role='label' /&gt;" TimeoutMS="2000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <If Condition="[Invoice_Exists]" sap:VirtualizedContainerService.HintSize="486,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,501.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ok_pop_up - Invoke Workflow File (ok_pop_up.xaml)" sap:VirtualizedContainerService.HintSize="416,61.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ok_pop_up.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4cfc006c-f7a6-437b-8010-46d7b70cad36" InformativeScreenshot="0c6c1d1a9623c0b63802255b653e2abb" Selector="&lt;java cls='ToolBar' idx='47' role='tool bar' /&gt;&lt;java name='Clear Record' role='push button' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <Assign sap:VirtualizedContainerService.HintSize="416,180.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Result]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["Invoice Number Already Exist!"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:Return sap:VirtualizedContainerService.HintSize="416,52" sap2010:WorkflowViewState.IdRef="Return_1" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,94.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '[ ]'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Version="V5">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable ContentHash="MMY10BWtQk-NF7FBuya9Sg" DesignTimeRectangle="521, 349, 84, 30" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (GFL Payable Invoice) - GFL Invoice Preparation' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='[ ]' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' accessibleClass='OverridenLWTextComponentImpl' cls='VTextField' hasTableAncestor='0' javastate='enabled,focusable,visible,showing,editable,single line' check:text='' /&gt;" Guid="767be2e3-0566-41c9-b22c-85f54326c013" InformativeScreenshot="f0b6f3ad59962c16a528faf45e7d02f8.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/Ji1CdVXnIk-oMi_QygZnFA" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None" />
+                          </uix:NClick.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <Sequence DisplayName="Type Into LC Pop UP" sap:VirtualizedContainerService.HintSize="486,968" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'LC/TT No.'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,246" sap2010:WorkflowViewState.IdRef="NTypeInto_9" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, LC_NO)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable CVScreenId="fc8a146b-7a12-4717-80c0-ba614ec56fb7" DesignTimeRectangle="655, 503, 485, 34" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='LC/TT No. List Values' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' /&gt;" Guid="79d3f16d-96cd-458e-b846-13f5ae597f4e" InformativeScreenshot="177de4f3952ccd9b966c161f4eef89e2.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="fc8a146b-7a12-4717-80c0-ba614ec56fb7" CvTextArea="618, 513, 72, 17" CvTextArgument="LC/TT No." CvType="Text" DesignTimeRectangle="399, 503, 251, 34" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Invoice' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='LC/TT No.' role='label' matching:name='fuzzy' fuzzylevel:name='0.0' check:text='LC/TT No.' /&gt;" Guid="d7fbf6ff-01d5-48aa-9bf8-8af4e4c9f101" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <ui:UiElementExists DisplayName="Element Exists 'internal frame'" Exists="[LC_NOT_FOUND]" sap:VirtualizedContainerService.HintSize="452,139" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6da01512-3767-48b2-b751-63d6c577f7e8" InformativeScreenshot="e03d192aaa99da104f7ed0adb9fcc358" Selector="&lt;java name='Invoice Workbench (GFL Payable Invoice) - SCB INVOICE PREPARATION RPA' role='internal frame' /&gt;&lt;java name='LC/TT No.' role='internal frame' /&gt;" TimeoutMS="2000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If Condition="[LC_NOT_FOUND]" sap:VirtualizedContainerService.HintSize="452,254" sap2010:WorkflowViewState.IdRef="If_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b9a31c34-fa2b-4433-ac5a-838ab763a725" InformativeScreenshot="0ddff71c56a9e740e77ae488ce335e73" Selector="&lt;java name='Invoice Workbench*' role='internal frame' /&gt;&lt;java name='LC/TT No.' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0ff39d28-676e-4905-aa09-71e194bd9b25" InformativeScreenshot="ce7803b8d1eee4e37204e5fdcaee7b36" Selector="&lt;java name='Invoice Workbench*' role='internal frame' /&gt;&lt;java name='Invoice' role='internal frame' /&gt;&lt;java name='Cancel ALT C' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4cfc006c-f7a6-437b-8010-46d7b70cad36" InformativeScreenshot="0c6c1d1a9623c0b63802255b653e2abb" Selector="&lt;java cls='ToolBar' idx='47' role='tool bar' /&gt;&lt;java name='Clear Record' role='push button' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <Assign sap:VirtualizedContainerService.HintSize="450,180.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[Result]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">["LC NUMBER NOT FOUND!"]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:Return sap:VirtualizedContainerService.HintSize="450,61.333333333333336" sap2010:WorkflowViewState.IdRef="Return_2" />
+                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,171.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Payable Invoices Not Found2&quot;]" />
+                          </Sequence>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Context'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,237" sap2010:WorkflowViewState.IdRef="NTypeInto_10" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(enter)]&quot;, LC_CONTEXT)]" Version="V5">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable CVScreenId="27e53759-3559-4347-8c61-b904aa30688f" DesignTimeRectangle="655, 571, 618, 34" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Invoice' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Context REQUIRED List Values' role='text' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;" Guid="eaef5dc1-8680-4ea1-8b1b-6f2a07bdea27" InformativeScreenshot="39ad64a5e01f6a28bef0f8de3999da47.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="27e53759-3559-4347-8c61-b904aa30688f" CvTextArea="636, 572, 55, 15" CvTextArgument="Context" CvType="Text" DesignTimeRectangle="399, 571, 251, 34" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Invoice' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java name='Context' role='label' matching:name='fuzzy' fuzzylevel:name='0.0' check:text='Context' /&gt;" Guid="cf6da1bf-1a37-4b25-98cc-4efe5f6becc0" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Invoice Curr'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="486,246" sap2010:WorkflowViewState.IdRef="NTypeInto_11" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, Currency)]" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CVScreenId="3a8716bd-9348-4eb1-bb8a-2230eb2cd847" DesignTimeRectangle="953, 320, 230, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice Curr RequiredList of Values' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' cls='VTextField' javastate='enabled,focusable,visible,showing,editable,single line' check:text='BDT' /&gt;" Guid="beded90a-8ec5-4062-947f-2621556f9cf0" InformativeScreenshot="ec9aa340255b5686013256f700e952da.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="1186, 321, 259, 36" ElementType="InputBox" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice Amount Required' role='text' javastate='enabled,focusable,visible,showing,editable,single line' accessibleClass='OverridenLWTextComponentImpl' cls='VTextField' hasTableAncestor='0' check:text='' /&gt;" Guid="1b8dc6c7-24d1-42a5-8e2a-cc7a3de570d8" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ok_pop_up - Invoke Workflow File (ok_pop_up.xaml)" sap:VirtualizedContainerService.HintSize="486,57.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ok_pop_up.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Invoice Amount'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="486,57.333333333333336" sap2010:WorkflowViewState.IdRef="NTypeInto_12" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, InvoiceAmount)]" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CVScreenId="b89068d4-7784-4a21-a0de-39516cb8ce12" DesignTimeRectangle="1186, 321, 259, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Invoice Amount Required' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' cls='VTextField' hasTableAncestor='0' javastate='enabled,focusable,visible,showing,editable,single line' check:text='' /&gt;" Guid="2f8dd259-db2f-40d7-b64e-2ee998295758" InformativeScreenshot="a1c44f98657bfecf5023d354f69bc198.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="7592f2b0-44d8-413d-8bea-916066fe2ef3" DesignTimeRectangle="1186, 212, 259, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Invoice Amount' /&gt;" Guid="bbd8be57-c87d-4491-985e-34b2adbfab70" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Payment Method'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="486,246" sap2010:WorkflowViewState.IdRef="NTypeInto_14" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, PaymentMethod)]" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="788, 296, 259, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Payment Method RequiredList of Values' matching:name='fuzzy' fuzzylevel:name='0.0' role='text' javastate='enabled,focusable,visible,showing,editable,single line' cls='VTextField' check:text='Check' /&gt;" Guid="6c235e0c-3723-4455-a3f0-d68094673730" InformativeScreenshot="3ea1dd0748260090be9990706f0e5030.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="1050, 296, 259, 36" ElementType="Text" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) - *' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Voucher Number' role='text' javastate='enabled,focusable,visible,showing,single line' check:text='' /&gt;" Guid="0b85ce65-20e0-4366-8d46-e7374db4acff" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Description'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="486,237" sap2010:WorkflowViewState.IdRef="NTypeInto_13" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[Description]" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="887, 321, 216, 36" ElementType="InputBox" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice)*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Description' role='text' javastate='enabled,focusable,visible,showing,editable,single line' cls='VTextField' hasTableAncestor='0' check:text='' /&gt;" Guid="8b6d5a65-9658-4f67-9fa3-0fb58fcf49e8" InformativeScreenshot="d5f5625a2af4921219bb46a005184f53.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="None" />
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="520,226" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Payable Invoices Not Found2&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="48, 155, 1236, 720" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java name='Invoice Workbench*' role='internal frame' /&gt;&lt;java cls='DrawnPanel' idx='13' role='panel' /&gt;" Guid="4a632830-8700-418a-b0ad-398b760926ff" InformativeScreenshot="3118dcaa501d58cd674c6bdaa1d75a03.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - TEST2' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 1920, 1080" ContentHash="Hkxh9S0yq0ONK1FknUxB_w" FilePath="C:\Program Files\Java\jre1.8.0_291\bin\jp2launcher.exe" IconBase64="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" InformativeScreenshot="22e76bd767d2547851e77acd13afa93a.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/9xrQIlWdvU2IFH9aJz81zw" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;" Version="V2">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

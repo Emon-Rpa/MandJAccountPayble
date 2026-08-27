@@ -1,0 +1,20 @@
+Deal Reference No : 411012663122
+Bank Bill Reference No : ACP001
+Client Reference No : ILC-249026061566
+Customer ID : 8761579
+Customer Name : GENESIS FASHIONS LIMITED
+Country Code : BD
+Step Code :ACP001
+Step Description : Document Presentation (Usance Bill) - 001
+Transaction Amount : 120478.73
+Transaction Currency :USD
+Transaction Date : 10/08/2026 
+
+
+Note:Please find attached the following documents
+1.  ADVICES
+
+
+
+
+Note that the documents might not have been sent to you because the size exceeds the maximum limit. 
