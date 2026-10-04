@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="eslZ6YZYwUqAutD6boEujQ" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/Wz-gzUCIYUS71upI-M1Q8Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="218, 45, 404, 71" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlid='41477' /&gt;" Guid="12bb0cd0-9a06-4780-8900-b3da99dbf607" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='#32770' title='Enter name of file to save to…' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="817e299ee92049a3a24c9e2409a51691.png" xmlns="">03NZXqWhd_U2EDt0Hu_Oenw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

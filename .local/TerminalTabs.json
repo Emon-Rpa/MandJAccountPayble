@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "shellId": "cmd",
+    "title": "Command Prompt",
+    "colorId": "",
+    "cwd": "C:\\Users\\Emon\\Documents\\UiPath\\Live\\AccountsPayableProd",
+    "isActive": true
+  }
+]

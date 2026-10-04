@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="pSnpzFlWNUmS-9TBA1bSaQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="99a094f3-526e-41bb-9217-cde692de5eab" DesignTimeRectangle="91, 45, 48, 31" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java name='View ALT V' role='menu' javastate='enabled,visible,showing,selectable,focusable' /&gt;" Guid="db6ea96f-1afd-4b2b-a36e-890af9c1f883" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="6daca4a905616342c9856281c19f4ea0.png" xmlns="">02EY9TCHvuky2ilpbkpkbtw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

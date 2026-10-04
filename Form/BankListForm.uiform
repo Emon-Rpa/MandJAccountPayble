@@ -1,0 +1,134 @@
+﻿{
+  "Metadata": {
+    "Id": "089613de-ad79-42b2-814a-e313155bc7a9",
+    "Kind": "FormIo"
+  },
+  "DesignProperties": {
+    "Title": "File Tagging Form",
+    "Theme": "Default",
+    "ShowInTaskbar": false,
+    "ShowMargin": false,
+    "CustomStyle": ".choices__list--dropdown.is-active { \n  visibility: visible; \n  position: relative !important; \n}\n"
+  },
+  "Data": {
+    "components": [
+      {
+        "label": "File Categorization List",
+        "disableAddingRemovingRows": true,
+        "reorder": false,
+        "addAnotherPosition": "bottom",
+        "layoutFixed": false,
+        "enableRowGroups": false,
+        "initEmpty": false,
+        "key": "fileGrid",
+        "type": "datagrid",
+        "input": true,
+        "components": [
+          {
+            "label": "File Name",
+            "disabled": true,
+            "tableView": true,
+            "key": "fileName",
+            "type": "textfield",
+            "input": true
+          },
+          {
+            "label": "Bank Name",
+            "widget": "html5",
+            "tableView": false,
+            "data": {
+              "values": [
+                {
+                  "label": "DB",
+                  "value": "DB"
+                },
+                {
+                  "label": "CITI",
+                  "value": "CITI"
+                },
+                {
+                  "label": "HSBC",
+                  "value": "HSBC"
+                },
+                {
+                  "label": "SCB",
+                  "value": "SCB"
+                }
+              ]
+            },
+            "validate": {
+              "onlyAvailableItems": true
+            },
+            "key": "bankName",
+            "type": "select",
+            "refreshOn": "fileGrid.invoiceType",
+            "input": true
+          },
+          {
+            "label": "Invoice Type",
+            "widget": "html5",
+            "tableView": false,
+            "data": {
+              "values": [
+                {
+                  "label": "Regular Invoice",
+                  "value": "Regular"
+                },
+                {
+                  "label": "Retry Invoice",
+                  "value": "Retry"
+                }
+              ]
+            },
+            "validate": {
+              "onlyAvailableItems": true
+            },
+            "key": "invoiceType",
+            "type": "select",
+            "refreshOn": "fileGrid.bankName",
+            "input": true
+          },
+          {
+            "label": "Make",
+            "tableView": true,
+            "key": "makeCheck",
+            "type": "checkbox",
+            "input": true
+          },
+          {
+            "label": "Invoice",
+            "tableView": true,
+            "key": "invoiceCheck",
+            "type": "checkbox",
+            "input": true
+          },
+          {
+            "label": "Payment",
+            "tableView": true,
+            "key": "paymentCheck",
+            "type": "checkbox",
+            "input": true
+          },
+          {
+            "label": "Clear",
+            "tableView": true,
+            "key": "clearCheck",
+            "type": "checkbox",
+            "input": true
+          }
+        ],
+        "tableView": false,
+        "keyModified": true
+      },
+      {
+        "label": "Submit Tags",
+        "showValidations": false,
+        "tableView": false,
+        "key": "submit",
+        "type": "button",
+        "saveOnEnter": false,
+        "input": true
+      }
+    ]
+  }
+}

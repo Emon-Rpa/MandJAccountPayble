@@ -1,0 +1,17 @@
+﻿{
+  "Name": "28_2-Requests mnemonic R",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "ptL-dH9YDkmJucX98hLULg",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/ptL-dH9YDkmJucX98hLULg",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T11:02:50.8780142Z",
+  "Updated": "2026-09-15T11:05:05.0584182Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

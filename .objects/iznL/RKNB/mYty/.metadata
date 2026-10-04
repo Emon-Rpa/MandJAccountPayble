@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Download Tab",
+  "Type": "Screen",
+  "Id": "mYty-eb7D0-Tms78vZ1WvQ",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/mYty-eb7D0-Tms78vZ1WvQ",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/RKNBidmU5kObAUPkFmqcZw",
+  "Created": "2026-09-16T06:52:15.3762438Z",
+  "Updated": "2026-09-16T06:52:57.2683601Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,5 +1,6 @@
 ﻿{
   "IdMap": {
-    "f3089615-5e3a-46bf-9894-7601c909cd2c": "../../SelectAction.uiform"
+    "f3089615-5e3a-46bf-9894-7601c909cd2c": "../../SelectAction.uiform",
+    "089613de-ad79-42b2-814a-e313155bc7a9": "../../Form/BankListForm.uiform"
   }
 }

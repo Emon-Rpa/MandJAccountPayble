@@ -1,0 +1,16 @@
+﻿{
+  "Name": "Get File Name",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Id": "3fB8O55RP0CDWFZcn6oSJQ",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/3fB8O55RP0CDWFZcn6oSJQ",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/mYty-eb7D0-Tms78vZ1WvQ",
+  "Created": "2026-09-16T06:55:37.5376655Z",
+  "Updated": "2026-09-16T07:18:35.6234322Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

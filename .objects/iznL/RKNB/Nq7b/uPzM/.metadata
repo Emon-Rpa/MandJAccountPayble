@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.17 Click \"View Output\"",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "uPzMwjnRxEm8v2Smw0_GPQ",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/uPzMwjnRxEm8v2Smw0_GPQ",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T12:22:57.9760089Z",
+  "Updated": "2026-09-15T12:27:50.1239928Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.4Type 'General Ledger - M&J Report'",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "n0Q1scizxkCd1I8b4PI7SA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/n0Q1scizxkCd1I8b4PI7SA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T11:15:28.2972974Z",
+  "Updated": "2026-09-15T11:16:00.6188996Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="3J-CR_KM3EKNCsnkiWmZjA" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/tQlQaEPd0ESW41fQ_kFG6g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="1019, 682, 55, 37" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;java name='Submit Request' role='internal frame' /&gt;&lt;java name='Decision Request submitted.  &amp;#xA;(Request ID = *)&amp;#xA;&amp;#xA;Submit another request?' role='internal frame' /&gt;&lt;java name='No ALT N' role='push button' /&gt;" Guid="5afb4810-c3be-4bd5-83be-26b33f4d557e" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="954569744b289faeecfd7b0b3fd80d1c.png" xmlns="">0BtSznpH9nE2OwB4ptHYoSg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

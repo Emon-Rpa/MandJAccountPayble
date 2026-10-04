@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.10 Type Into \"Date Form\"",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "jmcMU8PlvkOuG1qEun6Evg",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/jmcMU8PlvkOuG1qEun6Evg",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T12:03:44.8106708Z",
+  "Updated": "2026-09-15T12:03:56.4518391Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

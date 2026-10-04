@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.11 Type Into \"Date To\"",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "tUTdCkWL9k679GrFb1Zm5g",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/tUTdCkWL9k679GrFb1Zm5g",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T12:04:21.6262628Z",
+  "Updated": "2026-09-15T12:04:31.7867794Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

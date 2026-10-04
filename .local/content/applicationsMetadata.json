@@ -19,7 +19,7 @@
       },
       "Url": null,
       "Arguments": {
-        "Value": "-secure -plugin -jre \"\"C:\\Program Files\\Java\\jre1.8.0_291\"\" -vma *",
+        "Value": "-secure -plugin -jre \"\"C:\\Program Files\\Java\\*",
         "IsExpression": false
       },
       "Version": null

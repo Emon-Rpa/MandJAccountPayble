@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.6Type Into \"Natural Account To\"",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "n-sseRM0HkOicC2zEUzpwQ",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/n-sseRM0HkOicC2zEUzpwQ",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T12:00:18.1127447Z",
+  "Updated": "2026-09-15T12:00:27.4027591Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

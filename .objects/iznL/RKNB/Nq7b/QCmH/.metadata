@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.9Type Into \"Company To\"",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "QCmHuO1ZHkWdWjXhBY9ExA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/QCmHuO1ZHkWdWjXhBY9ExA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T12:03:06.1229858Z",
+  "Updated": "2026-09-15T12:03:16.0626376Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

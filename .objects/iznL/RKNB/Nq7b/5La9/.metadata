@@ -1,0 +1,16 @@
+﻿{
+  "Name": "28.15 Click \"FIND\"",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Id": "5La9fUoqjE-uDdbkyZFFaw",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/5La9fUoqjE-uDdbkyZFFaw",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T12:20:36.2696342Z",
+  "Updated": "2026-09-15T12:20:43.6117335Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

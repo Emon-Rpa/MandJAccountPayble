@@ -1,0 +1,17 @@
+﻿{
+  "Name": "28_1-View ALT V",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "NKZzRVklUEi6rsAWbuTnXA",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/NKZzRVklUEi6rsAWbuTnXA",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/Nq7bi2vv90mJ41ZQDP_wfQ",
+  "Created": "2026-09-15T11:00:45.8453961Z",
+  "Updated": "2026-09-15T11:04:51.7845148Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

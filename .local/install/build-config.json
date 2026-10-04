@@ -1,26 +1,6 @@
 {
   "Version": "1.0",
   "IncludeWorkflows": [
-    "Main.xaml",
-    "unit.xaml",
-    "login.xaml",
-    "OpenJava_Invoice.xaml",
-    "WARNINGBOX.xaml",
-    "INVOICE_NUMBER_QUERY.xaml",
-    "GRN_NUMBER_QUERY.xaml",
-    "OpenJava.xaml",
-    "BatchControl.xaml",
-    "JavaEntry.xaml",
-    "2Lines.xaml",
-    "Action_PrePayment.xaml",
-    "unwanted_match_screen.xaml",
-    "GRNMatching.xaml",
-    "Go_To_Payment.xaml",
-    "Payments.xaml",
-    "Enter_Adjust_Invoice.xaml",
-    "Clear_Transaction.xaml",
-    "mail_report_send.xaml",
-    "ok_pop_up.xaml",
-    "text_report.xaml"
+    "GL_CHECK/GL_DOWNLOAD.xaml"
   ]
 }

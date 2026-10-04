@@ -1,0 +1,16 @@
+﻿{
+  "Name": "Download File Folder",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "Wz-gzUCIYUS71upI-M1Q8Q",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/Wz-gzUCIYUS71upI-M1Q8Q",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/mYty-eb7D0-Tms78vZ1WvQ",
+  "Created": "2026-09-16T06:53:36.1849256Z",
+  "Updated": "2026-09-16T07:20:07.71198Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

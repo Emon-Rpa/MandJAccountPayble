@@ -1,0 +1,15 @@
+﻿{
+  "Name": "28_Oracle Applications - GL",
+  "Type": "App",
+  "Id": "iznLL2aUyESA9FXecYuvAg",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/iznLL2aUyESA9FXecYuvAg",
+  "Created": "2026-09-15T08:47:34.0800696Z",
+  "Updated": "2026-09-15T11:04:03.452116Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

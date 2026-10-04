@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="7-426dOw3EybpKMC9dVlKw" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/n0Q1scizxkCd1I8b4PI7SA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="273, 256, 785, 36" ElementType="InputBox" ElementVisibilityArgument="[UiPath.UIAutomationNext.Enums.NElementVisibility.None]" FullSelectorArgument="&lt;java name='Submit Request' role='internal frame' /&gt;&lt;java name='Name RequiredList of Values' role='text' /&gt;" Guid="0d6732c4-3d7c-4b3e-9b7c-e4a2e3e74ab6" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e60a6dfd9bb8260840ea4c6a6926d629.png" xmlns="">0kzZOEJwomEWY6Uts7CUSXw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
