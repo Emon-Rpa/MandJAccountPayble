@@ -1,0 +1,27 @@
+# UiPath Studio local/generated state
+.local/
+.screenshots/
+*.nupkg
+
+# Autosaved copies
+*(Autosaved)
+*(Autosaved)/
+
+# Java crash/replay logs
+hs_err_pid*.log
+replay_pid*.log
+
+# Execution logs
+*.log
+Logs/
+.logs/
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vs/
+.vscode/
+*.swp
+*.tmp
+~$*
