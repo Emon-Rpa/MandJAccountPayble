@@ -27,3 +27,12 @@ Desktop.ini
 *.tmp
 ~$*
 ~
+
+# Runtime input/output (real bank data, downloaded advices)
+pdf/
+statements/
+Account Payable.pdf
+
+# Office lock files and editor temp copies
+Excel/~$*
+~*.xaml

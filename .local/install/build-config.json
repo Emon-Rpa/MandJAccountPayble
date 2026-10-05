@@ -1,6 +1,0 @@
-{
-  "Version": "1.0",
-  "IncludeWorkflows": [
-    "GL_CHECK/GL_DOWNLOAD.xaml"
-  ]
-}
