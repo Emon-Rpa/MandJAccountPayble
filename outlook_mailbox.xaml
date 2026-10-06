@@ -4,6 +4,8 @@
     <x:Property Name="startDate" Type="InArgument(x:String)" />
     <x:Property Name="referenceNumber" Type="InArgument(x:String)" />
     <x:Property Name="lcNumber" Type="InArgument(x:String)" />
+    <x:Property Name="bankName" Type="InArgument(x:String)" />
+    <x:Property Name="mailAccount" Type="InArgument(x:String)" />
     <x:Property Name="Pdf_Paths" Type="OutArgument(scg:List(x:String))" />
   </x:Members>
   <VisualBasic.Settings>
@@ -128,17 +130,241 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="outlook_mailbox" sap:VirtualizedContainerService.HintSize="842,2749.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="outlook_mailbox" sap:VirtualizedContainerService.HintSize="1125,9713" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mail" />
       <Variable x:TypeArguments="upr:ILocalResource[]" Name="y" />
+      <Variable x:TypeArguments="x:String" Name="lcTerm" />
+      <Variable x:TypeArguments="x:String" Name="refTerm" />
+      <Variable x:TypeArguments="x:String" Name="orTerms" />
+      <Variable x:TypeArguments="x:String" Name="dateClause" />
+      <Variable x:TypeArguments="x:String" Name="mailFilter" />
+      <Variable x:TypeArguments="x:String" Name="bankKey" />
+      <Variable x:TypeArguments="x:String" Name="startWin" />
+      <Variable x:TypeArguments="x:String" Name="endWin" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="rpa_center@mj-group.com" ConnectionMode="LegacyConfiguration" DisplayName="Get Outlook Desktop Mail Messages" Filter="[String.Format(&#xA;    &quot;@SQL=(urn:schemas:httpmail:subject LIKE '%{0}%' AND urn:schemas:httpmail:subject LIKE '%{1}%' AND urn:schemas:httpmail:datereceived &gt;= '{2}' AND urn:schemas:httpmail:datereceived &lt;= '{3}')&quot;, &#xA;    lcNumber, referenceNumber, startDate, endDate)]" GetAttachements="False" sap:VirtualizedContainerService.HintSize="555.2,122.4" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="True" Messages="[mail]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Top="-1" UseISConnection="False">
+    <Assign DisplayName="Bank key (blank = SCB)" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[bankKey]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(bankName), "SCB", bankName.Trim.ToUpper)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="LC term (quotes escaped)" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[lcTerm]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(lcNumber), "", lcNumber.Trim.Replace("'", "''"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Reference term (quotes escaped)" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[refTerm]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(referenceNumber), "", referenceNumber.Trim.Replace("'", "''"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Subject terms joined with OR" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[orTerms]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(lcTerm = "", "", "urn:schemas:httpmail:subject LIKE '%" &amp; lcTerm &amp; "%'") &amp; If(lcTerm &lt;&gt; "" AndAlso refTerm &lt;&gt; "", " OR ", "") &amp; If(refTerm = "", "", "urn:schemas:httpmail:subject LIKE '%" &amp; refTerm &amp; "%'")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Never search without a key" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[orTerms]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(orTerms = "", "urn:schemas:httpmail:subject LIKE '__no_search_key__'", orTerms)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Switch x:TypeArguments="x:String" DisplayName="Mail filter per bank" Expression="[bankKey]" sap:VirtualizedContainerService.HintSize="762,3433" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch.Default>
+        <Sequence DisplayName="Other bank" sap:VirtualizedContainerService.HintSize="450,751" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Window start (same day)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_19">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[startWin]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[startDate]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Window end (same day)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[endWin]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[endDate]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Date clause" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_21">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[dateClause]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["urn:schemas:httpmail:datereceived &gt;= '" &amp; startWin &amp; "' AND urn:schemas:httpmail:datereceived &lt;= '" &amp; endWin &amp; "'"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Generic mail filter" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_22">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[mailFilter]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["@SQL=((" &amp; orTerms &amp; ") AND " &amp; dateClause &amp; ")"]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </Switch.Default>
+      <Sequence x:Key="SCB" DisplayName="SCB" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="SCB mail filter - subject has LC number AND reference (unchanged)" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[mailFilter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[String.Format("@SQL=(urn:schemas:httpmail:subject LIKE '%{0}%' AND urn:schemas:httpmail:subject LIKE '%{1}%' AND urn:schemas:httpmail:datereceived &gt;= '{2}' AND urn:schemas:httpmail:datereceived &lt;= '{3}')", lcTerm, refTerm, startDate, endDate)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="CITI" DisplayName="CITI" sap:VirtualizedContainerService.HintSize="450,751" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Window start (3 day(s) before)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[startWin]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(startDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(-3).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Window end (1 day(s) after)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[endWin]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(endDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Date clause" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[dateClause]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["urn:schemas:httpmail:datereceived &gt;= '" &amp; startWin &amp; "' AND urn:schemas:httpmail:datereceived &lt;= '" &amp; endWin &amp; "'"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="CITI mail filter - Debit Advice, 3 days before to 1 day after" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[mailFilter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["@SQL=(urn:schemas:httpmail:subject LIKE '%Debit Advice%' AND (" &amp; orTerms &amp; ") AND " &amp; dateClause &amp; ")"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="HSBC" DisplayName="HSBC" sap:VirtualizedContainerService.HintSize="450,751" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Window start (3 day(s) before)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_11">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[startWin]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(startDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(-3).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Window end (3 day(s) after)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_12">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[endWin]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(endDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(3).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Date clause" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_13">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[dateClause]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["urn:schemas:httpmail:datereceived &gt;= '" &amp; startWin &amp; "' AND urn:schemas:httpmail:datereceived &lt;= '" &amp; endWin &amp; "'"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="HSBC mail filter - advice with attachment, 3 days either side" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[mailFilter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["@SQL=((" &amp; orTerms &amp; ") AND urn:schemas:httpmail:subject LIKE '%Adv%' AND urn:schemas:httpmail:hasattachment = 1 AND " &amp; dateClause &amp; ")"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="DB" DisplayName="DB" sap:VirtualizedContainerService.HintSize="450,751" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Window start (same day)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[startWin]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[startDate]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Window end (same day)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_16">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[endWin]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[endDate]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Date clause" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_17">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[dateClause]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["urn:schemas:httpmail:datereceived &gt;= '" &amp; startWin &amp; "' AND urn:schemas:httpmail:datereceived &lt;= '" &amp; endWin &amp; "'"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="DB mail filter - any Advice for mail (IBCPA, SA, AA, IBCA, LC) with attachment, same day" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_18">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[mailFilter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["@SQL=(urn:schemas:httpmail:subject LIKE 'Advice for %' AND urn:schemas:httpmail:hasattachment = 1 AND " &amp; dateClause &amp; ")"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </Switch>
+    <ui:LogMessage DisplayName="Log Mail Filter" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Mail filter (&quot; &amp; bankKey &amp; &quot;): &quot; &amp; mailFilter]" />
+    <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[If(String.IsNullOrWhiteSpace(mailAccount), &quot;rpa_center@mj-group.com&quot;, mailAccount.Trim)]" ConnectionMode="LegacyConfiguration" DisplayName="Get Outlook Desktop Mail Messages" Filter="[mailFilter]" GetAttachements="False" sap:VirtualizedContainerService.HintSize="762,123" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="True" Messages="[mail]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Top="-1" UseISConnection="False">
       <ui:GetOutlookMailMessages.ConnectionDetailsBackupSlot>
         <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
           <usau:BackupSlot.BackupValues>
@@ -147,14 +373,14 @@
         </usau:BackupSlot>
       </ui:GetOutlookMailMessages.ConnectionDetailsBackupSlot>
     </ui:GetOutlookMailMessages>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="555.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Fatal" Message="[&quot;Number of Mail :&quot; + mail.Count.ToString]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="555.2,2264" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mail]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="762,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Fatal" Message="[&quot;Number of Mail :&quot; + mail.Count.ToString]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each currentMailMessage" sap:VirtualizedContainerService.HintSize="762,2825" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mail]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="currentMailMessage" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2133.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="760,2694" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(upr:ILocalResource)" Name="mail_attachmnets" />
               <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="resource_attachment" />
@@ -164,99 +390,120 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[currentMailMessage.Subject.ToString + currentMailMessage.Date]" />
-            <ui:SaveMailAttachments Attachments="[resource_attachment]" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" FolderPath="pdf\" sap:VirtualizedContainerService.HintSize="520,226.4" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[currentMailMessage]" OverwriteExisting="False" ResourceAttachments="[mail_attachmnets]" />
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="520,1672.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[resource_attachment]">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="726,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[currentMailMessage.Subject.ToString + currentMailMessage.Date]" />
+            <ui:SaveMailAttachments Attachments="[resource_attachment]" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" FolderPath="pdf\" sap:VirtualizedContainerService.HintSize="726,227" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[currentMailMessage]" OverwriteExisting="False" ResourceAttachments="[mail_attachmnets]" />
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="726,2232" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[resource_attachment]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518.4,1551.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="724,2110" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;11:&quot;+currentText]" />
-                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="484.8,1316.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-                      <TryCatch.Variables>
-                        <Variable x:TypeArguments="scg:List(x:String)" Name="Pdf_Path" />
-                      </TryCatch.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <TryCatch.Try>
-                        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="483.2,421.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Sequence sap:VirtualizedContainerService.HintSize="449.6,361.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <rp:ExtractPdfAttachments DisplayName="Extract pdf attachments" FilePath="[currentText]" Files="[Pdf_Path]" sap:VirtualizedContainerService.HintSize="416,112.8" sap2010:WorkflowViewState.IdRef="ExtractPdfAttachments_1" />
-                            <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_3">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="scg:List(x:String)">[If(Pdf_Paths, New List(Of String)).Concat(If(Pdf_Path, New List(Of String))).ToList()]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </Sequence>
-                        </Sequence>
-                      </TryCatch.Try>
-                      <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-                          <ActivityAction x:TypeArguments="s:Exception">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="483.2,640.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="690,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;11:&quot;+currentText]" />
+                    <If Condition="[bankKey &lt;&gt; &quot;SCB&quot; AndAlso currentText.ToLower.EndsWith(&quot;.pdf&quot;)]" DisplayName="Plain PDF from a non-SCB bank?" sap:VirtualizedContainerService.HintSize="690,1875" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If.Then>
+                        <Assign DisplayName="Return the PDF itself" sap:VirtualizedContainerService.HintSize="688,143" sap2010:WorkflowViewState.IdRef="Assign_23">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:List(x:String)">[If(Pdf_Paths, New List(Of String)).Concat(New String() {currentText}).Distinct().ToList()]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </If.Then>
+                      <If.Else>
+                        <If Condition="[currentText.ToLower.EndsWith(&quot;.png&quot;) OrElse currentText.ToLower.EndsWith(&quot;.jpg&quot;) OrElse currentText.ToLower.EndsWith(&quot;.jpeg&quot;) OrElse currentText.ToLower.EndsWith(&quot;.gif&quot;) OrElse currentText.ToLower.EndsWith(&quot;.bmp&quot;) OrElse currentText.ToLower.EndsWith(&quot;.ico&quot;) OrElse (bankKey &lt;&gt; &quot;SCB&quot; AndAlso Not currentText.ToLower.EndsWith(&quot;.zip&quot;))]" DisplayName="Image, or other file type from a non-SCB bank?" sap:VirtualizedContainerService.HintSize="688,1558" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If.Then>
+                            <ui:LogMessage DisplayName="Skip attachment" sap:VirtualizedContainerService.HintSize="686,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Skipping attachment (image, or not a PDF/ZIP): &quot; &amp; currentText]" />
+                          </If.Then>
+                          <If.Else>
+                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="686,1264" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                              <TryCatch.Variables>
+                                <Variable x:TypeArguments="scg:List(x:String)" Name="Pdf_Path" />
+                              </TryCatch.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Rename" Content="[y]" DestinationFolder="pdf" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="[currentText]" sap:VirtualizedContainerService.HintSize="449.6,240.8" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="True" />
-                              <Assign sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Path]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="scg:List(x:String)">[y.Select(Function(x) x.LocalPath).ToList]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="449.6,165.6" sap2010:WorkflowViewState.IdRef="Assign_4">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="scg:List(x:String)">[If(Pdf_Paths, New List(Of String)).Concat(If(Pdf_Path, New List(Of String))).ToList()]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                            </Sequence>
-                          </ActivityAction>
-                        </Catch>
-                      </TryCatch.Catches>
-                      <TryCatch.Finally>
-                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="483.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </Sequence>
-                      </TryCatch.Finally>
-                    </TryCatch>
+                              <TryCatch.Try>
+                                <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="684,422" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="650,362" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <rp:ExtractPdfAttachments DisplayName="Extract pdf attachments" FilePath="[currentText]" Files="[Pdf_Path]" sap:VirtualizedContainerService.HintSize="416,112.8" sap2010:WorkflowViewState.IdRef="ExtractPdfAttachments_1" />
+                                    <Assign sap:VirtualizedContainerService.HintSize="616,166" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="scg:List(x:String)">[If(Pdf_Paths, New List(Of String)).Concat(If(Pdf_Path, New List(Of String))).ToList()]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </Sequence>
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="684,643" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uascw:ExtractFiles DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Rename" Content="[y]" DestinationFolder="pdf" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="[currentText]" sap:VirtualizedContainerService.HintSize="650,242" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="True" />
+                                      <Assign sap:VirtualizedContainerService.HintSize="650,175" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Path]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="scg:List(x:String)">[y.Select(Function(x) x.LocalPath).ToList]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="650,166" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="scg:List(x:String)">[If(Pdf_Paths, New List(Of String)).Concat(If(Pdf_Path, New List(Of String))).ToList()]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                              <TryCatch.Finally>
+                                <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="684,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
+                              </TryCatch.Finally>
+                            </TryCatch>
+                          </If.Else>
+                        </If>
+                      </If.Else>
+                    </If>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
@@ -277,6 +524,96 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="555.2,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[If(Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Any,&#xA;   &quot;Pdf Extraction: &quot; + String.Join(Environment.NewLine, Pdf_Paths),&#xA;   &quot;Pdf Extraction: No PDF files found&quot;)]" />
+    <If Condition="[bankKey = &quot;DB&quot;]" DisplayName="Dhaka Bank: keep only the PDF that contains the reference" sap:VirtualizedContainerService.HintSize="762,1918" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,1689" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="scg:List(x:String)" Name="matchedPdfs" />
+            <Variable x:TypeArguments="x:Int32" Name="pdfCount" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="New empty list" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_27">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)()]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Count downloaded PDFs" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_28">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[pdfCount]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[If(Pdf_Paths Is Nothing, 0, Pdf_Paths.Count)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each downloaded PDF" sap:VirtualizedContainerService.HintSize="488,938" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[If(Pdf_Paths, New List(Of String))]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="pdfPath" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,807" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="pdfText" />
+                    <Variable x:TypeArguments="x:String" Name="cleanText" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="452,747" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="450,341" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[pdfPath]" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[pdfText]" />
+                        <Assign DisplayName="Text without spaces, upper case" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_29">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[cleanText]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(If(pdfText, ""), "\s+", "").ToUpper]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:LogMessage DisplayName="Log unreadable PDF" sap:VirtualizedContainerService.HintSize="450,143" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;Could not read PDF text from &quot; &amp; pdfPath &amp; &quot;: &quot; &amp; exception.Message]" />
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+          <Assign DisplayName="Keep only the matching PDF(s)" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_30">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log result" sap:VirtualizedContainerService.HintSize="488,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Dhaka Bank: &quot; &amp; matchedPdfs.Count.ToString &amp; &quot; of &quot; &amp; pdfCount.ToString &amp; &quot; downloaded PDF(s) contain the reference&quot;]" />
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="762,166" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[If(Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Any,&#xA;   &quot;Pdf Extraction: &quot; + String.Join(Environment.NewLine, Pdf_Paths),&#xA;   &quot;Pdf Extraction: No PDF files found&quot;)]" />
   </Sequence>
 </Activity>

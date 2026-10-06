@@ -131,7 +131,7 @@
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Bank_Statement" sap:VirtualizedContainerService.HintSize="1125,2406" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Bank_Statement" sap:VirtualizedContainerService.HintSize="1125,3844" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="datatable" />
       <Variable x:TypeArguments="sd:DataTable" Name="DATA_PREPARATION" />
@@ -190,19 +190,25 @@
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Bank" sap:VirtualizedContainerService.HintSize="684,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Detected bank: &quot; + bankName]" />
-    <Switch x:TypeArguments="x:String" DisplayName="Run bank parser" Expression="[bankName]" sap:VirtualizedContainerService.HintSize="684,325" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Run bank parser" Expression="[bankName]" sap:VirtualizedContainerService.HintSize="684,1763" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
-        <Throw DisplayName="Unrecognised statement" Exception="[New System.Exception(&quot;Unrecognised bank statement (&quot; + bankName + &quot;): &quot; + statement_path)]" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        <Throw DisplayName="Unrecognised statement" Exception="[New System.Exception(&quot;Unrecognised bank statement (&quot; + bankName + &quot;): &quot; + statement_path)]" sap:VirtualizedContainerService.HintSize="548,91" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </Switch.Default>
-      <Sequence x:Key="SCB" DisplayName="SCB" sap2010:WorkflowViewState.IdRef="Sequence_5">
-        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap2010:WorkflowViewState.IdRef="ReadRange_1" PreserveFormat="True" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <Sequence x:Key="SCB" DisplayName="SCB" sap:VirtualizedContainerService.HintSize="548,25" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="514,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" PreserveFormat="True" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="514,1000" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,827" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="amountText" />
                   <Variable x:TypeArguments="x:Boolean" Name="isDebit" />
@@ -216,7 +222,12 @@
                   <Variable x:TypeArguments="x:String" Name="Invoice_Number" />
                   <Variable x:TypeArguments="x:String" Name="Description" />
                 </Sequence.Variables>
-                <Assign DisplayName="Read amount text" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Read amount text" sap:VirtualizedContainerService.HintSize="478,175" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[amountText]</OutArgument>
                   </Assign.To>
@@ -224,7 +235,7 @@
                     <InArgument x:TypeArguments="x:String">[CurrentRow(6).ToString.Trim.Replace(",", "")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign DisplayName="Is this a debit?" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign DisplayName="Is this a debit?" sap:VirtualizedContainerService.HintSize="478,175" sap2010:WorkflowViewState.IdRef="Assign_4">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[isDebit]</OutArgument>
                   </Assign.To>
@@ -232,7 +243,7 @@
                     <InArgument x:TypeArguments="x:Boolean">[System.Text.RegularExpressions.Regex.IsMatch(amountText, "^-?\d+(\.\d+)?$") AndAlso Double.Parse(amountText, System.Globalization.CultureInfo.InvariantCulture) &gt; 0]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:MultipleAssign DisplayName="Multiple Assign" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,397" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -316,15 +327,21 @@
           </ui:ForEachRow.Body>
         </ui:ForEachRow>
       </Sequence>
-      <Sequence x:Key="CITI" DisplayName="CITI" sap2010:WorkflowViewState.IdRef="Sequence_7">
-        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <Sequence x:Key="CITI" DisplayName="CITI" sap:VirtualizedContainerService.HintSize="548,25" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="452,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="452,313" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="amountText" />
                   <Variable x:TypeArguments="x:Boolean" Name="isDebit" />
@@ -338,6 +355,11 @@
                   <Variable x:TypeArguments="x:String" Name="Invoice_Number" />
                   <Variable x:TypeArguments="x:String" Name="Description" />
                 </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <Assign DisplayName="Read amount text" sap2010:WorkflowViewState.IdRef="Assign_5">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[amountText]</OutArgument>
@@ -438,15 +460,21 @@
           </ui:ForEachRow.Body>
         </ui:ForEachRow>
       </Sequence>
-      <Sequence x:Key="HSBC" DisplayName="HSBC" sap2010:WorkflowViewState.IdRef="Sequence_9">
-        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+      <Sequence x:Key="HSBC" DisplayName="HSBC" sap:VirtualizedContainerService.HintSize="548,25" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="452,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="452,313" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="amountText" />
                   <Variable x:TypeArguments="x:Boolean" Name="isDebit" />
@@ -460,6 +488,11 @@
                   <Variable x:TypeArguments="x:String" Name="Invoice_Number" />
                   <Variable x:TypeArguments="x:String" Name="Description" />
                 </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <Assign DisplayName="Read amount text" sap2010:WorkflowViewState.IdRef="Assign_7">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[amountText]</OutArgument>
@@ -560,15 +593,21 @@
           </ui:ForEachRow.Body>
         </ui:ForEachRow>
       </Sequence>
-      <Sequence x:Key="DB" DisplayName="DB" sap2010:WorkflowViewState.IdRef="Sequence_11">
-        <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="A2" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+      <Sequence x:Key="DB" DisplayName="DB" sap:VirtualizedContainerService.HintSize="548,1372" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="514,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="A2" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
+<ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;FIXED_DATE&quot;) Then dt.Columns.Add(&quot;FIXED_DATE&quot;, GetType(String))&#xA;Dim inv As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture&#xA;Dim limit As Date = Date.MaxValue&#xA;For i As Integer = dt.Rows.Count - 1 To 0 Step -1&#xA;    Dim r As System.Data.DataRow = dt.Rows(i)&#xA;    Dim rawDate As Object = r(&quot;VALUE DATE&quot;)&#xA;    Dim txt As String = Convert.ToString(rawDate, inv)&#xA;    If rawDate Is Nothing OrElse rawDate Is DBNull.Value OrElse txt.Trim() = &quot;&quot; Then&#xA;        r(&quot;FIXED_DATE&quot;) = &quot;&quot;&#xA;    Else&#xA;        Dim c1 As Date = Date.MinValue&#xA;        Dim c2 As Date = Date.MinValue&#xA;        Dim ok As Boolean = True&#xA;        If TypeOf rawDate Is Date Then&#xA;            c1 = CDate(rawDate)&#xA;            If c1.Day &lt;= 12 AndAlso c1.Day &lt;&gt; c1.Month Then c2 = New Date(c1.Year, c1.Day, c1.Month)&#xA;        Else&#xA;            Dim d As Date&#xA;            If Date.TryParseExact(txt.Trim(), New String() {&quot;dd/MM/yyyy&quot;, &quot;dd-MM-yyyy&quot;, &quot;d/M/yyyy&quot;, &quot;d-M-yyyy&quot;}, inv, System.Globalization.DateTimeStyles.None, d) Then&#xA;                c1 = d&#xA;            Else&#xA;                ok = False&#xA;            End If&#xA;        End If&#xA;        If ok Then&#xA;            Dim chosen As Date = c1&#xA;            If c2 &lt;&gt; Date.MinValue AndAlso limit &lt;&gt; Date.MaxValue Then&#xA;                If c2 &lt;= limit AndAlso c1 &lt;= limit Then&#xA;                    If c2 &gt; c1 Then chosen = c2&#xA;                ElseIf c2 &lt;= limit Then&#xA;                    chosen = c2&#xA;                End If&#xA;            End If&#xA;            r(&quot;FIXED_DATE&quot;) = chosen.ToString(&quot;dd-MM-yyyy&quot;, inv)&#xA;            limit = chosen&#xA;            If Convert.ToString(r(&quot;DESCRIPTION&quot;), inv).TrimStart().StartsWith(&quot;B/F&quot;) Then limit = Date.MaxValue&#xA;        Else&#xA;            r(&quot;FIXED_DATE&quot;) = &quot;&quot;&#xA;        End If&#xA;    End If&#xA;Next" DisplayName="Fix swapped day/month dates (block order)"><ui:InvokeCode.Arguments><scg:Dictionary x:TypeArguments="x:String, Argument"><InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[datatable]</InOutArgument></scg:Dictionary></ui:InvokeCode.Arguments></ui:InvokeCode>
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="514,1192" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1019" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="amountText" />
                   <Variable x:TypeArguments="x:Boolean" Name="isDebit" />
@@ -581,8 +620,14 @@
                   <Variable x:TypeArguments="x:String" Name="Bank_Dc_No" />
                   <Variable x:TypeArguments="x:String" Name="Invoice_Number" />
                   <Variable x:TypeArguments="x:String" Name="Description" />
+                  <Variable x:TypeArguments="x:String" Name="Event_Text" />
                 </Sequence.Variables>
-                <Assign DisplayName="Read amount text" sap2010:WorkflowViewState.IdRef="Assign_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Read amount text" sap:VirtualizedContainerService.HintSize="478,175" sap2010:WorkflowViewState.IdRef="Assign_9">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[amountText]</OutArgument>
                   </Assign.To>
@@ -590,7 +635,7 @@
                     <InArgument x:TypeArguments="x:String">[Convert.ToString(CurrentRow("DEBIT"), System.Globalization.CultureInfo.InvariantCulture).Trim.Replace(",", "")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign DisplayName="Is this a debit?" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign DisplayName="Is this a debit?" sap:VirtualizedContainerService.HintSize="478,175" sap2010:WorkflowViewState.IdRef="Assign_10">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[isDebit]</OutArgument>
                   </Assign.To>
@@ -598,7 +643,7 @@
                     <InArgument x:TypeArguments="x:Boolean">[System.Text.RegularExpressions.Regex.IsMatch(amountText, "^-?\d+(\.\d+)?$") AndAlso Double.Parse(amountText, System.Globalization.CultureInfo.InvariantCulture) &gt; 0]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:MultipleAssign DisplayName="Multiple Assign" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,397" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
@@ -622,7 +667,7 @@
                           <OutArgument x:TypeArguments="x:String">[Invoice_Date]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[If(Convert.ToString(CurrentRow("VALUE DATE"), System.Globalization.CultureInfo.InvariantCulture).Trim = "", "", If(TypeOf CurrentRow("VALUE DATE") Is DateTime, CDate(CurrentRow("VALUE DATE")), DateTime.ParseExact(Convert.ToString(CurrentRow("VALUE DATE"), System.Globalization.CultureInfo.InvariantCulture).Trim, New String() {"dd/MM/yyyy", "dd-MM-yyyy", "d/M/yyyy", "d-M-yyyy"}, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None)).ToString("d-MMM-yy", System.Globalization.CultureInfo.InvariantCulture))]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[If(Convert.ToString(CurrentRow("FIXED_DATE"), System.Globalization.CultureInfo.InvariantCulture).Trim = "", "", DateTime.ParseExact(Convert.ToString(CurrentRow("FIXED_DATE"), System.Globalization.CultureInfo.InvariantCulture).Trim, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("d-MMM-yy", System.Globalization.CultureInfo.InvariantCulture))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
@@ -638,7 +683,7 @@
                           <OutArgument x:TypeArguments="x:String">[LC_NO]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, "^(?=[A-Za-z]*\d)[A-Za-z0-9]{8,}(?=\s+\S)").Value]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, "^(?=[A-Za-z]*\d)[A-Za-z0-9]{8,}(?=\.?\s+\S)").Value]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
@@ -662,21 +707,22 @@
                           <OutArgument x:TypeArguments="x:String">[Invoice_Number]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[LC_NO + "_" + Invoice_Date + "_" + (sheet_row_no + 3).ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[LC_NO + "_" + Invoice_Date + "_" + (sheet_row_no + 2).ToString]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
+<ui:AssignOperation><ui:AssignOperation.To><OutArgument x:TypeArguments="x:String">[Event_Text]</OutArgument></ui:AssignOperation.To><ui:AssignOperation.Value><InArgument x:TypeArguments="x:String">[If(LC_NO = "", Description, System.Text.RegularExpressions.Regex.Replace(Description, "^" &amp; System.Text.RegularExpressions.Regex.Escape(LC_NO) &amp; "\.?\s*", "").Trim)]</InArgument></ui:AssignOperation.Value></ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
                         <ui:AssignOperation.To>
                           <OutArgument x:TypeArguments="x:String">[Report_Text]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[If(isDebit, "", "Ignore due to credit amount")]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[If(isDebit, "", If(System.Text.RegularExpressions.Regex.IsMatch(Description, "^(B/F|RE-VALUATION)", System.Text.RegularExpressions.RegexOptions.IgnoreCase), "Ignore - balance or revaluation line", "Ignore due to credit amount"))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;, Account_Number, Currency, Invoice_Amount, &quot;&quot;, LC_NO, Bank_Dc_No, &quot;&quot;, Invoice_Date, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Invoice_Number, Report_Text, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Description}]" DataTable="[DATA_PREPARATION]" DisplayName="Add Data Row" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;, Account_Number, Currency, Invoice_Amount, &quot;&quot;, LC_NO, Bank_Dc_No, &quot;&quot;, Invoice_Date, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Invoice_Number, Report_Text, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Description, &quot;&quot;, Event_Text}]" DataTable="[DATA_PREPARATION]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478,212" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
               </Sequence>
             </ActivityAction>
           </ui:ForEachRow.Body>
