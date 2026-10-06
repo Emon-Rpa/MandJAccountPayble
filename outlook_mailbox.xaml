@@ -585,6 +585,7 @@
                             <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(If(pdfText, ""), "\s+", "").ToUpper]</InArgument>
                           </Assign.Value>
                         </Assign>
+<If Condition="[(Not String.IsNullOrWhiteSpace(lcNumber) AndAlso cleanText.Contains(System.Text.RegularExpressions.Regex.Replace(lcNumber, &quot;\s+&quot;, &quot;&quot;).ToUpper)) OrElse (Not String.IsNullOrWhiteSpace(referenceNumber) AndAlso cleanText.Contains(System.Text.RegularExpressions.Regex.Replace(referenceNumber, &quot;\s+&quot;, &quot;&quot;).ToUpper))]" DisplayName="PDF contains the reference?"><If.Then><Sequence DisplayName="Keep this PDF"><Assign DisplayName="Keep this PDF"><Assign.To><OutArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs.Append(pdfPath).ToList()]</InArgument></Assign.Value></Assign><ui:LogMessage DisplayName="Log match" Level="Info" Message="[&quot;Dhaka Bank advice matched: &quot; &amp; pdfPath]" /></Sequence></If.Then></If>
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
@@ -610,7 +611,7 @@
               <InArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log result" sap:VirtualizedContainerService.HintSize="488,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Dhaka Bank: &quot; &amp; matchedPdfs.Count.ToString &amp; &quot; of &quot; &amp; pdfCount.ToString &amp; &quot; downloaded PDF(s) contain the reference&quot;]" />
+          <ui:LogMessage DisplayName="Log result" sap:VirtualizedContainerService.HintSize="488,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Dhaka Bank: &quot; &amp; matchedPdfs.Count.ToString &amp; &quot; of &quot; &amp; pdfCount.ToString &amp; &quot; downloaded PDF(s) contain the reference &quot; &amp; If(String.IsNullOrWhiteSpace(lcNumber), referenceNumber, lcNumber)]" />
         </Sequence>
       </If.Then>
     </If>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SCB_advice_pdf" this:SCB_advice_pdf.Trading_Partner="Standard Chartered Bank-BP" this:SCB_advice_pdf.filepath="\pdf\cor_bank_int.pdf" this:SCB_advice_pdf.benifiecery="Unknown" this:SCB_advice_pdf.ExpensesType="Standard" this:SCB_advice_pdf.statement_file="statements\DHAKABANK.xlsx" this:SCB_advice_pdf.bankName="DB" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SCB_advice_pdf" this:SCB_advice_pdf.Trading_Partner="Standard Chartered Bank-BP" this:SCB_advice_pdf.filepath="\pdf\cor_bank_int.pdf" this:SCB_advice_pdf.benifiecery="Unknown" this:SCB_advice_pdf.ExpensesType="Standard" this:SCB_advice_pdf.statement_file="statements\DB.xlsx" this:SCB_advice_pdf.bankName="DB" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Trading_Partner" Type="InArgument(x:String)" />
     <x:Property Name="filepath" Type="InArgument(x:String)" />
@@ -148,7 +148,7 @@
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SCB_advice_pdf" sap:VirtualizedContainerService.HintSize="1125,2829" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SCB_advice_pdf" sap:VirtualizedContainerService.HintSize="1125,3287" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="pdfText" />
       <Variable x:TypeArguments="sd:DataTable" Name="Event_Map" />
@@ -1038,19 +1038,32 @@
         </OutArgument>
       </ui:ReadRange.DataTable>
     </ui:ReadRange>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[CurrentIndex]" DataTable="[Data_Processing]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="488,1693" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;Advice_Search&quot;) Then&#xA;    Dim c As System.Data.DataColumn = dt.Columns.Add(&quot;Advice_Search&quot;, GetType(String))&#xA;    c.SetOrdinal(dt.Columns(&quot;Report&quot;).Ordinal + 1)&#xA;End If" DisplayName="Make sure the Advice_Search column exists after Report" sap:VirtualizedContainerService.HintSize="488,197" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[Data_Processing]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[CurrentIndex]" DataTable="[Data_Processing]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="488,1954" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,1511" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,1772" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_15" Message="[&quot;For ---:&quot;+CurrentIndex.ToString+&quot;:&quot;+ CurrentRow(5).ToString + &quot;---&quot;+CurrentRow(6).ToString]" />
+            <Assign DisplayName="Advice_Search - default" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_29">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">["Not searchable"]</InArgument>
+              </Assign.Value>
+            </Assign>
             <If Condition="[String.IsNullOrWhiteSpace(CurrentRow(&quot;Report&quot;).ToString) OR String.IsNullOrEmpty(CurrentRow(&quot;Report&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="If_32">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1078,7 +1091,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[((CurrentRow(6).ToString &lt;&gt; &quot;&quot; AndAlso CurrentRow(5).ToString &lt;&gt; &quot;&quot;) OrElse (Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper &lt;&gt; &quot;SCB&quot; AndAlso (CurrentRow(6).ToString &lt;&gt; &quot;&quot; OrElse CurrentRow(5).ToString &lt;&gt; &quot;&quot;))) AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;-&quot; AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;0&quot;]" sap:VirtualizedContainerService.HintSize="452,1000" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[((CurrentRow(6).ToString &lt;&gt; &quot;&quot; AndAlso CurrentRow(5).ToString &lt;&gt; &quot;&quot;) OrElse (Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper &lt;&gt; &quot;SCB&quot; AndAlso (CurrentRow(6).ToString &lt;&gt; &quot;&quot; OrElse CurrentRow(5).ToString &lt;&gt; &quot;&quot;))) AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;-&quot; AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;0&quot;]" sap:VirtualizedContainerService.HintSize="452,1143" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1086,7 +1099,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,403" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,578" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1111,6 +1124,14 @@
                       <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="Pdf_Paths">[Pdf_Paths]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
+                  <Assign DisplayName="Advice_Search - mail search result" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_30">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Mail not found", "Mail found")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_27" Message="[&quot;Advice Found : &quot; + If(Pdf_Paths Is Nothing, 0, Pdf_Paths.Count).ToString]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1224,20 +1245,20 @@
                       <InArgument x:TypeArguments="x:Object">[If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Advice Not Found!", "Advice downloaded (" + Pdf_Paths.Count.ToString + " PDF) - " + bankName.Trim.ToUpper + " advice reading not built yet")]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[bankName.Trim.ToUpper = &quot;DB&quot; AndAlso Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Count &gt; 0]" DisplayName="Dhaka Bank: read the advice PDF">
+                  <If Condition="[bankName.Trim.ToUpper = &quot;DB&quot; AndAlso Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Count &gt; 0]" DisplayName="Dhaka Bank: read the advice PDF" sap2010:WorkflowViewState.IdRef="If_34">
                     <If.Then>
-                      <Sequence DisplayName="Read Dhaka Bank advice">
+                      <Sequence DisplayName="Read Dhaka Bank advice" sap2010:WorkflowViewState.IdRef="Sequence_96">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="dbReport" />
                         </Sequence.Variables>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DB_advice_reader - Invoke Workflow File (DB_advice_reader.xaml)" UnSafe="False" WorkflowFileName="DB_advice_reader.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DB_advice_reader - Invoke Workflow File (DB_advice_reader.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DB_advice_reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[Pdf_Paths]</InArgument>
                             <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Row">[CurrentRow]</InArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="out_Report">[dbReport]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <Assign DisplayName="Report from the Dhaka Bank advice">
+                        <Assign DisplayName="Report from the Dhaka Bank advice" sap2010:WorkflowViewState.IdRef="Assign_31">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
                           </Assign.To>
@@ -1248,6 +1269,14 @@
                       </Sequence>
                     </If.Then>
                   </If>
+                  <Assign DisplayName="Advice_Search - other bank" sap2010:WorkflowViewState.IdRef="Assign_32">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Mail not found", "Mail found")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="418,175" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Bank &quot; + bankName.Trim.ToUpper + &quot;: &quot; + CurrentRow(&quot;Report&quot;).ToString]" />
                   <ui:Continue sap:VirtualizedContainerService.HintSize="418,48" sap2010:WorkflowViewState.IdRef="Continue_7" />
                 </Sequence>
@@ -1335,6 +1364,14 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Advice_Search - SCB advice matched" sap2010:WorkflowViewState.IdRef="Assign_33">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Object">["Mail found"]</InArgument>
+                            </Assign.Value>
+                          </Assign>
                           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="585.3333333333334,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                             <ui:CommentOut.Body>
                               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,142.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_90">
@@ -2408,7 +2445,7 @@
                                                   </Sequence>
                                                 </If.Else>
                                               </If>
-                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString,&#xA;CurrentRow(1).ToString,&#xA;CurrentRow(2).ToString,&#xA;CurrentRow(3).ToString,&#xA;CurrentRow(4).ToString,&#xA;CurrentRow(5).ToString,&#xA;CurrentRow(6).ToString,&#xA;CurrentRow(7).ToString,&#xA;CurrentRow(8).ToString,&#xA;CurrentRow(9).ToString,&#xA;CurrentRow(10).ToString,&#xA;CurrentRow(11).ToString,&#xA;CurrentRow(12).ToString.Replace(&quot;CORR BANK'S INT&quot;,&quot;INT ON UPAS&quot;),&#xA;CurrentRow(13).ToString+&quot;_INT_UPAS&quot;,&#xA;CurrentRow(14).ToString,&#xA;If(CurrentRow(15).ToString=&quot;GRN&quot;,If(CurrentRow(11).ToString.split(&quot;,&quot;c).First=&quot;Foreign&quot;,CurrentRowEvent(&quot;Pre_Account&quot;).ToString,CurrentRowEvent(&quot;Local_Account&quot;).ToString),CurrentRow(15).ToString),&#xA;CurrentRow(16).ToString,&#xA;CurrentRow(17).ToString,&#xA;CurrentRow(18).ToString,&#xA;&quot;&quot;,&#xA;Remitted,&#xA;INT_Price,&#xA;CurrentRow(&quot;Statement_Descriptions&quot;).ToString,&#xA;CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString,&#xA;CurrentRow(&quot;EVENT&quot;).ToString&#xA;}]" DataTable="[GRN_Table]" DisplayName="Add Data Row Payment" sap:VirtualizedContainerService.HintSize="477.3333333333333,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
+                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString,&#xA;CurrentRow(1).ToString,&#xA;CurrentRow(2).ToString,&#xA;CurrentRow(3).ToString,&#xA;CurrentRow(4).ToString,&#xA;CurrentRow(5).ToString,&#xA;CurrentRow(6).ToString,&#xA;CurrentRow(7).ToString,&#xA;CurrentRow(8).ToString,&#xA;CurrentRow(9).ToString,&#xA;CurrentRow(10).ToString,&#xA;CurrentRow(11).ToString,&#xA;CurrentRow(12).ToString.Replace(&quot;CORR BANK'S INT&quot;,&quot;INT ON UPAS&quot;),&#xA;CurrentRow(13).ToString+&quot;_INT_UPAS&quot;,&#xA;CurrentRow(14).ToString,&#xA;If(CurrentRow(&quot;ACCOUNT&quot;).ToString=&quot;GRN&quot;,If(CurrentRow(11).ToString.split(&quot;,&quot;c).First=&quot;Foreign&quot;,CurrentRowEvent(&quot;Pre_Account&quot;).ToString,CurrentRowEvent(&quot;Local_Account&quot;).ToString),CurrentRow(&quot;ACCOUNT&quot;).ToString),&#xA;CurrentRow(&quot;Invoice_Status&quot;).ToString,&#xA;CurrentRow(&quot;Payment_Number&quot;).ToString,&#xA;CurrentRow(&quot;Clear_Transaction&quot;).ToString,&#xA;&quot;&quot;,&#xA;Remitted,&#xA;INT_Price,&#xA;CurrentRow(&quot;Statement_Descriptions&quot;).ToString,&#xA;CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString,&#xA;CurrentRow(&quot;EVENT&quot;).ToString&#xA;}]" DataTable="[GRN_Table]" DisplayName="Add Data Row Payment" sap:VirtualizedContainerService.HintSize="477.3333333333333,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
                                               <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.3333333333333,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
                                                 <ui:MultipleAssign.AssignOperations>
                                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
