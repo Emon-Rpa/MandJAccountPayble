@@ -510,7 +510,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:InvokeWorkflowFile>
-                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SCB_advice_pdf - Invoke Workflow File (SCB_advice_pdf.xaml)" sap:VirtualizedContainerService.HintSize="616,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="SCB_advice_pdf.xaml">
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Advice_pdf - Invoke Workflow File (Advice_pdf.xaml)" sap:VirtualizedContainerService.HintSize="616,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Advice_pdf.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
                                     <InArgument x:TypeArguments="x:String" x:Key="Trading_Partner" />
                                     <InArgument x:TypeArguments="x:String" x:Key="filepath" />

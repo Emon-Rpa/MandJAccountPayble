@@ -20,5 +20,6 @@
   "UiPath.UIAutomationNext.Activities.SearchStepsJava.Image": "False",
   "UiPath.UIAutomationNext.Activities.VerifyExecution.VerifyTypedText": "True",
   "UiPath.UIAutomationNext.Activities.ApplicationCard.WindowAttachMode": "ByInstance",
-  "UiPath.UIAutomationNext.Activities.ApplicationCard.ResizeWindow": "None"
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.ResizeWindow": "None",
+  "UiPath.UIAutomationNext.Activities.Generic.UseClassicExperience": "False"
 }

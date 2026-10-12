@@ -128,7 +128,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="CmLC" sap:VirtualizedContainerService.HintSize="676,4010.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CmLC" sap:VirtualizedContainerService.HintSize="1398,3886" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="sheetList" />
       <Variable x:TypeArguments="x:Boolean" Name="cmLcWindow" />
@@ -138,20 +138,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Commercial LC - Waterfox" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.Disabled]" sap:VirtualizedContainerService.HintSize="594,3940" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="175cba65-02c9-4f1a-b584-fda9758fe4af" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Commercial LC - Waterfox" HealingAgentBehavior="[UiPath.UIAutomationNext.Enums.NHealingAgentBehavior.Disabled]" sap:VirtualizedContainerService.HintSize="722,3863" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="175cba65-02c9-4f1a-b584-fda9758fe4af" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,3736" sap2010:WorkflowViewState.IdRef="Sequence_57">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="720,3721" sap2010:WorkflowViewState.IdRef="Sequence_57">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="558,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_14">
+            <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="686,139" sap2010:WorkflowViewState.IdRef="UiElementExists_14">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcf146dc-4eaf-4c3c-9627-fb9c4950f0b5" InformativeScreenshot="f7d79c681d8d45c8f03c950d3c1faea9" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl idx='12' role='div' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
@@ -162,7 +162,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="558,3536.6666666666665" sap2010:WorkflowViewState.IdRef="If_14">
+            <If Condition="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="686,3522" sap2010:WorkflowViewState.IdRef="If_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -170,21 +170,21 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="556,3315.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="684,3302" sap2010:WorkflowViewState.IdRef="Sequence_64">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap:VirtualizedContainerService.HintSize="522,3255.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                  <Sequence sap:VirtualizedContainerService.HintSize="650,3242" sap2010:WorkflowViewState.IdRef="Sequence_63">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'CMLC NUMBER'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,248" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" Text="[LC_NUMBER+ &quot;[k(enter)]&quot;]" Version="V5">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'CMLC NUMBER'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="616,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" Text="[LC_NUMBER+ &quot;[k(enter)]&quot;]" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable ContentHash="ewW9UMdaT0CCNcPyiXyb5A" DesignTimeRectangle="1068, 411, 128, 22" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Filter: CMLC Doc No Filter: Negotiation Bank Filter: Org Name Fi*' role='row' /&gt;&lt;ctrl name='Filter: Cmlc No' matching:name='fuzzy' fuzzylevel:name='0.0' role='th' /&gt;&lt;ctrl name='Filter: Cmlc No' role='editable text' aastate='focusable, editable, opaque, selectable text, singleline, autocomplete' matching:aastate='fuzzy' fuzzylevel:aastate='0.0' /&gt;" Guid="df604074-4150-42b6-a7e3-2cba0eec61f8" InformativeScreenshot="1d39ef6577a16aac6ac67d35d5fd94ef.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/EGM05_Di0E2b-M6ynjF7wA" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="Complete">
                           <uix:TargetAnchorable.Anchors>
@@ -201,7 +201,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NTypeInto>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="488,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_23">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="616,57" sap2010:WorkflowViewState.IdRef="CommentOut_23">
                       <ui:CommentOut.Body>
                         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,240" sap2010:WorkflowViewState.IdRef="Sequence_71">
                           <sap:WorkflowViewStateService.ViewState>
@@ -236,7 +236,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:CommentOut>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'tool bar'" sap:VirtualizedContainerService.HintSize="488,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'tool bar'" sap:VirtualizedContainerService.HintSize="616,139" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -258,12 +258,12 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:UiElementExists DisplayName="Element Exists 'cell  411012562133-L'" Exists="[cmLCExists]" sap:VirtualizedContainerService.HintSize="488,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_16">
+                    <ui:UiElementExists DisplayName="Element Exists 'cell  411012562133-L'" Exists="[cmLCExists]" sap:VirtualizedContainerService.HintSize="616,139" sap2010:WorkflowViewState.IdRef="UiElementExists_16">
                       <ui:UiElementExists.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eea39600-139b-4e59-8186-a743c079d93b" InformativeScreenshot="6a27d0f78c15e98badd255a2841ada3f" Selector="[string.Format(&quot;&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl role='row' idx='2' /&gt;&lt;ctrl aastate='opaque' name='{0}' role='editable text' /&gt;&quot;, LC_NUMBER)]" TimeoutMS="15000" WaitForReady="COMPLETE" />
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[cmLCExists]" sap:VirtualizedContainerService.HintSize="488,2588.6666666666665" sap2010:WorkflowViewState.IdRef="If_15">
+                    <If Condition="[cmLCExists]" sap:VirtualizedContainerService.HintSize="616,2578" sap2010:WorkflowViewState.IdRef="If_15">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -271,14 +271,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,2283.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,2273" sap2010:WorkflowViewState.IdRef="Sequence_61">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_19">
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="CommentOut_19">
                             <ui:CommentOut.Body>
                               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_67">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -316,7 +316,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:CommentOut>
-                          <uix:NGetText DisplayName="Get Text 'UNIT NAME CMLC'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" ScrapingMethod="TextAttribute" TextString="[orgName]" Version="V5">
+                          <uix:NGetText DisplayName="Get Text 'UNIT NAME CMLC'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,143" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" ScrapingMethod="TextAttribute" TextString="[orgName]" Version="V5">
                             <uix:NGetText.Target>
                               <uix:TargetAnchorable DesignTimeRectangle="483, 534, 248, 25" ElementType="Cell" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl role='cell' automationid='' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' aastate='selectable, editable, opaque, selectable text' /&gt;" Guid="af17708a-29b0-4764-b153-52504da08a64" InformativeScreenshot="dcbf6dfedb35e97c9bb40206c4273594.png" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]">
                                 <uix:TargetAnchorable.Anchors>
@@ -327,7 +327,7 @@
                               </uix:TargetAnchorable>
                             </uix:NGetText.Target>
                           </uix:NGetText>
-                          <Assign sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_5">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[orgName]</OutArgument>
                             </Assign.To>
@@ -341,7 +341,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </Assign>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'editable text  2215'" sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'editable text  2215'" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -369,7 +369,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:Click>
-                          <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLCWindowExists]" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_17">
+                          <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLCWindowExists]" sap:VirtualizedContainerService.HintSize="452,139" sap2010:WorkflowViewState.IdRef="UiElementExists_17">
                             <ui:UiElementExists.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5cbbac61-0395-4bf3-a45a-b49e79c59da9" InformativeScreenshot="ef90540caf2f341a8644f81ef74a87e5" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand *' role='row' /&gt;&lt;ctrl name='Expand' role='cell' /&gt;&lt;ctrl name='Expand' role='link' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
@@ -384,7 +384,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:UiElementExists>
-                          <If Condition="[cmLCWindowExists]" sap:VirtualizedContainerService.HintSize="452,1339.3333333333333" sap2010:WorkflowViewState.IdRef="If_16">
+                          <If Condition="[cmLCWindowExists]" sap:VirtualizedContainerService.HintSize="452,1333" sap2010:WorkflowViewState.IdRef="If_16">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -392,25 +392,25 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,1024.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,1020" sap2010:WorkflowViewState.IdRef="Sequence_59">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NGetText DisplayName="Get Text 'Origin CMLC'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" TextString="[BBLCType]" Version="V5">
+                                <uix:NGetText DisplayName="Get Text 'Origin CMLC'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" TextString="[BBLCType]" Version="V5">
                                   <uix:NGetText.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="125, 513, 135, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='*PaymentMode*' role='row' /&gt;&lt;ctrl name='*CmlcType*' role='cell' /&gt;&lt;ctrl name='CmlcType (Required)' matching:name='fuzzy' fuzzylevel:name='0.0' role='combo box' automationid='' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' aastate='collapsed, focusable, alert low, has popup, opaque, required' /&gt;" Guid="5ed2c7e2-ace4-466b-9df2-4acd34c4ede2" InformativeScreenshot="b71c92533008e14fae76119f40638b17.png" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+                                    <uix:TargetAnchorable ContentHash="UwO5FWi-b0GG2Gld6SFHSQ" DesignTimeRectangle="125, 514, 135, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='*PaymentMode*' role='row' idx='2' /&gt;&lt;ctrl name='*CmlcType*' role='cell' /&gt;&lt;ctrl name='CmlcType (Required)' role='combo box' automationid='' aastate='collapsed, focusable, alert low, has popup, opaque, required' /&gt;" Guid="5ed2c7e2-ace4-466b-9df2-4acd34c4ede2" InformativeScreenshot="f0641b44db357734ce7a73371cdc4d6e.jpg" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/LLbc7aYXP06fHATJgOM-gw" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
                                       <uix:TargetAnchorable.Anchors>
                                         <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="98, 520, 20, 14" ElementType="Text" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Commercial LC' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='iframe' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand Local CmlcType (Required) L/C PaymentMode (Required) Swif*' role='row' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand' role='cell' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand' role='link' automationid='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' check:text='Expand' /&gt;" Guid="1b6a938a-7cc1-49c7-a963-bed88c5e9db7" SearchSteps="FuzzySelector" />
+                                          <uix:Target DesignTimeRectangle="98, 521, 20, 14" ElementType="Text" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Commercial LC' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='iframe' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand Local CmlcType (Required) L/C PaymentMode (Required) Swif*' role='row' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand' role='cell' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand' role='link' automationid='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' check:text='Expand' /&gt;" Guid="1b6a938a-7cc1-49c7-a963-bed88c5e9db7" SearchSteps="FuzzySelector" />
                                         </scg:List>
                                       </uix:TargetAnchorable.Anchors>
                                     </uix:TargetAnchorable>
                                   </uix:NGetText.Target>
                                 </uix:NGetText>
-                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_20">
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_20">
                                   <ui:CommentOut.Body>
                                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_68">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -445,23 +445,23 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:CommentOut>
-                                <uix:NGetText DisplayName="Get Text 'Beneficiary Name CMLC'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" TextString="[BeneficiaryName]" Version="V5">
+                                <uix:NGetText DisplayName="Get Text 'Beneficiary Name CMLC'" sap:VirtualizedContainerService.HintSize="416,143" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" TextString="[BeneficiaryName]" Version="V5">
                                   <uix:NGetText.HealingAgentBehavior>
                                     <InArgument x:TypeArguments="uix:NChildHealingAgentBehavior">
                                       <Literal x:TypeArguments="uix:NChildHealingAgentBehavior" sap2010:WorkflowViewState.IdRef="Literal`1_1" />
                                     </InArgument>
                                   </uix:NGetText.HealingAgentBehavior>
                                   <uix:NGetText.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="1149, 512, 218, 31" ElementType="Cell" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Commercial LC' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='iframe' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='PaymentMode*' role='row' fuzzylevel:name='0.0' /&gt;&lt;ctrl role='cell' automationid='' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' /&gt;" Guid="4757cf7f-2a5a-4b22-bddc-a531fa515bb3" InformativeScreenshot="ddaf4e9bdb3b30a9f04fe638a7c5b65b.png" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="Interactive">
+                                    <uix:TargetAnchorable DesignTimeRectangle="1149, 513, 218, 31" ElementType="Cell" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Commercial LC' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='iframe' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='PaymentMode*' role='row' fuzzylevel:name='0.0' /&gt;&lt;ctrl role='cell' automationid='' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' /&gt;" Guid="4757cf7f-2a5a-4b22-bddc-a531fa515bb3" InformativeScreenshot="772e19c00ba499ceba55536d7b5b15f4.jpg" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="Interactive">
                                       <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="1194, 477, 127, 21" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Show Detail No Filter No Filter Filter: Communication Type Filte*' role='row' /&gt;&lt;ctrl name='Beneficiary Name' role='column header' /&gt;&lt;ctrl name='Beneficiary Name' role='editable text' /&gt;" Guid="5a4f773a-b27b-410c-af02-4f8dc4e0ed23" SearchSteps="Selector" />
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                          <uix:Target DesignTimeRectangle="1194, 478, 127, 21" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Show Detail No Filter No Filter Filter: Communication Type Filte*' role='row' /&gt;&lt;ctrl name='Beneficiary Name' role='column header' /&gt;&lt;ctrl name='Beneficiary Name' role='editable text' /&gt;" Guid="5a4f773a-b27b-410c-af02-4f8dc4e0ed23" SearchSteps="Selector" />
                                         </scg:List>
                                       </uix:TargetAnchorable.Anchors>
                                     </uix:TargetAnchorable>
                                   </uix:NGetText.Target>
                                 </uix:NGetText>
-                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_21">
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_21">
                                   <ui:CommentOut.Body>
                                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_69">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -499,18 +499,18 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:CommentOut>
-                                <uix:NGetText DisplayName="Get Text '*Import Type'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" ScrapingMethod="TextAttribute" ScrapingOptions="None" TextString="[Item]" Version="V5">
+                                <uix:NGetText DisplayName="Get Text '*Import Type'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" ScrapingMethod="TextAttribute" ScrapingOptions="None" TextString="[Item]" Version="V5">
                                   <uix:NGetText.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="918, 358, 90, 19" ElementType="DropDown" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Expand * CmlcType (Required) * PaymentMode (Required) Sw*' role='row' /&gt;&lt;ctrl name='Machinery ImportType (Required)' matching:name='fuzzy' fuzzylevel:name='0.0' role='cell' /&gt;&lt;ctrl name='ImportType (Required)' matching:name='fuzzy' fuzzylevel:name='0.0' role='combo box' aastate='collapsed, focusable, alert low, has popup, opaque, required' /&gt;" Guid="b7e1fb91-b823-4042-9ce6-63903f02bb04" InformativeScreenshot="647afebacfcc432c7ca50efbceec9eb1.png" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+                                    <uix:TargetAnchorable DesignTimeRectangle="1377, 514, 135, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Expand * CmlcType (Required) * PaymentMode (Required) Sw*' role='row' /&gt;&lt;ctrl name='Machinery ImportType (Required)' matching:name='fuzzy' fuzzylevel:name='0.0' role='cell' /&gt;&lt;ctrl name='ImportType (Required)' matching:name='fuzzy' fuzzylevel:name='0.0' role='combo box' aastate='collapsed, focusable, alert low, has popup, opaque, required' /&gt;" Guid="b7e1fb91-b823-4042-9ce6-63903f02bb04" InformativeScreenshot="95dea38c4b242afde4fa0cfc800a1bb9.jpg" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
                                       <uix:TargetAnchorable.Anchors>
                                         <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                          <uix:Target CVScreenId="4c585f1a-3175-45df-af36-cbaf3fcb06ab" DesignTimeRectangle="944, 332, 49, 15" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Show Detail No Filter No Filter Filter: Communication Type Filte*' role='row' /&gt;&lt;ctrl name='*Item Type' role='column header' /&gt;&lt;ctrl name='Item Type' role='editable text' /&gt;" Guid="77c70099-6169-4da0-b823-ab44a000c90d" SearchSteps="Selector" />
+                                          <uix:Target CVScreenId="4c585f1a-3175-45df-af36-cbaf3fcb06ab" DesignTimeRectangle="1415, 478, 75, 21" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Show Detail No Filter No Filter Filter: Communication Type Filte*' role='row' /&gt;&lt;ctrl name='*Item Type' role='column header' /&gt;&lt;ctrl name='Item Type' role='editable text' /&gt;" Guid="77c70099-6169-4da0-b823-ab44a000c90d" SearchSteps="Selector" />
                                         </scg:List>
                                       </uix:TargetAnchorable.Anchors>
                                     </uix:TargetAnchorable>
                                   </uix:NGetText.Target>
                                 </uix:NGetText>
-                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_22">
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_22">
                                   <ui:CommentOut.Body>
                                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_70">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -548,23 +548,23 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:CommentOut>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[&quot;Item :&quot; +Item]" />
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="[&quot;BeneficiaryName :&quot;+BeneficiaryName]" />
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[&quot;BBLCType: &quot; +BBLCType]" />
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,123" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[&quot;Item :&quot; +Item]" />
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,123" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="[&quot;BeneficiaryName :&quot;+BeneficiaryName]" />
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[&quot;BBLCType: &quot; +BBLCType]" />
                               </Sequence>
                             </If.Then>
                             <If.Else>
-                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,174" sap2010:WorkflowViewState.IdRef="Sequence_60">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_24" Text="[&quot;CMLC 2:&quot; &amp; cmLCExists.ToString]" />
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="WriteLine_24" Text="[&quot;CMLC 2:&quot; &amp; cmLCExists.ToString]" />
                               </Sequence>
                             </If.Else>
                           </If>
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="452,124" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[orgName]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="452,123" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[orgName]" />
                           <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Back'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,186" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="175cba65-02c9-4f1a-b584-fda9758fe4af" Version="V5">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable ContentHash="cypsX9hbX0qzAB2dghQZSg" DesignTimeRectangle="836, 317, 54, 45" ElementType="Button" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' matching:name='fuzzy' fuzzylevel:name='0.0' role='application' /&gt;&lt;ctrl name='Commercial LC' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='iframe' /&gt;&lt;ctrl name='Rich Content' matching:name='fuzzy' fuzzylevel:name='0.0' role='document' /&gt;&lt;ctrl name='Back' role='push button' aastate='default, focusable, opaque, selectable text' /&gt;" Guid="8afbf0f5-6649-4c24-8c70-20d45766db57" InformativeScreenshot="8c77b0987e97ab74bbcb0582e2216c2a.png" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/z6DoNTBcWEWcWpGhwgFPvQ" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
@@ -594,7 +594,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="556,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="684,90" sap2010:WorkflowViewState.IdRef="Sequence_65">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -627,357 +627,12 @@
           </uix:TargetApp.WorkingDirectory>
         </uix:TargetApp>
       </uix:NApplicationCard.TargetApp>
-    </uix:NApplicationCard>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="594,48" sap2010:WorkflowViewState.IdRef="CommentOut_17">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="484,248" sap2010:WorkflowViewState.IdRef="Sequence_66">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap:VirtualizedContainerService.HintSize="450,188" sap2010:WorkflowViewState.IdRef="Sequence_45">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="rowIsExist" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="UiElementExists_11">
-              <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcf146dc-4eaf-4c3c-9627-fb9c4950f0b5" InformativeScreenshot="f7d79c681d8d45c8f03c950d3c1faea9" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl idx='12' role='div' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
-              </ui:UiElementExists.Target>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:UiElementExists>
-            <If Condition="[cmLcWindow]" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="If_11">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="556,1713.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_52">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Sequence sap:VirtualizedContainerService.HintSize="522,1653.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_49">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DeselectAfter="True" DisplayName="Type Into 'editable text'" EmptyField="True" sap:VirtualizedContainerService.HintSize="488,189.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[LC_NUMBER+ &quot;[k(enter)]&quot;]">
-                      <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aa228462-d577-42ae-9fa9-717dc865c136" InformativeScreenshot="1610207e0179ffa7bf8f2996de128514" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Filter: Cmlc No' role='editable text' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:TypeInto.Target>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:TypeInto>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="488,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_16">
-                      <ui:CommentOut.Body>
-                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_56">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:UiElementExists DisplayName="Element Exists 'editable text'" Exists="[cmLCExists]" sap:VirtualizedContainerService.HintSize="416,130" sap2010:WorkflowViewState.IdRef="UiElementExists_10">
-                            <ui:UiElementExists.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b704cc84-0e31-4dbf-95a4-8a236630df0a" InformativeScreenshot="ddd1c2664e65ed44eb78ee0f1fa682b3" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl role='row' idx='2' /&gt;&lt;ctrl role='cell' idx='1' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
-                            </ui:UiElementExists.Target>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:UiElementExists>
-                        </Sequence>
-                      </ui:CommentOut.Body>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:CommentOut>
-                    <ui:UiElementExists DisplayName="Element Exists 'cell  411012562133-L'" Exists="[cmLCExists]" sap:VirtualizedContainerService.HintSize="488,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_13">
-                      <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eea39600-139b-4e59-8186-a743c079d93b" InformativeScreenshot="6a27d0f78c15e98badd255a2841ada3f" Selector="[string.Format(&quot;&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl role='row' idx='2' /&gt;&lt;ctrl aastate='opaque' name='{0}' role='editable text' /&gt;&quot;, LC_NUMBER)]" TimeoutMS="15000" WaitForReady="COMPLETE" />
-                      </ui:UiElementExists.Target>
-                    </ui:UiElementExists>
-                    <If Condition="[cmLCExists]" sap:VirtualizedContainerService.HintSize="488,1184.6666666666667" sap2010:WorkflowViewState.IdRef="If_12">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,963.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_46">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetValue_12">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a6504dac-89bc-46f4-ade1-703ae797eef8" InformativeScreenshot="be981c6fbac3f3b84c9d422427564f41" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl role='row' idx='12' /&gt;&lt;ctrl role='cell' idx='3' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:String">[orgName]</OutArgument>
-                            </ui:GetValue.Value>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:GetValue>
-                          <Assign sap:VirtualizedContainerService.HintSize="452,57.333333333333336" sap2010:WorkflowViewState.IdRef="Assign_4">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[orgName]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">[String.Concat(orgName.Split(" "c).Select(Function(w) w(0).ToString.ToUpper))]</InArgument>
-                            </Assign.Value>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </Assign>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'editable text  2215'" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
-                            <ui:Click.CursorPosition>
-                              <ui:CursorPosition Position="Center">
-                                <ui:CursorPosition.OffsetX>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetX>
-                                <ui:CursorPosition.OffsetY>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetY>
-                              </ui:CursorPosition>
-                            </ui:Click.CursorPosition>
-                            <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e6ba7a10-3c1b-4c85-a19f-3319bd342f93" InformativeScreenshot="f5f1a185a3238e4f18c5c9c1121412e9" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl role='row' idx='2' /&gt;&lt;ctrl role='cell' idx='1' /&gt;&lt;ctrl role='link' /&gt;&lt;ctrl role='editable text' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:Click.Target>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:Click>
-                          <ui:UiElementExists DisplayName="Element Exists 'div'" Exists="[cmLCWindowExists]" sap:VirtualizedContainerService.HintSize="452,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_12">
-                            <ui:UiElementExists.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5cbbac61-0395-4bf3-a45a-b49e79c59da9" InformativeScreenshot="ef90540caf2f341a8644f81ef74a87e5" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand *' role='row' /&gt;&lt;ctrl name='Expand' role='cell' /&gt;&lt;ctrl name='Expand' role='link' /&gt;" WaitForReady="COMPLETE">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                              </ui:Target>
-                            </ui:UiElementExists.Target>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:UiElementExists>
-                          <If Condition="[cmLCWindowExists]" sap:VirtualizedContainerService.HintSize="452,256" sap2010:WorkflowViewState.IdRef="If_13">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <If.Then>
-                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_50">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'BBLC Type'" sap:VirtualizedContainerService.HintSize="416,139.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_16">
-                                  <ui:GetValue.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9280569f-fe4e-4947-ba51-e983cdaf704c" InformativeScreenshot="8cb09a13b8eb4e218c33dbcc1a583d2c" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='* - Waterfox' /&gt;&lt;ctrl name='* - Waterfox' role='application' /&gt;&lt;ctrl role='document' idx='2' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand *' role='row' /&gt;&lt;ctrl role='cell' idx='2' /&gt;&lt;ctrl role='combo box' /&gt;" WaitForReady="COMPLETE">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                    </ui:Target>
-                                  </ui:GetValue.Target>
-                                  <ui:GetValue.Value>
-                                    <OutArgument x:TypeArguments="x:String">[BBLCType]</OutArgument>
-                                  </ui:GetValue.Value>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:GetValue>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Beneficiary Name'" sap:VirtualizedContainerService.HintSize="416,139.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_17">
-                                  <ui:GetValue.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9280569f-fe4e-4947-ba51-e983cdaf704c" InformativeScreenshot="8cb09a13b8eb4e218c33dbcc1a583d2c" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='* - Waterfox' /&gt;&lt;ctrl name='* - Waterfox' role='application' /&gt;&lt;ctrl role='document' idx='2' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand *' role='row' /&gt;&lt;ctrl role='cell' idx='9' /&gt;">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                      <ui:Target.WaitForReady>
-                                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                                      </ui:Target.WaitForReady>
-                                    </ui:Target>
-                                  </ui:GetValue.Target>
-                                  <ui:GetValue.Value>
-                                    <OutArgument x:TypeArguments="x:String">[BeneficiaryName]</OutArgument>
-                                  </ui:GetValue.Value>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:GetValue>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Item'" sap:VirtualizedContainerService.HintSize="416,139.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_18">
-                                  <ui:GetValue.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9280569f-fe4e-4947-ba51-e983cdaf704c" InformativeScreenshot="8cb09a13b8eb4e218c33dbcc1a583d2c" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='* - Waterfox' /&gt;&lt;ctrl name='* - Waterfox' role='application' /&gt;&lt;ctrl role='document' idx='2' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='Expand *' role='row' /&gt;&lt;ctrl role='cell' idx='10' /&gt;&lt;ctrl role='combo box' /&gt;">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                      <ui:Target.WaitForReady>
-                                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                                      </ui:Target.WaitForReady>
-                                    </ui:Target>
-                                  </ui:GetValue.Target>
-                                  <ui:GetValue.Value>
-                                    <OutArgument x:TypeArguments="x:String">[Item]</OutArgument>
-                                  </ui:GetValue.Value>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:GetValue>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;Item :&quot; +Item]" />
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;BeneficiaryName :&quot;+BeneficiaryName]" />
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;BBLCType: &quot; +BBLCType]" />
-                              </Sequence>
-                            </If.Then>
-                            <If.Else>
-                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_51">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Sequence>
-                            </If.Else>
-                          </If>
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="452,124" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[orgName]" />
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Back'" sap:VirtualizedContainerService.HintSize="452,130" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
-                            <ui:Click.CursorPosition>
-                              <ui:CursorPosition Position="Center">
-                                <ui:CursorPosition.OffsetX>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetX>
-                                <ui:CursorPosition.OffsetY>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetY>
-                              </ui:CursorPosition>
-                            </ui:Click.CursorPosition>
-                            <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2dfb26b1-d771-4971-98d1-fbdae199644d" InformativeScreenshot="d4c062bc8917c419a5294bff2814a15b" Selector="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;&lt;ctrl name='Rich Content' role='iframe' idx='2' /&gt;&lt;ctrl name='Back' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:Click.Target>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:Click>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_47">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                  </Sequence>
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="556,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_48">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Sequence>
-              </If.Else>
-            </If>
-          </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>

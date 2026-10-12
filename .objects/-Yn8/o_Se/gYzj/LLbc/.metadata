@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Origin CMLC",
+  "Type": "Element",
+  "TaxonomyType": "Dropdown",
+  "Id": "LLbc7aYXP06fHATJgOM-gw",
+  "Reference": "x-dYtJ0CPEyJdZOvmMdbqQ/LLbc7aYXP06fHATJgOM-gw",
+  "ParentRef": "x-dYtJ0CPEyJdZOvmMdbqQ/gYzj8BcYRE-MpOrnBcfCzw",
+  "Created": "2026-10-11T11:17:19.5788097Z",
+  "Updated": "2026-10-11T11:17:19.5788097Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

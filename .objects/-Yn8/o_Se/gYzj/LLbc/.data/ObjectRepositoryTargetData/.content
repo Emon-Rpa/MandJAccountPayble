@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="UwO5FWi-b0GG2Gld6SFHSQ" Reference="x-dYtJ0CPEyJdZOvmMdbqQ/LLbc7aYXP06fHATJgOM-gw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="125, 514, 135, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' /&gt;&lt;ctrl name='Commercial LC' role='document' /&gt;&lt;ctrl name='Rich Content' role='iframe' /&gt;&lt;ctrl name='Rich Content' role='document' /&gt;&lt;ctrl name='*PaymentMode*' role='row' idx='2' /&gt;&lt;ctrl name='*CmlcType*' role='cell' /&gt;&lt;ctrl name='CmlcType (Required)' role='combo box' automationid='' aastate='collapsed, focusable, alert low, has popup, opaque, required' /&gt;" Guid="5ed2c7e2-ace4-466b-9df2-4acd34c4ede2" ScopeSelectorArgument="&lt;wnd app='waterfox.exe' cls='MozillaWindowClass' title='Commercial LC - Waterfox' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V6" WaitForReadyArgument="None">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="98, 521, 20, 14" ElementType="Text" FuzzySelectorArgument="&lt;ctrl name='Commercial LC - Waterfox' role='application' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Commercial LC' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='iframe' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Rich Content' role='document' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand Local CmlcType (Required) L/C PaymentMode (Required) Swif*' role='row' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand' role='cell' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Expand' role='link' automationid='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' check:text='Expand' /&gt;" Guid="1b6a938a-7cc1-49c7-a963-bed88c5e9db7" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="f0641b44db357734ce7a73371cdc4d6e.jpg" xmlns="">0wZzOdH9NpE2JCXaMpuUx4Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
