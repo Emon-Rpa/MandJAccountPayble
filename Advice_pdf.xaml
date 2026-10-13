@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Advice_pdf" this:Advice_pdf.Trading_Partner="Standard Chartered Bank-BP" this:Advice_pdf.filepath="\pdf\cor_bank_int.pdf" this:Advice_pdf.benifiecery="Unknown" this:Advice_pdf.ExpensesType="Standard" this:Advice_pdf.statement_file="statements\SCB.xlsx" this:Advice_pdf.bankName="SCB" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Advice_pdf" this:Advice_pdf.Trading_Partner="Standard Chartered Bank-BP" this:Advice_pdf.filepath="\pdf\cor_bank_int.pdf" this:Advice_pdf.benifiecery="Unknown" this:Advice_pdf.ExpensesType="Standard" this:Advice_pdf.statement_file="statements\HSBC.xlsx" this:Advice_pdf.bankName="HSBC" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Trading_Partner" Type="InArgument(x:String)" />
     <x:Property Name="filepath" Type="InArgument(x:String)" />
@@ -149,11 +149,15 @@
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Advice_pdf" sap:VirtualizedContainerService.HintSize="1398,11917" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Advice_pdf" sap:VirtualizedContainerService.HintSize="1398,15236" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="pdfText" />
       <Variable x:TypeArguments="sd:DataTable" Name="Event_Map" />
       <Variable x:TypeArguments="sd:DataTable" Name="Rules_Table" />
+      <Variable x:TypeArguments="x:String" Name="evKey" />
+      <Variable x:TypeArguments="x:String" Name="evAdvice" />
+      <Variable x:TypeArguments="x:String" Name="evLc" />
+      <Variable x:TypeArguments="x:String" Name="evLcNo" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="RuleDict" />
       <Variable x:TypeArguments="sd:DataTable" Name="CITI_Map" />
       <Variable x:TypeArguments="sd:DataTable" Name="HSBC_Map" />
@@ -346,7 +350,7 @@
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[CountryDt]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="452,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[currentText]" WorkbookPath="[CurrentFile.FullName]">
+                                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[CountryDt]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="452,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[currentText]" WorkbookPath="[CurrentFile.FullName]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
@@ -433,7 +437,7 @@
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:SendHotkey>
-                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadExcel(entryData)AndLogin_Navigation - Invoke Workflow File (ReadExcel(entryData)AndLogin_Navigation.xaml)" sap:VirtualizedContainerService.HintSize="513.3333333333334,57.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReadExcel(entryData)AndLogin_Navigation.xaml">
+                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="ReadExcel(entryData)AndLogin_Navigation - Invoke Workflow File (ReadExcel(entryData)AndLogin_Navigation.xaml)" sap:VirtualizedContainerService.HintSize="513.3333333333334,57.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReadExcel(entryData)AndLogin_Navigation.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
                                                         <InArgument x:TypeArguments="x:String" x:Key="LC_NUMBER">[CRow("LC_NUMBER").ToString+"-L"]</InArgument>
                                                         <OutArgument x:TypeArguments="x:Boolean" x:Key="rowIsExist">[CHECK_STATUS]</OutArgument>
@@ -561,7 +565,7 @@
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
                                                           </ui:SendHotkey>
-                                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CmLC - Invoke Workflow File (CmLC.xaml)" sap:VirtualizedContainerService.HintSize="477.3333333333333,57.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="CmLC.xaml">
+                                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CmLC - Invoke Workflow File (CmLC.xaml)" sap:VirtualizedContainerService.HintSize="477.3333333333333,57.333333333333336" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="CmLC.xaml">
                                                             <ui:InvokeWorkflowFile.Arguments>
                                                               <OutArgument x:TypeArguments="x:String" x:Key="orgName">[UNIT]</OutArgument>
                                                               <OutArgument x:TypeArguments="x:String" x:Key="Item">[ITEM]</OutArgument>
@@ -960,7 +964,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:ForEachRow>
-                                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[CountryDt]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="452,138.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="[currentText]" WorkbookPath="[CurrentFile.FullName]">
+                                <ui:WriteRange StartingCell="{x:Null}" DataTable="[CountryDt]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="452,138.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="[currentText]" WorkbookPath="[CurrentFile.FullName]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -1017,7 +1021,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim folderPath = System.IO.Path.Combine(Environment.CurrentDirectory, &quot;pdf&quot;)&#xA;&#xA;If System.IO.Directory.Exists(folderPath) Then&#xA;    For Each f In System.IO.Directory.GetFiles(folderPath, &quot;*&quot;, System.IO.SearchOption.AllDirectories)&#xA;        Try&#xA;            System.IO.File.Delete(f)&#xA;        Catch ex As System.IO.IOException&#xA;            ' File is open elsewhere (viewer, preview pane): leave it, do not stop the run&#xA;        Catch ex As System.UnauthorizedAccessException&#xA;        End Try&#xA;    Next&#xA;End If" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="836,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim folderPath = System.IO.Path.Combine(Environment.CurrentDirectory, &quot;pdf&quot;)&#xA;&#xA;If System.IO.Directory.Exists(folderPath) Then&#xA;    For Each f In System.IO.Directory.GetFiles(folderPath, &quot;*&quot;, System.IO.SearchOption.AllDirectories)&#xA;        Try&#xA;            System.IO.File.Delete(f)&#xA;        Catch ex As System.IO.IOException&#xA;            ' File is open elsewhere (viewer, preview pane): leave it, do not stop the run&#xA;        Catch ex As System.UnauthorizedAccessException&#xA;        End Try&#xA;    Next&#xA;End If" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
       <ui:InvokeCode.Arguments>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeCode.Arguments>
@@ -1036,7 +1040,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;Advice_Search&quot;) Then&#xA;    Dim c As System.Data.DataColumn = dt.Columns.Add(&quot;Advice_Search&quot;, GetType(String))&#xA;    c.SetOrdinal(dt.Columns(&quot;Report&quot;).Ordinal + 1)&#xA;End If" DisplayName="Add Advice_Search column to TT table (matches CASH row layout)" sap:VirtualizedContainerService.HintSize="836,197" sap2010:WorkflowViewState.IdRef="InvokeCode_TT_Advice">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;Advice_Search&quot;) Then&#xA;    Dim c As System.Data.DataColumn = dt.Columns.Add(&quot;Advice_Search&quot;, GetType(String))&#xA;    c.SetOrdinal(dt.Columns(&quot;Report&quot;).Ordinal + 1)&#xA;End If" DisplayName="Add Advice_Search column to TT table (matches CASH row layout)" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_TT_Advice">
       <ui:InvokeCode.Arguments>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[TT_Table]</InOutArgument>
       </ui:InvokeCode.Arguments>
@@ -1049,54 +1053,54 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim t As System.Data.DataTable = src.Clone()&#xA;For Each n As String In New String() {&quot;Asset_Date&quot;,&quot;Loan_Date&quot;,&quot;Tenor_Days&quot;,&quot;Tenor_Date&quot;,&quot;Asset_Value&quot;,&quot;Interest_Value&quot;,&quot;Asset_Account&quot;,&quot;Interest_Account&quot;}&#xA;    t.Columns.Add(n, GetType(String))&#xA;Next&#xA;dt = t" DisplayName="Build EUR table (GRN columns plus asset/interest columns)" sap:VirtualizedContainerService.HintSize="836,197" sap2010:WorkflowViewState.IdRef="InvokeCode_EUR_Build">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim t As System.Data.DataTable = src.Clone()&#xA;For Each n As String In New String() {&quot;Asset_Date&quot;,&quot;Loan_Date&quot;,&quot;Tenor_Days&quot;,&quot;Tenor_Date&quot;,&quot;Asset_Value&quot;,&quot;Interest_Value&quot;,&quot;Asset_Account&quot;,&quot;Interest_Account&quot;}&#xA;    t.Columns.Add(n, GetType(String))&#xA;Next&#xA;dt = t" DisplayName="Build EUR table (GRN columns plus asset/interest columns)" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_EUR_Build">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="src">[GRN_Table]</InArgument>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[EUR_Table]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="dt = src.Clone()" DisplayName="Build UPAS Machinery table (same columns as TT)" sap:VirtualizedContainerService.HintSize="836,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="dt = src.Clone()" DisplayName="Build UPAS Machinery table (same columns as TT)" sap:VirtualizedContainerService.HintSize="836,396" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="src">[TT_Table]</InArgument>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[Machinery_Table]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[Rules_Table]" DisplayName="Read the bank rules sheet (SCB_Rules, CITI_Rules, HSBC_Rules or DB_Rules)" sap2010:WorkflowViewState.IdRef="ReadRange_Rules" SheetName="[If(String.IsNullOrWhiteSpace(bankName), &quot;SCB&quot;, bankName.Trim.ToUpper) + &quot;_Rules&quot;]" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="d = New System.Collections.Generic.Dictionary(Of String, String)&#xA;For Each r As System.Data.DataRow In tbl.Rows&#xA;    Dim k As String = r(&quot;Key&quot;).ToString.Trim&#xA;    If k &lt;&gt; &quot;&quot; Then d(k) = r(&quot;Value&quot;).ToString&#xA;Next" DisplayName="Build RuleDict (Key to Value) from the rules sheet" sap2010:WorkflowViewState.IdRef="InvokeCode_RuleDict">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[Rules_Table]" DisplayName="Read the bank rules sheet (SCB_Rules, CITI_Rules, HSBC_Rules or DB_Rules)" sap:VirtualizedContainerService.HintSize="836,227" sap2010:WorkflowViewState.IdRef="ReadRange_Rules" SheetName="[If(String.IsNullOrWhiteSpace(bankName), &quot;SCB&quot;, bankName.Trim.ToUpper) + &quot;_Rules&quot;]" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="d = New System.Collections.Generic.Dictionary(Of String, String)&#xA;For Each r As System.Data.DataRow In tbl.Rows&#xA;    Dim k As String = r(&quot;Key&quot;).ToString.Trim&#xA;    If k &lt;&gt; &quot;&quot; Then d(k) = r(&quot;Value&quot;).ToString&#xA;Next" DisplayName="Build RuleDict (Key to Value) from the rules sheet" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_RuleDict">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[Rules_Table]</InArgument>
         <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="d">[RuleDict]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[Event_Map]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="836,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[RuleDict(&quot;Event_Sheet&quot;)]" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
-    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;CITI&quot;]" DisplayName="CITI: read the CITI expense type map" sap:VirtualizedContainerService.HintSize="836,270" sap2010:WorkflowViewState.IdRef="If_35">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[Event_Map]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="836,227" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[RuleDict(&quot;Event_Sheet&quot;)]" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
+    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;CITI&quot;]" DisplayName="CITI: read the CITI expense type map" sap:VirtualizedContainerService.HintSize="836,446" sap2010:WorkflowViewState.IdRef="If_35">
       <If.Then>
-        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[CITI_Map]" DisplayName="Read CITI map" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="CITI" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[CITI_Map]" DisplayName="Read CITI map" sap:VirtualizedContainerService.HintSize="450,195" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="CITI" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;HSBC&quot;]" DisplayName="HSBC: read the HSBC expense type map" sap:VirtualizedContainerService.HintSize="836,340.6666666666667" sap2010:WorkflowViewState.IdRef="If_36">
+    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;HSBC&quot;]" DisplayName="HSBC: read the HSBC expense type map" sap:VirtualizedContainerService.HintSize="836,446" sap2010:WorkflowViewState.IdRef="If_36">
       <If.Then>
-        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[HSBC_Map]" DisplayName="Read HSBC map" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="HSBC" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[HSBC_Map]" DisplayName="Read HSBC map" sap:VirtualizedContainerService.HintSize="450,195" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="HSBC" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;DB&quot;]" DisplayName="DB: read the DB expense type map" sap:VirtualizedContainerService.HintSize="836,340.6666666666667" sap2010:WorkflowViewState.IdRef="If_37">
+    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;DB&quot;]" DisplayName="DB: read the DB expense type map" sap:VirtualizedContainerService.HintSize="836,446" sap2010:WorkflowViewState.IdRef="If_37">
       <If.Then>
-        <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[DB_Map]" DisplayName="Read DB map" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="ReadRange_6" SheetName="DB" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DB_Map]" DisplayName="Read DB map" sap:VirtualizedContainerService.HintSize="450,195" sap2010:WorkflowViewState.IdRef="ReadRange_6" SheetName="DB" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
       </If.Then>
     </If>
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="836,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="CASH" WorkbookPath="[statement_file]">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="836,227" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="CASH" WorkbookPath="[statement_file]">
       <ui:ReadRange.DataTable>
         <OutArgument x:TypeArguments="sd:DataTable">
           <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="Data_Processing" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
         </OutArgument>
       </ui:ReadRange.DataTable>
     </ui:ReadRange>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;Advice_Search&quot;) Then&#xA;    Dim c As System.Data.DataColumn = dt.Columns.Add(&quot;Advice_Search&quot;, GetType(String))&#xA;    c.SetOrdinal(dt.Columns(&quot;Report&quot;).Ordinal + 1)&#xA;End If" DisplayName="Make sure the Advice_Search column exists after Report" sap:VirtualizedContainerService.HintSize="836,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;Advice_Search&quot;) Then&#xA;    Dim c As System.Data.DataColumn = dt.Columns.Add(&quot;Advice_Search&quot;, GetType(String))&#xA;    c.SetOrdinal(dt.Columns(&quot;Report&quot;).Ordinal + 1)&#xA;End If" DisplayName="Make sure the Advice_Search column exists after Report" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
       <ui:InvokeCode.Arguments>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[Data_Processing]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each t As System.Data.DataTable In New System.Data.DataTable() {cash, tt, grn, eur, mach}&#xA;    If t Is Nothing Then Continue For&#xA;    For Each n As String In (rules(&quot;Cols_EUR&quot;) + &quot;|&quot; + rules(&quot;Cols_TT&quot;)).Split(&quot;|&quot;c)&#xA;        If Not t.Columns.Contains(n) Then t.Columns.Add(n, GetType(String))&#xA;    Next&#xA;Next" DisplayName="Add EUR / TT amount and account columns (after AMOUNT in the output)" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each t As System.Data.DataTable In New System.Data.DataTable() {cash, tt, grn, eur, mach}&#xA;    If t Is Nothing Then Continue For&#xA;    For Each n As String In (rules(&quot;Cols_EUR&quot;) + &quot;|&quot; + rules(&quot;Cols_TT&quot;)).Split(&quot;|&quot;c)&#xA;        If Not t.Columns.Contains(n) Then t.Columns.Add(n, GetType(String))&#xA;    Next&#xA;Next" DisplayName="Add EUR / TT amount and account columns (after AMOUNT in the output)" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="cash">[Data_Processing]</InArgument>
@@ -1106,20 +1110,20 @@
         <InArgument x:TypeArguments="sd:DataTable" x:Key="mach">[Machinery_Table]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[CurrentIndex]" DataTable="[Data_Processing]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="836,9376" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[CurrentIndex]" DataTable="[Data_Processing]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="836,10059" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="834,9192" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="834,9877" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="800,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Message="[&quot;For ---:&quot;+CurrentIndex.ToString+&quot;:&quot;+ CurrentRow(5).ToString + &quot;---&quot;+CurrentRow(6).ToString]" />
-            <Assign DisplayName="Advice_Search - default" sap:VirtualizedContainerService.HintSize="800,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_29">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="800,175" sap2010:WorkflowViewState.IdRef="LogMessage_15" Message="[&quot;For ---:&quot;+CurrentIndex.ToString+&quot;:&quot;+ CurrentRow(5).ToString + &quot;---&quot;+CurrentRow(6).ToString]" />
+            <Assign DisplayName="Advice_Search - default" sap:VirtualizedContainerService.HintSize="800,175" sap2010:WorkflowViewState.IdRef="Assign_29">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
               </Assign.To>
@@ -1154,7 +1158,18 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[((CurrentRow(6).ToString &lt;&gt; &quot;&quot; AndAlso CurrentRow(5).ToString &lt;&gt; &quot;&quot;) OrElse (Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper &lt;&gt; &quot;SCB&quot; AndAlso (CurrentRow(6).ToString &lt;&gt; &quot;&quot; OrElse CurrentRow(5).ToString &lt;&gt; &quot;&quot;))) AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;-&quot; AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;0&quot;]" sap:VirtualizedContainerService.HintSize="800,1182.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="evKey = &quot;&quot;&#xA;evAdvice = &quot;Yes&quot;&#xA;evLc = &quot;&quot;&#xA;evLcNo = &quot;&quot;&#xA;If bankMap Is Nothing OrElse bankMap.Columns.Count &lt; 7 Then Return&#xA;Dim lcRx As String = rules(&quot;LC_Number_Regex&quot;).Trim&#xA;For Each cand As String In New String() {row(&quot;LC_NUMBER&quot;).ToString.Trim, row(&quot;BANK_DC_NO&quot;).ToString.Trim}&#xA;    If cand &lt;&gt; &quot;&quot; AndAlso (lcRx = &quot;&quot; OrElse System.Text.RegularExpressions.Regex.IsMatch(cand, lcRx, System.Text.RegularExpressions.RegexOptions.IgnoreCase)) Then&#xA;        evLcNo = cand&#xA;        Exit For&#xA;    End If&#xA;Next&#xA;Dim desc As String = row(&quot;Statement_Descriptions&quot;).ToString.ToUpper&#xA;Dim ccy As String = row(&quot;CURRENCY&quot;).ToString.Trim.ToUpper&#xA;Dim minLen As Integer = CInt(rules(&quot;Min_Key_Length&quot;))&#xA;Dim best As Integer = 0&#xA;Dim hit As System.Data.DataRow = Nothing&#xA;For Each mr As System.Data.DataRow In bankMap.Rows&#xA;    Dim cands As New System.Collections.Generic.List(Of String)&#xA;    cands.Add(mr(0).ToString.Trim.ToUpper)&#xA;    For Each a As String In mr(6).ToString.ToUpper.Split(&quot;|&quot;c)&#xA;        If a.Trim &lt;&gt; &quot;&quot; Then cands.Add(a.Trim)&#xA;    Next&#xA;    For Each k As String In cands&#xA;        If k.Length &gt;= minLen AndAlso desc.Contains(k) AndAlso k.Length &gt; best Then&#xA;            best = k.Length&#xA;            hit = mr&#xA;        End If&#xA;    Next&#xA;Next&#xA;If hit Is Nothing Then Return&#xA;Dim pickVal As Func(Of String, String, String) = Function(col As String, d As String) As String&#xA;    If Not bankMap.Columns.Contains(col) Then Return d&#xA;    Dim v As String = hit(col).ToString.Trim&#xA;    If v = &quot;&quot; Then Return d&#xA;    For Each tk As String In v.Split(&quot;|&quot;c)&#xA;        Dim p() As String = tk.Split(&quot;=&quot;c)&#xA;        If p.Length = 1 Then Return p(0).Trim&#xA;        If p(0).Trim.ToUpper = ccy Then Return p(1).Trim&#xA;    Next&#xA;    Return d&#xA;End Function&#xA;evKey = hit(0).ToString.Trim&#xA;evAdvice = pickVal(rules(&quot;Advice_Required_Column&quot;), &quot;Yes&quot;)&#xA;evLc = pickVal(rules(&quot;LC_Required_Column&quot;), &quot;&quot;)" DisplayName="Classify the row from the statement: event, advice needed, LC needed (other banks)" sap:VirtualizedContainerService.HintSize="800,403" sap2010:WorkflowViewState.IdRef="InvokeCode_Classify">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
+                <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[CurrentRow]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="bankMap">[If(String.IsNullOrWhiteSpace(bankName), Nothing, If(bankName.Trim.ToUpper = "CITI", CITI_Map, If(bankName.Trim.ToUpper = "HSBC", HSBC_Map, If(bankName.Trim.ToUpper = "DB", DB_Map, Nothing))))]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="evKey">[evKey]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="evAdvice">[evAdvice]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="evLc">[evLc]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="evLcNo">[evLcNo]</OutArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+            <If Condition="[(((CurrentRow(6).ToString &lt;&gt; &quot;&quot; AndAlso CurrentRow(5).ToString &lt;&gt; &quot;&quot;) OrElse (Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper &lt;&gt; &quot;SCB&quot; AndAlso (CurrentRow(6).ToString &lt;&gt; &quot;&quot; OrElse CurrentRow(5).ToString &lt;&gt; &quot;&quot;))) AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;-&quot; AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;0&quot;) OrElse (evAdvice = &quot;No&quot; AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;-&quot; AndAlso CurrentRow(&quot;AMOUNT&quot;).ToString &lt;&gt; &quot;0&quot;)]" sap:VirtualizedContainerService.HintSize="800,1469" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1162,40 +1177,56 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,581.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,872" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="outlook_mailbox - Invoke Workflow File (outlook_mailbox.xaml)" sap:VirtualizedContainerService.HintSize="416,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="outlook_mailbox.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="endDate" xml:space="preserve">[DateTime.ParseExact(
+                  <If Condition="[evAdvice &lt;&gt; &quot;No&quot;]" DisplayName="Advice needed? then search the mailbox" sap:VirtualizedContainerService.HintSize="416,471" sap2010:WorkflowViewState.IdRef="If_AdviceNeeded">
+                    <If.Then>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="outlook_mailbox - Invoke Workflow File (outlook_mailbox.xaml)" sap:VirtualizedContainerService.HintSize="337,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="outlook_mailbox.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="endDate" xml:space="preserve">[DateTime.ParseExact(
     CurrentRow(8).ToString,
     "d-MMM-yy",
     System.Globalization.CultureInfo.InvariantCulture
 ).ToString("MM/dd/yyyy 23:59", System.Globalization.CultureInfo.InvariantCulture).ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="startDate" xml:space="preserve">[DateTime.ParseExact(
+                          <InArgument x:TypeArguments="x:String" x:Key="startDate" xml:space="preserve">[DateTime.ParseExact(
     CurrentRow(8).ToString,
     "d-MMM-yy",
     System.Globalization.CultureInfo.InvariantCulture
 ).ToString("MM/dd/yyyy 00:00", System.Globalization.CultureInfo.InvariantCulture).ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="referenceNumber">[CurrentRow(6).ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="lcNumber">[CurrentRow(5).ToString]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="bankName">[bankName]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="mailAccount" />
-                      <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="Pdf_Paths">[Pdf_Paths]</OutArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <Assign DisplayName="Advice_Search - mail search result" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_30">
+                          <InArgument x:TypeArguments="x:String" x:Key="referenceNumber">[CurrentRow(6).ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="lcNumber">[CurrentRow(5).ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="bankName">[bankName]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mailAccount" />
+                          <InArgument x:TypeArguments="x:Int32" x:Key="daysBefore">[CInt(RuleDict("Mail_Days_Before"))]</InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="daysAfter">[CInt(RuleDict("Mail_Days_After"))]</InArgument>
+                          <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="Pdf_Paths">[Pdf_Paths]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </If.Then>
+                    <If.Else>
+                      <Assign DisplayName="No advice needed: empty PDF list" sap:VirtualizedContainerService.HintSize="337,143" sap2010:WorkflowViewState.IdRef="Assign_NoAdvice">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)()]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Else>
+                  </If>
+                  <Assign DisplayName="Advice_Search - mail search result" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_30">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Object">[If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Mail not found", "Mail found")]</InArgument>
+                      <InArgument x:TypeArguments="x:Object">[If(evAdvice = "No", "Not needed", If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Mail not found", "Mail found"))]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_27" Message="[&quot;Advice Found : &quot; + If(Pdf_Paths Is Nothing, 0, Pdf_Paths.Count).ToString]">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_27" Message="[&quot;Advice Found : &quot; + If(Pdf_Paths Is Nothing, 0, Pdf_Paths.Count).ToString]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1206,13 +1237,13 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,461.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,458" sap2010:WorkflowViewState.IdRef="Sequence_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_5">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
                     </Assign.To>
@@ -1226,7 +1257,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;No Advice Query!&quot;]">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;No Advice Query!&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1238,7 +1269,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[Pdf_Paths Is Nothing AndAlso (String.IsNullOrWhiteSpace(bankName) OrElse bankName.Trim.ToUpper = &quot;SCB&quot;)]" sap:VirtualizedContainerService.HintSize="800,572.6666666666666" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[Pdf_Paths Is Nothing AndAlso (String.IsNullOrWhiteSpace(bankName) OrElse bankName.Trim.ToUpper = &quot;SCB&quot;)]" sap:VirtualizedContainerService.HintSize="800,572" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1325,9 +1356,9 @@
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="citiReport" />
                         </Sequence.Variables>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CITI_advice_reader - Invoke Workflow File (CITI_advice_reader.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="CITI_advice_reader.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="CITI_advice_reader - Invoke Workflow File (CITI_advice_reader.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="CITI_advice_reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-<InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Rules">[RuleDict]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Rules">[RuleDict]</InArgument>
                             <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[Pdf_Paths]</InArgument>
                             <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Row">[CurrentRow]</InArgument>
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Map">[CITI_Map]</InArgument>
@@ -1341,7 +1372,7 @@
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Object">[citiReport]</InArgument>
+                            <InArgument x:TypeArguments="x:Object">[If(evAdvice = "No", "No advice needed - type from the statement: " + evKey, citiReport)]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -1352,15 +1383,17 @@
                       <Sequence DisplayName="Read HSBC advice" sap2010:WorkflowViewState.IdRef="Sequence_101">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="hsbcReport" />
+                          <Variable x:TypeArguments="x:String" Name="hsbcLc" />
                         </Sequence.Variables>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="HSBC_advice_reader - Invoke Workflow File (HSBC_advice_reader.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="HSBC_advice_reader.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="HSBC_advice_reader - Invoke Workflow File (HSBC_advice_reader.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="HSBC_advice_reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-<InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Rules">[RuleDict]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Rules">[RuleDict]</InArgument>
                             <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[Pdf_Paths]</InArgument>
                             <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Row">[CurrentRow]</InArgument>
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Map">[HSBC_Map]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_Password">[citiPassword]</InArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="out_Report">[hsbcReport]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_LcNo">[hsbcLc]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="out_Route">[bankRoute]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
@@ -1369,7 +1402,15 @@
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Object">[hsbcReport]</InArgument>
+                            <InArgument x:TypeArguments="x:Object">[If(evAdvice = "No", "No advice needed - type from the statement: " + evKey, hsbcReport)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="LC number from the advice (Documentary Credit No.) wins over the statement reference" sap2010:WorkflowViewState.IdRef="Assign_HsbcLc">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[evLcNo]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[If(hsbcLc &lt;&gt; "", hsbcLc, evLcNo)]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -1392,9 +1433,9 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DB_advice_reader - Invoke Workflow File (DB_advice_reader.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DB_advice_reader.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="DB_advice_reader - Invoke Workflow File (DB_advice_reader.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DB_advice_reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-<InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Rules">[RuleDict]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Rules">[RuleDict]</InArgument>
                             <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[Pdf_Paths]</InArgument>
                             <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Row">[CurrentRow]</InArgument>
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Map">[DB_Map]</InArgument>
@@ -1407,7 +1448,7 @@
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Object">[dbReport]</InArgument>
+                            <InArgument x:TypeArguments="x:Object">[If(evAdvice = "No", "No advice needed - type from the statement: " + evKey, dbReport)]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -1422,7 +1463,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <If Condition="[bankRoute &lt;&gt; &quot;&quot; AndAlso Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Count &gt; 0]" DisplayName="Common EUR step (EUR_Action, then BBLCANDCMLC)" sap2010:WorkflowViewState.IdRef="If_46">
+                  <If Condition="[(bankRoute &lt;&gt; &quot;&quot; AndAlso Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Count &gt; 0) OrElse evLc = &quot;Must&quot;]" DisplayName="Common EUR step (EUR_Action, then BBLCANDCMLC)" sap2010:WorkflowViewState.IdRef="If_46">
                     <If.Then>
                       <Sequence DisplayName="EUR_Action then BBLCANDCMLC" sap2010:WorkflowViewState.IdRef="Sequence_109">
                         <Sequence.Variables>
@@ -1438,17 +1479,33 @@
                           <Variable x:TypeArguments="x:String" Name="bbItem" />
                           <Variable x:TypeArguments="x:String" Name="bbUnit" />
                         </Sequence.Variables>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EUR_Action - Invoke Workflow File (EUR_Action.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="EUR_Action.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[Pdf_Paths]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_BankName">[bankName]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_Password">[citiPassword]</InArgument>
-                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsEur">[isEur]</OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_EurAmount">[eurAmount]</OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_Message">[eurMessage]</OutArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                        <If Condition="[isEur]" DisplayName="Is the advice in EUR?" sap2010:WorkflowViewState.IdRef="If_45">
+                        <If Condition="[Pdf_Paths IsNot Nothing AndAlso Pdf_Paths.Count &gt; 0]" DisplayName="Advice downloaded? then check if it is EUR" sap2010:WorkflowViewState.IdRef="If_EurNeedsPdf">
+                          <If.Then>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="EUR_Action - Invoke Workflow File (EUR_Action.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="EUR_Action.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[Pdf_Paths]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_BankName">[bankName]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_Password">[citiPassword]</InArgument>
+                                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsEur">[isEur]</OutArgument>
+                                <OutArgument x:TypeArguments="x:String" x:Key="out_EurAmount">[eurAmount]</OutArgument>
+                                <OutArgument x:TypeArguments="x:String" x:Key="out_Message">[eurMessage]</OutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                          </If.Then>
+                        </If>
+                        <If Condition="[evLc = &quot;Must&quot; AndAlso evLcNo = &quot;&quot;]" DisplayName="LC needed but no LC number in the statement" sap2010:WorkflowViewState.IdRef="If_NoLcNumber">
+                          <If.Then>
+                            <Assign sap2010:WorkflowViewState.IdRef="Assign_NoLcNumber">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[CurrentRow("Report").ToString + " | LC number not found in the statement (reference " + CurrentRow("LC_NUMBER").ToString + ")"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                        </If>
+                        <If Condition="[evLcNo &lt;&gt; &quot;&quot; AndAlso ((isEur AndAlso evLc &lt;&gt; &quot;No&quot;) OrElse evLc = &quot;Must&quot;)]" DisplayName="Look up the LC in BBLC / CMLC? (LC Must, or EUR when the sheet says nothing)" sap2010:WorkflowViewState.IdRef="If_45">
                           <If.Then>
                             <Sequence DisplayName="EUR: find the beneficiary in BBLC / CMLC" sap2010:WorkflowViewState.IdRef="Sequence_108">
                               <Assign sap2010:WorkflowViewState.IdRef="Assign_41">
@@ -1456,12 +1513,12 @@
                                   <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">[CurrentRow("Report").ToString + " | " + eurMessage]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[If(isEur, CurrentRow("Report").ToString + " | " + eurMessage, CurrentRow("Report").ToString)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BBLCANDCMLC - Invoke Workflow File (BBLCANDCMLC.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="BBLCANDCMLC.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BBLCANDCMLC - Invoke Workflow File (BBLCANDCMLC.xaml)" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="BBLCANDCMLC.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="LC_NUMBER">[CurrentRow("LC_NUMBER").ToString+"-L"]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="LC_NUMBER">[evLcNo+RuleDict("LC_Lookup_Suffix")]</InArgument>
                                   <OutArgument x:TypeArguments="x:String" x:Key="Status">[bbStatus]</OutArgument>
                                   <InOutArgument x:TypeArguments="x:String" x:Key="BENEFICIARY_NAME">[BENEFICIARY_NAME]</InOutArgument>
                                   <InOutArgument x:TypeArguments="x:String" x:Key="CurrentRow__Report__">[bbReport]</InOutArgument>
@@ -1519,6 +1576,38 @@
                                         <InArgument x:TypeArguments="x:Object">[bbType+","+bbItem]</InArgument>
                                       </Assign.Value>
                                     </Assign>
+                                    <Assign DisplayName="Other bank: TYPE from the LC lookup" sap2010:WorkflowViewState.IdRef="Assign_OB_Type">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("TYPE")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Object">[If(CurrentRow("TYPE").ToString &lt;&gt; "", CurrentRow("TYPE").ToString, If(bbType = RuleDict("Foreign_Tag"), RuleDict("Foreign_Default_Type"), RuleDict("Local_Default_Type")))]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="Other bank: ACCOUNT from the LC lookup" sap2010:WorkflowViewState.IdRef="Assign_OB_Account">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("ACCOUNT")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Object">[If(CurrentRow("ACCOUNT").ToString.Contains(":"), If(bbType = RuleDict("Foreign_Tag"), CurrentRow("ACCOUNT").ToString.Split(":"c).First, CurrentRow("ACCOUNT").ToString.Split(":"c).Last), CurrentRow("ACCOUNT").ToString)]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="Other bank: DESCRIPTION from the LC lookup" sap2010:WorkflowViewState.IdRef="Assign_OB_Desc">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("DESCRIPTION")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Object">[RuleDict("Description_Pattern").Replace("{EXPENSE}", CurrentRow("EVENT").ToString).Replace("{LC}", evLcNo).Replace("{BATCH}", CurrentRow("BATCH_NAME").ToString).Replace("{SUPPLIER}", CurrentRow("SUPPLIER_SITE_NAME").ToString)]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="Other bank: LC_NUMBER is the real LC" sap2010:WorkflowViewState.IdRef="Assign_OB_LcNo">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("LC_NUMBER")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Object">[evLcNo]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
                                   </Sequence>
                                 </If.Else>
                               </If>
@@ -1531,7 +1620,14 @@
                   <If Condition="[bankRoute = &quot;TT&quot;]" DisplayName="Other bank: move the row to the TT sheet" sap2010:WorkflowViewState.IdRef="If_40">
                     <If.Then>
                       <Sequence DisplayName="To TT" sap2010:WorkflowViewState.IdRef="Sequence_102">
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, CurrentRow(&quot;EXPENSE_TYPE&quot;).ToString, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;ACCOUNT&quot;).ToString, CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, CurrentRow(&quot;EVENT&quot;).ToString}]" DataTable="[TT_Table]" DisplayName="Add Data Row TT (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, CurrentRow(&quot;EXPENSE_TYPE&quot;).ToString, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;Advice_Search&quot;).ToString, CurrentRow(&quot;ACCOUNT&quot;).ToString, CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, CurrentRow(&quot;EVENT&quot;).ToString}]" DataTable="[TT_Table]" DisplayName="Add Data Row TT (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If tt.Rows.Count = 0 Then Return&#xA;Dim t As System.Data.DataRow = tt.Rows(tt.Rows.Count - 1)&#xA;If row(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;CHARGE&quot;) Then&#xA;    t(&quot;COMMISION_TT&quot;) = row(&quot;AMOUNT&quot;).ToString&#xA;    t(&quot;COMMISION_TT_Expense_Type&quot;) = row(&quot;EXPENSE_TYPE&quot;).ToString&#xA;    t(&quot;COMMISION_TT_Acount&quot;) = row(&quot;ACCOUNT&quot;).ToString&#xA;Else&#xA;    t(&quot;TT_Amount&quot;) = row(&quot;AMOUNT&quot;).ToString&#xA;    t(&quot;TT_Amount_Expense_Type&quot;) = rules(&quot;TT_Expense_Type&quot;)&#xA;    t(&quot;TT_Account&quot;) = rules(&quot;TT_Account&quot;)&#xA;End If" DisplayName="HSBC TT row: principal fills the TT columns, the charge row fills the TT charge columns" Language="VBNet">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="tt">[TT_Table]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[CurrentRow]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
                         <Assign DisplayName="CASH row marker" sap2010:WorkflowViewState.IdRef="Assign_37">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
@@ -1576,7 +1672,7 @@
                   <If Condition="[bankRoute = &quot;MACHINERY&quot;]" DisplayName="Other bank: move the row to the UPAS Machinery sheet" sap2010:WorkflowViewState.IdRef="If_43">
                     <If.Then>
                       <Sequence DisplayName="To UPAS Machinery" sap2010:WorkflowViewState.IdRef="Sequence_105">
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, &quot;UPAS Machinery&quot;, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), RuleDict(&quot;Interest_Account&quot;) + &quot; &amp; &quot; + RuleDict(&quot;Asset_Account&quot;), &quot;Invoice already prepared&quot;), CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), &quot;INTEREST_DUE&quot;, &quot;Bill Amount&quot;)}]" DataTable="[Machinery_Table]" DisplayName="Add Data Row UPAS Machinery (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, &quot;UPAS Machinery&quot;, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;Advice_Search&quot;).ToString, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), RuleDict(&quot;Interest_Account&quot;) + &quot; &amp; &quot; + RuleDict(&quot;Asset_Account&quot;), &quot;Invoice already prepared&quot;), CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), &quot;INTEREST_DUE&quot;, &quot;Bill Amount&quot;)}]" DataTable="[Machinery_Table]" DisplayName="Add Data Row UPAS Machinery (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
                         <Assign DisplayName="CASH row marker" sap2010:WorkflowViewState.IdRef="Assign_40">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
@@ -1593,7 +1689,7 @@
                       <OutArgument x:TypeArguments="x:Object">[CurrentRow("Advice_Search")]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Object">[If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Mail not found", "Mail found")]</InArgument>
+                      <InArgument x:TypeArguments="x:Object">[If(evAdvice = "No", "Not needed", If(Pdf_Paths Is Nothing OrElse Pdf_Paths.Count = 0, "Mail not found", "Mail found"))]</InArgument>
                     </Assign.Value>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1602,6 +1698,13 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
+                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim rep As String = row(&quot;Report&quot;).ToString.Trim&#xA;Dim low As String = rep.ToLower&#xA;If rep = &quot;TT&quot; OrElse rep = &quot;GRN&quot; OrElse rep = &quot;EUR&quot; OrElse rep = &quot;MACHINERY&quot; Then Return&#xA;Dim cause As String = &quot;&quot;&#xA;If low.StartsWith(&quot;ignore&quot;) Then&#xA;    cause = &quot;Ignored&quot;&#xA;ElseIf low.Contains(&quot;lc number not found&quot;) Then&#xA;    cause = &quot;LC no. not found&quot;&#xA;ElseIf low.Contains(&quot;unit country origin or type not found&quot;) Then&#xA;    cause = &quot;Unit not found&quot;&#xA;ElseIf low.Contains(&quot;could not be read&quot;) OrElse low.Contains(&quot;no readable&quot;) Then&#xA;    cause = &quot;PDF unreadable&quot;&#xA;ElseIf low.Contains(&quot;not in the&quot;) AndAlso low.Contains(&quot;map&quot;) Then&#xA;    cause = &quot;Event not found&quot;&#xA;ElseIf evAdvice &lt;&gt; &quot;No&quot; AndAlso mailCount = 0 Then&#xA;    cause = &quot;Mail not found&quot;&#xA;ElseIf low.Contains(&quot;mismatch&quot;) OrElse low.Contains(&quot;not confirmed&quot;) OrElse low.Contains(&quot;differs&quot;) OrElse low.Contains(&quot;not match&quot;) Then&#xA;    cause = &quot;Amount check&quot;&#xA;End If&#xA;Dim srch As String = row(&quot;Advice_Search&quot;).ToString.Trim&#xA;If rep &lt;&gt; &quot;&quot; Then srch = (srch + &quot; | &quot; + rep).Trim(&quot; &quot;c, &quot;|&quot;c)&#xA;row(&quot;Advice_Search&quot;) = srch&#xA;row(&quot;Report&quot;) = cause" DisplayName="Report = short cause only (empty when ready); the detail moves to Advice_Search" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
+                    <ui:InvokeCode.Arguments>
+                      <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[CurrentRow]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="evAdvice">[evAdvice]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="mailCount">[If(Pdf_Paths Is Nothing, 0, Pdf_Paths.Count)]</InArgument>
+                    </ui:InvokeCode.Arguments>
+                  </ui:InvokeCode>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="444,175" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Bank &quot; + bankName.Trim.ToUpper + &quot;: &quot; + CurrentRow(&quot;Report&quot;).ToString]" />
                   <ui:Continue sap:VirtualizedContainerService.HintSize="444,48" sap2010:WorkflowViewState.IdRef="Continue_7" />
                 </Sequence>
@@ -1639,7 +1742,10 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[currentFilePath]" sap:VirtualizedContainerService.HintSize="450,84" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[pdfText]">
+                        <ui:ReadPDFText PreserveFormatting="{x:Null}" ResourceFile="{x:Null}" DisplayName="Read PDF Text" FileName="[currentFilePath]" sap:VirtualizedContainerService.HintSize="450,84" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[pdfText]">
+                          <ui:ReadPDFText.Item>
+                            <upap:ItemArgument x:TypeArguments="upr:IResource" ResourceFile="{x:Null}" FileName="[currentFilePath]" />
+                          </ui:ReadPDFText.Item>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1922,9 +2028,9 @@
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BBLCANDCMLC - Invoke Workflow File (BBLCANDCMLC.xaml)" sap:VirtualizedContainerService.HintSize="616,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="BBLCANDCMLC.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="BBLCANDCMLC - Invoke Workflow File (BBLCANDCMLC.xaml)" sap:VirtualizedContainerService.HintSize="616,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="BBLCANDCMLC.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="x:String" x:Key="LC_NUMBER">[CurrentRow("LC_NUMBER").ToString+"-L"]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="LC_NUMBER">[CurrentRow("LC_NUMBER").ToString+RuleDict("LC_Lookup_Suffix")]</InArgument>
                                               <OutArgument x:TypeArguments="x:String" x:Key="Status">[bbStatus]</OutArgument>
                                               <InOutArgument x:TypeArguments="x:String" x:Key="BENEFICIARY_NAME">[BENEFICIARY_NAME]</InOutArgument>
                                               <InOutArgument x:TypeArguments="x:String" x:Key="CurrentRow__Report__">[bbReport]</InOutArgument>
@@ -2057,7 +2163,7 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:MultipleAssign>
-                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EUR_Action - Invoke Workflow File (EUR_Action.xaml)" sap:VirtualizedContainerService.HintSize="656,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="EUR_Action.xaml">
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="EUR_Action - Invoke Workflow File (EUR_Action.xaml)" sap:VirtualizedContainerService.HintSize="656,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="EUR_Action.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
                                             <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PdfPaths">[New List(Of String)({currentFilePath})]</InArgument>
                                             <InArgument x:TypeArguments="x:String" x:Key="in_BankName">["SCB"]</InArgument>
@@ -2517,7 +2623,7 @@
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="res">[Transaction_Table]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[Transaction_Table]" DisplayName="Write Range CASH (the one output sheet)" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="[RuleDict(&quot;Output_Sheet&quot;)]" WorkbookPath="[statement_file]" />
+    <ui:WriteRange StartingCell="{x:Null}" DataTable="[Transaction_Table]" DisplayName="Write Range CASH (the one output sheet)" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="[RuleDict(&quot;Output_Sheet&quot;)]" WorkbookPath="[statement_file]" />
     <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim grp As New System.Collections.Generic.Dictionary(Of String, String)&#xA;For Each pr As String() In New String()() {New String() {&quot;Cols_EUR&quot;, &quot;Color_EUR&quot;}, New String() {&quot;Cols_TT&quot;, &quot;Color_TT&quot;}, New String() {&quot;Cols_GRN&quot;, &quot;Color_GRN&quot;}, New String() {&quot;Cols_Machinery&quot;, &quot;Color_Machinery&quot;}}&#xA;    For Each cn As String In rules(pr(0)).Split(&quot;|&quot;c)&#xA;        grp(cn) = pr(1)&#xA;    Next&#xA;Next&#xA;Dim toBgr As Func(Of String, Integer) = Function(h As String) Convert.ToInt32(h.Substring(0, 2), 16) + Convert.ToInt32(h.Substring(2, 2), 16) * 256 + Convert.ToInt32(h.Substring(4, 2), 16) * 65536&#xA;Dim getm As Func(Of Object, String, Object(), Object) = Function(o As Object, n As String, a As Object()) o.GetType().InvokeMember(n, System.Reflection.BindingFlags.GetProperty Or System.Reflection.BindingFlags.InvokeMethod, Nothing, o, a)&#xA;Dim setp As Action(Of Object, String, Object) = Sub(o As Object, n As String, v As Object) o.GetType().InvokeMember(n, System.Reflection.BindingFlags.SetProperty, Nothing, o, New Object() {v})&#xA;Dim none As Object() = New Object() {}&#xA;Dim xl As Object = Activator.CreateInstance(Type.GetTypeFromProgID(&quot;Excel.Application&quot;))&#xA;setp(xl, &quot;Visible&quot;, False)&#xA;setp(xl, &quot;DisplayAlerts&quot;, False)&#xA;Dim wbk As Object = Nothing&#xA;Try&#xA;    wbk = getm(getm(xl, &quot;Workbooks&quot;, none), &quot;Open&quot;, New Object() {System.IO.Path.GetFullPath(path)})&#xA;    Dim sh As Object = getm(wbk, &quot;Worksheets&quot;, New Object() {rules(&quot;Output_Sheet&quot;)})&#xA;    Dim colCount As Integer = Convert.ToInt32(getm(getm(sh, &quot;Columns&quot;, none), &quot;Count&quot;, none))&#xA;    Dim lastCell As Object = getm(getm(sh, &quot;Cells&quot;, New Object() {1, colCount}), &quot;End&quot;, New Object() {-4159})&#xA;    Dim lastCol As Integer = Convert.ToInt32(getm(lastCell, &quot;Column&quot;, none))&#xA;    For c As Integer = 1 To lastCol&#xA;        Dim cel As Object = getm(sh, &quot;Cells&quot;, New Object() {1, c})&#xA;        Dim nm As String = Convert.ToString(getm(cel, &quot;Value2&quot;, none))&#xA;        Dim colorKey As String = &quot;Color_Common&quot;&#xA;        If grp.ContainsKey(nm) Then colorKey = grp(nm)&#xA;        Dim rgbVal As Integer = toBgr(rules(colorKey))&#xA;        setp(getm(cel, &quot;Interior&quot;, none), &quot;Color&quot;, rgbVal)&#xA;        Dim fnt As Object = getm(cel, &quot;Font&quot;, none)&#xA;        setp(fnt, &quot;Color&quot;, 16777215)&#xA;        setp(fnt, &quot;Bold&quot;, True)&#xA;    Next&#xA;    getm(wbk, &quot;Save&quot;, none)&#xA;Finally&#xA;    If wbk IsNot Nothing Then getm(wbk, &quot;Close&quot;, New Object() {False})&#xA;    getm(xl, &quot;Quit&quot;, none)&#xA;End Try" DisplayName="Colour the CASH header by part (common blue, EUR green, TT orange, GRN purple, Machinery gold)" sap2010:WorkflowViewState.IdRef="InvokeCode_HeaderColors">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>

@@ -6,6 +6,8 @@
     <x:Property Name="lcNumber" Type="InArgument(x:String)" />
     <x:Property Name="bankName" Type="InArgument(x:String)" />
     <x:Property Name="mailAccount" Type="InArgument(x:String)" />
+    <x:Property Name="daysBefore" Type="InArgument(x:Int32)" />
+    <x:Property Name="daysAfter" Type="InArgument(x:Int32)" />
     <x:Property Name="Pdf_Paths" Type="OutArgument(scg:List(x:String))" />
   </x:Members>
   <VisualBasic.Settings>
@@ -256,7 +258,7 @@
             <OutArgument x:TypeArguments="x:String">[startWin]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(startDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(-3).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(startDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(-daysBefore).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
           </Assign.Value>
         </Assign>
         <Assign DisplayName="Window end (1 day(s) after)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_8">
@@ -264,7 +266,7 @@
             <OutArgument x:TypeArguments="x:String">[endWin]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(endDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(endDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(daysAfter).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
           </Assign.Value>
         </Assign>
         <Assign DisplayName="Date clause" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_9">
@@ -295,7 +297,7 @@
             <OutArgument x:TypeArguments="x:String">[startWin]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(startDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(-3).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(startDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(-daysBefore).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
           </Assign.Value>
         </Assign>
         <Assign DisplayName="Window end (3 day(s) after)" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_12">
@@ -303,7 +305,7 @@
             <OutArgument x:TypeArguments="x:String">[endWin]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(endDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(3).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(endDate.Trim, "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture).AddDays(daysAfter).ToString("MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
           </Assign.Value>
         </Assign>
         <Assign DisplayName="Date clause" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_13">
