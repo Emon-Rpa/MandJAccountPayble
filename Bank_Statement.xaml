@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Bank_Statement" this:Bank_Statement.statement_path="C:\Users\Emon\Documents\UiPath\Live\AccountsPayableProd\statements\HSBC.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Bank_Statement" this:Bank_Statement.statement_path="C:\Users\Emon\Documents\UiPath\Live\AccountsPayableProd\statements\DB.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="statement_path" Type="InArgument(x:String)" />
     <x:Property Name="account_number" Type="InArgument(x:String)" />
@@ -131,9 +131,11 @@
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Bank_Statement" sap:VirtualizedContainerService.HintSize="1398,3314" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Bank_Statement" sap:VirtualizedContainerService.HintSize="1568,3314" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="datatable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="unitTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dbRules" />
       <Variable x:TypeArguments="sd:DataTable" Name="DATA_PREPARATION" />
       <Variable x:TypeArguments="x:Int32" Name="sheet_row_no" />
       <Variable x:TypeArguments="x:String" Name="sheetname" />
@@ -358,6 +360,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="452,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[unitTable]" DisplayName="Read the CITI account to unit list (CITI_Units sheet)" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="CITI_Units" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
         <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[sheet_row_no]" DataTable="[datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="452,313" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
@@ -477,7 +480,7 @@
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;, Account_Number, Currency, Invoice_Amount, &quot;&quot;, LC_NO, Bank_Dc_No, &quot;&quot;, Invoice_Date, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Invoice_Number, Report_Text, If(Report_Text = &quot;&quot;, &quot;&quot;, &quot;Not searchable&quot;), &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Description}]" DataTable="[DATA_PREPARATION]" DisplayName="Add Data Row" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{If(unitTable.Select(&quot;Account_Number = '&quot; + Account_Number.Trim + &quot;'&quot;).Length &gt; 0, unitTable.Select(&quot;Account_Number = '&quot; + Account_Number.Trim + &quot;'&quot;)(0)(&quot;Unit&quot;).ToString, &quot;&quot;), Account_Number, Currency, Invoice_Amount, &quot;&quot;, LC_NO, Bank_Dc_No, &quot;&quot;, Invoice_Date, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Invoice_Number, Report_Text, If(Report_Text = &quot;&quot;, &quot;&quot;, &quot;Not searchable&quot;), &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, Description}]" DataTable="[DATA_PREPARATION]" DisplayName="Add Data Row" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
               </Sequence>
             </ActivityAction>
           </ui:ForEachRow.Body>
@@ -623,6 +626,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:ReadRange AddHeaders="True" DataTable="[datatable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="514,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="A2" SheetName="[sheetname]" WorkbookPath="[statement_path]" />
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dbRules]" DisplayName="Read the Dhaka Bank rules (DB_Rules sheet)" SheetName="DB_Rules" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
         <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;FIXED_DATE&quot;) Then dt.Columns.Add(&quot;FIXED_DATE&quot;, GetType(String))&#xA;Dim inv As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture&#xA;Dim limit As Date = Date.MaxValue&#xA;For i As Integer = dt.Rows.Count - 1 To 0 Step -1&#xA;    Dim r As System.Data.DataRow = dt.Rows(i)&#xA;    Dim rawDate As Object = r(&quot;VALUE DATE&quot;)&#xA;    Dim txt As String = Convert.ToString(rawDate, inv)&#xA;    If rawDate Is Nothing OrElse rawDate Is DBNull.Value OrElse txt.Trim() = &quot;&quot; Then&#xA;        r(&quot;FIXED_DATE&quot;) = &quot;&quot;&#xA;    Else&#xA;        Dim c1 As Date = Date.MinValue&#xA;        Dim c2 As Date = Date.MinValue&#xA;        Dim ok As Boolean = True&#xA;        If TypeOf rawDate Is Date Then&#xA;            c1 = CDate(rawDate)&#xA;            If c1.Day &lt;= 12 AndAlso c1.Day &lt;&gt; c1.Month Then c2 = New Date(c1.Year, c1.Day, c1.Month)&#xA;        Else&#xA;            Dim d As Date&#xA;            If Date.TryParseExact(txt.Trim(), New String() {&quot;dd/MM/yyyy&quot;, &quot;dd-MM-yyyy&quot;, &quot;d/M/yyyy&quot;, &quot;d-M-yyyy&quot;}, inv, System.Globalization.DateTimeStyles.None, d) Then&#xA;                c1 = d&#xA;            Else&#xA;                ok = False&#xA;            End If&#xA;        End If&#xA;        If ok Then&#xA;            Dim chosen As Date = c1&#xA;            If c2 &lt;&gt; Date.MinValue AndAlso limit &lt;&gt; Date.MaxValue Then&#xA;                If c2 &lt;= limit AndAlso c1 &lt;= limit Then&#xA;                    If c2 &gt; c1 Then chosen = c2&#xA;                ElseIf c2 &lt;= limit Then&#xA;                    chosen = c2&#xA;                End If&#xA;            End If&#xA;            r(&quot;FIXED_DATE&quot;) = chosen.ToString(&quot;dd-MM-yyyy&quot;, inv)&#xA;            limit = chosen&#xA;            If Convert.ToString(r(&quot;DESCRIPTION&quot;), inv).TrimStart().StartsWith(&quot;B/F&quot;) Then limit = Date.MaxValue&#xA;        Else&#xA;            r(&quot;FIXED_DATE&quot;) = &quot;&quot;&#xA;        End If&#xA;    End If&#xA;Next" DisplayName="Fix swapped day/month dates (block order)" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
           <ui:InvokeCode.Arguments>
             <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[datatable]</InOutArgument>
@@ -710,7 +714,7 @@
                           <OutArgument x:TypeArguments="x:String">[LC_NO]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, "^(?=[A-Za-z]*\d)[A-Za-z0-9]{8,}(?=\.?\s+\S)").Value]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, dbRules.Select("Key = 'LC_Statement_Regex'")(0)("Value").ToString), System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, dbRules.Select("Key = 'LC_Statement_Regex'")(0)("Value").ToString).Groups(1).Value, System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, "^(?=[A-Za-z]*\d)[A-Za-z0-9]{8,}(?=\.?\s+\S)").Value)]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
@@ -718,7 +722,7 @@
                           <OutArgument x:TypeArguments="x:String">[Bank_Dc_No]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, dbRules.Select("Key = 'LC_Statement_Regex'")(0)("Value").ToString) AndAlso System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, dbRules.Select("Key = 'LC_Statement_Regex'")(0)("Value").ToString).Value &lt;&gt; System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, dbRules.Select("Key = 'LC_Statement_Regex'")(0)("Value").ToString).Groups(1).Value, System.Text.RegularExpressions.Regex.Match(Convert.ToString(CurrentRow("DESCRIPTION"), System.Globalization.CultureInfo.InvariantCulture).Trim, dbRules.Select("Key = 'LC_Statement_Regex'")(0)("Value").ToString).Value, "")]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">

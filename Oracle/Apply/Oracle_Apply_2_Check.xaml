@@ -1,0 +1,138 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_2_Check" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Request_ID" Type="InArgument(x:String)" />
+    <x:Property Name="Is_Completed" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Phase" Type="OutArgument(x:String)" />
+    <x:Property Name="Status" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Oracle_Apply_2_Check_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Security</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle Apply 2 Check" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="SOP_Window_Open" />
+      <Variable x:TypeArguments="x:Boolean" Name="Find_Open" />
+      <Variable x:TypeArguments="x:Boolean" Name="Requests_Open" />
+      <Variable x:TypeArguments="x:String" Name="Row_ID" />
+      <Variable x:TypeArguments="x:Int32" Name="Tries" />
+      <Variable x:TypeArguments="x:Boolean" Name="Dir_Ok" />
+    </Sequence.Variables>
+<ui:UiElementExists DisplayName="Element Exists 'Oracle Applications - SOP'" Exists="[SOP_Window_Open]" sap:VirtualizedContainerService.HintSize="450,119" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b3c1d44-5e7a-4f21-8d90-1a2b3c4d5e66" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;" TimeoutMS="10000">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[Not SOP_Window_Open]" DisplayName="If SOP window is not open" sap:VirtualizedContainerService.HintSize="450,276" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Throw DisplayName="Throw SOP window not open" Exception="[New System.Exception(&quot;Oracle Applications - SOP window is not open&quot;)]" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="Throw_1" />
+      </If.Then>
+    </If>
+<TryCatch DisplayName="Find Requests dialog visible?" sap2010:WorkflowViewState.IdRef="TryCatch_111"><TryCatch.Try><Sequence DisplayName="Try" sap2010:WorkflowViewState.IdRef="Sequence_112"><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Specific Requests'" sap2010:WorkflowViewState.IdRef="Click_109" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8447e89f-4a78-44e6-9132-f878c4bdb7f1" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Find Requests' role='internal frame' /&gt;&lt;java name='What type of Requests do you want to find? Specific Requests alt S' role='radio button' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">4000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click></Sequence></TryCatch.Try><TryCatch.Catches><Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch_113"><ActivityAction x:TypeArguments="s:Exception"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="s:Exception" Name="exception" /></ActivityAction.Argument><Sequence DisplayName="Catch" sap2010:WorkflowViewState.IdRef="Sequence_114"><TryCatch DisplayName="Open Find Requests from list or View menu" sap2010:WorkflowViewState.IdRef="TryCatch_105"><TryCatch.Try><Sequence DisplayName="Try" sap2010:WorkflowViewState.IdRef="Sequence_106"><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Find Requests' button" sap2010:WorkflowViewState.IdRef="Click_103" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dda04979-1123-4655-9521-3ef6c02b5b9c" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Requests' role='internal frame' /&gt;&lt;java name='Find Requests alt i' role='push button' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">4000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click><Delay Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_104" /></Sequence></TryCatch.Try><TryCatch.Catches><Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch_107"><ActivityAction x:TypeArguments="s:Exception"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="s:Exception" Name="exception" /></ActivityAction.Argument><Sequence DisplayName="Catch" sap2010:WorkflowViewState.IdRef="Sequence_108"><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'View menu'" sap2010:WorkflowViewState.IdRef="Click_100" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b7bf9dee-e839-4217-9a16-cbcd3b1499b6" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='View ALT V' role='menu' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Requests'" sap2010:WorkflowViewState.IdRef="Click_101" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="38631ee6-8d3a-4564-8e98-f67aef6c2c1d" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='View ALT V' role='menu' /&gt;&lt;java name='Requests mnemonic R' role='menu item' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click><Delay Duration="00:00:02" sap2010:WorkflowViewState.IdRef="Delay_102" /></Sequence></ActivityAction></Catch></TryCatch.Catches></TryCatch><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Specific Requests'" sap2010:WorkflowViewState.IdRef="Click_110" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fc9b5e9d-18ff-4712-bf09-512179c43361" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Find Requests' role='internal frame' /&gt;&lt;java name='What type of Requests do you want to find? Specific Requests alt S' role='radio button' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">4000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click></Sequence></ActivityAction></Catch></TryCatch.Catches></TryCatch><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Request ID field'" sap2010:WorkflowViewState.IdRef="Click_115" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="daf47442-fed6-4c83-9a4c-95de5abcd0c4" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Find Requests' role='internal frame' /&gt;&lt;java name='Request ID' role='text' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click><ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Request ID'" sap2010:WorkflowViewState.IdRef="TypeInto_116" Text="[Request_ID]"><ui:TypeInto.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dcb36f39-9567-428d-a2ff-c929b7812d5a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Find Requests' role='internal frame' /&gt;&lt;java name='Request ID' role='text' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:TypeInto.Target></ui:TypeInto><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Find'" sap2010:WorkflowViewState.IdRef="Click_117" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="32c7a1d5-7c76-4000-8296-645bc232642a" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Find Requests' role='internal frame' /&gt;&lt;java name='Find alt i' role='push button' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:Click.Target></ui:Click><Delay Duration="00:00:04" sap2010:WorkflowViewState.IdRef="Delay_118" /><TryCatch DisplayName="Read request row (empty list = not found)" sap2010:WorkflowViewState.IdRef="TryCatch_125"><TryCatch.Try><Sequence DisplayName="Read" sap2010:WorkflowViewState.IdRef="Sequence_126"><ui:GetFullText DisplayName="Get Text Request ID row" sap2010:WorkflowViewState.IdRef="GetFullText_119"><ui:GetFullText.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="40214bef-7bbd-4b79-a69a-8423c9ae82dd" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Requests' role='internal frame' /&gt;&lt;java name='Request ID' role='text' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:GetFullText.Target><ui:GetFullText.Text><OutArgument x:TypeArguments="x:String">[Row_ID]</OutArgument></ui:GetFullText.Text></ui:GetFullText><ui:GetFullText DisplayName="Get Text Phase" sap2010:WorkflowViewState.IdRef="GetFullText_120"><ui:GetFullText.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7131370e-3ca6-4ba9-81b1-145b281933fa" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Requests' role='internal frame' /&gt;&lt;java name='Phase' role='text' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:GetFullText.Target><ui:GetFullText.Text><OutArgument x:TypeArguments="x:String">[Phase]</OutArgument></ui:GetFullText.Text></ui:GetFullText><ui:GetFullText DisplayName="Get Text Status" sap2010:WorkflowViewState.IdRef="GetFullText_121"><ui:GetFullText.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fec43312-bcd2-44dc-9d53-65329d7f9506" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications - SOP' /&gt;&lt;java name='Requests' role='internal frame' /&gt;&lt;java name='Status' role='text' /&gt;"><ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">15000</InArgument></ui:Target.TimeoutMS><ui:Target.WaitForReady><InArgument x:TypeArguments="ui:WaitForReady" /></ui:Target.WaitForReady></ui:Target></ui:GetFullText.Target><ui:GetFullText.Text><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></ui:GetFullText.Text></ui:GetFullText></Sequence></TryCatch.Try><TryCatch.Catches><Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch_127"><ActivityAction x:TypeArguments="s:Exception"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="s:Exception" Name="exception" /></ActivityAction.Argument><Sequence DisplayName="Row not found" sap2010:WorkflowViewState.IdRef="Sequence_128"><Assign DisplayName="Row_ID empty" sap2010:WorkflowViewState.IdRef="Assign_122"><Assign.To><OutArgument x:TypeArguments="x:String">[Row_ID]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[&quot;&quot;]</InArgument></Assign.Value></Assign><Assign DisplayName="Phase empty" sap2010:WorkflowViewState.IdRef="Assign_123"><Assign.To><OutArgument x:TypeArguments="x:String">[Phase]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[&quot;&quot;]</InArgument></Assign.Value></Assign><Assign DisplayName="Status empty" sap2010:WorkflowViewState.IdRef="Assign_124"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[&quot;&quot;]</InArgument></Assign.Value></Assign></Sequence></ActivityAction></Catch></TryCatch.Catches></TryCatch><Assign DisplayName="Is_Completed" sap2010:WorkflowViewState.IdRef="Assign_129"><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Is_Completed]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[Row_ID.Trim() = Request_ID.Trim() AndAlso Phase.Trim() = &quot;Completed&quot;]</InArgument></Assign.Value></Assign><ui:LogMessage DisplayName="Log phase" Level="Info" Message="[&quot;Request &quot; + Request_ID + &quot; (row &quot; + Row_ID + &quot;) phase: &quot; + Phase + &quot; status: &quot; + Status + &quot; completed: &quot; + Is_Completed.ToString()]" sap2010:WorkflowViewState.IdRef="LogMessage_130" />
+  </Sequence>
+</Activity>

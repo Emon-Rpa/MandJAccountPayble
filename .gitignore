@@ -36,3 +36,8 @@ Account Payable.pdf
 # Office lock files and editor temp copies
 Excel/~$*
 ~*.xaml
+
+# Task capture and Postman
+tASKcAPTURE/
+postman/
+.postman/

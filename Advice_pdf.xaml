@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Advice_pdf" this:Advice_pdf.Trading_Partner="Standard Chartered Bank-BP" this:Advice_pdf.filepath="\pdf\cor_bank_int.pdf" this:Advice_pdf.benifiecery="Unknown" this:Advice_pdf.ExpensesType="Standard" this:Advice_pdf.statement_file="statements\HSBC.xlsx" this:Advice_pdf.bankName="HSBC" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Advice_pdf" this:Advice_pdf.Trading_Partner="Standard Chartered Bank-BP" this:Advice_pdf.filepath="\pdf\cor_bank_int.pdf" this:Advice_pdf.benifiecery="Unknown" this:Advice_pdf.ExpensesType="Standard" this:Advice_pdf.statement_file="statements\DB.xlsx" this:Advice_pdf.bankName="DB" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Trading_Partner" Type="InArgument(x:String)" />
     <x:Property Name="filepath" Type="InArgument(x:String)" />
@@ -149,7 +149,7 @@
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Advice_pdf" sap:VirtualizedContainerService.HintSize="1398,15236" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Advice_pdf" sap:VirtualizedContainerService.HintSize="1568,15449" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="pdfText" />
       <Variable x:TypeArguments="sd:DataTable" Name="Event_Map" />
@@ -157,6 +157,12 @@
       <Variable x:TypeArguments="x:String" Name="evKey" />
       <Variable x:TypeArguments="x:String" Name="evAdvice" />
       <Variable x:TypeArguments="x:String" Name="evLc" />
+      <Variable x:TypeArguments="x:String" Name="citiPrin" />
+      <Variable x:TypeArguments="x:String" Name="citiInt" />
+      <Variable x:TypeArguments="x:String" Name="citiExc" />
+      <Variable x:TypeArguments="x:String" Name="citiBillCcy" />
+      <Variable x:TypeArguments="x:String" Name="citiBillAmt" />
+      <Variable x:TypeArguments="x:String" Name="citiLc" />
       <Variable x:TypeArguments="x:String" Name="evLcNo" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="RuleDict" />
       <Variable x:TypeArguments="sd:DataTable" Name="CITI_Map" />
@@ -1021,7 +1027,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim folderPath = System.IO.Path.Combine(Environment.CurrentDirectory, &quot;pdf&quot;)&#xA;&#xA;If System.IO.Directory.Exists(folderPath) Then&#xA;    For Each f In System.IO.Directory.GetFiles(folderPath, &quot;*&quot;, System.IO.SearchOption.AllDirectories)&#xA;        Try&#xA;            System.IO.File.Delete(f)&#xA;        Catch ex As System.IO.IOException&#xA;            ' File is open elsewhere (viewer, preview pane): leave it, do not stop the run&#xA;        Catch ex As System.UnauthorizedAccessException&#xA;        End Try&#xA;    Next&#xA;End If" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim folderPath = System.IO.Path.Combine(Environment.CurrentDirectory, &quot;pdf&quot;)&#xA;&#xA;If System.IO.Directory.Exists(folderPath) Then&#xA;    For Each f In System.IO.Directory.GetFiles(folderPath, &quot;*&quot;, System.IO.SearchOption.AllDirectories)&#xA;        Try&#xA;            System.IO.File.Delete(f)&#xA;        Catch ex As System.IO.IOException&#xA;            ' File is open elsewhere (viewer, preview pane): leave it, do not stop the run&#xA;        Catch ex As System.UnauthorizedAccessException&#xA;        End Try&#xA;    Next&#xA;End If" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_8">
       <ui:InvokeCode.Arguments>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeCode.Arguments>
@@ -1053,6 +1059,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not dt.Columns.Contains(&quot;EXCISE_AMOUNT&quot;) Then dt.Columns.Add(&quot;EXCISE_AMOUNT&quot;, GetType(String))" DisplayName="Add EXCISE_AMOUNT to the GRN table (CITI output; dropped for other banks)" sap2010:WorkflowViewState.IdRef="InvokeCode_9">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[GRN_Table]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
     <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim t As System.Data.DataTable = src.Clone()&#xA;For Each n As String In New String() {&quot;Asset_Date&quot;,&quot;Loan_Date&quot;,&quot;Tenor_Days&quot;,&quot;Tenor_Date&quot;,&quot;Asset_Value&quot;,&quot;Interest_Value&quot;,&quot;Asset_Account&quot;,&quot;Interest_Account&quot;}&#xA;    t.Columns.Add(n, GetType(String))&#xA;Next&#xA;dt = t" DisplayName="Build EUR table (GRN columns plus asset/interest columns)" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_EUR_Build">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="src">[GRN_Table]</InArgument>
@@ -1065,6 +1076,13 @@
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[Machinery_Table]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each d As System.Data.DataTable In New System.Data.DataTable() {tt, mach}&#xA;    For Each n As String In New String() {&quot;INT_AMOUNT&quot;, &quot;EXCISE_AMOUNT&quot;}&#xA;        If Not d.Columns.Contains(n) Then d.Columns.Add(n, GetType(String))&#xA;    Next&#xA;Next&#xA;For Each d As System.Data.DataTable In New System.Data.DataTable() {tt, grn}&#xA;    For Each n As String In New String() {&quot;EUR_Amount&quot;, &quot;EUR_Amount_Expense_Type&quot;, &quot;EUR_Account&quot;}&#xA;        If Not d.Columns.Contains(n) Then d.Columns.Add(n, GetType(String))&#xA;    Next&#xA;Next" DisplayName="Add INT_AMOUNT, EXCISE_AMOUNT (TT, Machinery) and EUR columns (TT, GRN) for CITI" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="tt">[TT_Table]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="grn">[GRN_Table]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="mach">[Machinery_Table]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[Rules_Table]" DisplayName="Read the bank rules sheet (SCB_Rules, CITI_Rules, HSBC_Rules or DB_Rules)" sap:VirtualizedContainerService.HintSize="836,227" sap2010:WorkflowViewState.IdRef="ReadRange_Rules" SheetName="[If(String.IsNullOrWhiteSpace(bankName), &quot;SCB&quot;, bankName.Trim.ToUpper) + &quot;_Rules&quot;]" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
     <ui:InvokeCode ContinueOnError="{x:Null}" Code="d = New System.Collections.Generic.Dictionary(Of String, String)&#xA;For Each r As System.Data.DataRow In tbl.Rows&#xA;    Dim k As String = r(&quot;Key&quot;).ToString.Trim&#xA;    If k &lt;&gt; &quot;&quot; Then d(k) = r(&quot;Value&quot;).ToString&#xA;Next" DisplayName="Build RuleDict (Key to Value) from the rules sheet" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_RuleDict">
       <ui:InvokeCode.Arguments>
@@ -1073,17 +1091,17 @@
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[Event_Map]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="836,227" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[RuleDict(&quot;Event_Sheet&quot;)]" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
-    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;CITI&quot;]" DisplayName="CITI: read the CITI expense type map" sap:VirtualizedContainerService.HintSize="836,446" sap2010:WorkflowViewState.IdRef="If_35">
+    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;CITI&quot;]" DisplayName="CITI: read the CITI expense type map" sap:VirtualizedContainerService.HintSize="836,376" sap2010:WorkflowViewState.IdRef="If_35">
       <If.Then>
         <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[CITI_Map]" DisplayName="Read CITI map" sap:VirtualizedContainerService.HintSize="450,195" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="CITI" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;HSBC&quot;]" DisplayName="HSBC: read the HSBC expense type map" sap:VirtualizedContainerService.HintSize="836,446" sap2010:WorkflowViewState.IdRef="If_36">
+    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;HSBC&quot;]" DisplayName="HSBC: read the HSBC expense type map" sap:VirtualizedContainerService.HintSize="836,376" sap2010:WorkflowViewState.IdRef="If_36">
       <If.Then>
         <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[HSBC_Map]" DisplayName="Read HSBC map" sap:VirtualizedContainerService.HintSize="450,195" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="HSBC" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
       </If.Then>
     </If>
-    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;DB&quot;]" DisplayName="DB: read the DB expense type map" sap:VirtualizedContainerService.HintSize="836,446" sap2010:WorkflowViewState.IdRef="If_37">
+    <If Condition="[Not String.IsNullOrWhiteSpace(bankName) AndAlso bankName.Trim.ToUpper = &quot;DB&quot;]" DisplayName="DB: read the DB expense type map" sap:VirtualizedContainerService.HintSize="836,376" sap2010:WorkflowViewState.IdRef="If_37">
       <If.Then>
         <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DB_Map]" DisplayName="Read DB map" sap:VirtualizedContainerService.HintSize="450,195" sap2010:WorkflowViewState.IdRef="ReadRange_6" SheetName="DB" WorkbookPath="Excel\Cash_Management_Entry.xlsx" />
       </If.Then>
@@ -1100,7 +1118,7 @@
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[Data_Processing]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each t As System.Data.DataTable In New System.Data.DataTable() {cash, tt, grn, eur, mach}&#xA;    If t Is Nothing Then Continue For&#xA;    For Each n As String In (rules(&quot;Cols_EUR&quot;) + &quot;|&quot; + rules(&quot;Cols_TT&quot;)).Split(&quot;|&quot;c)&#xA;        If Not t.Columns.Contains(n) Then t.Columns.Add(n, GetType(String))&#xA;    Next&#xA;Next" DisplayName="Add EUR / TT amount and account columns (after AMOUNT in the output)" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each t As System.Data.DataTable In New System.Data.DataTable() {cash, tt, grn, eur, mach}&#xA;    If t Is Nothing Then Continue For&#xA;    For Each n As String In (rules(&quot;Cols_EUR&quot;) + &quot;|&quot; + rules(&quot;Cols_TT&quot;)).Split(&quot;|&quot;c)&#xA;        If n.Trim &lt;&gt; &quot;&quot; AndAlso Not t.Columns.Contains(n) Then t.Columns.Add(n, GetType(String))&#xA;    Next&#xA;Next" DisplayName="Add EUR / TT amount and account columns (after AMOUNT in the output)" sap:VirtualizedContainerService.HintSize="836,403" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="cash">[Data_Processing]</InArgument>
@@ -1199,6 +1217,9 @@
 ).ToString("MM/dd/yyyy 00:00", System.Globalization.CultureInfo.InvariantCulture).ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="referenceNumber">[CurrentRow(6).ToString]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="lcNumber">[CurrentRow(5).ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="amountText">[CurrentRow("AMOUNT").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="eventText">[CurrentRow("Statement_Descriptions").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="debitLineRegex">[If(RuleDict.ContainsKey("Adv_Debit_Line_Regex"), RuleDict("Adv_Debit_Line_Regex"), "")]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="bankName">[bankName]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="mailAccount" />
                           <InArgument x:TypeArguments="x:Int32" x:Key="daysBefore">[CInt(RuleDict("Mail_Days_Before"))]</InArgument>
@@ -1350,6 +1371,54 @@
                       <InArgument x:TypeArguments="x:String">[""]</InArgument>
                     </Assign.Value>
                   </Assign>
+                  <Assign DisplayName="Reset citiPrin" sap2010:WorkflowViewState.IdRef="Assign_64">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[citiPrin]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Reset citiInt" sap2010:WorkflowViewState.IdRef="Assign_65">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[citiInt]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Reset citiExc" sap2010:WorkflowViewState.IdRef="Assign_66">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[citiExc]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Reset citiBillCcy" sap2010:WorkflowViewState.IdRef="Assign_67">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[citiBillCcy]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Reset citiBillAmt" sap2010:WorkflowViewState.IdRef="Assign_68">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[citiBillAmt]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Reset citiLc" sap2010:WorkflowViewState.IdRef="Assign_69">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[citiLc]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                    </Assign.Value>
+                  </Assign>
                   <If Condition="[bankName.Trim.ToUpper = &quot;CITI&quot;]" DisplayName="CITI: read the advice PDF" sap2010:WorkflowViewState.IdRef="If_38">
                     <If.Then>
                       <Sequence DisplayName="Read CITI advice" sap2010:WorkflowViewState.IdRef="Sequence_100">
@@ -1364,6 +1433,12 @@
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Map">[CITI_Map]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_Password">[citiPassword]</InArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="out_Report">[citiReport]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_LcNo">[citiLc]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_Principal">[citiPrin]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_Interest">[citiInt]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_Excise">[citiExc]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_BillCcy">[citiBillCcy]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_BillAmt">[citiBillAmt]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="out_Route">[bankRoute]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
@@ -1375,6 +1450,22 @@
                             <InArgument x:TypeArguments="x:Object">[If(evAdvice = "No", "No advice needed - type from the statement: " + evKey, citiReport)]</InArgument>
                           </Assign.Value>
                         </Assign>
+                        <Assign DisplayName="CITI: LC number printed on the advice wins" sap2010:WorkflowViewState.IdRef="Assign_70">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[evLcNo]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[If(String.IsNullOrEmpty(citiLc), evLcNo, citiLc)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If evLc &lt;&gt; &quot;&quot; Then Return&#xA;Dim ev As String = row(&quot;EVENT&quot;).ToString.Trim.ToUpper&#xA;If ev = &quot;&quot; OrElse Not map.Columns.Contains(col) Then Return&#xA;Dim ccy As String = row(&quot;CURRENCY&quot;).ToString.Trim.ToUpper&#xA;For Each mr As System.Data.DataRow In map.Rows&#xA;    If mr(0).ToString.Trim.ToUpper &lt;&gt; ev Then Continue For&#xA;    For Each tk As String In mr(col).ToString.Trim.Split(&quot;|&quot;c)&#xA;        Dim p() As String = tk.Split(&quot;=&quot;c)&#xA;        If p.Length = 1 Then&#xA;            evLc = p(0).Trim&#xA;            Exit For&#xA;        ElseIf p(0).Trim.ToUpper = ccy Then&#xA;            evLc = p(1).Trim&#xA;            Exit For&#xA;        End If&#xA;    Next&#xA;    Exit For&#xA;Next" DisplayName="CITI: LC needed? take it from the event the advice decided" sap2010:WorkflowViewState.IdRef="InvokeCode_10">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[CurrentRow]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="map">[CITI_Map]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="col">[RuleDict("LC_Required_Column")]</InArgument>
+                            <InOutArgument x:TypeArguments="x:String" x:Key="evLc">[evLc]</InOutArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
                       </Sequence>
                     </If.Then>
                   </If>
@@ -1617,14 +1708,36 @@
                       </Sequence>
                     </If.Then>
                   </If>
+                  <Assign DisplayName="CITI: principal goes to TT, or GRN (becomes Machinery) when the LC country is machinery" sap2010:WorkflowViewState.IdRef="Assign_71">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[bankRoute]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[If(bankName.Trim.ToUpper = "CITI" AndAlso Not String.IsNullOrEmpty(citiPrin) AndAlso (bankRoute = "EUR" OrElse bankRoute = "GRN"), If(RuleDict("Machinery_Country_Keywords").ToUpper.Split("|"c).Any(Function(k) k &lt;&gt; "" AndAlso CurrentRow("COUNTRY_ORIGIN").ToString.ToUpper.Contains(k)), "GRN", "TT"), bankRoute)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
                   <If Condition="[bankRoute = &quot;TT&quot;]" DisplayName="Other bank: move the row to the TT sheet" sap2010:WorkflowViewState.IdRef="If_40">
                     <If.Then>
                       <Sequence DisplayName="To TT" sap2010:WorkflowViewState.IdRef="Sequence_102">
                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, CurrentRow(&quot;EXPENSE_TYPE&quot;).ToString, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;Advice_Search&quot;).ToString, CurrentRow(&quot;ACCOUNT&quot;).ToString, CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, CurrentRow(&quot;EVENT&quot;).ToString}]" DataTable="[TT_Table]" DisplayName="Add Data Row TT (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
-                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If tt.Rows.Count = 0 Then Return&#xA;Dim t As System.Data.DataRow = tt.Rows(tt.Rows.Count - 1)&#xA;If row(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;CHARGE&quot;) Then&#xA;    t(&quot;COMMISION_TT&quot;) = row(&quot;AMOUNT&quot;).ToString&#xA;    t(&quot;COMMISION_TT_Expense_Type&quot;) = row(&quot;EXPENSE_TYPE&quot;).ToString&#xA;    t(&quot;COMMISION_TT_Acount&quot;) = row(&quot;ACCOUNT&quot;).ToString&#xA;Else&#xA;    t(&quot;TT_Amount&quot;) = row(&quot;AMOUNT&quot;).ToString&#xA;    t(&quot;TT_Amount_Expense_Type&quot;) = rules(&quot;TT_Expense_Type&quot;)&#xA;    t(&quot;TT_Account&quot;) = rules(&quot;TT_Account&quot;)&#xA;End If" DisplayName="HSBC TT row: principal fills the TT columns, the charge row fills the TT charge columns" Language="VBNet">
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If tt.Rows.Count = 0 OrElse bank.Trim.ToUpper = &quot;CITI&quot; Then Return&#xA;Dim t As System.Data.DataRow = tt.Rows(tt.Rows.Count - 1)&#xA;If row(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;CHARGE&quot;) Then&#xA;    t(&quot;COMMISION_TT&quot;) = row(&quot;AMOUNT&quot;).ToString&#xA;    t(&quot;COMMISION_TT_Expense_Type&quot;) = row(&quot;EXPENSE_TYPE&quot;).ToString&#xA;    t(&quot;COMMISION_TT_Acount&quot;) = row(&quot;ACCOUNT&quot;).ToString&#xA;Else&#xA;    t(&quot;TT_Amount&quot;) = row(&quot;AMOUNT&quot;).ToString&#xA;    t(&quot;TT_Amount_Expense_Type&quot;) = rules(&quot;TT_Expense_Type&quot;)&#xA;    t(&quot;TT_Account&quot;) = rules(&quot;TT_Account&quot;)&#xA;End If" DisplayName="HSBC TT row: principal fills the TT columns, the charge row fills the TT charge columns" sap2010:WorkflowViewState.IdRef="InvokeCode_7">
                           <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="bank">[bankName]</InArgument>
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="tt">[TT_Table]</InArgument>
                             <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[CurrentRow]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not go OrElse tt.Rows.Count = 0 Then Return&#xA;Dim t As System.Data.DataRow = tt.Rows(tt.Rows.Count - 1)&#xA;t(&quot;TT_Amount&quot;) = If(prin = &quot;&quot;, row(&quot;AMOUNT&quot;).ToString, prin)&#xA;t(&quot;TT_Amount_Expense_Type&quot;) = rules(&quot;TT_Expense_Type&quot;)&#xA;t(&quot;TT_Account&quot;) = rules(&quot;TT_Account&quot;)&#xA;t(&quot;INT_AMOUNT&quot;) = intr&#xA;t(&quot;EXCISE_AMOUNT&quot;) = exc&#xA;If billCcy = &quot;EUR&quot; Then&#xA;    t(&quot;EUR_Amount&quot;) = billAmt&#xA;    t(&quot;EUR_Amount_Expense_Type&quot;) = rules(&quot;EUR_Expense_Type&quot;)&#xA;    t(&quot;EUR_Account&quot;) = rules(&quot;EUR_Account_Value&quot;)&#xA;End If" DisplayName="CITI TT row: principal, interest, excise and (EUR bill) the EUR columns" sap2010:WorkflowViewState.IdRef="InvokeCode_11">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Boolean" x:Key="go">[bankName.Trim.ToUpper = "CITI" AndAlso Not String.IsNullOrEmpty(citiPrin)]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="tt">[TT_Table]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[CurrentRow]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="prin">[citiPrin]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="intr">[citiInt]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="exc">[citiExc]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="billCcy">[citiBillCcy]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="billAmt">[citiBillAmt]</InArgument>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
                           </ui:InvokeCode.Arguments>
                         </ui:InvokeCode>
@@ -1643,6 +1756,18 @@
                     <If.Then>
                       <Sequence DisplayName="To GRN" sap2010:WorkflowViewState.IdRef="Sequence_103">
                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, CurrentRow(&quot;EXPENSE_TYPE&quot;).ToString, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;ACCOUNT&quot;).ToString, CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, &quot;&quot;, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), &quot;&quot;, CurrentRow(&quot;AMOUNT&quot;).ToString), If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), CurrentRow(&quot;AMOUNT&quot;).ToString, &quot;&quot;), &quot;&quot;, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, CurrentRow(&quot;EVENT&quot;).ToString}]" DataTable="[GRN_Table]" DisplayName="Add Data Row GRN (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not go OrElse tbl.Rows.Count = 0 Then Return&#xA;Dim t As System.Data.DataRow = tbl.Rows(tbl.Rows.Count - 1)&#xA;t(&quot;REMITTED_AMOUNT&quot;) = prin&#xA;t(&quot;INT_AMOUNT&quot;) = intr&#xA;If tbl.Columns.Contains(&quot;EXCISE_AMOUNT&quot;) Then t(&quot;EXCISE_AMOUNT&quot;) = exc&#xA;If billCcy = &quot;EUR&quot; AndAlso tbl.Columns.Contains(&quot;EUR_Amount&quot;) Then&#xA;    t(&quot;EUR_Amount&quot;) = billAmt&#xA;    t(&quot;EUR_Amount_Expense_Type&quot;) = rules(&quot;EUR_Expense_Type&quot;)&#xA;    t(&quot;EUR_Account&quot;) = rules(&quot;EUR_Account_Value&quot;)&#xA;End If" DisplayName="CITI: principal, interest and excise of the advice on the one row" sap2010:WorkflowViewState.IdRef="InvokeCode_12">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Boolean" x:Key="go">[bankName.Trim.ToUpper = "CITI" AndAlso Not String.IsNullOrEmpty(citiPrin)]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[GRN_Table]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="prin">[citiPrin]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="intr">[citiInt]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="exc">[citiExc]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="billCcy">[citiBillCcy]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="billAmt">[citiBillAmt]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
                         <Assign DisplayName="CASH row marker" sap2010:WorkflowViewState.IdRef="Assign_38">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
@@ -1658,6 +1783,18 @@
                     <If.Then>
                       <Sequence DisplayName="To EUR" sap2010:WorkflowViewState.IdRef="Sequence_104">
                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, CurrentRow(&quot;EXPENSE_TYPE&quot;).ToString, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;ACCOUNT&quot;).ToString, CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, &quot;&quot;, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), &quot;&quot;, CurrentRow(&quot;AMOUNT&quot;).ToString), If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), CurrentRow(&quot;AMOUNT&quot;).ToString, &quot;&quot;), &quot;&quot;, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, CurrentRow(&quot;EVENT&quot;).ToString, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, RuleDict(&quot;Asset_Account&quot;), RuleDict(&quot;Interest_Account&quot;)}]" DataTable="[EUR_Table]" DisplayName="Add Data Row EUR (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_7" />
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not go OrElse tbl.Rows.Count = 0 Then Return&#xA;Dim t As System.Data.DataRow = tbl.Rows(tbl.Rows.Count - 1)&#xA;t(&quot;REMITTED_AMOUNT&quot;) = prin&#xA;t(&quot;INT_AMOUNT&quot;) = intr&#xA;If tbl.Columns.Contains(&quot;EXCISE_AMOUNT&quot;) Then t(&quot;EXCISE_AMOUNT&quot;) = exc&#xA;If billCcy = &quot;EUR&quot; AndAlso tbl.Columns.Contains(&quot;EUR_Amount&quot;) Then&#xA;    t(&quot;EUR_Amount&quot;) = billAmt&#xA;    t(&quot;EUR_Amount_Expense_Type&quot;) = rules(&quot;EUR_Expense_Type&quot;)&#xA;    t(&quot;EUR_Account&quot;) = rules(&quot;EUR_Account_Value&quot;)&#xA;End If" DisplayName="CITI: principal, interest and excise of the advice on the one row" sap2010:WorkflowViewState.IdRef="InvokeCode_13">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Boolean" x:Key="go">[bankName.Trim.ToUpper = "CITI" AndAlso Not String.IsNullOrEmpty(citiPrin)]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[EUR_Table]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="prin">[citiPrin]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="intr">[citiInt]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="exc">[citiExc]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="billCcy">[citiBillCcy]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="billAmt">[citiBillAmt]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
                         <Assign DisplayName="CASH row marker" sap2010:WorkflowViewState.IdRef="Assign_39">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
@@ -1673,6 +1810,14 @@
                     <If.Then>
                       <Sequence DisplayName="To UPAS Machinery" sap2010:WorkflowViewState.IdRef="Sequence_105">
                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;BATCH_NAME&quot;).ToString, CurrentRow(&quot;TO_ACCOUNT&quot;).ToString, CurrentRow(&quot;CURRENCY&quot;).ToString, CurrentRow(&quot;AMOUNT&quot;).ToString, CurrentRow(&quot;TYPE&quot;).ToString, CurrentRow(&quot;LC_NUMBER&quot;).ToString, CurrentRow(&quot;BANK_DC_NO&quot;).ToString, &quot;UPAS Machinery&quot;, CurrentRow(&quot;INVOICE_DATE&quot;).ToString, CurrentRow(&quot;SUPPLIER_SITE_NAME&quot;).ToString, CurrentRow(&quot;TRADING_PARTNER&quot;).ToString, CurrentRow(&quot;COUNTRY_ORIGIN&quot;).ToString, CurrentRow(&quot;DESCRIPTION&quot;).ToString, CurrentRow(&quot;INVOICE_NO&quot;).ToString, CurrentRow(&quot;Report&quot;).ToString, CurrentRow(&quot;Advice_Search&quot;).ToString, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), RuleDict(&quot;Interest_Account&quot;) + &quot; &amp; &quot; + RuleDict(&quot;Asset_Account&quot;), &quot;Invoice already prepared&quot;), CurrentRow(&quot;Invoice_Status&quot;).ToString, CurrentRow(&quot;Payment_Number&quot;).ToString, CurrentRow(&quot;Clear_Transaction&quot;).ToString, CurrentRow(&quot;Statement_Descriptions&quot;).ToString, CurrentRow(&quot;Invoice_Voucher_No&quot;).ToString, If(CurrentRow(&quot;EVENT&quot;).ToString.ToUpper.Contains(&quot;INT&quot;), &quot;INTEREST_DUE&quot;, &quot;Bill Amount&quot;)}]" DataTable="[Machinery_Table]" DisplayName="Add Data Row UPAS Machinery (other bank)" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="If Not go OrElse tbl.Rows.Count = 0 Then Return&#xA;Dim t As System.Data.DataRow = tbl.Rows(tbl.Rows.Count - 1)&#xA;t(&quot;INT_AMOUNT&quot;) = intr&#xA;t(&quot;EXCISE_AMOUNT&quot;) = exc" DisplayName="CITI: interest and excise of the advice on the Machinery row" sap2010:WorkflowViewState.IdRef="InvokeCode_14">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:Boolean" x:Key="go">[bankName.Trim.ToUpper = "CITI" AndAlso (Not String.IsNullOrEmpty(citiInt) OrElse Not String.IsNullOrEmpty(citiExc))]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[Machinery_Table]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="intr">[citiInt]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="exc">[citiExc]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
                         <Assign DisplayName="CASH row marker" sap2010:WorkflowViewState.IdRef="Assign_40">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow("Report")]</OutArgument>
@@ -2612,7 +2757,7 @@
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[EUR_Table]</InOutArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim names As New System.Collections.Generic.List(Of String)&#xA;For Each t As System.Data.DataTable In New System.Data.DataTable() {cash, tt, grn, eur, mach}&#xA;    If t Is Nothing Then Continue For&#xA;    For Each c As System.Data.DataColumn In t.Columns&#xA;        If Not names.Contains(c.ColumnName) Then names.Add(c.ColumnName)&#xA;    Next&#xA;Next&#xA;For Each n As String In New String() {&quot;Source_Sheet&quot;, &quot;Action&quot;, &quot;Is_EUR&quot;}&#xA;    If Not names.Contains(n) Then names.Add(n)&#xA;Next&#xA;Dim eurCols As String() = rules(&quot;Cols_EUR&quot;).Split(&quot;|&quot;c)&#xA;Dim ttCols As String() = rules(&quot;Cols_TT&quot;).Split(&quot;|&quot;c)&#xA;Dim grnCols As String() = rules(&quot;Cols_GRN&quot;).Split(&quot;|&quot;c)&#xA;Dim machCols As String() = rules(&quot;Cols_Machinery&quot;).Split(&quot;|&quot;c)&#xA;Dim grouped As New System.Collections.Generic.List(Of String)&#xA;grouped.AddRange(eurCols)&#xA;grouped.AddRange(ttCols)&#xA;grouped.AddRange(grnCols)&#xA;grouped.AddRange(machCols)&#xA;Dim ordered As New System.Collections.Generic.List(Of String)&#xA;For Each n As String In names&#xA;    If Not grouped.Contains(n) Then ordered.Add(n)&#xA;Next&#xA;For Each grp As String() In New String()() {eurCols, ttCols, grnCols, machCols}&#xA;    For Each n As String In grp&#xA;        If names.Contains(n) Then ordered.Add(n)&#xA;    Next&#xA;Next&#xA;names = ordered&#xA;Dim tbl As New System.Data.DataTable(&quot;TRANSACTION&quot;)&#xA;For Each n As String In names&#xA;    tbl.Columns.Add(n, GetType(String))&#xA;Next&#xA;Dim failRx As New System.Text.RegularExpressions.Regex(rules(&quot;Ignore_Report_Regex&quot;), System.Text.RegularExpressions.RegexOptions.IgnoreCase)&#xA;Dim addRows As Action(Of System.Data.DataTable, String, String) = Sub(t As System.Data.DataTable, src As String, isEur As String)&#xA;    If t Is Nothing Then Return&#xA;    For Each r As System.Data.DataRow In t.Rows&#xA;        Dim rep As String = &quot;&quot;&#xA;        If t.Columns.Contains(&quot;Report&quot;) Then rep = r(&quot;Report&quot;).ToString.Trim&#xA;        Dim et As String = &quot;&quot;&#xA;        If t.Columns.Contains(&quot;EXPENSE_TYPE&quot;) Then et = r(&quot;EXPENSE_TYPE&quot;).ToString.Trim&#xA;        Dim isTt As Boolean = t.Columns.Contains(&quot;TT_Amount&quot;) AndAlso r(&quot;TT_Amount&quot;).ToString.Trim &lt;&gt; &quot;&quot;&#xA;        Dim act As String&#xA;        If src = &quot;CASH&quot; Then&#xA;            Dim ds As String = &quot;&quot;&#xA;            If t.Columns.Contains(&quot;DESCRIPTION&quot;) Then ds = r(&quot;DESCRIPTION&quot;).ToString.Trim.ToUpper&#xA;            If rep = &quot;TT&quot; OrElse rep = &quot;GRN&quot; OrElse rep = &quot;EUR&quot; OrElse rep = &quot;MACHINERY&quot; Then Continue For&#xA;            If rep = &quot;&quot; AndAlso (ds = &quot;TT&quot; OrElse ds = &quot;GRN&quot; OrElse ds = &quot;EUR&quot; OrElse ds = &quot;MACHINERY&quot;) Then Continue For&#xA;            If isTt Then&#xA;                act = rules(&quot;Action_TT&quot;)&#xA;            ElseIf failRx.IsMatch(rep) Then&#xA;                act = rules(&quot;Action_Ignore&quot;)&#xA;            Else&#xA;                act = rules(&quot;Action_Normal&quot;)&#xA;            End If&#xA;        ElseIf et.ToUpper = rules(&quot;Payment_Expense_Type&quot;).ToUpper Then&#xA;            act = rules(&quot;Action_Payment&quot;)&#xA;        ElseIf src = &quot;TT&quot; Then&#xA;            act = rules(&quot;Action_TT&quot;)&#xA;        ElseIf src = &quot;UPAS Machinery&quot; Then&#xA;            act = rules(&quot;Action_Machinery&quot;)&#xA;        Else&#xA;            act = rules(&quot;Action_GRN&quot;)&#xA;        End If&#xA;        Dim ctry As String = &quot;&quot;&#xA;        If t.Columns.Contains(&quot;COUNTRY_ORIGIN&quot;) Then ctry = r(&quot;COUNTRY_ORIGIN&quot;).ToString.ToUpper&#xA;        Dim isMachCountry As Boolean = False&#xA;        For Each kw As String In rules(&quot;Machinery_Country_Keywords&quot;).ToUpper.Split(&quot;|&quot;c)&#xA;            If kw &lt;&gt; &quot;&quot; AndAlso ctry.Contains(kw) Then isMachCountry = True&#xA;        Next&#xA;        If isMachCountry AndAlso act = rules(&quot;Machinery_From_Action&quot;) Then act = rules(&quot;Action_Machinery&quot;)&#xA;        Dim nr As System.Data.DataRow = tbl.NewRow()&#xA;        For Each c As System.Data.DataColumn In t.Columns&#xA;            nr(c.ColumnName) = r(c).ToString&#xA;        Next&#xA;        nr(&quot;Source_Sheet&quot;) = src&#xA;        nr(&quot;Action&quot;) = act&#xA;        nr(&quot;Is_EUR&quot;) = If(isEur &lt;&gt; &quot;&quot;, isEur, If(t.Columns.Contains(&quot;EUR_Amount&quot;) AndAlso r(&quot;EUR_Amount&quot;).ToString.Trim &lt;&gt; &quot;&quot;, &quot;Y&quot;, &quot;&quot;))&#xA;        If src = &quot;EUR&quot; AndAlso nr(&quot;EUR_Amount&quot;).ToString.Trim = &quot;&quot; AndAlso nr(&quot;REMITTED_AMOUNT&quot;).ToString.Trim &lt;&gt; &quot;&quot; Then&#xA;            nr(&quot;EUR_Amount&quot;) = nr(&quot;REMITTED_AMOUNT&quot;).ToString&#xA;            nr(&quot;EUR_Amount_Expense_Type&quot;) = rules(&quot;EUR_Expense_Type&quot;)&#xA;            nr(&quot;EUR_Account&quot;) = rules(&quot;EUR_Account_Value&quot;)&#xA;        End If&#xA;        If act &lt;&gt; rules(&quot;Action_Machinery&quot;) Then&#xA;            For Each mc As String In machCols&#xA;                nr(mc) = &quot;&quot;&#xA;            Next&#xA;        End If&#xA;        tbl.Rows.Add(nr)&#xA;    Next&#xA;End Sub&#xA;addRows(cash, &quot;CASH&quot;, &quot;&quot;)&#xA;addRows(tt, &quot;TT&quot;, &quot;&quot;)&#xA;addRows(grn, &quot;GRN&quot;, &quot;&quot;)&#xA;addRows(eur, &quot;EUR&quot;, &quot;Y&quot;)&#xA;addRows(mach, &quot;UPAS Machinery&quot;, &quot;Y&quot;)&#xA;Do While tbl.Rows.Count &lt; cash.Rows.Count&#xA;    tbl.Rows.Add(tbl.NewRow())&#xA;Loop&#xA;res = tbl" DisplayName="Build the single TRANSACTION table (one row, one Action)" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim names As New System.Collections.Generic.List(Of String)&#xA;For Each t As System.Data.DataTable In New System.Data.DataTable() {cash, tt, grn, eur, mach}&#xA;    If t Is Nothing Then Continue For&#xA;    For Each c As System.Data.DataColumn In t.Columns&#xA;        If Not names.Contains(c.ColumnName) Then names.Add(c.ColumnName)&#xA;    Next&#xA;Next&#xA;For Each n As String In New String() {&quot;Source_Sheet&quot;, &quot;Action&quot;, &quot;Is_EUR&quot;}&#xA;    If Not names.Contains(n) Then names.Add(n)&#xA;Next&#xA;Dim eurCols As String() = rules(&quot;Cols_EUR&quot;).Split(&quot;|&quot;c)&#xA;Dim ttCols As String() = rules(&quot;Cols_TT&quot;).Split(&quot;|&quot;c)&#xA;Dim grnCols As String() = rules(&quot;Cols_GRN&quot;).Split(&quot;|&quot;c)&#xA;Dim machCols As String() = rules(&quot;Cols_Machinery&quot;).Split(&quot;|&quot;c)&#xA;Dim grouped As New System.Collections.Generic.List(Of String)&#xA;grouped.AddRange(eurCols)&#xA;grouped.AddRange(ttCols)&#xA;grouped.AddRange(grnCols)&#xA;grouped.AddRange(machCols)&#xA;Dim ordered As New System.Collections.Generic.List(Of String)&#xA;For Each n As String In names&#xA;    If Not grouped.Contains(n) Then ordered.Add(n)&#xA;Next&#xA;For Each grp As String() In New String()() {eurCols, ttCols, grnCols, machCols}&#xA;    For Each n As String In grp&#xA;        If names.Contains(n) Then ordered.Add(n)&#xA;    Next&#xA;Next&#xA;names = ordered&#xA;If Not grnCols.Contains(&quot;EXCISE_AMOUNT&quot;) Then names.Remove(&quot;EXCISE_AMOUNT&quot;)&#xA;Dim tbl As New System.Data.DataTable(&quot;TRANSACTION&quot;)&#xA;For Each n As String In names&#xA;    tbl.Columns.Add(n, GetType(String))&#xA;Next&#xA;Dim failRx As New System.Text.RegularExpressions.Regex(rules(&quot;Ignore_Report_Regex&quot;), System.Text.RegularExpressions.RegexOptions.IgnoreCase)&#xA;Dim addRows As Action(Of System.Data.DataTable, String, String) = Sub(t As System.Data.DataTable, src As String, isEur As String)&#xA;    If t Is Nothing Then Return&#xA;    For Each r As System.Data.DataRow In t.Rows&#xA;        Dim rep As String = &quot;&quot;&#xA;        If t.Columns.Contains(&quot;Report&quot;) Then rep = r(&quot;Report&quot;).ToString.Trim&#xA;        Dim et As String = &quot;&quot;&#xA;        If t.Columns.Contains(&quot;EXPENSE_TYPE&quot;) Then et = r(&quot;EXPENSE_TYPE&quot;).ToString.Trim&#xA;        Dim isTt As Boolean = t.Columns.Contains(&quot;TT_Amount&quot;) AndAlso r(&quot;TT_Amount&quot;).ToString.Trim &lt;&gt; &quot;&quot;&#xA;        Dim act As String&#xA;        If src = &quot;CASH&quot; Then&#xA;            Dim ds As String = &quot;&quot;&#xA;            If t.Columns.Contains(&quot;DESCRIPTION&quot;) Then ds = r(&quot;DESCRIPTION&quot;).ToString.Trim.ToUpper&#xA;            If rep = &quot;TT&quot; OrElse rep = &quot;GRN&quot; OrElse rep = &quot;EUR&quot; OrElse rep = &quot;MACHINERY&quot; Then Continue For&#xA;            If rep = &quot;&quot; AndAlso (ds = &quot;TT&quot; OrElse ds = &quot;GRN&quot; OrElse ds = &quot;EUR&quot; OrElse ds = &quot;MACHINERY&quot;) Then Continue For&#xA;            If isTt Then&#xA;                act = rules(&quot;Action_TT&quot;)&#xA;            ElseIf failRx.IsMatch(rep) Then&#xA;                act = rules(&quot;Action_Ignore&quot;)&#xA;            Else&#xA;                act = rules(&quot;Action_Normal&quot;)&#xA;            End If&#xA;        ElseIf et.ToUpper = rules(&quot;Payment_Expense_Type&quot;).ToUpper Then&#xA;            act = rules(&quot;Action_Payment&quot;)&#xA;        ElseIf src = &quot;TT&quot; Then&#xA;            act = rules(&quot;Action_TT&quot;)&#xA;        ElseIf src = &quot;UPAS Machinery&quot; Then&#xA;            act = rules(&quot;Action_Machinery&quot;)&#xA;        Else&#xA;            act = rules(&quot;Action_GRN&quot;)&#xA;        End If&#xA;        Dim ctry As String = &quot;&quot;&#xA;        If t.Columns.Contains(&quot;COUNTRY_ORIGIN&quot;) Then ctry = r(&quot;COUNTRY_ORIGIN&quot;).ToString.ToUpper&#xA;        Dim isMachCountry As Boolean = False&#xA;        For Each kw As String In rules(&quot;Machinery_Country_Keywords&quot;).ToUpper.Split(&quot;|&quot;c)&#xA;            If kw &lt;&gt; &quot;&quot; AndAlso ctry.Contains(kw) Then isMachCountry = True&#xA;        Next&#xA;        If isMachCountry AndAlso act = rules(&quot;Machinery_From_Action&quot;) Then act = rules(&quot;Action_Machinery&quot;)&#xA;        Dim nr As System.Data.DataRow = tbl.NewRow()&#xA;        For Each c As System.Data.DataColumn In t.Columns&#xA;            If tbl.Columns.Contains(c.ColumnName) Then nr(c.ColumnName) = r(c).ToString&#xA;        Next&#xA;        nr(&quot;Source_Sheet&quot;) = src&#xA;        nr(&quot;Action&quot;) = act&#xA;        nr(&quot;Is_EUR&quot;) = If(isEur &lt;&gt; &quot;&quot;, isEur, If(t.Columns.Contains(&quot;EUR_Amount&quot;) AndAlso r(&quot;EUR_Amount&quot;).ToString.Trim &lt;&gt; &quot;&quot;, &quot;Y&quot;, &quot;&quot;))&#xA;        If src = &quot;EUR&quot; AndAlso nr(&quot;EUR_Amount&quot;).ToString.Trim = &quot;&quot; AndAlso nr(&quot;REMITTED_AMOUNT&quot;).ToString.Trim &lt;&gt; &quot;&quot; Then&#xA;            nr(&quot;EUR_Amount&quot;) = nr(&quot;REMITTED_AMOUNT&quot;).ToString&#xA;            nr(&quot;EUR_Amount_Expense_Type&quot;) = rules(&quot;EUR_Expense_Type&quot;)&#xA;            nr(&quot;EUR_Account&quot;) = rules(&quot;EUR_Account_Value&quot;)&#xA;        End If&#xA;        If act &lt;&gt; rules(&quot;Action_Machinery&quot;) Then&#xA;            For Each mc As String In machCols&#xA;                nr(mc) = &quot;&quot;&#xA;            Next&#xA;        End If&#xA;        tbl.Rows.Add(nr)&#xA;    Next&#xA;End Sub&#xA;addRows(cash, &quot;CASH&quot;, &quot;&quot;)&#xA;addRows(tt, &quot;TT&quot;, &quot;&quot;)&#xA;addRows(grn, &quot;GRN&quot;, &quot;&quot;)&#xA;addRows(eur, &quot;EUR&quot;, &quot;Y&quot;)&#xA;addRows(mach, &quot;UPAS Machinery&quot;, &quot;Y&quot;)&#xA;Do While tbl.Rows.Count &lt; cash.Rows.Count&#xA;    tbl.Rows.Add(tbl.NewRow())&#xA;Loop&#xA;For Each k As String In New System.Collections.Generic.List(Of String)(rules.Keys)&#xA;    If k.StartsWith(&quot;Rename_&quot;) AndAlso rules(k).Trim &lt;&gt; &quot;&quot; AndAlso tbl.Columns.Contains(k.Substring(7)) AndAlso Not tbl.Columns.Contains(rules(k).Trim) Then tbl.Columns(k.Substring(7)).ColumnName = rules(k).Trim&#xA;Next&#xA;res = tbl" DisplayName="Build the single TRANSACTION table (one row, one Action)" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="cash">[Data_Processing]</InArgument>
@@ -2624,7 +2769,7 @@
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:WriteRange StartingCell="{x:Null}" DataTable="[Transaction_Table]" DisplayName="Write Range CASH (the one output sheet)" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="[RuleDict(&quot;Output_Sheet&quot;)]" WorkbookPath="[statement_file]" />
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim grp As New System.Collections.Generic.Dictionary(Of String, String)&#xA;For Each pr As String() In New String()() {New String() {&quot;Cols_EUR&quot;, &quot;Color_EUR&quot;}, New String() {&quot;Cols_TT&quot;, &quot;Color_TT&quot;}, New String() {&quot;Cols_GRN&quot;, &quot;Color_GRN&quot;}, New String() {&quot;Cols_Machinery&quot;, &quot;Color_Machinery&quot;}}&#xA;    For Each cn As String In rules(pr(0)).Split(&quot;|&quot;c)&#xA;        grp(cn) = pr(1)&#xA;    Next&#xA;Next&#xA;Dim toBgr As Func(Of String, Integer) = Function(h As String) Convert.ToInt32(h.Substring(0, 2), 16) + Convert.ToInt32(h.Substring(2, 2), 16) * 256 + Convert.ToInt32(h.Substring(4, 2), 16) * 65536&#xA;Dim getm As Func(Of Object, String, Object(), Object) = Function(o As Object, n As String, a As Object()) o.GetType().InvokeMember(n, System.Reflection.BindingFlags.GetProperty Or System.Reflection.BindingFlags.InvokeMethod, Nothing, o, a)&#xA;Dim setp As Action(Of Object, String, Object) = Sub(o As Object, n As String, v As Object) o.GetType().InvokeMember(n, System.Reflection.BindingFlags.SetProperty, Nothing, o, New Object() {v})&#xA;Dim none As Object() = New Object() {}&#xA;Dim xl As Object = Activator.CreateInstance(Type.GetTypeFromProgID(&quot;Excel.Application&quot;))&#xA;setp(xl, &quot;Visible&quot;, False)&#xA;setp(xl, &quot;DisplayAlerts&quot;, False)&#xA;Dim wbk As Object = Nothing&#xA;Try&#xA;    wbk = getm(getm(xl, &quot;Workbooks&quot;, none), &quot;Open&quot;, New Object() {System.IO.Path.GetFullPath(path)})&#xA;    Dim sh As Object = getm(wbk, &quot;Worksheets&quot;, New Object() {rules(&quot;Output_Sheet&quot;)})&#xA;    Dim colCount As Integer = Convert.ToInt32(getm(getm(sh, &quot;Columns&quot;, none), &quot;Count&quot;, none))&#xA;    Dim lastCell As Object = getm(getm(sh, &quot;Cells&quot;, New Object() {1, colCount}), &quot;End&quot;, New Object() {-4159})&#xA;    Dim lastCol As Integer = Convert.ToInt32(getm(lastCell, &quot;Column&quot;, none))&#xA;    For c As Integer = 1 To lastCol&#xA;        Dim cel As Object = getm(sh, &quot;Cells&quot;, New Object() {1, c})&#xA;        Dim nm As String = Convert.ToString(getm(cel, &quot;Value2&quot;, none))&#xA;        Dim colorKey As String = &quot;Color_Common&quot;&#xA;        If grp.ContainsKey(nm) Then colorKey = grp(nm)&#xA;        Dim rgbVal As Integer = toBgr(rules(colorKey))&#xA;        setp(getm(cel, &quot;Interior&quot;, none), &quot;Color&quot;, rgbVal)&#xA;        Dim fnt As Object = getm(cel, &quot;Font&quot;, none)&#xA;        setp(fnt, &quot;Color&quot;, 16777215)&#xA;        setp(fnt, &quot;Bold&quot;, True)&#xA;    Next&#xA;    getm(wbk, &quot;Save&quot;, none)&#xA;Finally&#xA;    If wbk IsNot Nothing Then getm(wbk, &quot;Close&quot;, New Object() {False})&#xA;    getm(xl, &quot;Quit&quot;, none)&#xA;End Try" DisplayName="Colour the CASH header by part (common blue, EUR green, TT orange, GRN purple, Machinery gold)" sap2010:WorkflowViewState.IdRef="InvokeCode_HeaderColors">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim grp As New System.Collections.Generic.Dictionary(Of String, String)&#xA;For Each pr As String() In New String()() {New String() {&quot;Cols_EUR&quot;, &quot;Color_EUR&quot;}, New String() {&quot;Cols_TT&quot;, &quot;Color_TT&quot;}, New String() {&quot;Cols_GRN&quot;, &quot;Color_GRN&quot;}, New String() {&quot;Cols_Machinery&quot;, &quot;Color_Machinery&quot;}}&#xA;    For Each cn As String In rules(pr(0)).Split(&quot;|&quot;c)&#xA;        grp(cn) = pr(1)&#xA;    Next&#xA;Next&#xA;For Each k As String In New System.Collections.Generic.List(Of String)(rules.Keys)&#xA;    If k.StartsWith(&quot;Rename_&quot;) AndAlso rules(k).Trim &lt;&gt; &quot;&quot; AndAlso grp.ContainsKey(k.Substring(7)) Then grp(rules(k).Trim) = grp(k.Substring(7))&#xA;Next&#xA;Dim toBgr As Func(Of String, Integer) = Function(h As String) Convert.ToInt32(h.Substring(0, 2), 16) + Convert.ToInt32(h.Substring(2, 2), 16) * 256 + Convert.ToInt32(h.Substring(4, 2), 16) * 65536&#xA;Dim getm As Func(Of Object, String, Object(), Object) = Function(o As Object, n As String, a As Object()) o.GetType().InvokeMember(n, System.Reflection.BindingFlags.GetProperty Or System.Reflection.BindingFlags.InvokeMethod, Nothing, o, a)&#xA;Dim setp As Action(Of Object, String, Object) = Sub(o As Object, n As String, v As Object) o.GetType().InvokeMember(n, System.Reflection.BindingFlags.SetProperty, Nothing, o, New Object() {v})&#xA;Dim none As Object() = New Object() {}&#xA;Dim xl As Object = Activator.CreateInstance(Type.GetTypeFromProgID(&quot;Excel.Application&quot;))&#xA;setp(xl, &quot;Visible&quot;, False)&#xA;setp(xl, &quot;DisplayAlerts&quot;, False)&#xA;Dim wbk As Object = Nothing&#xA;Try&#xA;    wbk = getm(getm(xl, &quot;Workbooks&quot;, none), &quot;Open&quot;, New Object() {System.IO.Path.GetFullPath(path)})&#xA;    Dim sh As Object = getm(wbk, &quot;Worksheets&quot;, New Object() {rules(&quot;Output_Sheet&quot;)})&#xA;    Dim colCount As Integer = Convert.ToInt32(getm(getm(sh, &quot;Columns&quot;, none), &quot;Count&quot;, none))&#xA;    Dim lastCell As Object = getm(getm(sh, &quot;Cells&quot;, New Object() {1, colCount}), &quot;End&quot;, New Object() {-4159})&#xA;    Dim lastCol As Integer = Convert.ToInt32(getm(lastCell, &quot;Column&quot;, none))&#xA;    For c As Integer = 1 To lastCol&#xA;        Dim cel As Object = getm(sh, &quot;Cells&quot;, New Object() {1, c})&#xA;        Dim nm As String = Convert.ToString(getm(cel, &quot;Value2&quot;, none))&#xA;        Dim colorKey As String = &quot;Color_Common&quot;&#xA;        If grp.ContainsKey(nm) Then colorKey = grp(nm)&#xA;        Dim rgbVal As Integer = toBgr(rules(colorKey))&#xA;        setp(getm(cel, &quot;Interior&quot;, none), &quot;Color&quot;, rgbVal)&#xA;        Dim fnt As Object = getm(cel, &quot;Font&quot;, none)&#xA;        setp(fnt, &quot;Color&quot;, 16777215)&#xA;        setp(fnt, &quot;Bold&quot;, True)&#xA;    Next&#xA;    getm(wbk, &quot;Save&quot;, none)&#xA;Finally&#xA;    If wbk IsNot Nothing Then getm(wbk, &quot;Close&quot;, New Object() {False})&#xA;    getm(xl, &quot;Quit&quot;, none)&#xA;End Try" DisplayName="Colour the CASH header by part (common blue, EUR green, TT orange, GRN purple, Machinery gold)" sap2010:WorkflowViewState.IdRef="InvokeCode_HeaderColors">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[RuleDict]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="path">[statement_file]</InArgument>

@@ -36,7 +36,7 @@
   "UiPath.UIAutomationNext.Activities.SAP.SAPMonitoring": "False",
   "UiPath.UIAutomationNext.Activities.SAP.SAPLogonRetries": "5",
   "UiPath.UIAutomationNext.Activities.SAP.SAPLogonDelayBetweenRetries": "0.5",
-  "UiPath.UIAutomationNext.Activities.UITask.UITaskAgentType": "GeminiFlash25",
+  "UiPath.UIAutomationNext.Activities.UITask.UITaskAgentType": "UiPathComputerUse",
   "UiPath.UIAutomationNext.Activities.UITask.UITaskClipboardMode": "Never",
   "UiPath.UIAutomationNext.Activities.UITask.UITaskMaxIterations": "100",
   "UiPath.UIAutomationNext.Activities.UITask.UITaskIsDOMEnabled": "True",

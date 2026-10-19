@@ -1,0 +1,155 @@
+﻿<Activity mc:Ignorable="sap sap2010" x:Class="CITI_advice_reader" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities">
+  <x:Members>
+    <x:Property Name="in_PdfPaths" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="in_Row" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_Map" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_Password" Type="InArgument(x:String)" />
+    <x:Property Name="in_Rules" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="out_Report" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Route" Type="OutArgument(x:String)" />
+    <x:Property Name="out_LcNo" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Principal" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Interest" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Excise" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BillCcy" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BillAmt" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>CITI_advice_reader_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF.ExtractPDFText</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF.GetPDFPageCount</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Activities.System.Text</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.Shared.Telemetry</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CITI_advice_reader"><Sequence.Variables><Variable x:TypeArguments="x:String" Name="cLc" /><Variable x:TypeArguments="x:String" Name="cPrin" /><Variable x:TypeArguments="x:String" Name="cIntr" /><Variable x:TypeArguments="x:String" Name="cExc" /><Variable x:TypeArguments="x:String" Name="cBillCcy" /><Variable x:TypeArguments="x:String" Name="cBillAmt" /><Variable x:TypeArguments="x:String" Name="allText" /><Variable x:TypeArguments="x:String" Name="pdfText" /><Variable x:TypeArguments="x:Int32" Name="unreadable" /><Variable x:TypeArguments="x:String" Name="rowRef" /><Variable x:TypeArguments="x:String" Name="rowAmount" /><Variable x:TypeArguments="x:String" Name="rowDesc" /><Variable x:TypeArguments="x:String" Name="report" /><Variable x:TypeArguments="x:String" Name="eventKey" /><Variable x:TypeArguments="x:String" Name="mapSite" /><Variable x:TypeArguments="x:String" Name="mapType" /><Variable x:TypeArguments="x:String" Name="mapAccount" /><Variable x:TypeArguments="x:String" Name="mapRoute" /><Variable x:TypeArguments="x:String" Name="rowCcy" /><Variable x:TypeArguments="x:String" Name="yourRef" /><Variable x:TypeArguments="x:String" Name="acctNo" /></Sequence.Variables><If Condition="[True]" DisplayName="Always run (rows without a PDF take the type from the statement description)"><If.Then><Sequence DisplayName="Advice found"><Assign DisplayName="Reset all text"><Assign.To><OutArgument x:TypeArguments="x:String">[allText]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[&quot;&quot;]</InArgument></Assign.Value></Assign><Assign DisplayName="Reset unreadable count"><Assign.To><OutArgument x:TypeArguments="x:Int32">[unreadable]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Int32">[0]</InArgument></Assign.Value></Assign><ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each downloaded PDF" Values="[If(in_PdfPaths Is Nothing, New List(Of String), in_PdfPaths)]"><ui:ForEach.Body><ActivityAction x:TypeArguments="x:String"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="x:String" Name="pdfPath" /></ActivityAction.Argument><Sequence DisplayName="Body"><Assign DisplayName="Reset PDF text"><Assign.To><OutArgument x:TypeArguments="x:String">[pdfText]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[&quot;&quot;]</InArgument></Assign.Value></Assign><TryCatch DisplayName="Read the advice PDF"><TryCatch.Try><ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[pdfPath]" Password="[in_Password]" Range="All" Text="[pdfText]" /></TryCatch.Try><TryCatch.Catches><Catch x:TypeArguments="s:Exception"><ActivityAction x:TypeArguments="s:Exception"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="s:Exception" Name="exception" /></ActivityAction.Argument><Sequence DisplayName="Body"><Assign DisplayName="Count unreadable PDF"><Assign.To><OutArgument x:TypeArguments="x:Int32">[unreadable]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Int32">[unreadable + 1]</InArgument></Assign.Value></Assign><ui:LogMessage DisplayName="Log unreadable PDF" Level="Warn" Message="[&quot;CITI advice PDF could not be read (password protected?): &quot; &amp; pdfPath &amp; &quot; - &quot; &amp; exception.Message]" /></Sequence></ActivityAction></Catch></TryCatch.Catches></TryCatch><Assign DisplayName="Collect PDF text"><Assign.To><OutArgument x:TypeArguments="x:String">[allText]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[allText &amp; &quot;&lt;&lt;PDF&gt;&gt;&quot; &amp; pdfText]</InArgument></Assign.Value></Assign></Sequence></ActivityAction></ui:ForEach.Body></ui:ForEach><Assign DisplayName="Statement reference"><Assign.To><OutArgument x:TypeArguments="x:String">[rowRef]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[in_Row(&quot;LC_NUMBER&quot;).ToString]</InArgument></Assign.Value></Assign><Assign DisplayName="Statement currency"><Assign.To><OutArgument x:TypeArguments="x:String">[rowCcy]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[in_Row("CURRENCY").ToString]</InArgument></Assign.Value></Assign><Assign DisplayName="Statement amount"><Assign.To><OutArgument x:TypeArguments="x:String">[rowAmount]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[in_Row(&quot;AMOUNT&quot;).ToString]</InArgument></Assign.Value></Assign><Assign DisplayName="Statement description"><Assign.To><OutArgument x:TypeArguments="x:String">[rowDesc]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[in_Row(&quot;Statement_Descriptions&quot;).ToString]</InArgument></Assign.Value></Assign><ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim target As Double = Val(rowAmount.Replace(&quot;,&quot;, &quot;&quot;))&#xA;Dim refNo As String = rowRef.Trim&#xA;Dim pick As String = &quot;&quot;&#xA;Dim score As Integer = 0&#xA;If refNo &lt;&gt; &quot;&quot; Then&#xA;    For Each c As String In allText.Split(New String() {&quot;&lt;&lt;PDF&gt;&gt;&quot;}, StringSplitOptions.RemoveEmptyEntries)&#xA;        If c.Replace(&quot; &quot;, &quot;&quot;).Contains(refNo) Then&#xA;            Dim s As Integer = 1&#xA;            Dim tm As System.Text.RegularExpressions.Match = System.Text.RegularExpressions.Regex.Match(c, rules(&quot;Adv_Total_Debited_Regex&quot;))&#xA;            If tm.Success AndAlso Math.Abs(Val(tm.Groups(1).Value.Replace(&quot;,&quot;, &quot;&quot;)) - target) &lt; 0.01 Then&#xA;                s = 2&#xA;            End If&#xA;            If s &gt; score Then&#xA;                score = s&#xA;                pick = c&#xA;            End If&#xA;        End If&#xA;    Next&#xA;End If&#xA;Dim advKey As String = &quot;&quot;&#xA;Dim bene As String = &quot;&quot;&#xA;Dim lcAmt As String = &quot;&quot;&#xA;Dim repLine As String = &quot;&quot;&#xA;Dim totTxt As String = &quot;&quot;&#xA;yourRef = &quot;&quot;&#xA;acctNo = &quot;&quot;&#xA;If pick &lt;&gt; &quot;&quot; Then&#xA;    yourRef = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Your_Ref_Regex&quot;)).Groups(1).Value.Trim&#xA;    acctNo = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Account_Regex&quot;)).Groups(1).Value&#xA;    bene = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Beneficiary_Regex&quot;)).Groups(1).Value.Trim&#xA;    lcAmt = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Amount_Regex&quot;)).Groups(1).Value&#xA;    repLine = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Representing_Regex&quot;)).Groups(1).Value.Trim&#xA;    totTxt = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Total_Debited_Text_Regex&quot;)).Groups(1).Value&#xA;    Dim up As String = repLine.ToUpper&#xA;    For Each lm As String In rules(&quot;Adv_Line_Map&quot;).Split(&quot;|&quot;c)&#xA;        Dim lp() As String = lm.Split(New String() {&quot;=&gt;&quot;}, StringSplitOptions.None)&#xA;        If lp.Length = 2 AndAlso up.StartsWith(lp(0).Trim.ToUpper) Then&#xA;            advKey = lp(1).Trim&#xA;            Exit For&#xA;        End If&#xA;    Next&#xA;End If&#xA;cLc = &quot;&quot;&#xA;cPrin = &quot;&quot;&#xA;cIntr = &quot;&quot;&#xA;cExc = &quot;&quot;&#xA;cBillCcy = &quot;&quot;&#xA;cBillAmt = &quot;&quot;&#xA;If pick &lt;&gt; &quot;&quot; AndAlso score = 2 Then&#xA;    If rules.ContainsKey(&quot;Adv_LC_Regex&quot;) Then cLc = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_LC_Regex&quot;)).Groups(1).Value.Trim&#xA;    If rules.ContainsKey(&quot;Adv_Principal_Regex&quot;) Then cPrin = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Principal_Regex&quot;)).Groups(1).Value.Replace(&quot;,&quot;, &quot;&quot;)&#xA;    If rules.ContainsKey(&quot;Adv_Interest_Regex&quot;) Then cIntr = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Interest_Regex&quot;)).Groups(1).Value.Replace(&quot;,&quot;, &quot;&quot;)&#xA;    If rules.ContainsKey(&quot;Adv_Excise_Regex&quot;) Then cExc = System.Text.RegularExpressions.Regex.Match(pick, rules(&quot;Adv_Excise_Regex&quot;)).Groups(1).Value.Replace(&quot;,&quot;, &quot;&quot;)&#xA;    Dim bm As String = lcAmt.Trim&#xA;    If bm.Length &gt; 3 Then&#xA;        cBillCcy = bm.Substring(0, 3).ToUpper&#xA;        cBillAmt = bm.Substring(3).Trim.Replace(&quot;,&quot;, &quot;&quot;)&#xA;    End If&#xA;End If&#xA;Dim mapSkip As Boolean = False&#xA;eventKey = &quot;&quot;&#xA;mapSite = &quot;&quot;&#xA;mapType = &quot;&quot;&#xA;mapAccount = &quot;&quot;&#xA;mapRoute = &quot;&quot;&#xA;If score = 2 AndAlso advKey &lt;&gt; &quot;&quot; Then&#xA;    eventKey = advKey&#xA;End If&#xA;If eventKey = &quot;&quot; Then&#xA;    Dim desc As String = rowDesc.ToUpper&#xA;    Dim bestLen As Integer = 0&#xA;    For Each mr As System.Data.DataRow In map.Rows&#xA;        Dim cands As New List(Of String)&#xA;        cands.Add(mr(0).ToString.Trim.ToUpper)&#xA;        If map.Columns.Count &gt; 6 Then&#xA;            For Each a As String In mr(6).ToString.ToUpper.Split(&quot;|&quot;c)&#xA;                If a.Trim &lt;&gt; &quot;&quot; Then cands.Add(a.Trim)&#xA;            Next&#xA;        End If&#xA;        For Each k As String In cands&#xA;            If k &lt;&gt; &quot;&quot; AndAlso desc.Contains(k) AndAlso k.Length &gt; bestLen Then&#xA;                bestLen = k.Length&#xA;                eventKey = mr(0).ToString.Trim&#xA;            End If&#xA;        Next&#xA;    Next&#xA;End If&#xA;If eventKey &lt;&gt; &quot;&quot; Then&#xA;    For Each mr As System.Data.DataRow In map.Rows&#xA;        If mr(0).ToString.Trim.ToUpper = eventKey.ToUpper Then&#xA;            mapSite = mr(1).ToString&#xA;            mapType = mr(2).ToString&#xA;            mapAccount = mr(3).ToString&#xA;            If map.Columns.Count &gt; 7 AndAlso mr(7).ToString.ToUpper.Contains(&quot;NEEDS DECISION&quot;) Then mapSkip = True&#xA;            If map.Columns.Count &gt; 8 AndAlso mr(8).ToString.Trim &lt;&gt; &quot;&quot; Then&#xA;                For Each tk As String In mr(8).ToString.Trim.Split(&quot;|&quot;c)&#xA;                    Dim pr() As String = tk.Trim.Split(&quot;@&quot;c)&#xA;                    If pr.Length = 1 OrElse pr(1).Trim.ToUpper = rowCcy.Trim.ToUpper Then&#xA;                        mapRoute = pr(0).Trim.ToUpper&#xA;                        Exit For&#xA;                    End If&#xA;                Next&#xA;            End If&#xA;            Exit For&#xA;        End If&#xA;    Next&#xA;End If&#xA;If cPrin &lt;&gt; &quot;&quot; AndAlso eventKey &lt;&gt; &quot;&quot; Then&#xA;    mapRoute = If(cBillCcy = &quot;EUR&quot;, &quot;EUR&quot;, &quot;GRN&quot;)&#xA;End If&#xA;Dim evTxt As String = If(eventKey = &quot;&quot;, &quot;expense type not in the CITI map&quot;, eventKey)&#xA;If pick = &quot;&quot; AndAlso pdfCount = 0 Then&#xA;    report = &quot;No advice PDF - type from statement description: &quot; &amp; evTxt&#xA;ElseIf pick = &quot;&quot; Then&#xA;    report = &quot;No readable downloaded PDF contains reference &quot; &amp; refNo &amp; &quot; | type from statement: &quot; &amp; evTxt&#xA;ElseIf score = 2 Then&#xA;    report = &quot;Advice read - Citibank &quot; &amp; repLine &amp; &quot; | debited &quot; &amp; totTxt &amp; &quot; | A/C &quot; &amp; acctNo &amp; &quot; | amount &quot; &amp; lcAmt &amp; &quot; | &quot; &amp; bene &amp; &quot; | type: &quot; &amp; evTxt&#xA;Else&#xA;    report = &quot;Advice found (&quot; &amp; totTxt &amp; &quot; debited) but the statement amount &quot; &amp; rowAmount &amp; &quot; is a different charge on the same reference | type from statement: &quot; &amp; evTxt&#xA;End If&#xA;If mapSkip Then&#xA;    mapSite = &quot;&quot;&#xA;    mapType = &quot;&quot;&#xA;    mapAccount = &quot;&quot;&#xA;    mapRoute = &quot;&quot;&#xA;    report = &quot;Ignore - event &quot; &amp; eventKey &amp; &quot; needs a decision, not processed | &quot; &amp; report&#xA;End If" DisplayName="Parse the CITI advice and find the expense type in the CITI map"><ui:InvokeCode.Arguments><scg:Dictionary x:TypeArguments="x:String, Argument"><InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="rules">[in_Rules]</InArgument><InArgument x:TypeArguments="x:String" x:Key="allText">[allText]</InArgument><InArgument x:TypeArguments="x:Int32" x:Key="pdfCount">[If(in_PdfPaths Is Nothing, 0, in_PdfPaths.Count)]</InArgument><InArgument x:TypeArguments="x:String" x:Key="rowRef">[rowRef]</InArgument><InArgument x:TypeArguments="x:String" x:Key="rowAmount">[rowAmount]</InArgument><InArgument x:TypeArguments="x:String" x:Key="rowDesc">[rowDesc]</InArgument><InArgument x:TypeArguments="sd:DataTable" x:Key="map">[in_Map]</InArgument><OutArgument x:TypeArguments="x:String" x:Key="report">[report]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="eventKey">[eventKey]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="mapSite">[mapSite]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="mapType">[mapType]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="mapAccount">[mapAccount]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="mapRoute">[mapRoute]</OutArgument><InArgument x:TypeArguments="x:String" x:Key="rowCcy">[rowCcy]</InArgument><OutArgument x:TypeArguments="x:String" x:Key="yourRef">[yourRef]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="acctNo">[acctNo]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="cLc">[cLc]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="cPrin">[cPrin]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="cIntr">[cIntr]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="cExc">[cExc]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="cBillCcy">[cBillCcy]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="cBillAmt">[cBillAmt]</OutArgument></scg:Dictionary></ui:InvokeCode.Arguments></ui:InvokeCode><If Condition="[eventKey &lt;&gt; &quot;&quot;]" DisplayName="Fill the row from the CITI map"><If.Then><Sequence DisplayName="Row from map"><Assign DisplayName="Row EVENT"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;EVENT&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[eventKey]</InArgument></Assign.Value></Assign><Assign DisplayName="Row EXPENSE_TYPE"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;EXPENSE_TYPE&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[mapSite]</InArgument></Assign.Value></Assign><Assign DisplayName="Row TYPE"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;TYPE&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[mapType]</InArgument></Assign.Value></Assign><Assign DisplayName="Row ACCOUNT"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;ACCOUNT&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[mapAccount]</InArgument></Assign.Value></Assign><Assign DisplayName="Row TRADING_PARTNER"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;TRADING_PARTNER&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[in_Rules(&quot;Trading_Partner&quot;)]</InArgument></Assign.Value></Assign><Assign DisplayName="Row DESCRIPTION"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;DESCRIPTION&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[in_Rules(&quot;Description_Pattern&quot;).Replace(&quot;{EXPENSE}&quot;, eventKey).Replace(&quot;{LC}&quot;, in_Row(&quot;LC_NUMBER&quot;).ToString).Replace(&quot;{BATCH}&quot;, in_Row(&quot;BATCH_NAME&quot;).ToString).Replace(&quot;{SUPPLIER}&quot;, in_Row(&quot;SUPPLIER_SITE_NAME&quot;).ToString)]</InArgument></Assign.Value></Assign></Sequence></If.Then></If><If Condition="[yourRef &lt;&gt; &quot;&quot; AndAlso in_Row(&quot;BANK_DC_NO&quot;).ToString = &quot;&quot;]" DisplayName="Fill BANK_DC_NO from the advice if blank"><If.Then><Assign DisplayName="Row BANK_DC_NO"><Assign.To><OutArgument x:TypeArguments="x:Object">[in_Row(&quot;BANK_DC_NO&quot;)]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Object">[yourRef]</InArgument></Assign.Value></Assign></If.Then></If><Assign DisplayName="Output sheet"><Assign.To><OutArgument x:TypeArguments="x:String">[out_Route]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[mapRoute]</InArgument></Assign.Value></Assign><Assign DisplayName="out_LcNo"><Assign.To><OutArgument x:TypeArguments="x:String">[out_LcNo]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[cLc]</InArgument></Assign.Value></Assign><Assign DisplayName="out_Principal"><Assign.To><OutArgument x:TypeArguments="x:String">[out_Principal]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[cPrin]</InArgument></Assign.Value></Assign><Assign DisplayName="out_Interest"><Assign.To><OutArgument x:TypeArguments="x:String">[out_Interest]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[cIntr]</InArgument></Assign.Value></Assign><Assign DisplayName="out_Excise"><Assign.To><OutArgument x:TypeArguments="x:String">[out_Excise]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[cExc]</InArgument></Assign.Value></Assign><Assign DisplayName="out_BillCcy"><Assign.To><OutArgument x:TypeArguments="x:String">[out_BillCcy]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[cBillCcy]</InArgument></Assign.Value></Assign><Assign DisplayName="out_BillAmt"><Assign.To><OutArgument x:TypeArguments="x:String">[out_BillAmt]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[cBillAmt]</InArgument></Assign.Value></Assign><Assign DisplayName="Report text"><Assign.To><OutArgument x:TypeArguments="x:String">[out_Report]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[report &amp; If(unreadable &gt; 0, &quot; | &quot; &amp; unreadable.ToString &amp; &quot; of &quot; &amp; in_PdfPaths.Count.ToString &amp; &quot; PDF could not be read (password?)&quot;, &quot;&quot;)]</InArgument></Assign.Value></Assign><ui:LogMessage DisplayName="Log result" Level="Info" Message="[&quot;CITI advice: &quot; &amp; out_Report]" /></Sequence></If.Then><If.Else><Sequence DisplayName="No advice"><Assign DisplayName="Not found"><Assign.To><OutArgument x:TypeArguments="x:String">[out_Report]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[&quot;Advice Not Found!&quot;]</InArgument></Assign.Value></Assign></Sequence></If.Else></If></Sequence>
+</Activity>

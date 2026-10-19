@@ -4,6 +4,9 @@
     <x:Property Name="startDate" Type="InArgument(x:String)" />
     <x:Property Name="referenceNumber" Type="InArgument(x:String)" />
     <x:Property Name="lcNumber" Type="InArgument(x:String)" />
+    <x:Property Name="amountText" Type="InArgument(x:String)" />
+    <x:Property Name="eventText" Type="InArgument(x:String)" />
+    <x:Property Name="debitLineRegex" Type="InArgument(x:String)" />
     <x:Property Name="bankName" Type="InArgument(x:String)" />
     <x:Property Name="mailAccount" Type="InArgument(x:String)" />
     <x:Property Name="daysBefore" Type="InArgument(x:Int32)" />
@@ -526,12 +529,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <If Condition="[bankKey = &quot;DB&quot;]" DisplayName="Dhaka Bank: keep only the PDF that contains the reference" sap:VirtualizedContainerService.HintSize="762,1918" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[bankKey = &quot;DB&quot;]" DisplayName="Dhaka Bank: keep only the PDF that matches the reference, or the amount and event" sap:VirtualizedContainerService.HintSize="762,1918" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,1689" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
             <Variable x:TypeArguments="scg:List(x:String)" Name="matchedPdfs" />
             <Variable x:TypeArguments="x:Int32" Name="pdfCount" />
+            <Variable x:TypeArguments="scg:List(x:String)" Name="bothPdfs" />
+            <Variable x:TypeArguments="scg:List(x:String)" Name="refPdfs" />
+            <Variable x:TypeArguments="scg:List(x:String)" Name="amtPdfs" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -587,7 +593,7 @@
                             <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(If(pdfText, ""), "\s+", "").ToUpper]</InArgument>
                           </Assign.Value>
                         </Assign>
-<If Condition="[(Not String.IsNullOrWhiteSpace(lcNumber) AndAlso cleanText.Contains(System.Text.RegularExpressions.Regex.Replace(lcNumber, &quot;\s+&quot;, &quot;&quot;).ToUpper)) OrElse (Not String.IsNullOrWhiteSpace(referenceNumber) AndAlso cleanText.Contains(System.Text.RegularExpressions.Regex.Replace(referenceNumber, &quot;\s+&quot;, &quot;&quot;).ToUpper))]" DisplayName="PDF contains the reference?"><If.Then><Sequence DisplayName="Keep this PDF"><Assign DisplayName="Keep this PDF"><Assign.To><OutArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="scg:List(x:String)">[matchedPdfs.Append(pdfPath).ToList()]</InArgument></Assign.Value></Assign><ui:LogMessage DisplayName="Log match" Level="Info" Message="[&quot;Dhaka Bank advice matched: &quot; &amp; pdfPath]" /></Sequence></If.Then></If>
+<ui:InvokeCode ContinueOnError="{x:Null}" Code="If bothPdfs Is Nothing Then bothPdfs = New System.Collections.Generic.List(Of String)&#xA;If refPdfs Is Nothing Then refPdfs = New System.Collections.Generic.List(Of String)&#xA;If amtPdfs Is Nothing Then amtPdfs = New System.Collections.Generic.List(Of String)&#xA;Dim alnum As String = System.Text.RegularExpressions.Regex.Replace(If(pdfText, &quot;&quot;), &quot;[^A-Za-z0-9]&quot;, &quot;&quot;).ToUpper&#xA;Dim refHit As Boolean = False&#xA;For Each k As String In New String() {lcNumber, referenceNumber}&#xA;    If Not String.IsNullOrWhiteSpace(k) Then&#xA;        Dim kc As String = System.Text.RegularExpressions.Regex.Replace(k, &quot;[^A-Za-z0-9]&quot;, &quot;&quot;).ToUpper&#xA;        If kc.Length &gt;= 6 AndAlso alnum.Contains(kc) Then refHit = True&#xA;    End If&#xA;Next&#xA;Dim amtHit As Boolean = False&#xA;Dim target As Double = Val(If(amountText, &quot;&quot;).Replace(&quot;,&quot;, &quot;&quot;))&#xA;If target &gt; 0 AndAlso Not String.IsNullOrWhiteSpace(debitLineRegex) Then&#xA;    Dim dEv As String = System.Text.RegularExpressions.Regex.Replace(If(eventText, &quot;&quot;).ToUpper, &quot;[A-Z0-9]*\d{6,}[A-Z0-9]*\.*&quot;, &quot; &quot;).Trim&#xA;    dEv = System.Text.RegularExpressions.Regex.Replace(dEv, &quot;\s+&quot;, &quot; &quot;)&#xA;    Dim rx As New System.Text.RegularExpressions.Regex(debitLineRegex, System.Text.RegularExpressions.RegexOptions.Multiline)&#xA;    For Each m As System.Text.RegularExpressions.Match In rx.Matches(If(pdfText, &quot;&quot;))&#xA;        Dim ev As String = System.Text.RegularExpressions.Regex.Replace(m.Groups(1).Value.Trim.ToUpper, &quot;\s+&quot;, &quot; &quot;)&#xA;        If ev &lt;&gt; &quot;&quot; AndAlso dEv &lt;&gt; &quot;&quot; AndAlso Math.Abs(Val(m.Groups(3).Value.Replace(&quot;,&quot;, &quot;&quot;)) - target) &lt; 0.01 AndAlso (dEv.Contains(ev) OrElse ev.Contains(dEv)) Then amtHit = True&#xA;    Next&#xA;End If&#xA;If refHit AndAlso amtHit Then&#xA;    bothPdfs.Add(pdfPath)&#xA;ElseIf refHit Then&#xA;    refPdfs.Add(pdfPath)&#xA;ElseIf amtHit Then&#xA;    amtPdfs.Add(pdfPath)&#xA;End If" DisplayName="Dhaka Bank: classify the PDF (reference, amount + event)" Language="VBNet"><ui:InvokeCode.Arguments><InArgument x:TypeArguments="x:String" x:Key="pdfText">[pdfText]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pdfPath">[pdfPath]</InArgument><InArgument x:TypeArguments="x:String" x:Key="lcNumber">[lcNumber]</InArgument><InArgument x:TypeArguments="x:String" x:Key="referenceNumber">[referenceNumber]</InArgument><InArgument x:TypeArguments="x:String" x:Key="amountText">[amountText]</InArgument><InArgument x:TypeArguments="x:String" x:Key="eventText">[eventText]</InArgument><InArgument x:TypeArguments="x:String" x:Key="debitLineRegex">[debitLineRegex]</InArgument><InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="bothPdfs">[bothPdfs]</InOutArgument><InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="refPdfs">[refPdfs]</InOutArgument><InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="amtPdfs">[amtPdfs]</InOutArgument></ui:InvokeCode.Arguments></ui:InvokeCode><ui:LogMessage DisplayName="Log candidate" Level="Info" Message="[&quot;Dhaka Bank candidates so far - reference+amount: &quot; &amp; bothPdfs.Count.ToString &amp; &quot;, reference: &quot; &amp; refPdfs.Count.ToString &amp; &quot;, amount+event: &quot; &amp; amtPdfs.Count.ToString]" />
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
@@ -605,6 +611,7 @@
               </ActivityAction>
             </ui:ForEach.Body>
           </ui:ForEach>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="matchedPdfs = New System.Collections.Generic.List(Of String)&#xA;If bothPdfs IsNot Nothing Then matchedPdfs.AddRange(bothPdfs)&#xA;If matchedPdfs.Count = 0 AndAlso refPdfs IsNot Nothing Then matchedPdfs.AddRange(refPdfs)&#xA;If matchedPdfs.Count = 0 AndAlso amtPdfs IsNot Nothing AndAlso amtPdfs.Count = 1 Then matchedPdfs.AddRange(amtPdfs)" DisplayName="Dhaka Bank: best PDFs first (reference + amount, then reference, then one amount + event match)" Language="VBNet"><ui:InvokeCode.Arguments><InArgument x:TypeArguments="scg:List(x:String)" x:Key="bothPdfs">[bothPdfs]</InArgument><InArgument x:TypeArguments="scg:List(x:String)" x:Key="refPdfs">[refPdfs]</InArgument><InArgument x:TypeArguments="scg:List(x:String)" x:Key="amtPdfs">[amtPdfs]</InArgument><OutArgument x:TypeArguments="scg:List(x:String)" x:Key="matchedPdfs">[matchedPdfs]</OutArgument></ui:InvokeCode.Arguments></ui:InvokeCode>
           <Assign DisplayName="Keep only the matching PDF(s)" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_30">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">[Pdf_Paths]</OutArgument>

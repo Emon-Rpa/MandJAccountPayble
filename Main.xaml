@@ -3334,7 +3334,7 @@
                                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="JavaEntry - Invoke Workflow File (JavaEntry.xaml)" sap:VirtualizedContainerService.HintSize="516,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_105" UnSafe="False" WorkflowFileName="JavaEntry.xaml">
                                                                 <ui:InvokeWorkflowFile.Arguments>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="Description">[R(12).ToString]</InArgument>
-                                                                  <InArgument x:TypeArguments="x:String" x:Key="InvoiceAmount">[R("INT_AMOUNT").ToString.Replace(",","")]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="InvoiceAmount">[If(R.Table.Columns.Contains("INT_AMOUNT"), R("INT_AMOUNT"), R("Interest")).ToString.Replace(",","")]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="Currency">[R(2).ToString]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="LC_CONTEXT">None</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="LC_NO">[R(5).ToString]</InArgument>
@@ -3504,7 +3504,7 @@
                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GRNMatching - Invoke Workflow File (GRNMatching.xaml)" sap:VirtualizedContainerService.HintSize="480,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_107" UnSafe="False" WorkflowFileName="GRNMatching.xaml">
                                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                                        <InArgument x:TypeArguments="x:String" x:Key="Amount">[R("INT_AMOUNT").ToString.Replace(",","")]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="Amount">[If(R.Table.Columns.Contains("INT_AMOUNT"), R("INT_AMOUNT"), R("Interest")).ToString.Replace(",","")]</InArgument>
                                                                         <InArgument x:TypeArguments="x:String" x:Key="ReceiptNum">[R("GRN_NUMBER").ToString]</InArgument>
                                                                         <InArgument x:TypeArguments="x:String" x:Key="SupplierName">[R("SUPPLIER_SITE_NAME").ToString]</InArgument>
                                                                         <InArgument x:TypeArguments="x:String" x:Key="MatchingType" />
@@ -3597,7 +3597,7 @@
         )
     )
 )]</InArgument>
-                                                                        <InArgument x:TypeArguments="x:String" x:Key="amount">[R("INT_AMOUNT").ToString.Replace(",","")]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="amount">[If(R.Table.Columns.Contains("INT_AMOUNT"), R("INT_AMOUNT"), R("Interest")).ToString.Replace(",","")]</InArgument>
                                                                         <InArgument x:TypeArguments="x:String" x:Key="unit" xml:space="preserve">[If(R(0).ToString = "GFL", "15",
     If(R(0).ToString = "CGL", "10",
         If(R(0).ToString = "CWPL", "40",
@@ -4288,7 +4288,7 @@
                                                                   </TryCatch>
                                                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Enter_Adjust_Invoice - Invoke Workflow File (Enter_Adjust_Invoice.xaml)" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Enter_Adjust_Invoice.xaml">
                                                                     <ui:InvokeWorkflowFile.Arguments>
-                                                                      <InArgument x:TypeArguments="x:String" x:Key="Match_Invoice_Amount">[If (currentText="GRN", PaymentRow("INT_AMOUNT").ToString.Replace(",",""), "" )]</InArgument>
+                                                                      <InArgument x:TypeArguments="x:String" x:Key="Match_Invoice_Amount">[If (currentText="GRN", If(PaymentRow.Table.Columns.Contains("INT_AMOUNT"), PaymentRow("INT_AMOUNT"), PaymentRow("Interest")).ToString.Replace(",",""), "" )]</InArgument>
                                                                       <InArgument x:TypeArguments="x:String" x:Key="account">[PaymentRow("ACCOUNT").ToString]</InArgument>
                                                                       <InArgument x:TypeArguments="x:String" x:Key="Invoice_Number">[If (currentText="GRN", PaymentRow("Match_Invoice_No").ToString.Trim, PaymentRow("INVOICE_NO").ToString.Trim)]</InArgument>
                                                                       <InArgument x:TypeArguments="x:String" x:Key="Amount">[If (currentText="GRN", PaymentRow("REMITTED_AMOUNT").ToString.Replace(",",""), PaymentRow("AMOUNT").ToString.Replace(",","") )]</InArgument>
