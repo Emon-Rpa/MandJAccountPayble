@@ -1,0 +1,167 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_4b_Lookup_All" this:Oracle_Apply_4b_Lookup_All.Only_Unapplied="True" this:Oracle_Apply_4b_Lookup_All.Unit_Filter="" this:Oracle_Apply_4b_Lookup_All.Max_Invoices="0" this:Oracle_Apply_4b_Lookup_All.Sample_Size="0" this:Oracle_Apply_4b_Lookup_All.Output_File="" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Report_File" Type="InArgument(x:String)" />
+    <x:Property Name="Only_Unapplied" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Unit_Filter" Type="InArgument(x:String)" />
+    <x:Property Name="Max_Invoices" Type="InArgument(x:Int32)" />
+    <x:Property Name="Sample_Size" Type="InArgument(x:Int32)" />
+    <x:Property Name="Output_File" Type="InArgument(x:String)" />
+    <x:Property Name="Results" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>GRN_NUMBER_QUERY_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle_Apply_4b_Lookup_All" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:Dictionary(x:String, scg:List(x:String))" Name="Unit_Invoices" />
+      <Variable x:TypeArguments="x:Boolean" Name="First_In_Unit" />
+      <Variable x:TypeArguments="x:String" Name="Receipt_Number" />
+      <Variable x:TypeArguments="x:Boolean" Name="Invoice_Found" />
+      <Variable x:TypeArguments="x:String" Name="Status" />
+    </Sequence.Variables>
+    <ui:Comment Text="For every unit in the prepayment report: open that unit's Invoice Workbench once, then look up each invoice number and record the receipt number or Grn Not Found. Creating the related invoice and the exception report are added later." DisplayName="Comment" sap2010:WorkflowViewState.IdRef="Comment_1" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Oracle_Apply_4a_Read_Report - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_4a_Read_Report.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="Report_File">[Report_File]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="Only_Unapplied">[Only_Unapplied]</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:List(x:String))" x:Key="Unit_Invoices">[Unit_Invoices]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <If Condition="[Sample_Size &gt; 0]" sap2010:WorkflowViewState.IdRef="If_9"><If.Then>
+      <ui:InvokeCode Language="VBNet" Code="Dim all As New System.Collections.Generic.List(Of System.Collections.Generic.KeyValuePair(Of String, String))&#xA;For Each kv In units&#xA;    For Each inv In kv.Value&#xA;        all.Add(New System.Collections.Generic.KeyValuePair(Of String, String)(kv.Key, inv))&#xA;    Next&#xA;Next&#xA;Dim rnd As New System.Random()&#xA;Dim pick = all.OrderBy(Function(x) rnd.Next()).Take(size).ToList()&#xA;units = New System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.List(Of String))&#xA;For Each kv In pick&#xA;    If Not units.ContainsKey(kv.Key) Then units(kv.Key) = New System.Collections.Generic.List(Of String)&#xA;    units(kv.Key).Add(kv.Value)&#xA;Next" DisplayName="Pick random sample" sap2010:WorkflowViewState.IdRef="InvokeCode_9">
+        <ui:InvokeCode.Arguments>
+          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, scg:List(x:String))" x:Key="units">[Unit_Invoices]</InOutArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="size">[Sample_Size]</InArgument>
+        </ui:InvokeCode.Arguments>
+      </ui:InvokeCode>
+    </If.Then></If>
+    <ui:InvokeCode Language="VBNet" Code="result = New System.Data.DataTable(&quot;Apply_Receipts&quot;)&#xA;result.Columns.Add(&quot;Unit&quot;, GetType(String))&#xA;result.Columns.Add(&quot;Invoice_Number&quot;, GetType(String))&#xA;result.Columns.Add(&quot;Receipt_Number&quot;, GetType(String))&#xA;result.Columns.Add(&quot;Status&quot;, GetType(String))" DisplayName="Create results table" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="result">[Results]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ForEach x:TypeArguments="scg:KeyValuePair(x:String, scg:List(x:String))" DisplayName="For Each unit" sap2010:WorkflowViewState.IdRef="ForEach_1" Values="[Unit_Invoices]">
+      <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, scg:List(x:String))">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, scg:List(x:String))" Name="unitItem" />
+        </ActivityAction.Argument>
+        <If Condition="[String.IsNullOrWhiteSpace(Unit_Filter) OrElse unitItem.Key.Equals(Unit_Filter.Trim, StringComparison.OrdinalIgnoreCase)]" sap2010:WorkflowViewState.IdRef="If_1"><If.Then>
+        <Sequence DisplayName="Unit">
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_6"><Assign.To><OutArgument x:TypeArguments="x:Boolean">[First_In_Unit]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[True]</InArgument></Assign.Value></Assign>
+          <ForEach x:TypeArguments="x:String" DisplayName="For Each invoice number" sap2010:WorkflowViewState.IdRef="ForEach_2" Values="[unitItem.Value.Take(If(Max_Invoices &gt; 0, Max_Invoices, Integer.MaxValue))]">
+            <ActivityAction x:TypeArguments="x:String">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:String" Name="invoiceItem" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Invoice"><Assign sap2010:WorkflowViewState.IdRef="Assign_2"><Assign.To><OutArgument x:TypeArguments="x:String">[Receipt_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign><Assign sap2010:WorkflowViewState.IdRef="Assign_3"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["Grn Not Found"]</InArgument></Assign.Value></Assign><Assign sap2010:WorkflowViewState.IdRef="Assign_4"><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Invoice_Found]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[False]</InArgument></Assign.Value></Assign><TryCatch DisplayName="Try Catch" sap2010:WorkflowViewState.IdRef="TryCatch_1"><TryCatch.Try><ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Oracle_Apply_4_Invoice_Receipt - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_4_Invoice_Receipt.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="Unit">[unitItem.Key]</InArgument><InArgument x:TypeArguments="x:String" x:Key="Invoice_Number">[invoiceItem]</InArgument><InArgument x:TypeArguments="x:Boolean" x:Key="Open_Unit_Form">[First_In_Unit]</InArgument><OutArgument x:TypeArguments="x:String" x:Key="Receipt_Number">[Receipt_Number]</OutArgument><OutArgument x:TypeArguments="x:Boolean" x:Key="Invoice_Found">[Invoice_Found]</OutArgument><OutArgument x:TypeArguments="x:String" x:Key="Status">[Status]</OutArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile></TryCatch.Try><TryCatch.Catches><Catch x:TypeArguments="s:Exception"><ActivityAction x:TypeArguments="s:Exception"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="s:Exception" Name="exception" /></ActivityAction.Argument><Sequence DisplayName="Catch"><Assign sap2010:WorkflowViewState.IdRef="Assign_1"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["Error: " + exception.Message]</InArgument></Assign.Value></Assign></Sequence></ActivityAction></Catch></TryCatch.Catches></TryCatch><ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap2010:WorkflowViewState.IdRef="AddDataRow_1" DataTable="[Results]" ArrayRow="[{unitItem.Key, invoiceItem, Receipt_Number, Status}]" /><Assign sap2010:WorkflowViewState.IdRef="Assign_5"><Assign.To><OutArgument x:TypeArguments="x:Boolean">[First_In_Unit]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[Status.StartsWith(&quot;Error&quot;)]</InArgument></Assign.Value></Assign></Sequence>
+            </ActivityAction>
+          </ForEach>
+        </Sequence>
+        </If.Then></If>
+      </ActivityAction>
+    </ForEach>
+    <If Condition="[Not String.IsNullOrWhiteSpace(Output_File)]" sap2010:WorkflowViewState.IdRef="If_10"><If.Then>
+      <ui:WriteRange AddHeaders="True" StartingCell="{x:Null}" DataTable="[Results]" DisplayName="Write Range Workbook" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Receipts" WorkbookPath="[Output_File]" />
+    </If.Then></If>
+  </Sequence>
+</Activity>

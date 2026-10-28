@@ -1,0 +1,119 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_4_Invoice_Receipt" this:Oracle_Apply_4_Invoice_Receipt.Open_Unit_Form="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Unit" Type="InArgument(x:String)" />
+    <x:Property Name="Invoice_Number" Type="InArgument(x:String)" />
+    <x:Property Name="Open_Unit_Form" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Receipt_Number" Type="OutArgument(x:String)" />
+    <x:Property Name="Invoice_Found" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Status" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>GRN_NUMBER_QUERY_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle_Apply_4_Invoice_Receipt" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Found_Invoice_Number" />
+    </Sequence.Variables>
+    <ui:Comment Text="Isolated step: search one invoice by Invoice Number in the unit Invoice Workbench and read the Receipt (GRN) number. Rules (which invoice number, related invoice creation, exception report row) are completed later." DisplayName="Comment" sap2010:WorkflowViewState.IdRef="Comment_1" /><If Condition="[Open_Unit_Form]" sap2010:WorkflowViewState.IdRef="If_3"><If.Then><Sequence DisplayName="Then"><ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Oracle_Apply_4_Open_Unit - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_4_Open_Unit.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="Unit">[Unit]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile></Sequence></If.Then></If><Assign sap2010:WorkflowViewState.IdRef="Assign_4"><Assign.To><OutArgument x:TypeArguments="x:String">[Receipt_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign><Assign sap2010:WorkflowViewState.IdRef="Assign_5"><Assign.To><OutArgument x:TypeArguments="x:String">[Found_Invoice_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign><Assign sap2010:WorkflowViewState.IdRef="Assign_6"><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Invoice_Found]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[False]</InArgument></Assign.Value></Assign><Assign sap2010:WorkflowViewState.IdRef="Assign_7"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["Grn Not Found"]</InArgument></Assign.Value></Assign><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Find...' (focus)" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.CursorPosition><ui:CursorPosition Position="Center" /></ui:Click.CursorPosition><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="119f8fe8-da1c-4633-9319-24676f04d8ce" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Find...' role='push button' /&gt;" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:Click.Target></ui:Click><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Find...'" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.CursorPosition><ui:CursorPosition Position="Center" /></ui:Click.CursorPosition><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b9536ed2-b78c-4db5-9f81-8c05f71c8221" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Find...' role='push button' /&gt;" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:Click.Target></ui:Click><ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'Invoice: Number'" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[Invoice_Number.Trim]"><ui:TypeInto.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0931870b-a2ee-4e19-bdcf-9802abfaf2c3" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Number' role='text' /&gt;" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:TypeInto.Target></ui:TypeInto><ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Enter' (Find)" sap2010:WorkflowViewState.IdRef="SendHotkey_11" Key="enter" KeyModifiers="None" SpecialKey="True"><ui:SendHotkey.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ed9a13b0-e3d2-45b1-a34a-734b2e51a1d5" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Number' role='text' /&gt;" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:SendHotkey.Target></ui:SendHotkey><ui:GetValue ContinueOnError="True" DisplayName="Get Text 'Invoice Num'" sap2010:WorkflowViewState.IdRef="GetValue_12"><ui:GetValue.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="266a51db-1b7a-4c2b-989d-5ca883584594" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Invoice Num Required' role='text' /&gt;&quot;]" WaitForReady="COMPLETE" TimeoutMS="3000" /></ui:GetValue.Target><ui:GetValue.Value><OutArgument x:TypeArguments="x:String">[Found_Invoice_Number]</OutArgument></ui:GetValue.Value></ui:GetValue><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'close Find Invoices' (focus)" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.CursorPosition><ui:CursorPosition Position="Center" /></ui:Click.CursorPosition><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4d432b1-b3c2-404c-9da9-ed119ebff947" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:Click.Target></ui:Click><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'close Find Invoices'" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.CursorPosition><ui:CursorPosition Position="Center" /></ui:Click.CursorPosition><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="914ab689-182d-4d3c-afb4-53ca8fed5aa8" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:Click.Target></ui:Click><Assign sap2010:WorkflowViewState.IdRef="Assign_15"><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Invoice_Found]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[Not String.IsNullOrWhiteSpace(Found_Invoice_Number)]</InArgument></Assign.Value></Assign><If Condition="[Invoice_Found]" sap2010:WorkflowViewState.IdRef="If_23"><If.Then><Sequence DisplayName="Then"><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab 2 Lines'" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.CursorPosition><ui:CursorPosition Position="Center" /></ui:Click.CursorPosition><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d6d285d7-52be-4882-be67-7ada4204df81" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='2 Lines' role='page tab' /&gt;&quot;]" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:Click.Target></ui:Click><ui:GetValue ContinueOnError="True" DisplayName="Get Text 'Receipt Number'" sap2010:WorkflowViewState.IdRef="GetValue_17"><ui:GetValue.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ef63e935-5a21-4de7-8c9b-daf98d0cdc4e" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Receipt Number*' role='text' idx='1' /&gt;&quot;]" WaitForReady="COMPLETE" TimeoutMS="3000" /></ui:GetValue.Target><ui:GetValue.Value><OutArgument x:TypeArguments="x:String">[Receipt_Number]</OutArgument></ui:GetValue.Value></ui:GetValue><ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'page tab 1 General'" sap2010:WorkflowViewState.IdRef="Click_18" KeyModifiers="None" MouseButton="BTN_LEFT"><ui:Click.CursorPosition><ui:CursorPosition Position="Center" /></ui:Click.CursorPosition><ui:Click.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="974ce071-20db-4261-ae70-9d20acf089cd" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='1 General' role='page tab' /&gt;&quot;]" WaitForReady="COMPLETE" TimeoutMS="5000" /></ui:Click.Target></ui:Click><If Condition="[Not String.IsNullOrWhiteSpace(Receipt_Number)]" sap2010:WorkflowViewState.IdRef="If_22"><If.Then><Sequence DisplayName="Then"><Assign sap2010:WorkflowViewState.IdRef="Assign_19"><Assign.To><OutArgument x:TypeArguments="x:String">[Receipt_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[Receipt_Number.Trim]</InArgument></Assign.Value></Assign><Assign sap2010:WorkflowViewState.IdRef="Assign_20"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["GRN Found"]</InArgument></Assign.Value></Assign></Sequence></If.Then><If.Else><Sequence DisplayName="Else"><Assign sap2010:WorkflowViewState.IdRef="Assign_21"><Assign.To><OutArgument x:TypeArguments="x:String">[Receipt_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign></Sequence></If.Else></If></Sequence></If.Then></If><ui:Comment Text="RULES TO COMPLETE LATER: when Status = GRN Found create the related invoice; when Status = Grn Not Found write the exception report row." DisplayName="Comment" sap2010:WorkflowViewState.IdRef="Comment_24" /><ui:LogMessage DisplayName="Log Message" Level="Info" Message="[&quot;Apply invoice lookup | Unit=&quot; + Unit + &quot; | Invoice=&quot; + Invoice_Number + &quot; | Found=&quot; + Invoice_Found.ToString + &quot; | Receipt=&quot; + Receipt_Number + &quot; | Status=&quot; + Status]" sap2010:WorkflowViewState.IdRef="LogMessage_25" />
+  </Sequence>
+</Activity>

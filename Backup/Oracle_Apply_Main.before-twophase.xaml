@@ -1,0 +1,582 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_Main" this:Oracle_Apply_Main.Max_Entries="10" this:Oracle_Apply_Main.Invoice_Date="26-FEB-2026" this:Oracle_Apply_Main.Report_Name="Prepayment Garments Query - M&amp;JIT Report" this:Oracle_Apply_Main.Max_Wait_Minutes="30" this:Oracle_Apply_Main.Unit_Filter="GWN" this:Oracle_Apply_Main.Max_Errors="3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Max_Entries" Type="InArgument(x:Int32)" />
+    <x:Property Name="Invoice_Date" Type="InArgument(x:String)" />
+    <x:Property Name="Report_File" Type="InArgument(x:String)" />
+    <x:Property Name="As_On_Date" Type="InArgument(x:String)" />
+    <x:Property Name="Report_Name" Type="InArgument(x:String)" />
+    <x:Property Name="Max_Wait_Minutes" Type="InArgument(x:Int32)" />
+    <x:Property Name="Unit_Filter" Type="InArgument(x:String)" />
+    <x:Property Name="Max_Errors" Type="InArgument(x:Int32)" />
+    <x:Property Name="Log_File" Type="InArgument(x:String)" />
+    <x:Property Name="Completed_Count" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle_Apply_Main" sap:VirtualizedContainerService.HintSize="1507,5310" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Report_Path" />
+      <Variable x:TypeArguments="x:String" Name="Request_ID" />
+      <Variable x:TypeArguments="x:Boolean" Name="Is_Completed" />
+      <Variable x:TypeArguments="x:String" Name="Phase" />
+      <Variable x:TypeArguments="x:String" Name="Dl_Status" />
+      <Variable x:TypeArguments="x:String" Name="Saved_File" />
+      <Variable x:TypeArguments="x:String" Name="File_Name" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, scg:List(x:String))" Name="Unit_Invoices" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Lc_Info" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Row_Table" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="Units" />
+      <Variable x:TypeArguments="x:Int32" Name="Done" />
+      <Variable x:TypeArguments="x:Int32" Name="Errors" />
+      <Variable x:TypeArguments="x:Boolean" Name="Halt" />
+      <Variable x:TypeArguments="x:Boolean" Name="Need_Open" />
+      <Variable x:TypeArguments="x:String" Name="Receipt_Number" />
+      <Variable x:TypeArguments="x:String" Name="Status" />
+      <Variable x:TypeArguments="x:String" Name="Supplier_Used" />
+      <Variable x:TypeArguments="x:String" Name="New_Invoice" />
+      <Variable x:TypeArguments="x:String" Name="Create_Status" />
+      <Variable x:TypeArguments="x:String" Name="Log_Path" />
+      <Variable x:TypeArguments="scg:HashSet(x:String)" Name="Completed_Keys" />
+      <Variable x:TypeArguments="scg:List(sd:DataRow)" Name="Unit_Rows" />
+      <Variable x:TypeArguments="x:String" Name="As_On" />
+      <Variable x:TypeArguments="x:Int32" Name="Row_No" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Comment DisplayName="Comment" sap:VirtualizedContainerService.HintSize="502,460" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Full APPLY run. Gets the Prepayment Garments report (submits the request and downloads it, or uses Report_File), keeps LC OPENING CHAR rows with an unapplied amount, then per unit and row: finds the GRN by LC number + company (4c); if found creates the invoice, matches the GRN and applies the prepayment (6_Create_Invoice). Max_Entries = how many invoices to COMPLETE in this run (0 = all); rows with no GRN do not count. Max_Errors stops the run after that many failures (0 = never stop). Each row result is appended to Log_File (default Apply_File\Apply_Main_Log.csv); rows already Completed there are skipped on later runs. Oracle must be open and logged in. Invoice_Date: the test server GL period is open only for FEB 2026; use today (dd-MMM-yyyy) on a server whose current period is open." />
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Done]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Errors]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[Halt]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Row_No]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Log_Path]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(Log_File), System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Apply_File", "Apply_Main_Log.csv"), Log_File)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Apply run start | Max_Entries=&quot; + Max_Entries.ToString + &quot; | Invoice_Date=&quot; + Invoice_Date + &quot; | Unit_Filter=&quot; + Unit_Filter + &quot; | Report_File=&quot; + Report_File]" />
+    <If Condition="[String.IsNullOrWhiteSpace(Report_File)]" sap:VirtualizedContainerService.HintSize="502,1200" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Get report" sap:VirtualizedContainerService.HintSize="450,987" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[As_On]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(As_On_Date), Now.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).ToUpper, As_On_Date)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Oracle_Apply_1_Request - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_1_Request.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="Report_Name">[Report_Name]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="As_On_Date">[As_On]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Unit">[Unit_Filter]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Request_ID">[Request_ID]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Report request &quot; + Request_ID]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Oracle_Apply_3_Download - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,234" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_3_Download.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="Request_ID">[Request_ID]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="Max_Wait_Minutes">[Max_Wait_Minutes]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="Is_Completed">[Is_Completed]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Phase">[Phase]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Status">[Dl_Status]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Saved_File">[Saved_File]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="File_Name">[File_Name]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <Assign sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Report_Path]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Saved_File]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[Report_Path]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Report_File]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Report file: &quot; + Report_Path]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Oracle_Apply_4a_Read_Report - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="502,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_4a_Read_Report.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="Report_File">[Report_Path]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="Only_Unapplied">[True]</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:List(x:String))" x:Key="Unit_Invoices">[Unit_Invoices]</OutArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="Lc_Info">[Lc_Info]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Row_Table">[Row_Table]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[Units]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[Row_Table.AsEnumerable().Select(Function(r) r("Unit").ToString).Distinct().Where(Function(u) String.IsNullOrWhiteSpace(Unit_Filter) OrElse u.Equals(Unit_Filter.Trim(), StringComparison.OrdinalIgnoreCase)).ToList()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="keys = New System.Collections.Generic.HashSet(Of String)(StringComparer.OrdinalIgnoreCase)&#xA;If System.IO.File.Exists(path) Then&#xA;    For Each ln In System.IO.File.ReadAllLines(path, System.Text.Encoding.UTF8).Skip(1)&#xA;        Dim parts As New System.Collections.Generic.List(Of String)&#xA;        Dim sb As New System.Text.StringBuilder&#xA;        Dim inQ As Boolean = False&#xA;        Dim k As Integer = 0&#xA;        While k &lt; ln.Length&#xA;            Dim ch As Char = ln(k)&#xA;            If inQ Then&#xA;                If ch = Chr(34) Then&#xA;                    If k + 1 &lt; ln.Length AndAlso ln(k + 1) = Chr(34) Then&#xA;                        sb.Append(Chr(34))&#xA;                        k += 1&#xA;                    Else&#xA;                        inQ = False&#xA;                    End If&#xA;                Else&#xA;                    sb.Append(ch)&#xA;                End If&#xA;            ElseIf ch = Chr(34) Then&#xA;                inQ = True&#xA;            ElseIf ch = &quot;,&quot; Then&#xA;                parts.Add(sb.ToString())&#xA;                sb.Clear()&#xA;            Else&#xA;                sb.Append(ch)&#xA;            End If&#xA;            k += 1&#xA;        End While&#xA;        parts.Add(sb.ToString())&#xA;        If parts.Count &gt;= 7 AndAlso parts(6).StartsWith(&quot;Completed&quot;) Then keys.Add(parts(1) &amp; &quot;|&quot; &amp; parts(2))&#xA;    Next&#xA;End If" sap:VirtualizedContainerService.HintSize="502,403" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="path">[Log_Path]</InArgument>
+        <OutArgument x:TypeArguments="scg:HashSet(x:String)" x:Key="keys">[Completed_Keys]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Report rows: &quot; + Row_Table.Rows.Count.ToString + &quot; | units: &quot; + String.Join(&quot;,&quot;, Units) + &quot; | already completed in log: &quot; + Completed_Keys.Count.ToString]" />
+    <ForEach x:TypeArguments="x:String" DisplayName="For Each unit" sap:VirtualizedContainerService.HintSize="502,1131" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Units]">
+      <ActivityAction x:TypeArguments="x:String">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:String" Name="unitItem" />
+        </ActivityAction.Argument>
+        <If Condition="[Not Halt AndAlso (Max_Entries &lt;= 0 OrElse Done &lt; Max_Entries)]" sap:VirtualizedContainerService.HintSize="452,948" sap2010:WorkflowViewState.IdRef="If_7">
+          <If.Then>
+            <Sequence DisplayName="Unit" sap:VirtualizedContainerService.HintSize="450,817" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[Need_Open]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="scg:List(sd:DataRow)">[Unit_Rows]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="scg:List(sd:DataRow)">[Row_Table.AsEnumerable().Where(Function(r) r("Unit").ToString = unitItem AndAlso Not Completed_Keys.Contains(unitItem &amp; "|" &amp; r("Prepayment_Invoice").ToString)).ToList()]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Unit &quot; + unitItem + &quot;: &quot; + Unit_Rows.Count.ToString + &quot; row(s) to process&quot;]" />
+              <ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each row" sap:VirtualizedContainerService.HintSize="416,232" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Unit_Rows]">
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="rowItem" />
+                  </ActivityAction.Argument>
+                  <If Condition="[Not Halt AndAlso (Max_Entries &lt;= 0 OrElse Done &lt; Max_Entries)]" sap:VirtualizedContainerService.HintSize="524,2391" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If.Then>
+                      <Sequence DisplayName="Row" sap:VirtualizedContainerService.HintSize="522,2260" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_12">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[Row_No]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[Row_No + 1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_13">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Receipt_Number]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_14">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["Grn Not Found"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_15">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Supplier_Used]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_16">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[New_Invoice]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Apply row &quot; + Row_No.ToString + &quot; | Unit=&quot; + unitItem + &quot; | Prepayment=&quot; + rowItem(&quot;Prepayment_Invoice&quot;).ToString + &quot; | LC=&quot; + rowItem(&quot;LC_Number&quot;).ToString + &quot; | Company=&quot; + rowItem(&quot;Company&quot;).ToString + &quot; | completed so far &quot; + Done.ToString + If(Max_Entries &gt; 0, &quot; of &quot; + Max_Entries.ToString, &quot;&quot;)]" />
+                        <TryCatch DisplayName="Try row" sap:VirtualizedContainerService.HintSize="488,1150" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                          <TryCatch.Try>
+                            <Sequence DisplayName="Lookup and create" sap:VirtualizedContainerService.HintSize="486,1001" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[String.IsNullOrWhiteSpace(rowItem(&quot;LC_Number&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="452,564" sap2010:WorkflowViewState.IdRef="If_2">
+                                <If.Then>
+                                  <Sequence DisplayName="No LC" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["LC Not In Description"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Oracle_Apply_4c_LC_Receipt - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_4c_LC_Receipt.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="Unit">[unitItem]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="LC_Number">[rowItem("LC_Number").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="Company">[rowItem("Company").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="Bank">[rowItem("Bank").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:Boolean" x:Key="Open_Unit_Form">[Need_Open]</InArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="Receipt_Number">[Receipt_Number]</OutArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="Supplier_Used">[Supplier_Used]</OutArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="Status">[Status]</OutArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                </If.Else>
+                              </If>
+                              <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[Need_Open]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">[Not (Status = "GRN Found" OrElse Status.StartsWith("Error"))]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <If Condition="[Status = &quot;GRN Found&quot;]" sap:VirtualizedContainerService.HintSize="452,202" sap2010:WorkflowViewState.IdRef="If_4">
+                                <If.Then>
+                                  <Sequence DisplayName="Create" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                    <Assign sap2010:WorkflowViewState.IdRef="Assign_19">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[Need_Open]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Oracle_Apply_6_Create_Invoice - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_6_Create_Invoice.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Unit">[unitItem]</InArgument>
+                                        <InArgument x:TypeArguments="x:Boolean" x:Key="Open_Batch">[True]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Invoice_Date">[Invoice_Date]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Trading_Partner">[rowItem("Bank").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Site_Name">[rowItem("Site").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Prepayment_Invoice">[rowItem("Prepayment_Invoice").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Invoice_Amount">[rowItem("Amount").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Currency">[rowItem("Currency").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Description">[rowItem("Description").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="LC_Number">[rowItem("LC_Number").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Receipt_Number">[Receipt_Number]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="Supplier_Name">[If(String.IsNullOrWhiteSpace(Supplier_Used), rowItem("Company").ToString, Supplier_Used)]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="New_Invoice_Number">[New_Invoice]</OutArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="Status">[Create_Status]</OutArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <If Condition="[Create_Status.StartsWith(&quot;Applied&quot;)]" sap2010:WorkflowViewState.IdRef="If_3">
+                                      <If.Then>
+                                        <Sequence DisplayName="Completed" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                          <Assign sap2010:WorkflowViewState.IdRef="Assign_20">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[Done]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[Done + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim existed As Boolean = System.IO.File.Exists(path)&#xA;If Not existed Then System.IO.File.WriteAllText(path, &quot;Run_At,Unit,Prepayment_Invoice,New_Invoice,GRN,Amount,Result&quot; &amp; vbCrLf, New System.Text.UTF8Encoding(True))&#xA;Dim f As String() = New String() {Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;), unit, prepay, newInv, grn, amount, result}&#xA;For i As Integer = 0 To f.Length - 1&#xA;    f(i) = Chr(34) &amp; f(i).Replace(Chr(34), Chr(34) &amp; Chr(34)).Replace(vbCr, &quot; &quot;).Replace(vbLf, &quot; &quot;) &amp; Chr(34)&#xA;Next&#xA;System.IO.File.AppendAllText(path, String.Join(&quot;,&quot;, f) &amp; vbCrLf, New System.Text.UTF8Encoding(True))" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+                                            <ui:InvokeCode.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="path">[Log_Path]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="unit">[unitItem]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="prepay">[rowItem("Prepayment_Invoice").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="newInv">[New_Invoice]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="grn">[Receipt_Number]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="amount">[rowItem("Amount").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="result">["Completed: " + Create_Status]</InArgument>
+                                            </ui:InvokeCode.Arguments>
+                                          </ui:InvokeCode>
+                                          <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Apply row &quot; + Row_No.ToString + &quot; completed | New invoice=&quot; + New_Invoice + &quot; | &quot; + Create_Status]" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Not complete" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                          <Assign sap2010:WorkflowViewState.IdRef="Assign_21">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[Errors]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[Errors + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim existed As Boolean = System.IO.File.Exists(path)&#xA;If Not existed Then System.IO.File.WriteAllText(path, &quot;Run_At,Unit,Prepayment_Invoice,New_Invoice,GRN,Amount,Result&quot; &amp; vbCrLf, New System.Text.UTF8Encoding(True))&#xA;Dim f As String() = New String() {Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;), unit, prepay, newInv, grn, amount, result}&#xA;For i As Integer = 0 To f.Length - 1&#xA;    f(i) = Chr(34) &amp; f(i).Replace(Chr(34), Chr(34) &amp; Chr(34)).Replace(vbCr, &quot; &quot;).Replace(vbLf, &quot; &quot;) &amp; Chr(34)&#xA;Next&#xA;System.IO.File.AppendAllText(path, String.Join(&quot;,&quot;, f) &amp; vbCrLf, New System.Text.UTF8Encoding(True))" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+                                            <ui:InvokeCode.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="path">[Log_Path]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="unit">[unitItem]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="prepay">[rowItem("Prepayment_Invoice").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="newInv">[New_Invoice]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="grn">[Receipt_Number]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="amount">[rowItem("Amount").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="result">["Not completed: " + Create_Status]</InArgument>
+                                            </ui:InvokeCode.Arguments>
+                                          </ui:InvokeCode>
+                                          <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Warn" Message="[&quot;Apply row &quot; + Row_No.ToString + &quot; NOT completed: &quot; + Create_Status]" />
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Skip" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim existed As Boolean = System.IO.File.Exists(path)&#xA;If Not existed Then System.IO.File.WriteAllText(path, &quot;Run_At,Unit,Prepayment_Invoice,New_Invoice,GRN,Amount,Result&quot; &amp; vbCrLf, New System.Text.UTF8Encoding(True))&#xA;Dim f As String() = New String() {Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;), unit, prepay, newInv, grn, amount, result}&#xA;For i As Integer = 0 To f.Length - 1&#xA;    f(i) = Chr(34) &amp; f(i).Replace(Chr(34), Chr(34) &amp; Chr(34)).Replace(vbCr, &quot; &quot;).Replace(vbLf, &quot; &quot;) &amp; Chr(34)&#xA;Next&#xA;System.IO.File.AppendAllText(path, String.Join(&quot;,&quot;, f) &amp; vbCrLf, New System.Text.UTF8Encoding(True))" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+                                      <ui:InvokeCode.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="path">[Log_Path]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="unit">[unitItem]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="prepay">[rowItem("Prepayment_Invoice").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="newInv">[New_Invoice]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="grn">[""]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="amount">[rowItem("Amount").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="result">["Skipped: " + Status]</InArgument>
+                                      </ui:InvokeCode.Arguments>
+                                    </ui:InvokeCode>
+                                    <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Apply row &quot; + Row_No.ToString + &quot; skipped: &quot; + Status]" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Catch" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                  <Assign sap2010:WorkflowViewState.IdRef="Assign_22">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[Errors]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Int32">[Errors + 1]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap2010:WorkflowViewState.IdRef="Assign_23">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">[Need_Open]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim existed As Boolean = System.IO.File.Exists(path)&#xA;If Not existed Then System.IO.File.WriteAllText(path, &quot;Run_At,Unit,Prepayment_Invoice,New_Invoice,GRN,Amount,Result&quot; &amp; vbCrLf, New System.Text.UTF8Encoding(True))&#xA;Dim f As String() = New String() {Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;), unit, prepay, newInv, grn, amount, result}&#xA;For i As Integer = 0 To f.Length - 1&#xA;    f(i) = Chr(34) &amp; f(i).Replace(Chr(34), Chr(34) &amp; Chr(34)).Replace(vbCr, &quot; &quot;).Replace(vbLf, &quot; &quot;) &amp; Chr(34)&#xA;Next&#xA;System.IO.File.AppendAllText(path, String.Join(&quot;,&quot;, f) &amp; vbCrLf, New System.Text.UTF8Encoding(True))" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+                                    <ui:InvokeCode.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="path">[Log_Path]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="unit">[unitItem]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="prepay">[rowItem("Prepayment_Invoice").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="newInv">[New_Invoice]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="grn">[Receipt_Number]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="amount">[rowItem("Amount").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="result">["Error: " + exception.Message]</InArgument>
+                                    </ui:InvokeCode.Arguments>
+                                  </ui:InvokeCode>
+                                  <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;Apply row &quot; + Row_No.ToString + &quot; ERROR (&quot; + Errors.ToString + &quot; of &quot; + Max_Errors.ToString + &quot;): &quot; + exception.Message]" />
+                                  <If Condition="[Max_Errors &gt; 0 AndAlso Errors &gt;= Max_Errors]" sap2010:WorkflowViewState.IdRef="If_5">
+                                    <If.Then>
+                                      <Sequence DisplayName="Stop" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                        <Assign sap2010:WorkflowViewState.IdRef="Assign_24">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[Halt]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Error" Message="[&quot;Stopping: reached &quot; + Max_Errors.ToString + &quot; errors&quot;]" />
+                                      </Sequence>
+                                    </If.Then>
+                                  </If>
+                                </Sequence>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                </ActivityAction>
+              </ForEach>
+            </Sequence>
+          </If.Then>
+        </If>
+      </ActivityAction>
+    </ForEach>
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_25">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Completed_Count]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[Done]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="502,166" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Apply run finished | Completed=&quot; + Done.ToString + &quot; | Errors=&quot; + Errors.ToString + &quot; | Log=&quot; + Log_Path]" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,148 @@
+<Activity xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_6_Create_Invoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Unit" Type="InArgument(x:String)" />
+    <x:Property Name="Batch_Name" Type="InArgument(x:String)" />
+    <x:Property Name="Open_Batch" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Invoice_Date" Type="InArgument(x:String)" />
+    <x:Property Name="Trading_Partner" Type="InArgument(x:String)" />
+    <x:Property Name="Site_Name" Type="InArgument(x:String)" />
+    <x:Property Name="Prepayment_Invoice" Type="InArgument(x:String)" />
+    <x:Property Name="Invoice_Amount" Type="InArgument(x:String)" />
+    <x:Property Name="Currency" Type="InArgument(x:String)" />
+    <x:Property Name="Description" Type="InArgument(x:String)" />
+    <x:Property Name="LC_Number" Type="InArgument(x:String)" />
+    <x:Property Name="Receipt_Number" Type="InArgument(x:String)" />
+    <x:Property Name="Supplier_Name" Type="InArgument(x:String)" />
+    <x:Property Name="New_Invoice_Number" Type="OutArgument(x:String)" />
+    <x:Property Name="Status" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>GRN_NUMBER_QUERY_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle_Apply_6_Create_Invoice" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Entry_Result" />
+      <Variable x:TypeArguments="x:String" Name="Match_Result" />
+      <Variable x:TypeArguments="x:String" Name="Apply_Status" />
+    </Sequence.Variables>
+    <ui:Comment Text="Creates the related invoice for one prepayment row and applies the prepayment (tASKcAPTURE/APPLY.ssp steps 55-163): Invoice Batches (BatchControl, batch UNIT_RPA) > Invoice Workbench new invoice (Standard, bank as trading partner, site LC OPENING CHAR, prepayment invoice number + M, LC/TT No., BDT amount, payment method Advice, description) > Match miscellaneous charge to the GRN receipt (cost factor LC Opening Charges) > Validate > Apply prepayment > Validate > Initiate Approval." DisplayName="Comment" sap2010:WorkflowViewState.IdRef="Comment_1" />
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_201"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["Not Created"]</InArgument></Assign.Value></Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_202"><Assign.To><OutArgument x:TypeArguments="x:String">[New_Invoice_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[Prepayment_Invoice.Trim + "M"]</InArgument></Assign.Value></Assign>
+    <ui:LogMessage DisplayName="Log" Level="Info" Message="[&quot;Create invoice | Unit=&quot; + Unit + &quot; | Prepayment=&quot; + Prepayment_Invoice + &quot; | New=&quot; + New_Invoice_Number + &quot; | LC=&quot; + LC_Number + &quot; | GRN=&quot; + Receipt_Number + &quot; | Amount=&quot; + Invoice_Amount]" sap2010:WorkflowViewState.IdRef="LogMessage_203" />
+    <If Condition="[String.IsNullOrWhiteSpace(Receipt_Number)]" sap2010:WorkflowViewState.IdRef="If_206"><If.Then><Sequence DisplayName="Then"><Assign sap2010:WorkflowViewState.IdRef="Assign_204"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["No GRN"]</InArgument></Assign.Value></Assign><Throw Exception="[New System.Exception(&quot;No GRN receipt number for this row&quot;)]" sap2010:WorkflowViewState.IdRef="Throw_205" /></Sequence></If.Then></If>
+    <If Condition="[Open_Batch]" sap2010:WorkflowViewState.IdRef="If_208"><If.Then><Sequence DisplayName="Then"><ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Oracle_Apply_6_Open_Batch - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_207" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_6_Open_Batch.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="Unit">[Unit]</InArgument><InArgument x:TypeArguments="x:String" x:Key="Batch_Name">[Batch_Name]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile></Sequence></If.Then></If>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_209"><Assign.To><OutArgument x:TypeArguments="x:String">[Entry_Result]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Oracle_Apply_6_Java_Entry - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_210" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_6_Java_Entry.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="Description">[Description]</InArgument><InArgument x:TypeArguments="x:String" x:Key="InvoiceAmount">[Invoice_Amount.Replace(",", "")]</InArgument><InArgument x:TypeArguments="x:String" x:Key="Currency">[Currency]</InArgument><InArgument x:TypeArguments="x:String" x:Key="LC_CONTEXT">["None"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="LC_NO">[LC_Number]</InArgument><InArgument x:TypeArguments="x:String" x:Key="InvoiceNumber">[New_Invoice_Number]</InArgument><InArgument x:TypeArguments="x:String" x:Key="BatchName">[If(String.IsNullOrWhiteSpace(Batch_Name), Unit + "_RPA", Batch_Name)]</InArgument><InArgument x:TypeArguments="x:String" x:Key="Type">["Standard"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="TradingPartner">[Trading_Partner]</InArgument><InArgument x:TypeArguments="x:String" x:Key="SupplierSiteName">[Site_Name]</InArgument><InArgument x:TypeArguments="x:String" x:Key="InvoiceDate">[If(String.IsNullOrWhiteSpace(Invoice_Date), DateTime.Now.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).ToUpper, Invoice_Date)]</InArgument><InArgument x:TypeArguments="x:String" x:Key="PaymentMethod">["Advice"]</InArgument><OutArgument x:TypeArguments="x:String" x:Key="Result">[Entry_Result]</OutArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log" Level="Info" Message="[&quot;Invoice entry result: &quot; + Entry_Result]" sap2010:WorkflowViewState.IdRef="LogMessage_211" />
+    <If Condition="[Entry_Result = &quot;Invoice Number Already Exist!&quot; Or Entry_Result = &quot;LC NUMBER NOT FOUND!&quot;]" sap2010:WorkflowViewState.IdRef="If_214"><If.Then><Sequence DisplayName="Then"><Assign sap2010:WorkflowViewState.IdRef="Assign_212"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[Entry_Result]</InArgument></Assign.Value></Assign><Throw Exception="[New System.Exception(Entry_Result)]" sap2010:WorkflowViewState.IdRef="Throw_213" /></Sequence></If.Then></If>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="unwanted_match_screen - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_215" UnSafe="False" WorkflowFileName="unwanted_match_screen.xaml"><ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_216"><Assign.To><OutArgument x:TypeArguments="x:String">[Match_Result]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GRNMatching - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_217" UnSafe="False" WorkflowFileName="GRNMatching.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="Amount">[Invoice_Amount.Replace(",", "")]</InArgument><InArgument x:TypeArguments="x:String" x:Key="ReceiptNum">[Receipt_Number]</InArgument><InArgument x:TypeArguments="x:String" x:Key="SupplierName">[Supplier_Name]</InArgument><InArgument x:TypeArguments="x:String" x:Key="MatchingType">["Miscellaneous"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="Description">[Description]</InArgument><InArgument x:TypeArguments="x:String" x:Key="CostFactorName">["LC Opening Charges"]</InArgument><OutArgument x:TypeArguments="x:String" x:Key="Result">[Match_Result]</OutArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log" Level="Info" Message="[&quot;GRN match result: &quot; + Match_Result]" sap2010:WorkflowViewState.IdRef="LogMessage_218" />
+    <If Condition="[Not String.IsNullOrWhiteSpace(Match_Result) AndAlso (Match_Result.Contains(&quot;Failed&quot;) OrElse Match_Result.Contains(&quot;Not Found&quot;) OrElse Match_Result.Contains(&quot;not found&quot;))]" sap2010:WorkflowViewState.IdRef="If_221"><If.Then><Sequence DisplayName="Then"><Assign sap2010:WorkflowViewState.IdRef="Assign_219"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["GRN match failed: " + Match_Result]</InArgument></Assign.Value></Assign><Throw Exception="[New System.Exception(Status)]" sap2010:WorkflowViewState.IdRef="Throw_220" /></Sequence></If.Then></If>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_222"><Assign.To><OutArgument x:TypeArguments="x:String">[Apply_Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Oracle_Apply_6b_Apply_Prepayment - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_223" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_6b_Apply_Prepayment.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="Unit">[Unit]</InArgument><InArgument x:TypeArguments="x:String" x:Key="Prepayment_Invoice">[Prepayment_Invoice]</InArgument><OutArgument x:TypeArguments="x:String" x:Key="Status">[Apply_Status]</OutArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_224"><Assign.To><OutArgument x:TypeArguments="x:String">[Status]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[Apply_Status]</InArgument></Assign.Value></Assign>
+    <ui:LogMessage DisplayName="Log" Level="Info" Message="[&quot;Create invoice done | Unit=&quot; + Unit + &quot; | New=&quot; + New_Invoice_Number + &quot; | &quot; + Status]" sap2010:WorkflowViewState.IdRef="LogMessage_225" />
+  </Sequence>
+</Activity>

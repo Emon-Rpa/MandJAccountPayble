@@ -1,0 +1,1561 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_6b_Apply_Prepayment" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Unit" Type="InArgument(x:String)" />
+    <x:Property Name="Prepayment_Invoice" Type="InArgument(x:String)" />
+    <x:Property Name="Skip_Apply" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Gl_Date" Type="InArgument(x:String)" />
+    <x:Property Name="Status" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>GRN_NUMBER_QUERY_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Oracle_Apply_6b_Apply_Prepayment" sap:VirtualizedContainerService.HintSize="1302,10937" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Wb_Status" />
+      <Variable x:TypeArguments="x:String" Name="Chk_State" />
+      <Variable x:TypeArguments="x:String" Name="Apply_State" />
+      <Variable x:TypeArguments="x:String" Name="Applied" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="Gl_Try" />
+      <Variable x:TypeArguments="x:Boolean" Name="Gl_Popup" />
+      <Variable x:TypeArguments="x:String" Name="Gl_Value">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Approval_Text" />
+      <Variable x:TypeArguments="x:Int32" Name="Tries" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Comment DisplayName="Comment" sap:VirtualizedContainerService.HintSize="768,245" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Follows tASKcAPTURE/APPLY.ssp steps 143-163 on the invoice that was just entered and matched in the unit Invoice Workbench: Actions &gt; Validate, Actions &gt; Apply/Unapply Prepayment, in the Apply/Unapply Prepayments form query the prepayment invoice number (F11, number, Ctrl+F11), tick Apply, Apply/Unapply, Save, close the form, Validate again and Actions &gt; Initiate Approval." />
+    <Assign sap:VirtualizedContainerService.HintSize="768,175" sap2010:WorkflowViewState.IdRef="Assign_107">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Not Applied"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Actions" sap:VirtualizedContainerService.HintSize="768,119" sap2010:WorkflowViewState.IdRef="Click_101" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000102" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Actions... 1 alt c' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate alt V" sap:VirtualizedContainerService.HintSize="768,217" sap2010:WorkflowViewState.IdRef="GetAttribute_108">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000109" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="768,183" sap2010:WorkflowViewState.IdRef="If_112">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate alt V" sap2010:WorkflowViewState.IdRef="Click_110" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000111" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate Related Invoices alt R" sap:VirtualizedContainerService.HintSize="488,217" sap2010:WorkflowViewState.IdRef="GetAttribute_113">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000114" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="488,183" sap2010:WorkflowViewState.IdRef="If_117">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="Click_115" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000116" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Cancel Invoices alt I" sap:VirtualizedContainerService.HintSize="488,217" sap2010:WorkflowViewState.IdRef="GetAttribute_118">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000119" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="488,183" sap2010:WorkflowViewState.IdRef="If_122">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Cancel Invoices alt I" sap2010:WorkflowViewState.IdRef="Click_120" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000121" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Apply/Unapply Prepayment... alt U" sap:VirtualizedContainerService.HintSize="488,217" sap2010:WorkflowViewState.IdRef="GetAttribute_123">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000124" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="488,183" sap2010:WorkflowViewState.IdRef="If_127">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Apply/Unapply Prepayment... alt U" sap2010:WorkflowViewState.IdRef="Click_125" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000126" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Initiate Approval alt n" sap:VirtualizedContainerService.HintSize="488,217" sap2010:WorkflowViewState.IdRef="GetAttribute_128">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000129" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="488,183" sap2010:WorkflowViewState.IdRef="If_132">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Initiate Approval alt n" sap2010:WorkflowViewState.IdRef="Click_130" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000131" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Print Notice alt c" sap:VirtualizedContainerService.HintSize="488,217" sap2010:WorkflowViewState.IdRef="GetAttribute_133">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000134" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="488,183" sap2010:WorkflowViewState.IdRef="If_137">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Print Notice alt c" sap2010:WorkflowViewState.IdRef="Click_135" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000136" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Check Validate (before apply) (hardware click)" sap:VirtualizedContainerService.HintSize="488,119" sap2010:WorkflowViewState.IdRef="Click_138" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000139" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK (Invoice Actions)" sap:VirtualizedContainerService.HintSize="488,119" sap2010:WorkflowViewState.IdRef="Click_105" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000106" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='OK alt K' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Delay DisplayName="Delay 2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="488,123" sap2010:WorkflowViewState.IdRef="Delay_140" />
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '1 General'" sap:VirtualizedContainerService.HintSize="488,119" sap2010:WorkflowViewState.IdRef="Click_103" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000104" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='1 General' role='page tab' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Assign sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_141">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Tries]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_142">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Wb_Status]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[""]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetValue ContinueOnError="True" DisplayName="Get Status" sap:VirtualizedContainerService.HintSize="488,119" sap2010:WorkflowViewState.IdRef="GetValue_143">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000144" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='*Status' role='text' idx='1' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[Wb_Status]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <While DisplayName="Wait for Validated" sap2010:WorkflowViewState.IdRef="While_145" Condition="[Not Wb_Status.Trim.Equals(&quot;Validated&quot;) AndAlso Tries &lt; 15]">
+      <Sequence DisplayName="Poll" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Delay DisplayName="Delay 2s" Duration="00:00:02" sap2010:WorkflowViewState.IdRef="Delay_146" />
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_147">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[Tries]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[Tries + 1]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="True" DisplayName="Get Status" sap2010:WorkflowViewState.IdRef="GetValue_148">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000149" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='*Status' role='text' idx='1' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[Wb_Status]</OutArgument>
+          </ui:GetValue.Value>
+        </ui:GetValue>
+      </Sequence>
+    </While>
+    <If Condition="[Not Wb_Status.Trim.Equals(&quot;Validated&quot;)]" sap:VirtualizedContainerService.HintSize="768,512" sap2010:WorkflowViewState.IdRef="If_152">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,349" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_150">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["Not Validated: " + Wb_Status]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Throw Exception="[New System.Exception(&quot;Invoice did not validate (status &quot; + Wb_Status + &quot;)&quot;)]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="Throw_151" />
+        </Sequence>
+      </If.Then>
+    </If>
+    <If Condition="[Not Skip_Apply]" sap:VirtualizedContainerService.HintSize="768,5534" sap2010:WorkflowViewState.IdRef="If_960">
+      <If.Then>
+        <Sequence DisplayName="Apply the prepayment" sap:VirtualizedContainerService.HintSize="766,5371" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Actions" sap:VirtualizedContainerService.HintSize="732,119" sap2010:WorkflowViewState.IdRef="Click_304" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000102" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Actions... 1 alt c' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate alt V" sap:VirtualizedContainerService.HintSize="732,217" sap2010:WorkflowViewState.IdRef="GetAttribute_153">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000154" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="452,183" sap2010:WorkflowViewState.IdRef="If_157">
+            <If.Then>
+              <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate alt V" sap2010:WorkflowViewState.IdRef="Click_155" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000156" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </If.Then>
+          </If>
+          <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="GetAttribute_158">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000159" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_162">
+            <If.Then>
+              <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="Click_160" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000161" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </If.Then>
+          </If>
+          <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Cancel Invoices alt I" sap2010:WorkflowViewState.IdRef="GetAttribute_163">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000164" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="452,333" sap2010:WorkflowViewState.IdRef="If_167">
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,170" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Cancel Invoices alt I" sap:VirtualizedContainerService.HintSize="416,110" sap2010:WorkflowViewState.IdRef="Click_165" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000166" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </If.Then>
+          </If>
+          <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Apply/Unapply Prepayment... alt U" sap:VirtualizedContainerService.HintSize="452,217" sap2010:WorkflowViewState.IdRef="GetAttribute_168">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000169" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[Chk_State = &quot;True&quot;]" sap:VirtualizedContainerService.HintSize="452,183" sap2010:WorkflowViewState.IdRef="If_172">
+            <If.Then>
+              <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Apply/Unapply Prepayment... alt U" sap2010:WorkflowViewState.IdRef="Click_170" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000171" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </If.Then>
+          </If>
+          <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Initiate Approval alt n" sap:VirtualizedContainerService.HintSize="452,217" sap2010:WorkflowViewState.IdRef="GetAttribute_173">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000174" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_177">
+            <If.Then>
+              <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Initiate Approval alt n" sap2010:WorkflowViewState.IdRef="Click_175" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000176" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </If.Then>
+          </If>
+          <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Print Notice alt c" sap2010:WorkflowViewState.IdRef="GetAttribute_178">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000179" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_182">
+            <If.Then>
+              <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Print Notice alt c" sap2010:WorkflowViewState.IdRef="Click_180" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000181" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </If.Then>
+          </If>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Check Apply/Unapply Prepayment (hardware click)" sap2010:WorkflowViewState.IdRef="Click_183" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000184" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK (Invoice Actions)" sap2010:WorkflowViewState.IdRef="Click_305" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000106" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='OK alt K' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+          <Delay DisplayName="Delay 3s" Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_185" />
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_186">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Apply_State]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[""]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click prepayment invoice number cell" sap2010:WorkflowViewState.IdRef="Click_187" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000188" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Prepayment*Number' role='text' idx='1' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send F11 (enter query)" sap2010:WorkflowViewState.IdRef="SendHotkey_189" Key="f11" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000190" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Prepayment*Number' role='text' idx='1' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:SendHotkey.Target>
+          </ui:SendHotkey>
+          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type prepayment invoice number" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_192" SimulateType="False" Text="[Prepayment_Invoice.Trim]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000193" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Prepayment*Number' role='text' idx='1' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Ctrl+F11 (run query)" sap2010:WorkflowViewState.IdRef="SendHotkey_194" Key="f11" KeyModifiers="Ctrl" SpecialKey="True">
+            <ui:SendHotkey.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000195" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Prepayment*Number' role='text' idx='1' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+            </ui:SendHotkey.Target>
+          </ui:SendHotkey>
+          <Delay DisplayName="Delay 2s" Duration="00:00:02" sap2010:WorkflowViewState.IdRef="Delay_196" />
+          <ui:GetAttribute Attribute="javastate" ContinueOnError="True" DisplayName="Get Apply check box state" sap:VirtualizedContainerService.HintSize="732,217" sap2010:WorkflowViewState.IdRef="GetAttribute_197">
+            <ui:GetAttribute.Result>
+              <OutArgument x:TypeArguments="x:String">[Apply_State]</OutArgument>
+            </ui:GetAttribute.Result>
+            <ui:GetAttribute.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000198" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Apply' role='check box' idx='1' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+            </ui:GetAttribute.Target>
+          </ui:GetAttribute>
+          <If Condition="[String.IsNullOrEmpty(Apply_State) OrElse Not Apply_State.Contains(&quot;enabled&quot;)]" sap:VirtualizedContainerService.HintSize="732,3325" sap2010:WorkflowViewState.IdRef="If_223">
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="730,643" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="696,175" sap2010:WorkflowViewState.IdRef="Assign_199">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">["Prepayment Not Found"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_200" Level="Info" Message="[&quot;Prepayment &quot; + Prepayment_Invoice + &quot; not found in the Apply form&quot;]" />
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Close Apply form" sap:VirtualizedContainerService.HintSize="696,119" sap2010:WorkflowViewState.IdRef="Click_201" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000202" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Throw Exception="[New System.Exception(&quot;Prepayment &quot; + Prepayment_Invoice + &quot; not found for this supplier&quot;)]" sap:VirtualizedContainerService.HintSize="696,114" sap2010:WorkflowViewState.IdRef="Throw_203" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="730,2520" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Apply (prepayment row 1)" sap:VirtualizedContainerService.HintSize="696,119" sap2010:WorkflowViewState.IdRef="Click_204" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000205" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Apply' role='check box' idx='1' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay DisplayName="Delay 1s" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="696,123" sap2010:WorkflowViewState.IdRef="Delay_206" />
+                <Delay DisplayName="Delay 2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="696,123" sap2010:WorkflowViewState.IdRef="Delay_207" />
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK on date Note (default GL date is today)" sap:VirtualizedContainerService.HintSize="696,119" sap2010:WorkflowViewState.IdRef="Click_208" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000209" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Note*' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <DoWhile DisplayName="Enter GL Date until accepted (Error popup can show repeatedly)" sap:VirtualizedContainerService.HintSize="696,1836" sap2010:WorkflowViewState.IdRef="DoWhile_G1" Condition="[Gl_Try &lt; 8 AndAlso (Gl_Popup OrElse Gl_Value.Trim().ToUpper() &lt;&gt; Gl_Date.Trim().ToUpper())]">
+                  <Sequence DisplayName="GL Date attempt" sap:VirtualizedContainerService.HintSize="650,1640" sap2010:WorkflowViewState.IdRef="Sequence_G1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="616,175" sap2010:WorkflowViewState.IdRef="Assign_G1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[Gl_Try]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[Gl_Try + 1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK on Error popup" sap:VirtualizedContainerService.HintSize="616,119" sap2010:WorkflowViewState.IdRef="Click_G1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000a10" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Error*' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK on Error popup" sap:VirtualizedContainerService.HintSize="616,119" sap2010:WorkflowViewState.IdRef="Click_G2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000a20" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Error*' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Hardware click GL Date" sap:VirtualizedContainerService.HintSize="616,119" sap2010:WorkflowViewState.IdRef="Click_G9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000a90" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='GL Date RequiredList of Values' role='text' idx='1' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <Delay DisplayName="Delay after click" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="616,123" sap2010:WorkflowViewState.IdRef="Delay_G9" />
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type GL Date" EmptyField="True" sap:VirtualizedContainerService.HintSize="616,168" sap2010:WorkflowViewState.IdRef="TypeInto_211" SimulateType="False" Text="[&quot;[d(shift)][k(f5)][u(shift)]&quot; + Gl_Date + &quot;[k(tab)]&quot;]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000212" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='GL Date RequiredList of Values' role='text' idx='1' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                    <Delay DisplayName="Delay 1s" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="616,123" sap2010:WorkflowViewState.IdRef="Delay_G1" />
+                    <ui:UiElementExists DisplayName="Error popup shown" Exists="[Gl_Popup]" sap:VirtualizedContainerService.HintSize="616,119" sap2010:WorkflowViewState.IdRef="UiElementExists_G1">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000a50" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Error*' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;&quot;]" TimeoutMS="1000" WaitForReady="NONE" />
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <TryCatch DisplayName="Read back GL Date" sap:VirtualizedContainerService.HintSize="616,515" sap2010:WorkflowViewState.IdRef="TryCatch_G1">
+                      <TryCatch.Try>
+                        <ui:GetValue ContinueOnError="True" DisplayName="Get GL Date" sap:VirtualizedContainerService.HintSize="450,87" sap2010:WorkflowViewState.IdRef="GetValue_G1">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000a60" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='GL Date RequiredList of Values' role='text' idx='1' /&gt;&quot;]" TimeoutMS="2000" WaitForReady="COMPLETE" />
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="x:String">[Gl_Value]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Assign sap:VirtualizedContainerService.HintSize="450,143" sap2010:WorkflowViewState.IdRef="Assign_G2">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Gl_Value]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                  </Sequence>
+                </DoWhile>
+                <If Condition="[Gl_Popup OrElse Gl_Value.Trim().ToUpper() &lt;&gt; Gl_Date.Trim().ToUpper()]" DisplayName="If GL Date not accepted" sap2010:WorkflowViewState.IdRef="If_G1">
+                  <If.Then>
+                    <Throw DisplayName="Throw GL Date not accepted" Exception="[New Exception(&quot;GL Date &quot; + Gl_Date + &quot; not accepted after &quot; + Gl_Try.ToString() + &quot; attempts&quot;)]" sap2010:WorkflowViewState.IdRef="Throw_G1" />
+                  </If.Then>
+                </If>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Apply/Unapply" sap2010:WorkflowViewState.IdRef="Click_214" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000215" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java name='Apply/Unapply alt A' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay DisplayName="Delay 3s" Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_216" />
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Save" sap2010:WorkflowViewState.IdRef="Click_217" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000218" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Save' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay DisplayName="Delay 3s" Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_219" />
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Close Apply form" sap2010:WorkflowViewState.IdRef="Click_220" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000221" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Apply/Unapply Prepayments (&quot; + Unit + &quot; Payable Invoice)*' role='internal frame' /&gt;&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java idx='3' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay DisplayName="Delay 2s" Duration="00:00:02" sap2010:WorkflowViewState.IdRef="Delay_222" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '1 General'" sap2010:WorkflowViewState.IdRef="Click_306" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000104" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='1 General' role='page tab' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_224">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Applied]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[""]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetValue ContinueOnError="True" DisplayName="Get Prepayments Applied" sap2010:WorkflowViewState.IdRef="GetValue_225">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000226" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Prepayments Applied' role='text' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[Applied]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <If Condition="[String.IsNullOrWhiteSpace(Applied)]" sap2010:WorkflowViewState.IdRef="If_9225">
+      <If.Then>
+        <Sequence DisplayName="Retry read" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <Delay DisplayName="Delay 3s" Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_9225" />
+          <ui:GetValue ContinueOnError="True" DisplayName="Get Prepayments Applied (retry)" sap2010:WorkflowViewState.IdRef="GetValue_9225">
+            <ui:GetValue.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000009226" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Prepayments Applied' role='text' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+            </ui:GetValue.Target>
+            <ui:GetValue.Value>
+              <OutArgument x:TypeArguments="x:String">[Applied]</OutArgument>
+            </ui:GetValue.Value>
+          </ui:GetValue>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_227" Level="Info" Message="[&quot;Prepayments applied on the invoice: &quot; + Applied]" />
+    <If Condition="[String.IsNullOrWhiteSpace(Applied)]" sap2010:WorkflowViewState.IdRef="If_230">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_228">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["Prepayment Not Applied"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Throw Exception="[New System.Exception(&quot;Prepayments Applied is empty after Apply/Unapply&quot;)]" sap2010:WorkflowViewState.IdRef="Throw_229" />
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Actions" sap2010:WorkflowViewState.IdRef="Click_307" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000102" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Actions... 1 alt c' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate alt V" sap2010:WorkflowViewState.IdRef="GetAttribute_231">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000232" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_235">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate alt V" sap2010:WorkflowViewState.IdRef="Click_233" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000234" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="GetAttribute_236">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000237" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_240">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="Click_238" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000239" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Cancel Invoices alt I" sap2010:WorkflowViewState.IdRef="GetAttribute_241">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000242" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_245">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_23">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Cancel Invoices alt I" sap2010:WorkflowViewState.IdRef="Click_243" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000244" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Apply/Unapply Prepayment... alt U" sap2010:WorkflowViewState.IdRef="GetAttribute_246">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000247" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_250">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_24">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Apply/Unapply Prepayment... alt U" sap2010:WorkflowViewState.IdRef="Click_248" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000249" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Initiate Approval alt n" sap2010:WorkflowViewState.IdRef="GetAttribute_251">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000252" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_255">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_25">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Initiate Approval alt n" sap2010:WorkflowViewState.IdRef="Click_253" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000254" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Print Notice alt c" sap2010:WorkflowViewState.IdRef="GetAttribute_256">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000257" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_260">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_26">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Print Notice alt c" sap2010:WorkflowViewState.IdRef="Click_258" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000259" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Check Validate (after apply) (hardware click)" sap2010:WorkflowViewState.IdRef="Click_261" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000262" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK (Invoice Actions)" sap2010:WorkflowViewState.IdRef="Click_308" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000106" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='OK alt K' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Delay DisplayName="Delay 2s" Duration="00:00:02" sap2010:WorkflowViewState.IdRef="Delay_263" />
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '1 General'" sap2010:WorkflowViewState.IdRef="Click_309" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000104" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='1 General' role='page tab' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_264">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Tries]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_265">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Wb_Status]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[""]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetValue ContinueOnError="True" DisplayName="Get Status" sap2010:WorkflowViewState.IdRef="GetValue_266">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000267" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='*Status' role='text' idx='1' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[Wb_Status]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <While DisplayName="Wait for Validated" sap2010:WorkflowViewState.IdRef="While_268" Condition="[Not Wb_Status.Trim.Equals(&quot;Validated&quot;) AndAlso Tries &lt; 15]">
+      <Sequence DisplayName="Poll" sap2010:WorkflowViewState.IdRef="Sequence_27">
+        <Delay DisplayName="Delay 2s" Duration="00:00:02" sap2010:WorkflowViewState.IdRef="Delay_269" />
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_270">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[Tries]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[Tries + 1]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="True" DisplayName="Get Status" sap2010:WorkflowViewState.IdRef="GetValue_271">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000272" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='*Status' role='text' idx='1' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[Wb_Status]</OutArgument>
+          </ui:GetValue.Value>
+        </ui:GetValue>
+      </Sequence>
+    </While>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Actions" sap2010:WorkflowViewState.IdRef="Click_310" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000102" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Actions... 1 alt c' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate alt V" sap2010:WorkflowViewState.IdRef="GetAttribute_273">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000274" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_277">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_28">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate alt V" sap2010:WorkflowViewState.IdRef="Click_275" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000276" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate alt V' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="GetAttribute_278">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000279" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_282">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_29">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Validate Related Invoices alt R" sap2010:WorkflowViewState.IdRef="Click_280" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000281" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Validate Related Invoices alt R' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Cancel Invoices alt I" sap2010:WorkflowViewState.IdRef="GetAttribute_283">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000284" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_287">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_30">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Cancel Invoices alt I" sap2010:WorkflowViewState.IdRef="Click_285" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000286" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Cancel Invoices alt I' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Apply/Unapply Prepayment... alt U" sap2010:WorkflowViewState.IdRef="GetAttribute_288">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000289" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_292">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Apply/Unapply Prepayment... alt U" sap2010:WorkflowViewState.IdRef="Click_290" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000291" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Apply/Unapply Prepayment... alt U' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Initiate Approval alt n" sap2010:WorkflowViewState.IdRef="GetAttribute_293">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000294" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_297">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Initiate Approval alt n" sap2010:WorkflowViewState.IdRef="Click_295" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000296" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetAttribute Attribute="checked" ContinueOnError="True" DisplayName="State Print Notice alt c" sap2010:WorkflowViewState.IdRef="GetAttribute_298">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[Chk_State]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000299" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="1500" WaitForReady="COMPLETE" />
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[Chk_State = &quot;True&quot;]" sap2010:WorkflowViewState.IdRef="If_302">
+      <If.Then>
+        <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_33">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Untick Print Notice alt c" sap2010:WorkflowViewState.IdRef="Click_300" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000301" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Print Notice alt c' role='check box' /&gt;&quot;]" TimeoutMS="2500" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Check Initiate Approval (hardware click)" sap2010:WorkflowViewState.IdRef="Click_303" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000304" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='Initiate Approval alt n' role='check box' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click OK (Invoice Actions)" sap2010:WorkflowViewState.IdRef="Click_311" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000106" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Actions' role='internal frame' /&gt;&lt;java name='OK alt K' role='push button' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Delay DisplayName="Delay 3s" Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_305" />
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click '1 General'" sap2010:WorkflowViewState.IdRef="Click_312" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000104" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='1 General' role='page tab' /&gt;&quot;]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_306">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Approval_Text]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[""]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetValue ContinueOnError="True" DisplayName="Get Approval" sap2010:WorkflowViewState.IdRef="GetValue_307">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c30c30c3-0000-4000-8000-000000000308" Selector="[&quot;&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Workbench (&quot; + Unit + &quot; Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Approval' role='text' /&gt;&quot;]" TimeoutMS="3000" WaitForReady="COMPLETE" />
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[Approval_Text]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_309">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Applied " + Applied + ", Status " + Wb_Status + ", Approval " + Approval_Text]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_310" Level="Info" Message="[&quot;Apply prepayment done | Unit=&quot; + Unit + &quot; | Prepayment=&quot; + Prepayment_Invoice + &quot; | &quot; + Status]" />
+  </Sequence>
+</Activity>
