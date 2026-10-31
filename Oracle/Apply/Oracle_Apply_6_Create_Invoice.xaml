@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_6_Create_Invoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_6_Create_Invoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Unit" Type="InArgument(x:String)" />
     <x:Property Name="Batch_Name" Type="InArgument(x:String)" />
@@ -125,6 +125,7 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Entry_Result" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="Dup_Try" />
+      <Variable x:TypeArguments="x:String" Name="Entry_Final_Invoice" />
       <Variable x:TypeArguments="x:String" Name="Match_Result" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="Grn_Matched" />
       <Variable x:TypeArguments="x:String" Name="Apply_Status" />
@@ -240,13 +241,15 @@
               <InArgument x:TypeArguments="x:String" x:Key="InvoiceDate">[Invoice_Date]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="PaymentMethod">["Advice"]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="Result">[Entry_Result]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Final_Invoice_Number">[Entry_Final_Invoice]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
+<Assign DisplayName="Adopt number changed in entry"><Assign.To><OutArgument x:TypeArguments="x:String">[New_Invoice_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(Entry_Final_Invoice) OrElse Entry_Result = "Invoice Number Already Exist!", New_Invoice_Number, Entry_Final_Invoice)]</InArgument></Assign.Value></Assign>
           <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="696,175" sap2010:WorkflowViewState.IdRef="LogMessage_211" Level="Info" Message="[&quot;Invoice entry result: &quot; + Entry_Result]" />
-          <DoWhile DisplayName="Retry with suffix while invoice number exists" sap:VirtualizedContainerService.HintSize="696,1124" sap2010:WorkflowViewState.IdRef="DoWhile_D1">
-            <DoWhile.Condition>
+          <While DisplayName="Retry with suffix while invoice number exists" sap:VirtualizedContainerService.HintSize="696,1124" sap2010:WorkflowViewState.IdRef="DoWhile_D1">
+            <While.Condition>
               <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Entry_Result = &quot;Invoice Number Already Exist!&quot; AndAlso Dup_Try &lt; 4" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
-            </DoWhile.Condition>
+            </While.Condition>
             <Sequence DisplayName="Suffix attempt" sap:VirtualizedContainerService.HintSize="650,928" sap2010:WorkflowViewState.IdRef="Sequence_D1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -293,10 +296,12 @@
                   <InArgument x:TypeArguments="x:String" x:Key="InvoiceDate">[Invoice_Date]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="PaymentMethod">["Advice"]</InArgument>
                   <OutArgument x:TypeArguments="x:String" x:Key="Result">[Entry_Result]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Final_Invoice_Number">[Entry_Final_Invoice]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
+<Assign DisplayName="Adopt number changed in entry"><Assign.To><OutArgument x:TypeArguments="x:String">[New_Invoice_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(Entry_Final_Invoice) OrElse Entry_Result = "Invoice Number Already Exist!", New_Invoice_Number, Entry_Final_Invoice)]</InArgument></Assign.Value></Assign>
             </Sequence>
-          </DoWhile>
+          </While>
           <If Condition="[Entry_Result = &quot;Invoice Number Already Exist!&quot; Or Entry_Result = &quot;LC NUMBER NOT FOUND!&quot;]" sap:VirtualizedContainerService.HintSize="696,503" sap2010:WorkflowViewState.IdRef="If_214">
             <If.Then>
               <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,349" sap2010:WorkflowViewState.IdRef="Sequence_7">
@@ -352,11 +357,11 @@
             </Assign.Value>
           </Assign>
           <Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Matched]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[False]</InArgument></Assign.Value></Assign>
-          <ForEach x:TypeArguments="x:String" DisplayName="For Each GRN (try one by one)" Values="[Receipt_Number.Split(&quot;|&quot;c).Select(Function(g) g.Trim).Where(Function(g) g.Length &gt; 0).Distinct().ToList()]">
+          <ForEach x:TypeArguments="x:String" DisplayName="For Each GRN (try one by one)" Values="[New System.Collections.Generic.List(Of String) From {Receipt_Number}]">
             <ActivityAction x:TypeArguments="x:String">
               <ActivityAction.Argument><DelegateInArgument x:TypeArguments="x:String" Name="grnItem" /></ActivityAction.Argument>
               <If Condition="[Not Grn_Matched]"><If.Then><Sequence DisplayName="Try this GRN">
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GRNMatching - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_217" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_6_GRN_Match.xaml">
+          <TryCatch DisplayName="Try GRN match"><TryCatch.Try><ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GRNMatching - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_217" UnSafe="False" WorkflowFileName="Oracle\Apply\Oracle_Apply_6_GRN_Match.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="Amount">[Invoice_Amount.Replace(",", "")]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="ReceiptNum">[grnItem]</InArgument>
@@ -366,7 +371,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="CostFactorName">["LC Opening Charges"]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="Result">[Match_Result]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
+          </ui:InvokeWorkflowFile></TryCatch.Try><TryCatch.Catches><Catch x:TypeArguments="s:Exception"><ActivityAction x:TypeArguments="s:Exception"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="s:Exception" Name="grnEx" /></ActivityAction.Argument><Assign><Assign.To><OutArgument x:TypeArguments="x:String">[Match_Result]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["GRN match Failed: " + grnEx.Message]</InArgument></Assign.Value></Assign></ActivityAction></Catch></TryCatch.Catches></TryCatch>
                 <ui:LogMessage DisplayName="Log GRN try" Level="Info" Message="[&quot;GRN match try &quot; + grnItem + &quot;: &quot; + Match_Result]" />
                 <If Condition="[Not (Not String.IsNullOrWhiteSpace(Match_Result) AndAlso (Match_Result.Contains(&quot;Failed&quot;) OrElse Match_Result.Contains(&quot;Not Found&quot;) OrElse Match_Result.Contains(&quot;not found&quot;)))]"><If.Then><Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Matched]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[True]</InArgument></Assign.Value></Assign></If.Then></If>
               </Sequence></If.Then></If>
@@ -381,7 +386,7 @@
                     <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["GRN match failed (tried " + Receipt_Number + "): " + Match_Result]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["GRN match failed: none of the GRNs matched (tried " + Receipt_Number + ")"]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <Throw Exception="[New System.Exception(Status)]" sap2010:WorkflowViewState.IdRef="Throw_220" />

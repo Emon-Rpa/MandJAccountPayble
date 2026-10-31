@@ -771,7 +771,7 @@
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:GetValue Value="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Text 'label APP-SQLAP-10369:'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_5">
+                            <ui:GetValue Value="{x:Null}" ContinueOnError="True" DisplayName="Get Text 'label APP-SQLAP-10369:'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_5">
                               <ui:GetValue.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="28952490-b9f9-4d0c-95f5-a146c5a2ad50" InformativeScreenshot="a2ad95b798c8cba74cd37571a45bae79" Selector="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;&lt;java name='Invoice Batches*' role='internal frame' /&gt;&lt;java name='Caution APP-SQLAP-10369: Validate 1 batch(es)?' role='internal frame' /&gt;&lt;java name='APP-SQLAP-10369: Validate 1 batch(es)?' role='label' /&gt;" TimeoutMS="3000">
                                   <ui:Target.WaitForReady>
@@ -780,7 +780,7 @@
                                 </ui:Target>
                               </ui:GetValue.Target>
                             </ui:GetValue>
-                            <ui:Click AlterIfDisabled="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" UnblockInput="{x:Null}">
+                            <ui:Click AlterIfDisabled="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" UnblockInput="{x:Null}">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>

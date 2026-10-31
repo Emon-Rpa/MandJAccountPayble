@@ -1,6 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_6_Java_Entry" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="Result" Type="OutArgument(x:String)" />
+    <x:Property Name="Final_Invoice_Number" Type="OutArgument(x:String)" />
     <x:Property Name="Description" Type="InArgument(x:String)" />
     <x:Property Name="InvoiceAmount" Type="InArgument(x:String)" />
     <x:Property Name="Currency" Type="InArgument(x:String)" />
@@ -144,6 +145,8 @@
                 <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="684,2640" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="Invoice_Exists" />
+<Variable x:TypeArguments="x:String" Name="Inv_No" />
+<Variable x:TypeArguments="x:Int32" Default="0" Name="Dup_Try" />
                     <Variable x:TypeArguments="x:Boolean" Name="reciept_window" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
@@ -180,6 +183,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+<Assign><Assign.To><OutArgument x:TypeArguments="x:String">[Inv_No]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[InvoiceNumber]</InArgument></Assign.Value></Assign>
                     <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DeselectAfter="False" DisplayName="Type Into 'Type'" EmptyFieldMode="SingleLine" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="616,246" sap2010:WorkflowViewState.IdRef="NTypeInto_16" InteractionMode="SameAsCard" ScopeIdentifier="96094f71-f75f-4805-a1b9-90908dd365f2" Text="[string.Format(&quot;{0}[k(tab)]&quot;, Type)]" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable DesignTimeRectangle="711, 296, 101, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;java name='Invoice Workbench (* Payable Invoice) -*' matching:name='fuzzy' fuzzylevel:name='0.0' role='internal frame' /&gt;&lt;java name='Type RequiredList of Values' role='text' javastate='enabled,focusable,visible,showing,editable,single line' check:text='Standard' /&gt;" Guid="1f2fbe65-d212-4a40-b329-bd90c5b3e45d" InformativeScreenshot="478ad8c1f575c6ced11dd66602e6a861.png" ScopeSelectorArgument="&lt;wnd app='jp2launcher.exe' cls='SunAwtFrame' title='Oracle Applications*' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]">
@@ -279,14 +283,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:UiElementExists>
-                  <If Condition="[Invoice_Exists]" sap:VirtualizedContainerService.HintSize="650,57" sap2010:WorkflowViewState.IdRef="If_1">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
+<While DisplayName="Retype invoice number while it exists"><While.Condition><VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Invoice_Exists" /></While.Condition>
                       <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,501.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -304,6 +301,24 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
+<If Condition="[Dup_Try &lt; 4]"><If.Then><Sequence DisplayName="Change invoice number only"><Assign><Assign.To><OutArgument x:TypeArguments="x:Int32">[Dup_Try]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Int32">[Dup_Try + 1]</InArgument></Assign.Value></Assign><Assign><Assign.To><OutArgument x:TypeArguments="x:String">[Inv_No]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[Inv_No + Dup_Try.ToString()]</InArgument></Assign.Value></Assign>
+                    <Delay Duration="00:00:01" DisplayName="Wait for field focus" /><ui:TypeInto Activate="False" ClickBeforeTyping="False" EmptyField="False" DisplayName="Add number to Invoice Num (keyboard, focused field)" Text="[&quot;[k(end)]&quot; + Dup_Try.ToString() + &quot;[k(tab)]&quot;]"><ui:TypeInto.Target><ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="b3a1c2de-0000-4000-8000-0000000000a1" /></ui:TypeInto.Target></ui:TypeInto>
+                  <ui:UiElementExists DisplayName="Element Exists 'Invoice Number Already Exist&quot;" Exists="[Invoice_Exists]" sap:VirtualizedContainerService.HintSize="650,139">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02d8a0e5-47a3-4802-948b-9f5882bc7c18" InformativeScreenshot="d34f88057c770ae4e674dd1e4ae82274" Selector="&lt;java name='Invoice Workbench (* Payable Invoice) - *' role='internal frame' /&gt;&lt;java name='Error APP-SQLAP-10024: This value already exists.  &amp;#xA;&amp;#xA;Re-enter.' role='internal frame' /&gt;&lt;java name='APP-SQLAP-10024: This value already exists.  &amp;#xA;&amp;#xA;Re-enter.' role='label' /&gt;" TimeoutMS="2000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+</Sequence></If.Then><If.Else><Sequence DisplayName="Give up: clear record">
                         <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition Position="Center">
@@ -335,18 +350,10 @@
                           </Assign.Value>
                         </Assign>
                         <ui:Return sap:VirtualizedContainerService.HintSize="416,52" sap2010:WorkflowViewState.IdRef="Return_1" />
+</Sequence></If.Else></If>
                       </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,94.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Sequence>
-                    </If.Else>
-                  </If>
+</While>
+<Assign><Assign.To><OutArgument x:TypeArguments="x:String">[Final_Invoice_Number]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[Inv_No]</InArgument></Assign.Value></Assign>
                   <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="650,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Sequence_24">

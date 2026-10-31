@@ -122,6 +122,10 @@
   <Sequence DisplayName="Oracle_Apply_6_GRN_Match" sap:VirtualizedContainerService.HintSize="1255,4621" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="match_window" />
+<Variable x:TypeArguments="scg:List(x:String)" Name="Grn_List" />
+<Variable x:TypeArguments="x:Boolean" Name="Grn_Done" />
+<Variable x:TypeArguments="x:Boolean" Name="Grn_Fail" />
+<Variable x:TypeArguments="x:Boolean" Name="Grn_Last" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="tmp" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -336,7 +340,9 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:TypeInto Activate="True" AlterIfDisabled="{x:Null}" ClickBeforeTyping="True" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'Supplier Name'" EmptyField="True" sap:VirtualizedContainerService.HintSize="758,188" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[ReceiptNum+ &quot;[k(enter)]&quot;]">
+<Assign><Assign.To><OutArgument x:TypeArguments="scg:List(x:String)">[Grn_List]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="scg:List(x:String)">[ReceiptNum.Split("|"c).Select(Function(g) g.Trim).Where(Function(g) g.Length > 0).Distinct().ToList()]</InArgument></Assign.Value></Assign>
+<ForEach x:TypeArguments="x:String" DisplayName="For Each GRN (clear field and retype)" Values="[Grn_List]"><ActivityAction x:TypeArguments="x:String"><ActivityAction.Argument><DelegateInArgument x:TypeArguments="x:String" Name="grnItem" /></ActivityAction.Argument><If Condition="[Not Grn_Done]"><If.Then><Sequence DisplayName="Try this GRN"><Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Fail]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[False]</InArgument></Assign.Value></Assign><Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Last]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[grnItem = Grn_List(Grn_List.Count - 1)]</InArgument></Assign.Value></Assign><If Condition="[Grn_List.IndexOf(grnItem) &gt; 0]"><If.Then><Assign><Assign.To><OutArgument x:TypeArguments="x:String">[Result]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">[""]</InArgument></Assign.Value></Assign></If.Then></If>
+                  <ui:TypeInto Activate="True" AlterIfDisabled="{x:Null}" ClickBeforeTyping="True" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'Supplier Name'" EmptyField="True" sap:VirtualizedContainerService.HintSize="758,188" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[grnItem + &quot;[k(enter)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17ee2487-c745-4071-b2f0-1feaed92d8fd" InformativeScreenshot="b65776e751ada00683c4e7d739b6319a" Selector="&lt;wnd app='jp2launcher.exe' title='Oracle Applications -*' /&gt;&lt;java name='Find*' role='internal frame' /&gt;&lt;java name='Receipt Num*' role='text' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -350,10 +356,8 @@
                   </ui:TypeInto>
                   <ui:UiElementExists ContinueOnError="{x:Null}" DisplayName="Element Exists 'internal frame'" Exists="[MatchOtherCharges]" sap:VirtualizedContainerService.HintSize="758,139" sap2010:WorkflowViewState.IdRef="UiElementExists_2" Result="{x:Null}">
                     <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e4ec5043-0cb5-4d00-be74-22b559646e44" InformativeScreenshot="799c5b5b7d1fbfe207c0da5d773a519a" Selector="&lt;wnd app='jp2launcher.exe' title='Oracle Applications - *' /&gt;&lt;java name='Match*' role='internal frame' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e4ec5043-0cb5-4d00-be74-22b559646e44" InformativeScreenshot="799c5b5b7d1fbfe207c0da5d773a519a" Selector="&lt;wnd app='jp2launcher.exe' title='Oracle Applications - *' /&gt;&lt;java name='Match*' role='internal frame' /&gt;&lt;java name='Cost Factor Name*' role='text' /&gt;">
+                        <ui:Target.TimeoutMS><InArgument x:TypeArguments="x:Int32">6000</InArgument></ui:Target.TimeoutMS>
                         <ui:Target.WaitForReady>
                           <InArgument x:TypeArguments="ui:WaitForReady" />
                         </ui:Target.WaitForReady>
@@ -638,6 +642,7 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:Click>
+<If Condition="[Grn_Last]"><If.Then><Sequence DisplayName="Last GRN: close Find window">
                                         <ui:Click AlterIfDisabled="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="650,139" sap2010:WorkflowViewState.IdRef="Click_17" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" UnblockInput="{x:Null}">
                                           <ui:Click.CursorPosition>
                                             <ui:CursorPosition Position="Center">
@@ -664,6 +669,8 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:Click>
                                         <ui:Return sap:VirtualizedContainerService.HintSize="650,48" sap2010:WorkflowViewState.IdRef="Return_1" />
+</Sequence></If.Then><If.Else><Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Fail]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[True]</InArgument></Assign.Value></Assign></If.Else></If>
+<ui:Break />
                                       </Sequence>
                                     </ActivityAction>
                                   </Catch>
@@ -773,6 +780,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InterruptibleWhile>
+<If Condition="[Not Grn_Fail]"><If.Then><Sequence DisplayName="Match succeeded">
                         <ui:Click AlterIfDisabled="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Click 'push button  Match alt M'" sap:VirtualizedContainerService.HintSize="722,139" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" UnblockInput="{x:Null}">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition Position="Center">
@@ -795,6 +803,7 @@
                             </ui:Target>
                           </ui:Click.Target>
                         </ui:Click>
+<Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Done]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[True]</InArgument></Assign.Value></Assign></Sequence></If.Then></If>
                         <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="722,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                           <ui:CommentOut.Body>
                             <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="486,497.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -873,9 +882,12 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="722,114" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Match Other Charges pop up window not found" TextWriter="{x:Null}" />
+<Assign><Assign.To><OutArgument x:TypeArguments="x:String">[Result]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:String">["Receipt Not Found: " + grnItem]</InArgument></Assign.Value></Assign>
+<Assign><Assign.To><OutArgument x:TypeArguments="x:Boolean">[Grn_Fail]</OutArgument></Assign.To><Assign.Value><InArgument x:TypeArguments="x:Boolean">[True]</InArgument></Assign.Value></Assign>
                       </Sequence>
                     </If.Else>
                   </If>
+</Sequence></If.Then></If></ActivityAction></ForEach>
                 </Sequence>
               </If.Else>
             </If>

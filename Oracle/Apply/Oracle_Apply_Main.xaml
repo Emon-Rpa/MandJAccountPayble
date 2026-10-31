@@ -1,18 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_Main" this:Oracle_Apply_Main.GRN_Limit="5" this:Oracle_Apply_Main.Max_Entries="1" this:Oracle_Apply_Main.Invoice_Date="26-FEB-2026" this:Oracle_Apply_Main.Report_Name="Prepayment Garments Query - M&amp;JIT Report" this:Oracle_Apply_Main.Max_Wait_Minutes="30" this:Oracle_Apply_Main.Unit_Filter="GFL" this:Oracle_Apply_Main.Bank_Filter="Standard Chartered Bank-BP" this:Oracle_Apply_Main.Max_Errors="3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <x:Members>
-    <x:Property Name="GRN_Limit" Type="InArgument(x:Int32)" />
-    <x:Property Name="Max_Entries" Type="InArgument(x:Int32)" />
-    <x:Property Name="Invoice_Date" Type="InArgument(x:String)" />
-    <x:Property Name="Report_File" Type="InArgument(x:String)" />
-    <x:Property Name="As_On_Date" Type="InArgument(x:String)" />
-    <x:Property Name="Report_Name" Type="InArgument(x:String)" />
-    <x:Property Name="Max_Wait_Minutes" Type="InArgument(x:Int32)" />
-    <x:Property Name="Unit_Filter" Type="InArgument(x:String)" />
-    <x:Property Name="Bank_Filter" Type="InArgument(x:String)" />
-    <x:Property Name="Max_Errors" Type="InArgument(x:Int32)" />
-    <x:Property Name="Log_File" Type="InArgument(x:String)" />
-    <x:Property Name="Completed_Count" Type="OutArgument(x:Int32)" />
-  </x:Members>
+<Activity mc:Ignorable="sap sap2010" x:Class="Oracle_Apply_Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -116,8 +102,24 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Oracle_Apply_Main" sap:VirtualizedContainerService.HintSize="1507,6013" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Oracle_Apply_Main" sap:VirtualizedContainerService.HintSize="1471,6053" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Default="5" Name="GRN_Limit" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="Max_Entries" />
+      <Variable x:TypeArguments="x:String" Default="26-FEB-2026" Name="Invoice_Date" />
+      <Variable x:TypeArguments="x:String" Name="Report_File" />
+      <Variable x:TypeArguments="x:String" Name="As_On_Date" />
+      <Variable x:TypeArguments="x:String" Default="Prepayment Garments Query - M&amp;JIT Report" Name="Report_Name" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="Download_New" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="Skip_GRN_Search" />
+      <Variable x:TypeArguments="x:String" Name="Only_Invoice" />
+      <Variable x:TypeArguments="x:Int32" Default="30" Name="Max_Wait_Minutes" />
+      <Variable x:TypeArguments="x:String" Default="CAL" Name="Unit_Filter" />
+      <Variable x:TypeArguments="x:String" Default="HSBC-BP" Name="Bank_Filter" />
+      <Variable x:TypeArguments="x:Int32" Default="3" Name="Max_Errors" />
+      <Variable x:TypeArguments="x:String" Name="Log_File" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="Completed_Count" />
+      <Variable x:TypeArguments="x:String" Name="Today_File" />
       <Variable x:TypeArguments="x:String" Name="Batch_Unit" />
       <Variable x:TypeArguments="x:String" Name="Report_Path" />
       <Variable x:TypeArguments="x:String" Name="Request_ID" />
@@ -155,7 +157,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment DisplayName="Comment" sap:VirtualizedContainerService.HintSize="502,557" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Full APPLY run. Gets the Prepayment Garments report (submits the request and downloads it, or uses Report_File), keeps LC OPENING CHAR rows with an unapplied amount, then: GRN by LC number + company (4c), then invoice entry, GRN match and prepayment apply (6_Create_Invoice). Bank_Filter (optional) keeps only rows whose report Supplier Name (column F) equals it exactly (ignoring case). PHASE 1 searches the GRN for rows of every unit (one responsibility switch per unit); GRN_Limit = how many rows to search (0 = all). PHASE 2 then creates invoices only for rows where a GRN was found; Max_Entries = how many invoices to COMPLETE (0 = all). Max_Errors stops the run after that many failures (0 = never stop). Each row result is appended to Log_File (default Apply_File\Apply_Main_Log.csv); rows already Completed there are skipped on later runs. Oracle must be open and logged in. Invoice_Date: the test server GL period is open only for FEB 2026; use today (dd-MMM-yyyy) on a server whose current period is open." />
-    <Assign sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[Done]</OutArgument>
       </Assign.To>
@@ -163,7 +165,7 @@
         <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[Grn_Cache]</OutArgument>
       </Assign.To>
@@ -220,7 +222,15 @@
       </Assign.Value>
     </Assign>
     <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Apply run start | GRN_Limit=&quot; + GRN_Limit.ToString + &quot; | Max_Entries=&quot; + Max_Entries.ToString + &quot; | Invoice_Date=&quot; + Invoice_Date + &quot; | Unit_Filter=&quot; + Unit_Filter + &quot; | Bank_Filter=&quot; + Bank_Filter + &quot; | Report_File=&quot; + Report_File]" />
-    <If Condition="[String.IsNullOrWhiteSpace(Report_File)]" sap:VirtualizedContainerService.HintSize="450,233" sap2010:WorkflowViewState.IdRef="If_1">
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_42">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Today_File]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Apply_File", "Prepayment_Garments_Query___M__" + Now.ToString("ddMMyy") + ".xls")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[String.IsNullOrWhiteSpace(Report_File) AndAlso (Download_New OrElse Not System.IO.File.Exists(Today_File))]" sap:VirtualizedContainerService.HintSize="450,233" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Get report" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Assign sap2010:WorkflowViewState.IdRef="Assign_9">
@@ -267,7 +277,7 @@
             <OutArgument x:TypeArguments="x:String">[Report_Path]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[Report_File]</InArgument>
+            <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(Report_File), Today_File, Report_File)]</InArgument>
           </Assign.Value>
         </Assign>
       </If.Else>
@@ -297,9 +307,16 @@
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Report rows: &quot; + Row_Table.Rows.Count.ToString + &quot; | units: &quot; + String.Join(&quot;,&quot;, Units) + &quot; | already completed in log: &quot; + Completed_Keys.Count.ToString]" />
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each cn In New String() {&quot;Receipt_Number&quot;, &quot;Supplier_Used&quot;, &quot;GRN_Status&quot;}&#xA;    If Not t.Columns.Contains(cn) Then t.Columns.Add(cn, GetType(String))&#xA;Next" sap:VirtualizedContainerService.HintSize="450,403" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each cn In New String() {&quot;Receipt_Number&quot;, &quot;Supplier_Used&quot;, &quot;GRN_Status&quot;, &quot;Invoice_Status&quot;, &quot;New_Invoice&quot;}&#xA;    If Not t.Columns.Contains(cn) Then t.Columns.Add(cn, GetType(String))&#xA;Next" sap:VirtualizedContainerService.HintSize="450,403" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="t">[Row_Table]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:InvokeCode Code="Dim map As New System.Collections.Generic.Dictionary(Of String, String)(System.StringComparer.OrdinalIgnoreCase)&#xA;If System.IO.File.Exists(mapPath) Then&#xA;    For Each ln As String In System.IO.File.ReadAllLines(mapPath)&#xA;        Dim p As String() = ln.Split(ChrW(9))&#xA;        If p.Length &gt;= 2 AndAlso p(0).Trim &lt;&gt; &quot;&quot; AndAlso p(1).Trim &lt;&gt; &quot;&quot; Then map(p(0).Trim) = p(1).Trim&#xA;    Next&#xA;End If&#xA;For Each dr As System.Data.DataRow In tbl.Rows&#xA;    Dim lc As String = dr(&quot;LC_Number&quot;).ToString.Trim&#xA;    Dim pg As String = dr(&quot;Prev_GRN&quot;).ToString.Trim&#xA;    If lc &lt;&gt; &quot;&quot; AndAlso pg &lt;&gt; &quot;&quot; AndAlso dr(&quot;Prev_GRN_Status&quot;).ToString.Trim = &quot;GRN Found&quot; AndAlso map.ContainsKey(lc) Then&#xA;        Dim key As String = dr(&quot;Unit&quot;).ToString &amp; &quot;|&quot; &amp; lc.ToUpper&#xA;        If Not cache.ContainsKey(key) Then cache(key) = pg &amp; ChrW(9) &amp; map(lc)&#xA;    End If&#xA;Next" ContinueOnError="True" DisplayName="Reuse GRNs already in the report" sap2010:WorkflowViewState.IdRef="InvokeCode_10">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="cache">[Grn_Cache]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[Row_Table]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="mapPath">[System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Apply_File", "LC_Supplier_Map.tsv")]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:LogMessage DisplayName="Log" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;PHASE 1: GRN search (limit &quot; + GRN_Limit.ToString + &quot;)&quot;]" />
@@ -324,7 +341,7 @@
                   <OutArgument x:TypeArguments="scg:List(sd:DataRow)">[Unit_Rows]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="scg:List(sd:DataRow)">[Row_Table.AsEnumerable().Where(Function(r) r("Unit").ToString = unitItem AndAlso (String.IsNullOrWhiteSpace(Bank_Filter) OrElse r("Bank").ToString.Trim().Equals(Bank_Filter.Trim(), StringComparison.OrdinalIgnoreCase)) AndAlso Not Completed_Keys.Contains(unitItem &amp; "|" &amp; r("Prepayment_Invoice").ToString)).ToList()]</InArgument>
+                  <InArgument x:TypeArguments="scg:List(sd:DataRow)">[Row_Table.AsEnumerable().Where(Function(r) r("Unit").ToString = unitItem AndAlso (String.IsNullOrWhiteSpace(Bank_Filter) OrElse r("Bank").ToString.Trim().Equals(Bank_Filter.Trim(), StringComparison.OrdinalIgnoreCase)) AndAlso Not Completed_Keys.Contains(unitItem &amp; "|" &amp; r("Prepayment_Invoice").ToString) AndAlso (String.IsNullOrWhiteSpace(Only_Invoice) OrElse r("Prepayment_Invoice").ToString.Trim().Equals(Only_Invoice.Trim(), StringComparison.OrdinalIgnoreCase)) AndAlso (Not Skip_GRN_Search OrElse Grn_Cache.ContainsKey(unitItem &amp; "|" &amp; r("LC_Number").ToString.Trim.ToUpper))).ToList()]</InArgument>
                 </Assign.Value>
               </Assign>
               <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Unit &quot; + unitItem + &quot;: &quot; + Unit_Rows.Count.ToString + &quot; row(s) to search&quot;]" />
@@ -349,7 +366,7 @@
                             <OutArgument x:TypeArguments="x:Int32">[Searched]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Int32">[Searched + 1]</InArgument>
+                            <InArgument x:TypeArguments="x:Int32">[Searched + If(Not String.IsNullOrWhiteSpace(rowItem("LC_Number").ToString) AndAlso Grn_Cache.ContainsKey(unitItem &amp; "|" &amp; rowItem("LC_Number").ToString.Trim.ToUpper), 0, 1)]</InArgument>
                           </Assign.Value>
                         </Assign>
                         <Assign sap2010:WorkflowViewState.IdRef="Assign_17">
@@ -543,6 +560,12 @@
                             </Catch>
                           </TryCatch.Catches>
                         </TryCatch>
+                        <ui:InvokeCode Code="If Not String.IsNullOrWhiteSpace(path) AndAlso System.IO.File.Exists(path) Then&#xA;Dim opts As System.Text.RegularExpressions.RegexOptions = System.Text.RegularExpressions.RegexOptions.Singleline Or System.Text.RegularExpressions.RegexOptions.IgnoreCase&#xA;Dim map As New System.Collections.Generic.Dictionary(Of Integer, System.Data.DataRow)&#xA;For Each dr As System.Data.DataRow In tbl.Rows&#xA;    Dim ix As Integer&#xA;    If Integer.TryParse(dr(&quot;Row_Idx&quot;).ToString, ix) Then map(ix) = dr&#xA;Next&#xA;Dim text As String&#xA;Using fs As New System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite Or System.IO.FileShare.Delete)&#xA;    Using sr As New System.IO.StreamReader(fs, New System.Text.UTF8Encoding(False), True)&#xA;        text = sr.ReadToEnd()&#xA;    End Using&#xA;End Using&#xA;Dim sb As New System.Text.StringBuilder&#xA;Dim pos As Integer = 0&#xA;Dim ord As Integer = -1&#xA;For Each r As System.Text.RegularExpressions.Match In System.Text.RegularExpressions.Regex.Matches(text, &quot;&lt;tr[^&gt;]*&gt;(.*?)&lt;/tr&gt;&quot;, opts)&#xA;    ord += 1&#xA;    Dim g As System.Text.RegularExpressions.Group = r.Groups(1)&#xA;    Dim cells = System.Text.RegularExpressions.Regex.Matches(g.Value, &quot;&lt;t[dh][^&gt;]*&gt;(.*?)&lt;/t[dh]&gt;&quot;, opts)&#xA;    If cells.Count &lt; 27 Then Continue For&#xA;    Dim cut As Integer = g.Index + cells(26).Index + cells(26).Length&#xA;    Dim endRow As Integer = g.Index + g.Length&#xA;    Dim add As String = &quot;&quot;&#xA;    Dim first As String = System.Text.RegularExpressions.Regex.Replace(cells(0).Groups(1).Value, &quot;&lt;[^&gt;]+&gt;&quot;, &quot;&quot;).Trim()&#xA;    If first = &quot;Invoice Id&quot; Then&#xA;        For Each h As String In New String() {&quot;GRN&quot;, &quot;GRN Status&quot;, &quot;Invoice Status&quot;, &quot;New Invoice&quot;}&#xA;            add &amp;= &quot;&lt;td valign=&quot;&quot;top&quot;&quot;&gt;&lt;p&gt;&lt;span&gt;&lt;b&gt;&quot; &amp; h &amp; &quot;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&quot;&#xA;        Next&#xA;    Else&#xA;        Dim cols As String() = New String() {&quot;Receipt_Number&quot;, &quot;GRN_Status&quot;, &quot;Invoice_Status&quot;, &quot;New_Invoice&quot;}&#xA;        For i As Integer = 0 To 3&#xA;            Dim v As String = &quot;&quot;&#xA;            If map.ContainsKey(ord) Then v = map(ord)(cols(i)).ToString&#xA;            If v = &quot;&quot; AndAlso cells.Count &gt; 27 + i Then&#xA;                v = System.Net.WebUtility.HtmlDecode(System.Text.RegularExpressions.Regex.Replace(cells(27 + i).Groups(1).Value, &quot;&lt;[^&gt;]+&gt;&quot;, &quot;&quot;)).Trim()&#xA;            End If&#xA;            add &amp;= &quot;&lt;td valign=&quot;&quot;top&quot;&quot;&gt;&lt;p&gt;&lt;span&gt;&quot; &amp; System.Net.WebUtility.HtmlEncode(v) &amp; &quot;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&quot;&#xA;        Next&#xA;    End If&#xA;    sb.Append(text, pos, cut - pos).Append(add)&#xA;    pos = endRow&#xA;Next&#xA;sb.Append(text, pos, text.Length - pos)&#xA;Try&#xA;    System.IO.File.WriteAllText(path, sb.ToString(), New System.Text.UTF8Encoding(False))&#xA;Catch&#xA;    System.IO.File.WriteAllText(System.IO.Path.ChangeExtension(path, &quot;.status.xls&quot;), sb.ToString(), New System.Text.UTF8Encoding(False))&#xA;End Try&#xA;End If" ContinueOnError="True" DisplayName="Write GRN and invoice status to report" sap2010:WorkflowViewState.IdRef="InvokeCode_11">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="path">[Report_Path]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[Row_Table]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
                         <ui:LogMessage DisplayName="Log" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;GRN search result: &quot; + Status + &quot; | GRN=&quot; + Receipt_Number + &quot; | found so far &quot; + Found.ToString]" />
                       </Sequence>
                     </If.Then>
@@ -681,7 +704,7 @@
                               <OutArgument x:TypeArguments="x:String">[Batch_Unit]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[If(Create_Status.StartsWith("GRN match failed"), Batch_Unit, "")]</InArgument>
                             </Assign.Value>
                           </Assign>
                           <Assign sap2010:WorkflowViewState.IdRef="Assign_35">
@@ -716,12 +739,20 @@
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
                       <Sequence DisplayName="Catch" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Assign sap2010:WorkflowViewState.IdRef="Assign_43">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Create_Status]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["Error: " + exception.Message]</InArgument>
+                          </Assign.Value>
+                        </Assign>
                         <Assign sap2010:WorkflowViewState.IdRef="Assign_41">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[Batch_Unit]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[If(exception.Message.StartsWith("GRN match failed"), Batch_Unit, "")]</InArgument>
                           </Assign.Value>
                         </Assign>
                         <Assign sap2010:WorkflowViewState.IdRef="Assign_36">
@@ -764,6 +795,19 @@
                   </Catch>
                 </TryCatch.Catches>
               </TryCatch>
+              <ui:InvokeCode Code="row(&quot;Invoice_Status&quot;) = status&#xA;row(&quot;New_Invoice&quot;) = newInv" ContinueOnError="True" DisplayName="Set invoice status on row" sap2010:WorkflowViewState.IdRef="InvokeCode_12">
+                <ui:InvokeCode.Arguments>
+                  <InArgument x:TypeArguments="sd:DataRow" x:Key="row">[rowItem]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="status">[Create_Status]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="newInv">[New_Invoice]</InArgument>
+                </ui:InvokeCode.Arguments>
+              </ui:InvokeCode>
+              <ui:InvokeCode Code="If Not String.IsNullOrWhiteSpace(path) AndAlso System.IO.File.Exists(path) Then&#xA;Dim opts As System.Text.RegularExpressions.RegexOptions = System.Text.RegularExpressions.RegexOptions.Singleline Or System.Text.RegularExpressions.RegexOptions.IgnoreCase&#xA;Dim map As New System.Collections.Generic.Dictionary(Of Integer, System.Data.DataRow)&#xA;For Each dr As System.Data.DataRow In tbl.Rows&#xA;    Dim ix As Integer&#xA;    If Integer.TryParse(dr(&quot;Row_Idx&quot;).ToString, ix) Then map(ix) = dr&#xA;Next&#xA;Dim text As String&#xA;Using fs As New System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite Or System.IO.FileShare.Delete)&#xA;    Using sr As New System.IO.StreamReader(fs, New System.Text.UTF8Encoding(False), True)&#xA;        text = sr.ReadToEnd()&#xA;    End Using&#xA;End Using&#xA;Dim sb As New System.Text.StringBuilder&#xA;Dim pos As Integer = 0&#xA;Dim ord As Integer = -1&#xA;For Each r As System.Text.RegularExpressions.Match In System.Text.RegularExpressions.Regex.Matches(text, &quot;&lt;tr[^&gt;]*&gt;(.*?)&lt;/tr&gt;&quot;, opts)&#xA;    ord += 1&#xA;    Dim g As System.Text.RegularExpressions.Group = r.Groups(1)&#xA;    Dim cells = System.Text.RegularExpressions.Regex.Matches(g.Value, &quot;&lt;t[dh][^&gt;]*&gt;(.*?)&lt;/t[dh]&gt;&quot;, opts)&#xA;    If cells.Count &lt; 27 Then Continue For&#xA;    Dim cut As Integer = g.Index + cells(26).Index + cells(26).Length&#xA;    Dim endRow As Integer = g.Index + g.Length&#xA;    Dim add As String = &quot;&quot;&#xA;    Dim first As String = System.Text.RegularExpressions.Regex.Replace(cells(0).Groups(1).Value, &quot;&lt;[^&gt;]+&gt;&quot;, &quot;&quot;).Trim()&#xA;    If first = &quot;Invoice Id&quot; Then&#xA;        For Each h As String In New String() {&quot;GRN&quot;, &quot;GRN Status&quot;, &quot;Invoice Status&quot;, &quot;New Invoice&quot;}&#xA;            add &amp;= &quot;&lt;td valign=&quot;&quot;top&quot;&quot;&gt;&lt;p&gt;&lt;span&gt;&lt;b&gt;&quot; &amp; h &amp; &quot;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&quot;&#xA;        Next&#xA;    Else&#xA;        Dim cols As String() = New String() {&quot;Receipt_Number&quot;, &quot;GRN_Status&quot;, &quot;Invoice_Status&quot;, &quot;New_Invoice&quot;}&#xA;        For i As Integer = 0 To 3&#xA;            Dim v As String = &quot;&quot;&#xA;            If map.ContainsKey(ord) Then v = map(ord)(cols(i)).ToString&#xA;            If v = &quot;&quot; AndAlso cells.Count &gt; 27 + i Then&#xA;                v = System.Net.WebUtility.HtmlDecode(System.Text.RegularExpressions.Regex.Replace(cells(27 + i).Groups(1).Value, &quot;&lt;[^&gt;]+&gt;&quot;, &quot;&quot;)).Trim()&#xA;            End If&#xA;            add &amp;= &quot;&lt;td valign=&quot;&quot;top&quot;&quot;&gt;&lt;p&gt;&lt;span&gt;&quot; &amp; System.Net.WebUtility.HtmlEncode(v) &amp; &quot;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&quot;&#xA;        Next&#xA;    End If&#xA;    sb.Append(text, pos, cut - pos).Append(add)&#xA;    pos = endRow&#xA;Next&#xA;sb.Append(text, pos, text.Length - pos)&#xA;Try&#xA;    System.IO.File.WriteAllText(path, sb.ToString(), New System.Text.UTF8Encoding(False))&#xA;Catch&#xA;    System.IO.File.WriteAllText(System.IO.Path.ChangeExtension(path, &quot;.status.xls&quot;), sb.ToString(), New System.Text.UTF8Encoding(False))&#xA;End Try&#xA;End If" ContinueOnError="True" DisplayName="Write GRN and invoice status to report" sap2010:WorkflowViewState.IdRef="InvokeCode_13">
+                <ui:InvokeCode.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="path">[Report_Path]</InArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="tbl">[Row_Table]</InArgument>
+                </ui:InvokeCode.Arguments>
+              </ui:InvokeCode>
             </Sequence>
           </If.Then>
         </If>
